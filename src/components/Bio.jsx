@@ -24,12 +24,12 @@ function Bio() {
       <p>
         Written by
         {' '}
-        <strong>Kyle Mathews</strong>
+        <strong>Jon Preece</strong>
         {' '}
-who lives and works in San Francisco
-        building useful things.
+who lives and works in Manchester, North
+        West England.
         {' '}
-        <a href="https://twitter.com/kylemathews">You should follow him on Twitter</a>
+        <a href="https://twitter.com/jpreecedev">You should follow him on Twitter</a>
       </p>
     </div>
   )

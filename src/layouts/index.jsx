@@ -1,7 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 import 'prismjs/themes/prism-coy.css'
+import '../styles.scss'
+
 import { rhythm, scale } from '../utils/typography'
 
 function Template(props) {
@@ -17,7 +20,7 @@ function Template(props) {
     header = (
       <h1
         style={{
-          ...scale(1.5),
+          textAlign: 'center',
           marginBottom: rhythm(1.5),
           marginTop: 0
         }}
@@ -30,7 +33,9 @@ function Template(props) {
           }}
           to="/"
         >
-          Gatsby Starter Blog
+          DeveloperHandbook.com
+          <br />
+          Cleaner code, better code.
         </Link>
       </h1>
     )
@@ -38,7 +43,8 @@ function Template(props) {
     header = (
       <h3
         style={{
-          fontFamily: 'Montserrat, sans-serif',
+          textAlign: 'center',
+          fontFamily: 'IBM Plex Sans, sans-serif',
           marginTop: 0,
           marginBottom: rhythm(-1)
         }}
@@ -51,7 +57,9 @@ function Template(props) {
           }}
           to="/"
         >
-          Gatsby Starter Blog
+          DeveloperHandbook.com
+          <br />
+          Cleaner code, better code.
         </Link>
       </h3>
     )
@@ -67,6 +75,12 @@ function Template(props) {
     >
       {header}
       {children()}
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400"
+          rel="stylesheet"
+        />
+      </Helmet>
     </div>
   )
 }

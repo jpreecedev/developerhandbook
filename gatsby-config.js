@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
+    title: 'DeveloperHandbook.com - Cleaner code, better code.',
+    author: 'Jon Preece',
     description: 'Cleaner code, better code',
     siteUrl: 'https://www.developerhandbook.com'
   },
