@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Starter Blog',
     author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    description: 'Cleaner code, better code',
+    siteUrl: 'https://www.developerhandbook.com'
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -11,8 +11,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+        name: 'pages'
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -21,28 +21,28 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-            },
+              maxWidth: 590
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
+          'gatsby-remark-smartypants'
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-42743116-1`,
-      },
+        trackingId: `UA-42743116-1`
+      }
     },
     `gatsby-plugin-feed`,
     {
@@ -54,17 +54,20 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`,
-      },
+        icon: `src/images/icon.png`
+      }
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography',
-      },
+        pathToConfigModule: 'src/utils/typography'
+      }
     },
     `gatsby-plugin-sass`,
-  ],
+    {
+      resolve: `gatsby-plugin-sitemap`
+    }
+  ]
 }

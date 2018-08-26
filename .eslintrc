@@ -1,0 +1,28 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "globals": {
+    "graphql": false,
+    " __PREFIX_PATHS__": false,
+    "__PREFIX_PATHS__": false,
+    "__PATH_PREFIX__": false
+  },
+  "plugins": ["react"],
+  "extends": ["airbnb", "prettier"],
+  "rules": {
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/named": "off"
+  }
+}
