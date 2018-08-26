@@ -1,26 +1,11 @@
-import React from 'react'
+import * as React from 'react'
 
-import profilePic from './profile-pic.jpg'
-import { rhythm } from '../utils/typography'
+import profilePic from '../images/profile-pic.jpg'
 
 function Bio() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        marginBottom: rhythm(2.5)
-      }}
-    >
-      <img
-        src={profilePic}
-        alt="Kyle Mathews"
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          width: rhythm(2),
-          height: rhythm(2)
-        }}
-      />
+    <div>
+      <img src={profilePic} alt="Kyle Mathews" />
       <p>
         Written by
         {' '}

@@ -1,15 +1,71 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/tables';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/button-group';
+@import '~bootstrap/scss/input-group';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/jumbotron';
+@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/utilities';
+
 body {
-  font-family: Arial, Helvetica, sans-serif
+  padding-top: 76px;
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 3.5rem;
 }
 
-:root {
-  font-size: 18px;
+pre[class*='language-'] {
+  &::before,
+  &::after {
+    display: none;
+  }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'IBM Plex Sans', 'sans-serif',
+code {
+  font-size: 0.875rem;
+}
+
+.nav-shadow {
+  box-shadow: 0px 0px 1px #aaa;
+}
+
+.jumbotron h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+main {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    a {
+      color: inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }

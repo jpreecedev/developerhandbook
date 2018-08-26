@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             ) {
               edges {
                 node {
+                  timeToRead
                   fields {
                     slug
                   }
@@ -47,6 +48,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: blogPost,
             context: {
               slug: post.node.fields.slug,
+              timeToRead: post.node.timeToRead,
               previous,
               next
             }

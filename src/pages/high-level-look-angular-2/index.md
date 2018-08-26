@@ -221,8 +221,13 @@ The syntax for structural directives is different from the norm. Structural dire
 
 ```html
 <footer class="footer" *ngIf="todoStore.todos.length > 0">
-    <span class="todo-count"><strong>{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
-    <button class="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">Clear completed</button>
+  <span class="todo-count">
+    <strong>{{todoStore.getRemaining().length}}</strong>
+    {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left
+  </span>
+  <button class="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">
+    Clear completed
+  </button>
 </footer>
 ```
 
