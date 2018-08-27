@@ -24,7 +24,7 @@ function BlogPostTemplate(props) {
         {(previous || next) && (
           <div>
             <hr />
-            <h4 style={{ marginTop: '1rem' }}>Continue Reading</h4>
+            <h5 style={{ marginTop: '2rem' }}>Continue Reading</h5>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
                 {previous.frontmatter.title}

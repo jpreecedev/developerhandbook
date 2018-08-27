@@ -2,6 +2,7 @@
 layout: post
 title: How to debug websites on your mobile device using Google Chrome
 date: 2016-01-31
+categories: ["Other"]
 tags: ["google chrome","Other"]
 ---
 

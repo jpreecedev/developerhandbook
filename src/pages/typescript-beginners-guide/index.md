@@ -2,6 +2,7 @@
 layout: post
 title: TypeScript beginners guide
 date: 2015-10-02
+categories: ["TypeScript"]
 tags: ["TypeScript","typescript"]
 ---
 

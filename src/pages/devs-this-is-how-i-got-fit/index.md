@@ -2,6 +2,7 @@
 layout: post
 title: Devs, this is how I got fit
 date: 2015-09-04
+categories: ["Career"]
 tags: ["Career","career"]
 ---
 

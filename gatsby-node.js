@@ -2,6 +2,7 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
+const { CATEGORIES_MAP } = require('./src/utils/categories')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
@@ -23,6 +24,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     slug
                   }
                   frontmatter {
+                    categories
                     title
                   }
                 }
@@ -43,15 +45,26 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node
           const next = index === 0 ? null : posts[index - 1].node
 
-          createPage({
-            path: post.node.fields.slug,
-            component: blogPost,
-            context: {
-              slug: post.node.fields.slug,
-              timeToRead: post.node.timeToRead,
-              previous,
-              next
-            }
+          if (!post.node.frontmatter.categories) {
+            post.node.frontmatter.categories = ['Unsorted']
+          }
+
+          _.each(post.node.frontmatter.categories, category => {
+            const mappedCategory =
+              category in CATEGORIES_MAP ? CATEGORIES_MAP[category] : category
+
+            createPage({
+              path: `${mappedCategory.toLowerCase().replace(' ', '-')}${
+                post.node.fields.slug
+              }`,
+              component: blogPost,
+              context: {
+                slug: post.node.fields.slug,
+                timeToRead: post.node.timeToRead,
+                previous,
+                next
+              }
+            })
           })
         })
       })

@@ -2,6 +2,7 @@
 layout: post
 title: Using ES6 features with TypeScript
 date: 2015-09-18
+categories: ["TypeScript"]
 tags: ["TypeScript","typescript"]
 ---
 
@@ -157,7 +158,7 @@ Note that these access modifiers are only used at compile time, and don't affect
 
 Also known as "Fat arrow functions", because of the use of the equals operator (=>), are inline functions, similar to lambda expressions in C# and Java. Usage;
 
-    "use strict";	
+    "use strict";
     class Hello {
         constructor() {
             var sayHello = () => console.log("Hello, World!");
@@ -166,7 +167,7 @@ Also known as "Fat arrow functions", because of the use of the equals operator (
             sayHello();
             saySomething("Goodbye, world!");
         }
-    }	
+    }
     var hello = new Hello();
 
 and the transpiled output;
@@ -246,7 +247,7 @@ The `index` variable is scoped to the function, not the block. Changing `var ind
     	for (let index = 0; index < array.length; index++) {
     		var element = array[index];
     		console.log(element);
-    	}			
+    	}
     	index = 0;
         }
     }

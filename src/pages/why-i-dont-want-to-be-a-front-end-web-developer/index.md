@@ -2,6 +2,7 @@
 layout: post
 title: Why I don't want to be a front-end web developer
 date: 2015-06-25
+categories: ["Career"]
 tags: ["Career","career","software development"]
 ---
 

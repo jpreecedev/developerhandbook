@@ -2,6 +2,7 @@
 layout: post
 title: Angular 2 server side paging using ng2-pagination
 date: 2016-03-31
+categories: [".NET","TypeScript","Web API"]
 tags: [".NET","angular","api","Architecture","c#","TypeScript","typescript","web api","Web API"]
 ---
 
@@ -231,7 +232,7 @@ Open **app.component.html** and add the following code;
                     <td>{{item.text}}</td>
                 </tr>
             </tbody>
-        </table>    
+        </table>
         <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
     </div>
 

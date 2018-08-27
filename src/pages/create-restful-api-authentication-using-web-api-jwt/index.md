@@ -2,6 +2,7 @@
 layout: post
 title: Create a RESTful API with authentication using Web API and Jwt
 date: 2016-03-15
+categories: [".NET","C#","Entity Framework"]
 tags: [".NET","api","Architecture","c#","C#","entity framework","Entity Framework","microsoft","web api"]
 ---
 

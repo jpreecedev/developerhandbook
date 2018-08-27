@@ -2,6 +2,7 @@
 layout: post
 title: Getting started with TypeScript
 date: 2015-09-11
+categories: ["TypeScript"]
 tags: ["TypeScript","typescript"]
 ---
 
@@ -12,7 +13,7 @@ This is the 101 tutorial which describes getting started with TypeScript using e
 The quickest, easiest way to get started with using TypeScript is to experiment with the [TypeScript playground](http://www.typescriptlang.org/Playground/).  The TypeScript playground enables you to write TypeScript code in the browser, and see the resulting compiled JavaScript alongside. First things first, TypeScript doesn't try to force you to write code in a particular style.  In fact, you can write 100% pure JavaScript code in get the same code out at the other end. Try entering the following code in the TypeScript pane on the left;
 
     (function(){
-    	console.log("Hello, world!");	
+    	console.log("Hello, world!");
     })()
 
 See the output?  Identical.  You can take advantage of TypeScript is much or as little as you please. Refactor the code a little bit, introducing a log function as follows;
@@ -74,7 +75,7 @@ Now enter the following command;
 
 <pre>tsc -w helloworld.ts</pre>
 
-The **watch** flag (denoted by the -w) tells the TypeScript compiler to watch your file.  Meaning that, if you make some edits and save your changes, TypeScript will automatically recompile the file for you each time. Open the helloworld.ts file in Notepad, make a small change, save the file.  You should notice the JS gets updated automatically. [![TypeScript compilation completed](http://www.typescriptguy.com/wp-content/uploads/2015/07/CompilationCompleted.png)](CompilationCompleted.png)  
+The **watch** flag (denoted by the -w) tells the TypeScript compiler to watch your file.  Meaning that, if you make some edits and save your changes, TypeScript will automatically recompile the file for you each time. Open the helloworld.ts file in Notepad, make a small change, save the file.  You should notice the JS gets updated automatically. [![TypeScript compilation completed](http://www.typescriptguy.com/wp-content/uploads/2015/07/CompilationCompleted.png)](CompilationCompleted.png)
 
 ## VS Code
 

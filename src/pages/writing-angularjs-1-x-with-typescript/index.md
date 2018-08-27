@@ -2,6 +2,7 @@
 layout: post
 title: Writing AngularJS 1.x with TypeScript
 date: 2015-09-24
+categories: ["TypeScript"]
 tags: ["angularjs","TypeScript","typescript"]
 ---
 
@@ -207,7 +208,7 @@ Whenever I write any AngularJS code, I always follow (with only minor deviation)
 The structure of the project is as follows;
 
 <pre>/client
-    /HaveIBeenPwned 
+    /HaveIBeenPwned
         /controllers
         /directives
         /filters
@@ -254,7 +255,7 @@ TypeScript generates the following;
 This code is fine. It works. But there is one major problem. TypeScript has placed a variable on the global scope. A variable called App now exists on the `window` object. In our case, it is very unlikely that this would impact any other part of the application, but in larger projects with lots of scripts and external dependencies, this is a common problem. TypeScript introduces modules to help avoid this problem and also help with the organization of your code. Usage;
 
     module HaveIBeenPwned{
-        "use strict";	
+        "use strict";
          class App{
 
         }
@@ -296,7 +297,7 @@ TypeScript generates the following code;
 As the `HaveIBeenPwned` object already exists, the `Routes` object will simply be added to it. Add a file called **app.module.ts** to the **HaveIBeenPwned** folder, and add the following;
 
     module HaveIBeenPwned{
-        "use strict";	
+        "use strict";
 
         angular
             .module("HaveIBeenPwned", ["ngRoute"]);
@@ -393,7 +394,7 @@ Add a new file to the **controllers** directory, named **search.ts**. This will 
             constructor(private pwnedService: IPwnedService) {
 
     	}
-        }    
+        }
 
         angular
            .module("HaveIBeenPwned")
@@ -408,7 +409,7 @@ Constructors are a feature of ES6, called when an object is instantiated. Again,
 
     class SearchController {
         constructor() {
-            //constructor logic	
+            //constructor logic
         }
     }
 
@@ -416,7 +417,7 @@ and the resulting JavaScript
 
     var SearchController = (function () {
         function SearchController() {
-            //constructor logic	
+            //constructor logic
         }
         return SearchController;
     })();
@@ -427,7 +428,7 @@ Again, constructors are now natively supported in ES6 so when targeting that ver
 
 Assume the following code;
 
-    constructor($http : ng.IHttpService) {  
+    constructor($http : ng.IHttpService) {
     }
 
 If you wanted to reuse the `$http` variable in other functions in your class, you might be tempted to do the following;
@@ -445,7 +446,7 @@ You should understand that the act of assigning the constructor parameters to a 
     }
 
     someOtherFunction() {
-        this.$http.get(...);   
+        this.$http.get(...);
     }
 
 This is valid because under the hood TypeScript created a variable on the class with the name `$http` inside the constructor and assigned the value automatically. The transpiled JavaScript
@@ -499,7 +500,7 @@ You can implement an interface on a class using the `implements` keyword as foll
 
 Flesh out the class as follows;
 
-    module HaveIBeenPwned{	
+    module HaveIBeenPwned{
         export interface IPwnedService {
     	check(address:string) : ng.IPromise<{}>;
         }
@@ -507,11 +508,11 @@ Flesh out the class as follows;
         class PwnedService implements IPwnedService {
 
      	static $inject = ["$http"];
-    	constructor(private $http : ng.IHttpService) {			
+    	constructor(private $http : ng.IHttpService) {
     	}
 
-    	check(address:string) : ng.IPromise<{}> {			
-    	}		
+    	check(address:string) : ng.IPromise<{}> {
+    	}
         }
 
         angular
@@ -522,13 +523,13 @@ Flesh out the class as follows;
 If you add a property or a function to the interface, or change it, and forget to update the implementation class, you will get a compile time error. You can also use interfaces with JSON. Take the following TypeScript example;
 
     var a = <IMyInterface>{
-      someValue: 'Hello'  
+      someValue: 'Hello'
     };
 
 Instead of having to instantiate a class that implements the `IMyInterface` interface, you can exploit JavaScript's dynamic nature and pass in a raw JSON object. Specifying the interface before the object definition is a hint to TypeScript of what you are doing. In return, you will get full IntelliSense/auto-complete when defining the object, as well as compile time checking for all usages of that object. Finally, you can also derive interfaces from other interfaces. Interface inheritance if you like. Example;
 
     export interface IEnterKeyPressAttributes extends ng.IAttributes {
-        ngEnter: string;   
+        ngEnter: string;
     }
 
 The above example shows a new interface, that uses the `extends` keyword to derive from the `ng.IAttributes` interface. The `IEnterKeyPressAttributes` interface has all the same methods and properties as the `ng.IAttributes` interface, and can add its own too.
@@ -544,20 +545,20 @@ Promises are a new shiny feature in ES6\. Unfortunately, promises need to be sup
         check() : ng.IPromise<{}> {
             var defer = this.$q.defer();
             //Do something useful
-            //Then call either defer.resolve() or defer.reject()        
-            return defer.promise;   
-        }   
+            //Then call either defer.resolve() or defer.reject()
+            return defer.promise;
+        }
     }
 
 Or using `$http`:
 
     class PwnedService {
-        constructor($http : ng.IHttpService) {        
+        constructor($http : ng.IHttpService) {
         }
 
         check() : ng.IPromise<{}> {
-            return this.$http.get("https://haveibeenpwned.com/api/v2/breachedaccount/" + address);    
-        }   
+            return this.$http.get("https://haveibeenpwned.com/api/v2/breachedaccount/" + address);
+        }
     }
 
 In the interest of avoiding the [promise anti-pattern](https://github.com/petkaantonov/bluebird/wiki/Promise-anti-patterns), I tend to use promises through other components, rather than directly and just chain on callbacks. Anyway, whichever technique you prefer, you will end up defining `ng.IPromise<{}>` as the return type for the parent function (see `check` method above). Technically, in TypeScript world, this is wrong. I've basically said that the promise will return "an object" as yet to be determined. However, I know what the correct type is;
@@ -588,8 +589,8 @@ Sometimes, a type isn't known until runtime. This is especially true when callin
     {
         ...
         "Exception": {
-            "Message": "Object reference not set to an instance of an object."   
-        }   
+            "Message": "Object reference not set to an instance of an object."
+        }
         ...
     }
 
@@ -598,8 +599,8 @@ Also, your code might return the following 'graceful' exception when an error is
     {
         ...
         "exception": {
-            "message": "The request was malformed"   
-        }   
+            "message": "The request was malformed"
+        }
     }
 
 The difference between these two responses. Casing. By default, the .NET runtime returns responses in Pascal Case. You have to jump through several hoops to get the response to return in Camel Case, a step all so often not done fully. In situations where type isn't known, use the `any` type;
@@ -609,7 +610,7 @@ The difference between these two responses. Casing. By default, the .NET runtime
     		this.breachedAccounts = result.data;
     	})
     	.catch((reason : any) => {
-    		alert(reason.Message '' reason.message);	
+    		alert(reason.Message '' reason.message);
     	});
     }
 
@@ -624,7 +625,7 @@ In the above example, we have explicitly told TypeScript that `reason` does not 
     		this.breachedAccounts = result.data;
     	})
     	.catch((reason) => {
-    		alert(reason.Message '' reason.message);	
+    		alert(reason.Message '' reason.message);
     	});
     }
 
@@ -816,9 +817,9 @@ Add a new file to the root folder called **index.html**. Also add a CSS file to 
     	<script src="client/HaveIBeenPwned/app.route.js"></script>
     	<script src="client/HaveIBeenPwned/services/pwnedservice.js"></script>
     	<script src="client/HaveIBeenPwned/controllers/search.js"></script>
-    	<script src="client/HaveIBeenPwned/models/breachedaccount.js"></script>		
-    	<script src="client/HaveIBeenPwned/filters/asHtml.filter.js"></script>	
-    	<script src="client/HaveIBeenPwned/directives/search.directive.js"></script>	
+    	<script src="client/HaveIBeenPwned/models/breachedaccount.js"></script>
+    	<script src="client/HaveIBeenPwned/filters/asHtml.filter.js"></script>
+    	<script src="client/HaveIBeenPwned/directives/search.directive.js"></script>
         </body>
     </html>
 
@@ -863,7 +864,7 @@ This will pull in all the relevant scripts, fonts and styles. It will also speci
         -webkit-border-radius:4px;
         border:1px solid #1A87B9;
         cursor: pointer;
-    }               
+    }
 
     tr:nth-child(even){
         background-color:#eee;

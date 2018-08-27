@@ -2,6 +2,7 @@
 layout: post
 title: TypeScript Tips and Tricks
 date: 2015-08-28
+categories: ["TypeScript"]
 tags: ["TypeScript","typescript"]
 ---
 
@@ -102,7 +103,7 @@ The default behaviour in past versions of tsc was to remove enumerations and rep
     enum DaysOfWeek{
         Monday,
         Tuesday
-        ... 
+        ...
     }
 
     ...

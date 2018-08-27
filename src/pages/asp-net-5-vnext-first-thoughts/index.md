@@ -2,6 +2,7 @@
 layout: post
 title: ASP .NET 5 (vNext), first thoughts
 date: 2015-08-21
+categories: ["C#", "Career"]
 tags: ["asp.net","c#","C#","Career","web api"]
 ---
 
@@ -14,7 +15,7 @@ This is not meant to be a fully formed post. This will come later down the line.
 Lets take a second to disambiguate some terminology. Microsoft's understanding of versioning has always been different to everybody else. This tweet from [Todd Motto](https://twitter.com/toddmotto) really sums it up;
 
 > Bill Gates on counting to ten. 1, 2, 3, 95, 98, NT, 2000, XP, Vista, 7, 8, 10.
-> 
+>
 > - Todd Motto (@toddmotto) [August 3, 2015](https://twitter.com/toddmotto/status/628124608999329792)
 
 Looks like versioning is not going to get any simpler for the time being
@@ -26,7 +27,7 @@ Previously known as ASP .NET vNext, ASP .NET 5 is the successor of ASP .NET 4.6\
 ASP .NET 5 is currently scheduled for release in the first quarter of 2016, as per this tweet from [Scott Hansleman](https://twitter.com/shanselman); (I suspect this date will slip though)
 
 > [@jpreecedev](https://twitter.com/jpreecedev) getting it right and making sure it runs on all three platforms is a big undertaking
-> 
+>
 > - Scott Hanselman (@shanselman) [July 20, 2015](https://twitter.com/shanselman/status/623227525682991104)
 
 The ASP .NET team would rather "get it right" and take longer, than rush the product and get it wrong (which would spell long term disaster for the platform)

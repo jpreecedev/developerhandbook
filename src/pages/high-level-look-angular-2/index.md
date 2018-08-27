@@ -2,6 +2,7 @@
 layout: post
 title: A high level look at Angular 2
 date: 2016-09-03
+categories: ['Angular','Typescript']
 tags:
   [
     'angular',
@@ -69,7 +70,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
   selector: 'my-app',
   directives: [...ROUTER_DIRECTIVES],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {}
 ```
@@ -78,10 +79,10 @@ This is ES6/TypeScript code. We create a class, called `AppComponent` using the 
 
 The `@Component` directive takes an object that describes the component.
 
-- Selector: This is used in your markup. The selector is how you refer to the component in HTML. In this example, the code would be; `<my-app></my-app>`
-- Directives: These are other components that you want to utilise in the components markup
-- TemplateUrl: The path on the file-system to the markup
-- StyleUrls: A string array of all the CSS files used to style the component
+* Selector: This is used in your markup. The selector is how you refer to the component in HTML. In this example, the code would be; `<my-app></my-app>`
+* Directives: These are other components that you want to utilise in the components markup
+* TemplateUrl: The path on the file-system to the markup
+* StyleUrls: A string array of all the CSS files used to style the component
 
 There are many values that can be passed in here, the main values are displayed.
 
@@ -133,7 +134,7 @@ import { TodoStore, Todo } from '../services/todo.service'
 
 @Component({
   selector: 'app-footer',
-  template: require('./footer.component.html'),
+  template: require('./footer.component.html')
 })
 export class FooterComponent implements OnInit {
   constructor(public todoStore: TodoStore) {}
@@ -198,11 +199,11 @@ The above code takes the array of `todos`, and converts it to a string and displ
 
 The following are pipes built in to Angular;
 
-- `Async` - Automatically subscribe to observables, which are used extensive in Angular (Angular has a dependency on [RxJS](https://github.com/Reactive-Extensions/RxJS)).
-- `Date` - Used to format a date object. For example; _Sunday 21st August 2016_.
-- `Percent` - Used to display a number as a percentage, can pass in the number of decimal places to show.
-- `JSON` - Used to "toString" JavaScript objects
-- `Currency` - Format numbers as currencies ($10.99 or £10.99)
+* `Async` - Automatically subscribe to observables, which are used extensive in Angular (Angular has a dependency on [RxJS](https://github.com/Reactive-Extensions/RxJS)).
+* `Date` - Used to format a date object. For example; _Sunday 21st August 2016_.
+* `Percent` - Used to display a number as a percentage, can pass in the number of decimal places to show.
+* `JSON` - Used to "toString" JavaScript objects
+* `Currency` - Format numbers as currencies ($10.99 or £10.99)
 
 Notice there is no OrderBy pipe in the list, like there was in Angular 1\. That is because ordering was a particular pain point in Angular 1\. Because of the way that Angular 1 detected changes, the ordering would often occur multiple times, which when working with large data sets killed performance. The Angular team have excluded the OrderBy pipe in favour of ordering being done by your code, within the component or service.
 
@@ -214,8 +215,8 @@ Structural directives directly affect the structure, or the elements within, the
 
 The most commonly used structural directives are;
 
-- `ngFor`, which is used to loop through items in an array
-- `ngIf`, which adds/removes an element to/from the DOM depending on the result of an expression
+* `ngFor`, which is used to loop through items in an array
+* `ngIf`, which adds/removes an element to/from the DOM depending on the result of an expression
 
 The syntax for structural directives is different from the norm. Structural directives are prefixed with an asterisk (\*). Take the following code;
 
@@ -356,7 +357,7 @@ import { TodoStore, Todo } from '../services/todo.service'
 
 @Component({
   selector: 'app-todo',
-  template: require('./todo.component.html'),
+  template: require('./todo.component.html')
 })
 export class TodoComponent implements OnInit {
   ngOnInit() {
@@ -397,16 +398,16 @@ export const routes: RouterConfig = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'home' }
 ]
 ```
 
 Here we have four routes defined;
 
-- Default route: No `path` is defined, so when the user hits the page with no route parameters, they are redirected to 'home' (defined next).
-- Home route: Displays the `HomeComponent`.
-- About route: Displays the `AboutComponent`.
-- Wildcard route (\*\*): When the route is not recognised, the user is redirected to the 'home' route. This is a catch-all.
+* Default route: No `path` is defined, so when the user hits the page with no route parameters, they are redirected to 'home' (defined next).
+* Home route: Displays the `HomeComponent`.
+* About route: Displays the `AboutComponent`.
+* Wildcard route (\*\*): When the route is not recognised, the user is redirected to the 'home' route. This is a catch-all.
 
 The `RouterConfig` object is then referred to in the applications bootstrapper (loads the application and its component parts, called `bootstrap`).
 
@@ -420,7 +421,7 @@ bootstrap(AppComponent, [
   ...HTTP_PROVIDERS,
   FormBuilder,
   TodoStore,
-  provideRouter(routes),
+  provideRouter(routes)
 ])
 ```
 
@@ -430,9 +431,9 @@ The `provideRouter` function is exposed by the Angular router, and takes the `Ro
 
 Angular also helps control navigation with several additional directives.
 
-- `routerOutlet`: Tells Angular where to put the view/component (used within the application shell, typically the `AppComponent`).
-- `CanActivate`: Allows navigation to be cancelled (useful for restricting access to certain pages under certain circumstances, like trying to access a page when the user is not logged in).
-- `CanDeactivate`: Runs before the route is changed, and can also cancel navigation (useful when, for example, prompting the user to save changes they have made to a `form`).
+* `routerOutlet`: Tells Angular where to put the view/component (used within the application shell, typically the `AppComponent`).
+* `CanActivate`: Allows navigation to be cancelled (useful for restricting access to certain pages under certain circumstances, like trying to access a page when the user is not logged in).
+* `CanDeactivate`: Runs before the route is changed, and can also cancel navigation (useful when, for example, prompting the user to save changes they have made to a `form`).
 
 Angular does not "just know" about these directives, as everything router related lives within its own module. You must `import` the directives into your `AppComponent`'s `directives` array;
 
@@ -444,7 +445,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
   selector: 'app',
   directives: [...ROUTER_DIRECTIVES],
   template: require('./app.component.html'),
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {}
 ```

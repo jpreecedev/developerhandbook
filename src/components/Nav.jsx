@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import logo from '../images/developerhandbook.png'
+import { CATEGORIES_MAP } from '../utils/categories'
 
-function Nav() {
+function Nav({ categories }) {
   return (
     <nav className="navbar navbar-expand-md navbar-light nav-shadow fixed-top bg-light">
       <div className="container">
@@ -13,33 +14,30 @@ function Nav() {
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarsExampleDefault"
-          aria-controls="navbarsExampleDefault"
+          data-target="#mainNavBar"
+          aria-controls="mainNavBar"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarsExampleDefault">
+        <div className="collapse navbar-collapse" id="mainNavBar">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" href="/">
-                Home
-                {' '}
-                <span className="sr-only">(current)</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Link
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="#">
-                Disabled
-              </a>
-            </li>
+            {categories.map(category => (
+              <li className="nav-item" key={category}>
+                <Link
+                  className="nav-link"
+                  to={`/${
+                    category in CATEGORIES_MAP
+                      ? CATEGORIES_MAP[category]
+                      : category.toLowerCase().replace(' ', '-')
+                  }`}
+                >
+                  {category}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

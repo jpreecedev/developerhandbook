@@ -2,6 +2,7 @@
 layout: post
 title: Books I read in 2014
 date: 2015-01-01
+categories: ["Career"]
 tags: ['Career', 'career', 'personal']
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: WCF custom authentication using ServiceCredentials
 date: 2015-04-03
+categories: ["WCF"]
 tags: ["api","Architecture","c#","security","wcf","WCF"]
 ---
 
@@ -36,7 +37,7 @@ And rename the SVC file to EchoService.svc. Open up the Web.config file and dele
 
 ### NuGet Package
 
-It is not exactly clear to me why, but you'll also need to install the NuGet package [Microsoft ASP.NET Web Pages](https://www.nuget.org/packages/Microsoft.AspNet.WebPages/) (Install-Package Microsoft.AspNet.WebPages).  I suppose this might be used for the WSDL definition page or the help page.  I didn't really look into it.  
+It is not exactly clear to me why, but you'll also need to install the NuGet package [Microsoft ASP.NET Web Pages](https://www.nuget.org/packages/Microsoft.AspNet.WebPages/) (Install-Package Microsoft.AspNet.WebPages).  I suppose this might be used for the WSDL definition page or the help page.  I didn't really look into it.
 
 ## Hosting In Local IIS (Internet Information Services)
 
@@ -61,7 +62,7 @@ Normally at this stage you would create a `UserNamePasswordValidator`, add your 
 
 The default WCF Service Application template you used to create the project generates a [ServiceHost](https://msdn.microsoft.com/en-us/library/system.servicemodel.servicehost%28v=vs.110%29.aspx) object with a Service property that points to the actual implementation of our service, the guts.  We need to change this to use a `ServiceHostFactory`, which will spawn new service hosts for us.  Right click on the **EchoService.svc** file and change the `Service` property to `Factory`, and `EchoService` to `EchoServiceFactory`;
 
-    //Change 
+    //Change
     Service="WCFCustomClientCredentials.EchoService"
 
     //To
