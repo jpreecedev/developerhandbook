@@ -16,27 +16,28 @@ function BlogPostTemplate(props) {
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
       <Jumbotron title={post.frontmatter.title} />
-      <main role="main" className="container">
+      <main role="main" className="container mb-5">
         <Published post={post} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
         <Bio />
-        <ul>
-          <li>
+        {(previous || next) && (
+          <div>
+            <hr />
+            <h4 style={{ marginTop: '1rem' }}>Continue Reading</h4>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                {previous.frontmatter.title}
+                <br />
               </Link>
             )}
-          </li>
-          <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.frontmatter.title}
               </Link>
             )}
-          </li>
-        </ul>
+          </div>
+        )}
       </main>
     </div>
   )
