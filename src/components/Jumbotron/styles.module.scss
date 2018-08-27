@@ -1,0 +1,42 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+.jumbotron {
+  position: relative;
+  padding: 6rem 2rem;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: fit-content;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 1.5rem;
+  background-color: #000;
+  border-radius: 4px;
+  transform: translate(-50%, -50%);
+
+  @include media-breakpoint-up(sm) {
+    font-size: 1.25rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    font-size: 2.5rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 3rem;
+  }
+}
