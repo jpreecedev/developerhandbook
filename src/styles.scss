@@ -69,3 +69,10 @@ main {
     }
   }
 }
+
+pre:not([class*='language']) {
+  padding: 16px;
+  background-color: #fafafa;
+  border-left: 10px solid #358ccb;
+  box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
+}
