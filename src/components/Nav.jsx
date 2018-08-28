@@ -24,7 +24,7 @@ function Nav({ categories }) {
 
         <div className="collapse navbar-collapse justify-content-md-end" id="mainNavBar">
           <ul className="navbar-nav">
-            {categories.map(category => (
+            {categories.slice(0, 8).map(category => (
               <li className="nav-item" key={category}>
                 <Link
                   className="nav-link"

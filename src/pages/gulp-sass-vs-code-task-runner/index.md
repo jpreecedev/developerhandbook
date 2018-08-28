@@ -2,7 +2,7 @@
 layout: post
 title: Using Gulp-SASS with VS Code task runner
 date: 2015-08-07
-categories: ['vs-code']
+categories: ['VS Code']
 tags: ['gulp', 'sass', 'tasks', 'vs-code']
 ---
 
@@ -12,10 +12,10 @@ With the task runner built in to VS Code, you can set up Gulp to automatically c
 
 To be able to get this working, you need the following prerequisites
 
-- Windows, Linux or Mac
-- [VS Code](https://www.visualstudio.com/en-us/products/code-vs.aspx)
-- [Node.js](https://nodejs.org/) and NPM
-- [Gulp.js](http://gulpjs.com/)
+* Windows, Linux or Mac
+* [VS Code](https://www.visualstudio.com/en-us/products/code-vs.aspx)
+* [Node.js](https://nodejs.org/) and NPM
+* [Gulp.js](http://gulpjs.com/)
 
 To install Gulp run the following command;
 
