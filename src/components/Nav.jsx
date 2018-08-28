@@ -22,8 +22,8 @@ function Nav({ categories }) {
           <span className="navbar-toggler-icon" />
         </button>
 
-        <div className="collapse navbar-collapse" id="mainNavBar">
-          <ul className="navbar-nav mr-auto">
+        <div className="collapse navbar-collapse justify-content-md-end" id="mainNavBar">
+          <ul className="navbar-nav">
             {categories.map(category => (
               <li className="nav-item" key={category}>
                 <Link
