@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Jumbotron from '../components/Jumbotron'
+import { CATEGORIES_MAP } from '../utils/categories'
 
 function BlogIndex(props) {
   const siteTitle = get(props, 'data.site.siteMetadata.title')
@@ -15,10 +16,18 @@ function BlogIndex(props) {
       <main role="main" className="container">
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
+          const category = get(node, 'frontmatter.categories[0]') || 'Unsorted'
+          const mappedCategory = `${(category in CATEGORIES_MAP
+            ? CATEGORIES_MAP[category]
+            : category
+          )
+            .toLowerCase()
+            .replace(' ', '-')}`
+
           return (
             <div key={node.fields.slug}>
               <h2>
-                <Link to={node.fields.slug}>{title}</Link>
+                <Link to={`/${mappedCategory}${node.fields.slug}`}>{title}</Link>
               </h2>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
             </div>
@@ -48,6 +57,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            categories
           }
         }
       }
