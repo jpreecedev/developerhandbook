@@ -2,7 +2,8 @@
 layout: post
 title: Using Gulp-SASS with VS Code task runner
 date: 2015-08-07
-tags: ["gulp","sass","tasks","vs-code"]
+categories: ['vs-code']
+tags: ['gulp', 'sass', 'tasks', 'vs-code']
 ---
 
 With the task runner built in to VS Code, you can set up Gulp to automatically compile your SASS files to CSS with a simple key press.
@@ -11,10 +12,10 @@ With the task runner built in to VS Code, you can set up Gulp to automatically c
 
 To be able to get this working, you need the following prerequisites
 
-*   Windows, Linux or Mac
-*   [VS Code](https://www.visualstudio.com/en-us/products/code-vs.aspx)
-*   [Node.js](https://nodejs.org/) and NPM
-*   [Gulp.js](http://gulpjs.com/)
+- Windows, Linux or Mac
+- [VS Code](https://www.visualstudio.com/en-us/products/code-vs.aspx)
+- [Node.js](https://nodejs.org/) and NPM
+- [Gulp.js](http://gulpjs.com/)
 
 To install Gulp run the following command;
 
@@ -58,18 +59,20 @@ VS Code will switch to a file called **tasks.json**. This file contains several 
 
 Ensure that all configurations are commented out, then all the following configuration;
 
+```json
+{
+  "version": "0.1.0",
+  "command": "gulp",
+  "isShellCommand": true,
+  "tasks": [
     {
-        "version": "0.1.0",
-        "command": "gulp",
-        "isShellCommand": true,
-        "tasks": [
-            {
-                "taskName": "sass",
-                "isBuildCommand": true,
-                "showOutput": "silent"
-            }
-        ]
+      "taskName": "sass",
+      "isBuildCommand": true,
+      "showOutput": "silent"
     }
+  ]
+}
+```
 
 This will execute gulp, and will run the **sass** task (which we haven't defined yet).
 
@@ -79,21 +82,22 @@ Either open or create a new file called **GulpFile.js**, at the root of your pro
 
 If you just created a new GulpFile, add the following JavaScript;
 
-<pre style="color:#000000;>'<span style="color:#0000ff; ">use strict</span><span style="color:#0000ff; ">'</span>;
+```javascript
+use strict;
 
-<span style="color:#000084; font-weight:bold; ">var</span> gulp = require(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">gulp</span><span style="color:#0000ff; ">'</span>);
-<span style="color:#000084; font-weight:bold; ">var</span> sass = require(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">gulp-sass</span><span style="color:#0000ff; ">'</span>);
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 
-gulp.task(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">sass</span><span style="color:#0000ff; ">'</span>, <span style="color:#000084; font-weight:bold; ">function</span> () {
-  gulp.src(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">*.scss</span><span style="color:#0000ff; ">'</span>)
-    .pipe(sass().on(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">error</span><span style="color:#0000ff; ">'</span>, sass.logError))
-    .pipe(gulp.dest(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">./</span><span style="color:#0000ff; ">'</span>));
+gulp.task('sass', function () {
+  gulp.src('*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./'));
 });
 
-gulp.task(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">sass:watch</span><span style="color:#0000ff; ">'</span>, <span style="color:#000084; font-weight:bold; ">function</span> () {
-  gulp.watch(<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">*.scss</span><span style="color:#0000ff; ">'</span>, [<span style="color:#0000ff; ">'</span><span style="color:#0000ff; ">sass</span><span style="color:#0000ff; ">'</span>]);
+gulp.task('sass:watch', function () {
+  gulp.watch('*.scss', ['sass']);
 });
-<code><span style=" color:#0000ff;="" '=""></pre>
+```
 
 or if you are editing an existing configuration, note that you don't need to re-import Gulp.
 
@@ -105,7 +109,9 @@ If, for example, your SCSS files are contained in a folder called **Content**, y
 
 The same applies to the destination folder, as defined by;
 
-    gulp.dest('./')
+```javascript
+gulp.dest('./')
+```
 
 Ensure this path is appropriate to your project structure.
 
@@ -113,25 +119,29 @@ Ensure this path is appropriate to your project structure.
 
 To install Gulp into your development environment, go back to **package.json** and add the **devDependencies** section as shown below;
 
-    "devDependencies": {
-        "gulp": "~3.9.0",
-        "gulp-sass": "~2.0.4"
-      }
+```json
+"devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-sass": "~2.0.4"
+  }
+```
 
 Your final **package.json** file may look something like this;
 
-    {
-      "name": "test",
-      "version": "1.0.0",
-      "description": "",
-      "main": "gulpfile.js",
-      "author": "",
-      "license": "ISC",
-      "devDependencies": {
-        "gulp": "~3.9.0",
-        "gulp-sass": "~2.0.4"
-      }
-    }
+```json
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "gulp-sass": "~2.0.4"
+  }
+}
+```
 
 Go back to the Node.JS command prompt and type the following command;
 
@@ -143,7 +153,10 @@ This will create a new folder in your project called **node_modules**, which wil
 
 Add a new SCSS file to your project and add some dummy CSS;
 
-    body { }
+```css
+body {
+}
+```
 
 Now with everything set up, press the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> keyboard combination to kick off the task.
 
