@@ -2,22 +2,56 @@
 layout: post
 title: Making NuGet work for your company
 date: 2013-07-19
-tags: ["nuget","Visual Studio"]
+tags: ['nuget', 'Visual Studio']
 ---
 
-NuGet is a package manager tool for the .NET Framework.  NuGet is free, open source, and is supported by Microsoft Visual Studio, as well as several other environments. NuGet allows you to add packages to your projects, either from the [public package gallery](http://nuget.org/ "NuGet Package Gallery") or from your own private package gallery.  The latter is, in my opinion at least, somewhat under-utilised and misunderstood in the business world.  This post aims to try to shed some light on how NuGet can work for your company.
+NuGet is a package manager tool for the .NET Framework. NuGet is free, open source, and is supported by Microsoft Visual Studio, as well as several other environments. NuGet allows you to add packages to your projects, either from the [public package gallery](http://nuget.org/ 'NuGet Package Gallery') or from your own private package gallery. The latter is, in my opinion at least, somewhat under-utilised and misunderstood in the business world. This post aims to try to shed some light on how NuGet can work for your company.
 
 ### Public Gallery
 
-If you haven't used NuGet before, you really are missing a trick.  NuGet allows you to extend the functionality of your application by adding third party code/tools to your projects.  Most of the projects hosted on the NuGet public gallery are free (and yes, commercial free!), and open source. You can access NuGet in two ways, either visually using the Library Package Manager or through the Package Manager Console window. To open the Library Package Manager, click Tools > Library Package Manager > Manage NuGet Packages for Solution... [![NuGet Package Manager](https://developerhandbook.com/wp-content/uploads/2013/07/nugetpackagemanager1.png)](nugetpackagemanager1.png) To install a package, simply click it and click Install.  You can easily search for packages using the search field (top right).  There are literally thousands of free packages.
+If you haven't used NuGet before, you really are missing a trick. NuGet allows you to extend the functionality of your application by adding third party code/tools to your projects. Most of the projects hosted on the NuGet public gallery are free (and yes, commercial free!), and open source. You can access NuGet in two ways, either visually using the Library Package Manager or through the Package Manager Console window. To open the Library Package Manager, click Tools > Library Package Manager > Manage NuGet Packages for Solution... [![NuGet Package Manager](https://developerhandbook.com/wp-content/uploads/2013/07/nugetpackagemanager1.png)](nugetpackagemanager1.png) To install a package, simply click it and click Install. You can easily search for packages using the search field (top right). There are literally thousands of free packages.
 
 ### Private Galleries (A.K.A Private Repositories)
 
-So what is a private NuGet gallery? A private NuGet gallery is a gallery which you host yourself. The gallery sits either on your local machine, or somewhere on your company network. There's actually nothing stopping you from hosting your own public gallery either. So what is the benefit of hosting your own private gallery?  Well this is best answered with a scenario.  Imagine you are developing multiple websites for various clients whereby they have a lot of common code.  You don't want to duplicate your code, so you create a library and put the shared code inside the library.  Each project would then have a reference back to the library.  This is a very common scenario and is widespread.  But what if your common code lives in another branch in your source code repository?  What if each website has its own branch?  Then every time you update your library you would need to manually merge the assembly into the other branches.  NuGet greatly simplifies this process, as you would simply have to publish and update to your gallery and each website can choose weather or not to update.  Some websites might not want to update, perhaps due to breaking changes.  Each project can decide if it wants to update or not.
+So what is a private NuGet gallery? A private NuGet gallery is a gallery which you host yourself. The gallery sits either on your local machine, or somewhere on your company network. There's actually nothing stopping you from hosting your own public gallery either. So what is the benefit of hosting your own private gallery? Well this is best answered with a scenario. Imagine you are developing multiple websites for various clients whereby they have a lot of common code. You don't want to duplicate your code, so you create a library and put the shared code inside the library. Each project would then have a reference back to the library. This is a very common scenario and is widespread. But what if your common code lives in another branch in your source code repository? What if each website has its own branch? Then every time you update your library you would need to manually merge the assembly into the other branches. NuGet greatly simplifies this process, as you would simply have to publish and update to your gallery and each website can choose weather or not to update. Some websites might not want to update, perhaps due to breaking changes. Each project can decide if it wants to update or not.
 
 ### Creating a NuGet package
 
-Every good package starts with a good library.  You probably already have a good idea of which libraries you want to turn into packages.  For the sake of this demo, we will be working with a shared library called JPreeceDev.Shared.dll.  This shared library consists of one class, called Repository, and one interface, called IRepository; [code language="csharp"] public interface IRepository { bool Save(); } public class Repository : IRepository { public bool Save() { return true; } } [/code] To create your package, first you'll need a little command line tool called [NuGet Command Line bootstrapper](http://nuget.codeplex.com/releases/view/58939 "NuGet Command Line Bootstrapper"). Once downloaded, you can either add an environment variable for it, or simply point to the full path when inside a command prompt window. At this stage, there are a few routes you could take, and this really depends on your preferences, internal processes, or source control set up. For the sake of simplicity, I will create a new directory at the same level as my project folder, called "NuGet Packages". Inside this folder I will create a sub folder called JPreeceDev.Shared, and inside there will live all the components for my NuGet package. You might want to; create a dedicated NuGet packages branch in your source control or add a new folder to your development branch specifically for NuGet packages. Open a command prompt, switch the working directory to the NuGet packages/your project folder and run the following command; `nuget spec` This will output a very generic Package.nuspec file, which consists of some simple XML. Open the file in your favourite text editor, and edit the XML with some appropriate information. Here is mine as an example; [code language="xml"] <?xml version="1.0"?> <package> <metadata> <id>JPreeceDev.Shared</id> <version>1.0.0</version> <authors>Jon Preece</authors> <owners>Jon Preece</owners> <licenseUrl>http://www.codeproject.com/info/cpol10.aspx</licenseUrl> <projectUrl>https://www.developerhandbook.com</projectUrl> <requireLicenseAcceptance>false</requireLicenseAcceptance> <description>developerhandbook.com Shared Code Library</description> <releaseNotes>First release.</releaseNotes> <copyright>Copyright Jon Preece 2013</copyright> <tags>jpreece shared</tags> </metadata> </package> [/code] I also like to rename the file so that it is more meaningful to my project. I will rename Package.nuspec to JPreeceDev.Shared.nuspec; [![NuSpec](https://developerhandbook.com/wp-content/uploads/2013/07/nuspec1.png)](nuspec1.png) Now you need to bring in your library file. Start by creating a new folder called 'lib' at the same level as your nuspec file. Inside there you need to create another folder, which tells NuGet which version of the .NET Framework your library targets. In this case, the .NET Framework 4.5 is targeted by adding a folder called NET4.5; [![NET 4.5 Folder](https://developerhandbook.com/wp-content/uploads/2013/07/net45folder1.png)](net45folder1.png) Go ahead and drop your library into that folder. Next, return to the command prompt and run the following command; `nuget pack` This will output your NuGet package, with the file extension .nupkg. Your simple NuGet package is now complete and you are ready to tell NuGet about your private gallery.
+Every good package starts with a good library. You probably already have a good idea of which libraries you want to turn into packages. For the sake of this demo, we will be working with a shared library called `JPreeceDev.Shared.dll`. This shared library consists of one class, called Repository, and one interface, called `IRepository`;
+
+```csharp
+public interface IRepository {
+ bool Save();
+}
+public class Repository: IRepository {
+ public bool Save() {
+  return true;
+ }
+}
+```
+
+To create your package, first you'll need a little command line tool called [NuGet Command Line bootstrapper](http://nuget.codeplex.com/releases/view/58939 'NuGet Command Line Bootstrapper'). Once downloaded, you can either add an environment variable for it, or simply point to the full path when inside a command prompt window. At this stage, there are a few routes you could take, and this really depends on your preferences, internal processes, or source control set up. For the sake of simplicity, I will create a new directory at the same level as my project folder, called "NuGet Packages". Inside this folder I will create a sub folder called JPreeceDev.Shared, and inside there will live all the components for my NuGet package. You might want to; create a dedicated NuGet packages branch in your source control or add a new folder to your development branch specifically for NuGet packages. Open a command prompt, switch the working directory to the NuGet packages/your project folder and run the following command; `nuget spec` This will output a very generic Package.nuspec file, which consists of some simple XML. Open the file in your favourite text editor, and edit the XML with some appropriate information. Here is mine as an example;
+
+```xml
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>JPreeceDev.Shared</id>
+		<version>1.0.0</version>
+		<authors>Jon Preece</authors>
+		<owners>Jon Preece</owners>
+		<licenseUrl>http://www.codeproject.com/info/cpol10.aspx</licenseUrl>
+		<projectUrl>https://www.developerhandbook.com</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>developerhandbook.com Shared Code Library</description>
+		<releaseNotes>First release.</releaseNotes>
+		<copyright>Copyright Jon Preece 2013</copyright>
+		<tags>jpreece shared</tags>
+	</metadata>
+</package>
+```
+
+I also like to rename the file so that it is more meaningful to my project. I will rename Package.nuspec to JPreeceDev.Shared.nuspec; [![NuSpec](https://developerhandbook.com/wp-content/uploads/2013/07/nuspec1.png)](nuspec1.png) Now you need to bring in your library file. Start by creating a new folder called 'lib' at the same level as your nuspec file. Inside there you need to create another folder, which tells NuGet which version of the .NET Framework your library targets. In this case, the .NET Framework 4.5 is targeted by adding a folder called NET4.5; [![NET 4.5 Folder](https://developerhandbook.com/wp-content/uploads/2013/07/net45folder1.png)](net45folder1.png) Go ahead and drop your library into that folder. Next, return to the command prompt and run the following command; `nuget pack` This will output your NuGet package, with the file extension .nupkg. Your simple NuGet package is now complete and you are ready to tell NuGet about your private gallery.
 
 ### Adding your private gallery to the available package sources list
 
@@ -31,8 +65,8 @@ So if you have been following along in Visual Studio, you may be thinking someth
 
 In this tutorial, we only visited how to create a simple NuGet package. There are more advanced features you can utilise to add additional functionality to your package;
 
-*   Run powershell scripts on both install/uninstall operations
-*   Add dependencies to the target project (for example, assembly references)
+- Run powershell scripts on both install/uninstall operations
+- Add dependencies to the target project (for example, assembly references)
 
 ...and much more.
 

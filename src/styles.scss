@@ -92,6 +92,10 @@ kbd {
 }
 
 blockquote {
-  padding: 0 16px;
+  padding: 8px 16px;
   background-color: #fafafa;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
