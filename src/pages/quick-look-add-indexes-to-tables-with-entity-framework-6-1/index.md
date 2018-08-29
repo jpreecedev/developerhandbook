@@ -2,6 +2,7 @@
 layout: post
 title: Quick look - Add indexes to tables with Entity Framework 6.1 Beta 1
 date: 2014-02-26
+categories: ['Entity Framework']
 tags: ['c#', 'entity framework', 'Entity Framework', 'sql server']
 ---
 

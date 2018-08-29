@@ -2,6 +2,7 @@
 layout: post
 title: Publish your website to an IIS staging environment using Microsoft Web Deploy
 date: 2014-02-08
+categories: ["Visual Studio"]
 tags: ["Architecture","microsoft","security","software development","Visual Studio"]
 ---
 

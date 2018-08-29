@@ -2,6 +2,7 @@
 layout: post
 title: 10 things every software developer should do in 2014
 date: 2014-01-18
+categories: ["Career"]
 tags: ["Career","personal","software development"]
 ---
 

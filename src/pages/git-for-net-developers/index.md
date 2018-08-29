@@ -20,7 +20,9 @@ The easiest way to get started is;
 
 [![VisualStudio](VisualStudio_thumb.png 'VisualStudio')](https://www.developerhandbook.com/wp-content/uploads/2014/09/VisualStudio.png) As an additional win, you can also bring up _extensive_ formal documentation about any Git command as follows;
 
-<pre>git help {command}</pre>
+```powershell
+git help {command}
+```
 
 ## Terminology Comparison
 
@@ -80,21 +82,29 @@ There are a few useful parameters you can pass in to `git branch` here;
 
 Example:
 
-<pre>git branch {name-of-new-branch}</pre>
+```powershell
+git branch {name-of-new-branch}
+```
 
 ## Git Checkout
 
 Switches the current development branch to the branch specified;
 
-<pre>git checkout {some-branch}</pre>
+```powershell
+git checkout {some-branch}
+```
 
 All new changes will be committed to this branch. If the branch does not already exist, you can create it and check it out using a single command;
 
-<pre>git checkout -b {some-branch}</pre>
+```powershell
+git checkout -b {some-branch}
+```
 
 Can also be used to rollback to previous versions of files or specific branches as follows;
 
-<pre>git checkout {commit-number} {file-name}</pre>
+```powershell
+git checkout {commit-number} {file-name}
+```
 
 `{commit-number}` the specific changeset to roll back to `{file-name}` optional, used to roll back a specific file
 
@@ -102,7 +112,9 @@ Can also be used to rollback to previous versions of files or specific branches 
 
 Clones (gets a copy of) the specified repository. This example is using Visual Studio online, but should work with self-hosted instances of TFS (simply change the domain to that of your TFS instance, or the IP address of your TFS instance);
 
-<pre>git clone https://{your-user-name}.visualstudio.com/DefaultCollection/_git/{project-name} {local-path}</pre>
+```powershell
+git clone https://{your-user-name}.visualstudio.com/DefaultCollection/_git/{project-name} {local-path}
+```
 
 Replace `{your-user-name}` with your TFS username and `{project-name}` with the name of the project you want to clone. `{local-path}` is the location on your hard drive where you want to store the cloned files. When you successfully connect, you will be prompted to enter your user name and password. When the clone starts, you'll will see some neat ASCII art and the progress of the operation; [![GitClone](GitClone_thumb.png 'GitClone')](https://www.developerhandbook.com/wp-content/uploads/2014/09/GitClone.png)
 
@@ -110,7 +122,9 @@ Replace `{your-user-name}` with your TFS username and `{project-name}` with the 
 
 Takes a snapshot (also known as a revision) of the file/folder at the current point in time. A snapshot cannot easily be edited. You can roll back to specific snapshots as required. Before you can take a snapshot, you must stage that changes that will be included. This is done using `git add` (see above). To include all files in the snapshot, use `git add .`. There are a [lot](http://git-scm.com/docs/git-commit) of options you can pass to this command, but the one you will use most often is `-m`, which allows you to pass a message to use to identify the commit at a later time;
 
-<pre>git commit -m "{your-message-here}"</pre>
+```powershell
+git commit -m "{your-message-here}"
+```
 
 Git will display the first part of the commit identifier, which can be helpful for use later (rolling back the commit for example using the `git reset` command). You can view a recent list of commits using the `git log` command. [![image](image_thumb.png 'image')](https://www.developerhandbook.com/wp-content/uploads/2014/09/image.png)
 
@@ -118,11 +132,15 @@ Git will display the first part of the commit identifier, which can be helpful f
 
 Used to display the differences between the current directory/file and either the index or the most recent commit. To display all the differences (including renames, deletes, adds, modifications etc.) against the index;
 
-<pre>git diff</pre>
+```powershell
+git diff
+```
 
 To display all the differences against the most recent commit;
 
-<pre>git diff HEAD</pre>
+```powershell
+git diff HEAD
+```
 
 [![Diff](Diff_thumb.png 'Diff')](https://www.developerhandbook.com/wp-content/uploads/2014/09/Diff.png) The standard diff tool will display differences inline (red is the indexed/HEAD copy, green is the local copy). To be honest, I don't find this particularly helpful ... especially when you are working with lots of differences.
 
@@ -130,13 +148,17 @@ To display all the differences against the most recent commit;
 
 You can easily configure Git to use a custom tool. I use [Beyond Compare](http://www.scootersoftware.com/download.php) (because I love it), but you can use whatever tool you like. For a full explanation on how to configure Beyond Compare, see [Git for Windows on the Scooter Software website](http://www.scootersoftware.com/support.php?zz=kb_vcs#gitwindows). Use the `git config` command to change the global diff setting;
 
-<pre>git config --global diff.tool bc3
-git config --global difftool.bc3.path "c:/Program Files (x86)/Beyond Compare 4/bcomp.exe"</pre>
+```powershell
+git config --global diff.tool bc3
+git config --global difftool.bc3.path "c:/Program Files (x86)/Beyond Compare 4/bcomp.exe"
+```
 
 You can also change the configuration for merging, which goes like this;
 
-<pre>git config --global merge.tool bc3
-git config --global mergetool.bc3.path "c:/Program Files (x86)/Beyond Compare 4/bcomp.exe"</pre>
+```powershell
+git config --global merge.tool bc3
+git config --global mergetool.bc3.path "c:/Program Files (x86)/Beyond Compare 4/bcomp.exe"
+```
 
 To run the diff in the custom tool, run `git difftool {file-to-diff}`
 
@@ -148,7 +170,9 @@ I'm much more comfortable working with a proper GUI as I'm so used to using Visu
 
 Displays recent commits to the current branch. Simple but very useful command that shows a detailed list of revisions, including the SHA1 checksum, the author/contributor, the commit date and the commit message.
 
-<pre>git log -n {number-to-display}</pre>
+```powershell
+git log -n {number-to-display}
+```
 
 [![GitLog](GitLog_thumb.png 'GitLog')](https://www.developerhandbook.com/wp-content/uploads/2014/09/GitLog.png) The `-n` option is optional, but its useful as you could end up with a big list if you work with a larger team.
 
@@ -156,7 +180,9 @@ Displays recent commits to the current branch. Simple but very useful command th
 
 Grabs (pulls) the remote repository and merges it into the local copy in a single command. Git pull is actually a short-hand for `git fetch` followed by `git merge`. To pull in all changes that have been made by other collaborators, you should use the `git pull` command.
 
-<pre>git pull {remote-path}</pre>
+```powershell
+git pull {remote-path}
+```
 
 When working with TFS, again the `{remote-path}` is that of the project to pull, for example;
 
@@ -170,7 +196,9 @@ A pull request is a mechanism for developers to request that their changes be me
 
 All changes you make are stored in your local environment until you push them to the remote repository. This process synchronises your local repository with the remote repository. The basic push command;
 
-<pre>git push {remote-path} {branch-name}</pre>
+```powershell
+git push {remote-path} {branch-name}
+```
 
 Again the `{remote-path}` option is that of the repository in TFS and `{branch-name}` is the name of the branch to push. This operation will push your commits to the remote repository. In the event of merge conflicts, Git will tell you and give you the opportunity to resolve conflicts when appropriate. To force the push, use the `--force` option. To push all branches, use the `--all` option.
 
@@ -178,7 +206,9 @@ Again the `{remote-path}` option is that of the repository in TFS and `{branch-n
 
 Shows the differences between the local copy and the staging area. Can show lists of files that added/modified/deleted. Also shows which files are untracked (files that need adding using git add). Usage;
 
-<pre>git status</pre>
+```powershell
+git status
+```
 
 Not to be confused with `git log`, which effectively shows you the history of the branch.
 

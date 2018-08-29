@@ -2,6 +2,7 @@
 layout: post
 title: How to create a new Outlook 2013 Email using C# in 3 simple steps
 date: 2013-12-14
+categories: ["C#"]
 tags: ["c#","C#","microsoft"]
 ---
 

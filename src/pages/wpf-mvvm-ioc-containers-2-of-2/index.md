@@ -2,18 +2,19 @@
 layout: post
 title: WPF MVVM IoC containers - Part 2 of 2
 date: 2013-08-02
-tags: ["c#","dependency injection","ioc","mvvm","structuremap","wpf","WPF MVVM"]
+categories: ['WPF MVVM']
+tags: ['c#', 'dependency injection', 'ioc', 'mvvm', 'structuremap', 'wpf', 'WPF MVVM']
 ---
 
-The ultimate goal of MVVM is to achieve true separation of concerns, meaning that the various elements of your project know nothing about each other.  It's virtually impossible to achieve this in an elegant way in WPF without some outside help. You are reading the second part of this blog post where we will discuss how to use an IoC container properly in a WPF MVVM application.  It is assumed you have either read the first post, or are familiar with the concept of IoC/dependency injection with StructureMap.
+The ultimate goal of MVVM is to achieve true separation of concerns, meaning that the various elements of your project know nothing about each other. It's virtually impossible to achieve this in an elegant way in WPF without some outside help. You are reading the second part of this blog post where we will discuss how to use an IoC container properly in a WPF MVVM application. It is assumed you have either read the first post, or are familiar with the concept of IoC/dependency injection with StructureMap.
 
 ### Part 0
 
-It's worth noting just before we get started that you will need to invest a little time to get this set up initially.  That investment will pay off almost immediately as your application begins to scale. Please take the time to, if you haven't already, install [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody "PropertyChanged.Fody") and [StructureMap](http://nuget.org/packages/structuremap/ "StructureMap") from NuGet.
+It's worth noting just before we get started that you will need to invest a little time to get this set up initially. That investment will pay off almost immediately as your application begins to scale. Please take the time to, if you haven't already, install [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody 'PropertyChanged.Fody') and [StructureMap](http://nuget.org/packages/structuremap/ 'StructureMap') from NuGet.
 
 ### Core Classes
 
-Start by creating some core classes for use within the rest of your application.  Getting these in a good state early will make architecting the rest of the application a lot easier. I like to have all my classes inherit from a class called BaseNotification, so that I (thanks to PropertyChanged.Fody) get all the change notification functionality added for free to all my derived classes.
+Start by creating some core classes for use within the rest of your application. Getting these in a good state early will make architecting the rest of the application a lot easier. I like to have all my classes inherit from a class called BaseNotification, so that I (thanks to PropertyChanged.Fody) get all the change notification functionality added for free to all my derived classes.
 
     public class BaseNotification : INotifyPropertyChanged
     {
@@ -55,7 +56,7 @@ Note that each view model will have a reference back to the actual view (which i
         public IView View { get; set; }
     }
 
-Lets take a second to review what we have here. The constructor is very important as whatever parameters we defined here are going to be injected automatically by the IoC container. We want to pass in an instance of the actual view and a reference back to the IoC container itself. Why? because this gives a means for derived view models to access instances of objects without having to use `ObjectFactory.GetInstance`, which (as previously discussed) is an anti-pattern. Inside the constructor we set the views data context, which is itself, so as to make data binding possible. This removes the direct relationship between the view and the view model, whilst keeping our code neat, maintainable, and adherent to the [DRY principle](http://net.tutsplus.com/tutorials/tools-and-tips/3-key-software-principles-you-must-understand/ "DRY principle"). Now over to the window. In this tutorial we are only going to have a single Window, but typically in larger applications you will have multiple windows so its a good idea to get off on the right foot. We need 2 new interfaces, `IWindow` and `IWindowViewModel`. `IWindow` will represent the Window (MainWindow) and IWindowViewModel is for the windows view model.
+Lets take a second to review what we have here. The constructor is very important as whatever parameters we defined here are going to be injected automatically by the IoC container. We want to pass in an instance of the actual view and a reference back to the IoC container itself. Why? because this gives a means for derived view models to access instances of objects without having to use `ObjectFactory.GetInstance`, which (as previously discussed) is an anti-pattern. Inside the constructor we set the views data context, which is itself, so as to make data binding possible. This removes the direct relationship between the view and the view model, whilst keeping our code neat, maintainable, and adherent to the [DRY principle](http://net.tutsplus.com/tutorials/tools-and-tips/3-key-software-principles-you-must-understand/ 'DRY principle'). Now over to the window. In this tutorial we are only going to have a single Window, but typically in larger applications you will have multiple windows so its a good idea to get off on the right foot. We need 2 new interfaces, `IWindow` and `IWindowViewModel`. `IWindow` will represent the Window (MainWindow) and IWindowViewModel is for the windows view model.
 
     public interface IWindow
     {
@@ -153,7 +154,7 @@ Now just add the MainWindowViewModel class, and add the following code;
         }
     }
 
-Note if you have not previously encountered the DelegateCommand, there are lots of implementations available online. You can download the version I have used [here](https://dl.dropboxusercontent.com/u/14543010/DelegateCommand.cs "Delegate Command"). The constructor here is of critical importance to the whole concept. If you are using a refactoring tool such as ReSharper, please be sure to double check that the constructors first parameter is of type IMainWindow and not IWindow. ReSharper notices that you can use the more generic IWindow, as no properties from IMainWindow are used on the base class. Doing this, however, will result in StructureMap not knowing which type it actually needs to inject. As we added the logic for displaying the actual view in our BaseWindowViewModel, we simply need to call `ShowView()` passing in the type of the view model we actually want to display. (The view that corresponds to the aforementioned view model). Finally, open MainWindow.xaml and replace the existing `Grid` with the `Grid` below;
+Note if you have not previously encountered the DelegateCommand, there are lots of implementations available online. You can download the version I have used [here](https://dl.dropboxusercontent.com/u/14543010/DelegateCommand.cs 'Delegate Command'). The constructor here is of critical importance to the whole concept. If you are using a refactoring tool such as ReSharper, please be sure to double check that the constructors first parameter is of type IMainWindow and not IWindow. ReSharper notices that you can use the more generic IWindow, as no properties from IMainWindow are used on the base class. Doing this, however, will result in StructureMap not knowing which type it actually needs to inject. As we added the logic for displaying the actual view in our BaseWindowViewModel, we simply need to call `ShowView()` passing in the type of the view model we actually want to display. (The view that corresponds to the aforementioned view model). Finally, open MainWindow.xaml and replace the existing `Grid` with the `Grid` below;
 
     <Grid>
         <Grid.RowDefinitions>
@@ -270,4 +271,4 @@ For the sake of completeness, I added a Resource Dictionary with the below style
 
 ### Summary
 
-IoC containers provide a simple and elegant solution to doing dependency injection in a large WPF MVVM application. IoC containers are also responsible for managing the lifetime of our windows/views/view models. Using an IoC container also has a positive side effect of forcing you to structure your classes in a way that promotes unit testing. [Download source code](https://dl.dropboxusercontent.com/u/14543010/WPFMVVMWithStructureMap.zip "IoC Demo Code")
+IoC containers provide a simple and elegant solution to doing dependency injection in a large WPF MVVM application. IoC containers are also responsible for managing the lifetime of our windows/views/view models. Using an IoC container also has a positive side effect of forcing you to structure your classes in a way that promotes unit testing. [Download source code](https://dl.dropboxusercontent.com/u/14543010/WPFMVVMWithStructureMap.zip 'IoC Demo Code')

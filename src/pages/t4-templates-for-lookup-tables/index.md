@@ -2,37 +2,42 @@
 layout: post
 title: Use T4 Templates to create enumerations from your database lookup tables
 date: 2014-02-15
-tags: ["Architecture","C#"]
+categories: ['C#']
+tags: ['Architecture', 'C#']
 ---
 
-T4 (Text Template Transformation Toolkit) has been around for a while now... its been a part of [Visual Studio since the 2005 release](http://en.wikipedia.org/wiki/Text_Template_Transformation_Toolkit "T4 Templates").  In case you don't know, T4 can be used to automatically generate files based on templates.  You create a text template, which is then transformed (interpreted) by Visual Studio into a working file. T4 can be used to create C# code files, and indeed it forms the basis of the current scaffolding templates you have probably used when creating ASP .NET web applications.  You're not limited to using T4 to create code classes, but this is one of its most common usages. I've known of T4 templates for quite a while, and I've edited some of the existing T4 templates in the past (see [Scott Hanselman's post](http://www.hanselman.com/blog/ModifyingTheDefaultCodeGenerationscaffoldingTemplatesInASPNETMVC.aspx "Modifying the default code generation/scaffolding templates in ASP.NET MVC") for details on how to do this). To be honest, I've only recently found a practical scenario where I would want to write my own T4 templates, mapping lookup tables to enumerations ([C# enum](http://msdn.microsoft.com/en-us/library/sbbt4032.aspx "Enum")). What is a lookup table?  A lookup table consists of data that is indexed and referenced from other tables, allowing the data to be changed without affecting existing foreign key constraints.  Its common to add new data to these tables, and even make occasional changes, but lookup tables are unlikely to change much over time. [![Database Tables](databasetables1.png?w=625)](https://developerhandbook.com/wp-content/uploads/2014/02/databasetables1.png) Take [Adventure Works](http://msftdbprodsamples.codeplex.com/releases/view/55330 "Adventure Works") for example, there are three lookup tables ^.  There is a consistent theme across each table, a primary key (the lookup Id) and a Name (a description of the lookup item).  We will use T4 templates to map these lookup tables into our code in the form of enumerations, so that we can avoid the dreaded "magic numbers" ... in other words, we give our code some strong typing, which will significantly improve code maintainability over time.
+T4 (Text Template Transformation Toolkit) has been around for a while now... its been a part of [Visual Studio since the 2005 release](http://en.wikipedia.org/wiki/Text_Template_Transformation_Toolkit 'T4 Templates'). In case you don't know, T4 can be used to automatically generate files based on templates. You create a text template, which is then transformed (interpreted) by Visual Studio into a working file. T4 can be used to create C# code files, and indeed it forms the basis of the current scaffolding templates you have probably used when creating ASP .NET web applications. You're not limited to using T4 to create code classes, but this is one of its most common usages. I've known of T4 templates for quite a while, and I've edited some of the existing T4 templates in the past (see [Scott Hanselman's post](http://www.hanselman.com/blog/ModifyingTheDefaultCodeGenerationscaffoldingTemplatesInASPNETMVC.aspx 'Modifying the default code generation/scaffolding templates in ASP.NET MVC') for details on how to do this). To be honest, I've only recently found a practical scenario where I would want to write my own T4 templates, mapping lookup tables to enumerations ([C# enum](http://msdn.microsoft.com/en-us/library/sbbt4032.aspx 'Enum')). What is a lookup table? A lookup table consists of data that is indexed and referenced from other tables, allowing the data to be changed without affecting existing foreign key constraints. Its common to add new data to these tables, and even make occasional changes, but lookup tables are unlikely to change much over time. [![Database Tables](databasetables1.png?w=625)](https://developerhandbook.com/wp-content/uploads/2014/02/databasetables1.png) Take [Adventure Works](http://msftdbprodsamples.codeplex.com/releases/view/55330 'Adventure Works') for example, there are three lookup tables ^. There is a consistent theme across each table, a primary key (the lookup Id) and a Name (a description of the lookup item). We will use T4 templates to map these lookup tables into our code in the form of enumerations, so that we can avoid the dreaded "magic numbers" ... in other words, we give our code some strong typing, which will significantly improve code maintainability over time.
 
 ## Tooling
 
-It has to be said, sorry Microsoft, but native tooling for T4 templates is still pretty poor (even after 9 years (as of 2014) since the initial release).  Out of the box, Visual Studio lets you run the T4 templates, but not much else.  There is no native syntax highlighting, IntelliSense or basically any of the usual Visual Studio goodness we are used to.  We're going to need some third party help. There are two main players here; **[![devart](https://developerhandbook.com/wp-content/uploads/2014/02/devart1.png)](devart1.png)T4 Editor from Devart.** My preferred tool, offers syntax highlighting, basic IntelliSense, GoTo (code navigation), outlining (collapsible code) and code indentation.  Also I partically love how the T4 template is executed every time I hit **Save**, this is a great time saver. The download is very lean (0.63 - 1.79 MB depending on your version) and installs as a simple Visual Studio extension (**.vsix** file extension).  The extension is also completely free, which is fantastic. [![tangible t4 editor](https://developerhandbook.com/wp-content/uploads/2014/02/tangible1.png)](tangible1.png) **[Tangible T4 Editor](http://t4-editor.tangible-engineering.com/t4editor_features.html "Tangible T4 Editor") from Tangible Engineering** This is a comprehensive tool with advanced IntelliSense, code navigation and validation. Personally I don't use this tool because I didn't like the bulky download, or the full blown Windows installation, but it looks like a decent tool so I recommend you give it a shot.  There is a free version, but the full version will set you back an eye watering 99 €. This is not supposed to be a comprehensive review about each product, just a mile-high snapshot.  I highly recommend that you test both tools and pick the one that works best for you.
+It has to be said, sorry Microsoft, but native tooling for T4 templates is still pretty poor (even after 9 years (as of 2014) since the initial release). Out of the box, Visual Studio lets you run the T4 templates, but not much else. There is no native syntax highlighting, IntelliSense or basically any of the usual Visual Studio goodness we are used to. We're going to need some third party help. There are two main players here; **[![devart](https://developerhandbook.com/wp-content/uploads/2014/02/devart1.png)](devart1.png)T4 Editor from Devart.** My preferred tool, offers syntax highlighting, basic IntelliSense, GoTo (code navigation), outlining (collapsible code) and code indentation. Also I partically love how the T4 template is executed every time I hit **Save**, this is a great time saver. The download is very lean (0.63 - 1.79 MB depending on your version) and installs as a simple Visual Studio extension (**.vsix** file extension). The extension is also completely free, which is fantastic. [![tangible t4 editor](https://developerhandbook.com/wp-content/uploads/2014/02/tangible1.png)](tangible1.png) **[Tangible T4 Editor](http://t4-editor.tangible-engineering.com/t4editor_features.html 'Tangible T4 Editor') from Tangible Engineering** This is a comprehensive tool with advanced IntelliSense, code navigation and validation. Personally I don't use this tool because I didn't like the bulky download, or the full blown Windows installation, but it looks like a decent tool so I recommend you give it a shot. There is a free version, but the full version will set you back an eye watering 99 €. This is not supposed to be a comprehensive review about each product, just a mile-high snapshot. I highly recommend that you test both tools and pick the one that works best for you.
 
 ## Basic Set-up
 
-Once you've picked your preferred tooling, its time to set started.  For the purposes of this tutorial we will create a simple console application, but the type of project doesn't matter. Add a new **Text Template** using the **Add New Item** dialog (shown below).  Call the file **Mapper.tt**; [![Add New Item](newitem1.png?w=625)](https://developerhandbook.com/wp-content/uploads/2014/02/newitem1.png)
+Once you've picked your preferred tooling, its time to set started. For the purposes of this tutorial we will create a simple console application, but the type of project doesn't matter. Add a new **Text Template** using the **Add New Item** dialog (shown below). Call the file **Mapper.tt**; [![Add New Item](newitem1.png?w=625)](https://developerhandbook.com/wp-content/uploads/2014/02/newitem1.png)
 
 A new Text Template will be created for you, with a few default assemblies and imports. Please change the **output extension** to **.cs**;
 
-<pre><#@ template debug="false" hostspecific="false" language="C#" #>
+```csharp
+<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".cs" #></pre>
+<#@ output extension=".cs" #>
+```
 
-Before making any further T4 specific changes, lets add in some simple code and show how to transform the template.  Add the following code to **Mapper.tt**;
+Before making any further T4 specific changes, lets add in some simple code and show how to transform the template. Add the following code to **Mapper.tt**;
 
-    using System;
-    namespace Tutorial
-    {
-        //Logic goes here
-    }
+```csharp
+using System;
+namespace Tutorial
+{
+    //Logic goes here
+}
+```
 
-To transform the template, simply save (if using **Devart ****T4 Editor**) or right click on **Mapper.tt** and click **Run Custom Tool**. [![Run Custom Tool](https://developerhandbook.com/wp-content/uploads/2014/02/runcustomtool1.png)](runcustomtool1.png)You should notice a file appear nested underneath **Mapper.tt**, called **Mapper.cs**.  Open the file and see the result of the template transformation.  Congratulations, you have written and run your first T4 template.
+To transform the template, simply save (if using **Devart \*\***T4 Editor**) or right click on **Mapper.tt** and click **Run Custom Tool**. [![Run Custom Tool](https://developerhandbook.com/wp-content/uploads/2014/02/runcustomtool1.png)](runcustomtool1.png)You should notice a file appear nested underneath **Mapper.tt**, called **Mapper.cs\*\*. Open the file and see the result of the template transformation. Congratulations, you have written and run your first T4 template.
 
 ## A step further
 
@@ -40,7 +45,7 @@ With the "Hello World" stuff out the way, we're free to get to the all the goodn
 
 ### Blocks
 
-If you're familiar with the ASP .NET Web Forms engine tags (<% %> <%= %>) or indeed the PHP equivalent (<? ?>) there really isn't anything new for you to learn here.  Otherwise, all you need to know is there are special tags that give instructions to T4 that express how the proceeding text should be interpreted.
+If you're familiar with the ASP .NET Web Forms engine tags (<% %> <%= %>) or indeed the PHP equivalent (<? ?>) there really isn't anything new for you to learn here. Otherwise, all you need to know is there are special tags that give instructions to T4 that express how the proceeding text should be interpreted.
 
 <table>
 
@@ -125,11 +130,11 @@ I simply added a statement block for the `for` loop, and an expression block for
 
 ### Includes
 
-Includes are basically references to other T4 templates.  Rather than simply having all our logic in a single file, we can break it up into several smaller files.  This will reduce duplication and make our code more readable going forward. Add a new T4 template, call it **SqlHelper.ttinclude**.  The **ttinclude** file extension denotes, as I'm sure you have surmised, that this file is basically a child of the parent that references it.  We don't need to double up our imports/assembly tags, so you can safely clear out anything that the template gives you by default and start fresh.
+Includes are basically references to other T4 templates. Rather than simply having all our logic in a single file, we can break it up into several smaller files. This will reduce duplication and make our code more readable going forward. Add a new T4 template, call it **SqlHelper.ttinclude**. The **ttinclude** file extension denotes, as I'm sure you have surmised, that this file is basically a child of the parent that references it. We don't need to double up our imports/assembly tags, so you can safely clear out anything that the template gives you by default and start fresh.
 
 ## Write some SQL to find your lookup tables
 
-To query our database, we're just going to knock up some very simple ADO .NET code, with a little in-line T-SQL.  There is really nothing special here.  I highly recommend that you create a scratch application and get this all working before finally dropping it into your template.  (Doing this will save your sanity, as the T4 debugging tools are somewhat primitive!) Use the **Class Feature Block** syntax we discussed earlier and drop in the following code;
+To query our database, we're just going to knock up some very simple ADO .NET code, with a little in-line T-SQL. There is really nothing special here. I highly recommend that you create a scratch application and get this all working before finally dropping it into your template. (Doing this will save your sanity, as the T4 debugging tools are somewhat primitive!) Use the **Class Feature Block** syntax we discussed earlier and drop in the following code;
 
     <#+
     public static IEnumerable<IGrouping> GetTables()
@@ -168,7 +173,7 @@ To query our database, we're just going to knock up some very simple ADO .NET co
 
     #>
 
-You may want to adjust this code a little to work with your set-up (change the connection string for example). In a nutshell, the code will connect to SQL Server, get all the tables whose name ends with **Type**, and return each row in each table as a single query.  This code is far from perfect, I am far from a SQL hero, but it gets the job done so I am happy.  You may want to use your SQL expertise to tidy it up.
+You may want to adjust this code a little to work with your set-up (change the connection string for example). In a nutshell, the code will connect to SQL Server, get all the tables whose name ends with **Type**, and return each row in each table as a single query. This code is far from perfect, I am far from a SQL hero, but it gets the job done so I am happy. You may want to use your SQL expertise to tidy it up.
 
 ## Tying it all together
 
@@ -234,7 +239,7 @@ Assuming everything is working, correctly, you should end up with the following 
             Home = 3,
             MainOffice = 4,
             Primary = 5,
-            Shipping = 6   
+            Shipping = 6
         };
 
         /// <summary>
@@ -261,7 +266,7 @@ Assuming everything is working, correctly, you should end up with the following 
             SalesAgent = 17,
             SalesAssociate = 18,
             SalesManager = 19,
-            SalesRepresentative = 20   
+            SalesRepresentative = 20
         };
 
         /// <summary>
@@ -271,18 +276,18 @@ Assuming everything is working, correctly, you should end up with the following 
         {
         Cell = 1,
             Home = 2,
-            Work = 3   
+            Work = 3
         };
 
     }
 
 ## Summary
 
-Visual Studio has native support for text templates, also known as T4\.  Text templates can be used to automatically generate just about anything, but it is common to generate code files based on existing database structures.  Out of the box tooling is pretty poor, but there are several third party tools that you can use to enhance the experience.  Generally these templates can be a little clunky to write, but once you get the right they can be a real time saver.
+Visual Studio has native support for text templates, also known as T4\. Text templates can be used to automatically generate just about anything, but it is common to generate code files based on existing database structures. Out of the box tooling is pretty poor, but there are several third party tools that you can use to enhance the experience. Generally these templates can be a little clunky to write, but once you get the right they can be a real time saver.
 
-## <span style="font-size:1.285714286rem;line-height:1.6;">Further Reading</span>
+## Further Reading
 
-1.  [How to generate multiple outputs from a single template](http://www.olegsych.com/2008/03/how-to-generate-multiple-outputs-from-single-t4-template/ "How to generate multiple outputs from single T4 template")
-2.  [<span style="line-height:1.714285714;font-size:1rem;">Just about every page on Oleg Sych's blog</span>](http://www.olegsych.com/ "Oleg Sych")
-3.  [Basic introduction about T4 Templates and how to customize them for ASP .NET MVC project](http://architects.dzone.com/articles/basic-introduction-about-t4 "Basic Introduction about T4 Templates & How to customize them for ASP.NET MVC Project")
-4.  [T4 template generation, best kept secret in Visual Studio](http://www.hanselman.com/blog/T4TextTemplateTransformationToolkitCodeGenerationBestKeptVisualStudioSecret.aspx "T4 (Text Template Transformation Toolkit) Code Generation - Best Kept Visual Studio Secret")
+1.  [How to generate multiple outputs from a single template](http://www.olegsych.com/2008/03/how-to-generate-multiple-outputs-from-single-t4-template/ 'How to generate multiple outputs from single T4 template')
+2.  [Just about every page on Oleg Sych's blog](http://www.olegsych.com/ 'Oleg Sych')
+3.  [Basic introduction about T4 Templates and how to customize them for ASP .NET MVC project](http://architects.dzone.com/articles/basic-introduction-about-t4 'Basic Introduction about T4 Templates & How to customize them for ASP.NET MVC Project')
+4.  [T4 template generation, best kept secret in Visual Studio](http://www.hanselman.com/blog/T4TextTemplateTransformationToolkitCodeGenerationBestKeptVisualStudioSecret.aspx 'T4 (Text Template Transformation Toolkit) Code Generation - Best Kept Visual Studio Secret')

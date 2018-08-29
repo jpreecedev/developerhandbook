@@ -2,6 +2,7 @@
 layout: post
 title: Using StructureMap setter injection to inject repositories into your View Model
 date: 2013-08-09
+categories: ['WPF MVVM']
 tags: ['c#', 'dependency injection', 'ioc', 'mvvm', 'structuremap', 'wpf', 'WPF MVVM']
 ---
 

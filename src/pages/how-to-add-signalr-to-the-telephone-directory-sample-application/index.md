@@ -2,7 +2,7 @@
 layout: post
 title: How to add SignalR to the telephone directory sample application
 date: 2014-03-15
-categpries: ['.NET']
+categories: ['.NET']
 tags: ['.NET', 'c#', 'html', 'javascript', 'signalr']
 ---
 

@@ -2,6 +2,7 @@
 layout: post
 title: Making NuGet work for your company
 date: 2013-07-19
+categories: ['Visual Studio']
 tags: ['nuget', 'Visual Studio']
 ---
 
