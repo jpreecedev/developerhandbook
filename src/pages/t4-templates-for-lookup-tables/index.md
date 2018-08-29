@@ -101,32 +101,36 @@ Any text that is not contained within any of these tags is treated as plain text
 
 T4 is designed to work with both C# and VB, so you can just choose the right block and start typing C# as normal, so a loop might look something like this;
 
-    using System;
+```csharp
+using System;
 
-    namespace Tutorial
-    {
-        <# for(int i = 0; i < 10; i++) { #>
-            //This is comment <#= i #>
-        <# } #>
-    }
+namespace Tutorial
+{
+    <# for(int i = 0; i < 10; i++) { #>
+        //This is comment <#= i #>
+    <# } #>
+}
+```
 
 I simply added a statement block for the `for` loop, and an expression block for outputting the value of `i` because the `for` loop itself doesn't have any sort of output, whereas I do want to output the value of `i` in this case.
 
-    using System;
+```csharp
+using System;
 
-    namespace Tutorial
-    {
-    //This is comment 0
-    //This is comment 1
-    //This is comment 2
-    //This is comment 3
-    //This is comment 4
-    //This is comment 5
-    //This is comment 6
-    //This is comment 7
-    //This is comment 8
-    //This is comment 9
-    }
+namespace Tutorial
+{
+  //This is comment 0
+  //This is comment 1
+  //This is comment 2
+  //This is comment 3
+  //This is comment 4
+  //This is comment 5
+  //This is comment 6
+  //This is comment 7
+  //This is comment 8
+  //This is comment 9
+}
+```
 
 ### Includes
 
@@ -136,42 +140,44 @@ Includes are basically references to other T4 templates. Rather than simply havi
 
 To query our database, we're just going to knock up some very simple ADO .NET code, with a little in-line T-SQL. There is really nothing special here. I highly recommend that you create a scratch application and get this all working before finally dropping it into your template. (Doing this will save your sanity, as the T4 debugging tools are somewhat primitive!) Use the **Class Feature Block** syntax we discussed earlier and drop in the following code;
 
-    <#+
-    public static IEnumerable<IGrouping> GetTables()
-    {
-        string connectionString = "Server=.;Database=AdventureWorks2012;Trusted_Connection=True;";
+```csharp
+<#+
+public static IEnumerable<IGrouping> GetTables()
+{
+    string connectionString = "Server=.;Database=AdventureWorks2012;Trusted_Connection=True;";
 
-        List tables = new List();
-        using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+    List tables = new List();
+    using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+    {
+        SqlCommand command = new SqlCommand("DECLARE @tmpTable TABLE ( [RowNumber] int, [Schema] nvarchar(15), [TableName] nvarchar(20), [ColumnName] nvarchar(20), [Sql] nvarchar(200) ) INSERT INTO @tmpTable ([RowNumber], [Schema], [TableName], [ColumnName], [Sql]) SELECT ROW_NUMBER() OVER (ORDER BY KU.TABLE_SCHEMA) AS RowNumber, KU.TABLE_SCHEMA, KU.table_name, column_name, 'SELECT "' + KU.TABLE_SCHEMA + "', "' + KU.TABLE_NAME + "', Name, CAST(ROW_NUMBER() OVER (ORDER BY Name) AS INT) AS RowNumber FROM ' + KU.TABLE_SCHEMA + '.' + KU.TABLE_NAME as [Sql] FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS TC INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS KU ON TC.CONSTRAINT_TYPE = 'PRIMARY KEY' AND TC.CONSTRAINT_NAME = KU.CONSTRAINT_NAME and ku.table_name in (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME LIKE '%Type' GROUP BY TABLE_NAME, TABLE_SCHEMA) DECLARE @counter INT = 1 DECLARE @total INT = (SELECT COUNT([Schema]) FROM @tmpTable) DECLARE @sqlCommand varchar(1000) WHILE (@counter  1) SET @sqlCommand = CONCAT(@sqlCommand, ' UNION ') SET @sqlCommand = CONCAT(@sqlCommand, @sql) SET @counter = @counter + 1 END EXEC (@sqlCommand)", sqlConnection);
+        sqlConnection.Open();
+
+        var reader = command.ExecuteReader();
+        while (reader.Read())
         {
-            SqlCommand command = new SqlCommand("DECLARE @tmpTable TABLE ( [RowNumber] int, [Schema] nvarchar(15), [TableName] nvarchar(20), [ColumnName] nvarchar(20), [Sql] nvarchar(200) ) INSERT INTO @tmpTable ([RowNumber], [Schema], [TableName], [ColumnName], [Sql]) SELECT ROW_NUMBER() OVER (ORDER BY KU.TABLE_SCHEMA) AS RowNumber, KU.TABLE_SCHEMA, KU.table_name, column_name, 'SELECT "' + KU.TABLE_SCHEMA + "', "' + KU.TABLE_NAME + "', Name, CAST(ROW_NUMBER() OVER (ORDER BY Name) AS INT) AS RowNumber FROM ' + KU.TABLE_SCHEMA + '.' + KU.TABLE_NAME as [Sql] FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS TC INNER JOIN INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS KU ON TC.CONSTRAINT_TYPE = 'PRIMARY KEY' AND TC.CONSTRAINT_NAME = KU.CONSTRAINT_NAME and ku.table_name in (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME LIKE '%Type' GROUP BY TABLE_NAME, TABLE_SCHEMA) DECLARE @counter INT = 1 DECLARE @total INT = (SELECT COUNT([Schema]) FROM @tmpTable) DECLARE @sqlCommand varchar(1000) WHILE (@counter  1) SET @sqlCommand = CONCAT(@sqlCommand, ' UNION ') SET @sqlCommand = CONCAT(@sqlCommand, @sql) SET @counter = @counter + 1 END EXEC (@sqlCommand)", sqlConnection);
-            sqlConnection.Open();
+            DatabaseTable table = new DatabaseTable();
+            table.Schema = reader.GetString(0);
+            table.TableName = reader.GetString(1);
+            table.Name = reader.GetString(2);
+            table.Id = reader.GetInt32(3);
 
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                DatabaseTable table = new DatabaseTable();
-                table.Schema = reader.GetString(0);
-                table.TableName = reader.GetString(1);
-                table.Name = reader.GetString(2);
-                table.Id = reader.GetInt32(3);
-
-                tables.Add(table);
-            }
+            tables.Add(table);
         }
-
-        return tables.GroupBy(t => t.TableName);
     }
 
-    public class DatabaseTable
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string TableName { get; set; }
-        public string Schema { get; set; }
-    }
+    return tables.GroupBy(t => t.TableName);
+}
 
-    #>
+public class DatabaseTable
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string TableName { get; set; }
+    public string Schema { get; set; }
+}
+
+#>
+```
 
 You may want to adjust this code a little to work with your set-up (change the connection string for example). In a nutshell, the code will connect to SQL Server, get all the tables whose name ends with **Type**, and return each row in each table as a single query. This code is far from perfect, I am far from a SQL hero, but it gets the job done so I am happy. You may want to use your SQL expertise to tidy it up.
 
@@ -179,107 +185,119 @@ You may want to adjust this code a little to work with your set-up (change the c
 
 Almost there now, we just need to reference our include file, import a couple of assemblies, and update our loop in **Mapper.tt** to call the code we have just written; To add a reference to the include file, add the following underneath the main directive block;
 
-    <#@ include file="SqlHelper.ttinclude" #>
+```csharp
+<#@ include file="SqlHelper.ttinclude" #>
+```
 
 And use the the **assembly** hint tag to bring in a reference to **System.Data;**
 
-    <#@ assembly name="System.Data" #>
+```csharp
+<#@ assembly name="System.Data" #>
+```
 
 And finally add a import for **System.Data.SqlClient**;
 
-    <#@ import namespace="System.Data.SqlClient" #>
+```csharp
+<#@ import namespace="System.Data.SqlClient" #>
+```
 
 You should end up with the following;
 
-    <#@ template debug="false" hostspecific="false" language="C#" #>
-    <#@ include file="SqlHelper.ttinclude" #>
-    <#@ assembly name="System.Core" #>
-    <#@ assembly name="System.Data" #>
-    <#@ import namespace="System.Linq" #>
-    <#@ import namespace="System.Text" #>
-    <#@ import namespace="System.Collections.Generic" #>
-    <#@ import namespace="System.Data.SqlClient" #>
-    <#@ output extension=".cs" #>
+```csharp
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ include file="SqlHelper.ttinclude" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ output extension=".cs" #>
+```
 
 Now, and I promise this is the last step, update your loop that you created earlier to call out to the database using the methods we created in **SqlHelper.include**;
 
-    using System;
+```csharp
+using System;
 
-    namespace AutoEnum
+namespace AutoEnum
+{
+    <# foreach (var table in GetTables()) { #>
+    /// <summary>
+    /// The <#= table.Key #> enumeration
+    /// </summary>
+    public enum <#= table.Key #>
     {
-        <# foreach (var table in GetTables()) { #>
-        /// <summary>
-        /// The <#= table.Key #> enumeration
-        /// </summary>
-        public enum <#= table.Key #>
-        {
-            <# for(int i = 0; i < table.Count(); i++) { #>
-            <# var item = table.ElementAt(i); #>
-            <#= item.Name.Replace(" ","").Replace("/", "") #> = <#= item.Id #><# if(i < table.Count() - 1) { #>,
-            <# } #><# } #>
-        };
+        <# for(int i = 0; i < table.Count(); i++) { #>
+        <# var item = table.ElementAt(i); #>
+        <#= item.Name.Replace(" ","").Replace("/", "") #> = <#= item.Id #><# if(i < table.Count() - 1) { #>,
+        <# } #><# } #>
+    };
 
-    <#}#>}
+<#}#>}
+```
 
 ## The result
 
 Assuming everything is working, correctly, you should end up with the following enumerations in **Mapper.cs;**
 
-    using System;
+```csharp
+using System;
 
-    namespace AutoEnum
+namespace AutoEnum
+{
+    /// <summary>
+    /// The AddressType enumeration
+    /// </summary>
+    public enum AddressType
     {
-        /// <summary>
-        /// The AddressType enumeration
-        /// </summary>
-        public enum AddressType
-        {
-        Archive = 1,
-            Billing = 2,
-            Home = 3,
-            MainOffice = 4,
-            Primary = 5,
-            Shipping = 6
-        };
+    Archive = 1,
+        Billing = 2,
+        Home = 3,
+        MainOffice = 4,
+        Primary = 5,
+        Shipping = 6
+    };
 
-        /// <summary>
-        /// The ContactType enumeration
-        /// </summary>
-        public enum ContactType
-        {
-        AccountingManager = 1,
-            AssistantSalesAgent = 2,
-            AssistantSalesRepresentative = 3,
-            CoordinatorForeignMarkets = 4,
-            ExportAdministrator = 5,
-            InternationalMarketingManager = 6,
-            MarketingAssistant = 7,
-            MarketingManager = 8,
-            MarketingRepresentative = 9,
-            OrderAdministrator = 10,
-            Owner = 11,
-            OwnerMarketingAssistant = 12,
-            ProductManager = 13,
-            PurchasingAgent = 14,
-            PurchasingManager = 15,
-            RegionalAccountRepresentative = 16,
-            SalesAgent = 17,
-            SalesAssociate = 18,
-            SalesManager = 19,
-            SalesRepresentative = 20
-        };
+    /// <summary>
+    /// The ContactType enumeration
+    /// </summary>
+    public enum ContactType
+    {
+    AccountingManager = 1,
+        AssistantSalesAgent = 2,
+        AssistantSalesRepresentative = 3,
+        CoordinatorForeignMarkets = 4,
+        ExportAdministrator = 5,
+        InternationalMarketingManager = 6,
+        MarketingAssistant = 7,
+        MarketingManager = 8,
+        MarketingRepresentative = 9,
+        OrderAdministrator = 10,
+        Owner = 11,
+        OwnerMarketingAssistant = 12,
+        ProductManager = 13,
+        PurchasingAgent = 14,
+        PurchasingManager = 15,
+        RegionalAccountRepresentative = 16,
+        SalesAgent = 17,
+        SalesAssociate = 18,
+        SalesManager = 19,
+        SalesRepresentative = 20
+    };
 
-        /// <summary>
-        /// The PhoneNumberType enumeration
-        /// </summary>
-        public enum PhoneNumberType
-        {
-        Cell = 1,
-            Home = 2,
-            Work = 3
-        };
+    /// <summary>
+    /// The PhoneNumberType enumeration
+    /// </summary>
+    public enum PhoneNumberType
+    {
+    Cell = 1,
+        Home = 2,
+        Work = 3
+    };
 
-    }
+}
+```
 
 ## Summary
 

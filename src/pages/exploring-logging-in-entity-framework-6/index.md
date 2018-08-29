@@ -30,13 +30,13 @@ public class LoggerDbContext: DbContext {
   Database.Log = Console.WriteLine;
  }
 
- public DbSet < Customer > Customers {
+ public DbSet<Customer> Customers {
   get;
   set;
  }
 
 }
-public class MyInitializer: DropCreateDatabaseAlways < LoggerDbContext > {
+public class MyInitializer: DropCreateDatabaseAlways<LoggerDbContext> {
  protected override void Seed(LoggerDbContext context) {
   base.Seed(context);
 

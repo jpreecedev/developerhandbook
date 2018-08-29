@@ -12,8 +12,10 @@ Using a Guid as your tables primary key, when using Entity Framework, requires a
 
 Using a Guid as the primary key when taking the code first approach is simple. When creating your entity, add the [DatabaseGenerated](<http://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.schema.databasegeneratedattribute(v=vs.110).aspx> 'DatabaseGeneratedAttribute') attribute to your primary key property, as shown below;
 
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public Guid Id { get; set; }
+```csharp
+[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+public Guid Id { get; set; }
+```
 
 Entity framework will create the column as you would expect, with a primary key and `uniqueidentifier` data type. [<figure>![codefirst-defaultvalue](codefirst-defaultvalue_thumb1.png 'codefirst-defaultvalue')
 
@@ -29,18 +31,20 @@ The database first approach follows a similar line to the code first approach, b
 
 </figure>](https://developerhandbook.com/wp-content/uploads/2014/07/databasefirst-model1.png) No need to give your entity an ID in your code, that will be populated for you automatically after the entity has been commited to the database;
 
-    using (ApplicationDbContext context = new ApplicationDbContext())
-    {
-        var person = new Person
-                         {
-                             FirstName = "Random",
-                             LastName = "Person";
-                         };
+```csharp
+using (ApplicationDbContext context = new ApplicationDbContext())
+{
+    var person = new Person
+                      {
+                          FirstName = "Random",
+                          LastName = "Person";
+                      };
 
-        context.People.Add(person);
-        context.SaveChanges();
-        Console.WriteLine(person.Id);
-    }
+    context.People.Add(person);
+    context.SaveChanges();
+    Console.WriteLine(person.Id);
+}
+```
 
 **Important Note: Your Guid field MUST be a primary key, or this does not work. Entity Framework will give you a rather cryptic error message!**
 

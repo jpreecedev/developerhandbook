@@ -165,7 +165,7 @@ No matter which technique you use to compile your JavaScript, you will get the f
 
 That's fine. All we need to do is tell TypeScript about our declaration files by adding the following code to the very top of the code file;
 
-```xml
+```javascript
 /// <reference path="typings/angularjs/angular.d.ts" />
 /// <reference path="typings/angularjs/angular-resource.d.ts" />
 ```
@@ -952,28 +952,28 @@ h1 {
 
 .container {
   width: 50%;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 input {
   width: 100%;
   height: 35px;
-  font-size: 16px;
   margin: 10px auto;
+  font-size: 16px;
 }
 
 button {
-  background: #25a6e1;
-  background: linear-gradient(top, #25a6e1 0%, #188bc0 100%);
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
   padding: 8px 13px;
   color: #fff;
-  font-family: 'Helvetica Neue', sans-serif;
   font-size: 17px;
-  border-radius: 4px;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #25a6e1;
+  background: linear-gradient(top, #25a6e1 0%, #188bc0 100%);
   border: 1px solid #1a87b9;
+  border-radius: 4px;
   cursor: pointer;
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
 }
 
 tr:nth-child(even) {

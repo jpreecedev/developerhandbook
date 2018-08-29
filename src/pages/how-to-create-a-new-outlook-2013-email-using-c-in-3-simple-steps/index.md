@@ -12,8 +12,10 @@ It has traditionally been quite painful to interact with any part of the Microso
 
 Before doing anything, it is important to note that you must have Microsoft Office 2013 installed for this to work. Seems obvious, but, its still worth mentioning. You also need two references;
 
-    Microsoft.Office.Core
-    Microsoft.Office.Interop.Office
+```csharp
+Microsoft.Office.Core
+Microsoft.Office.Interop.Office
+```
 
 The quickest way to add these references to your project is to right click on the **References** folder in your project, and click **Add Reference**. The **Reference Manager** dialog window will appear as shown below; [![Reference Manager](referencemanager1.png?w=640)](https://developerhandbook.com/wp-content/uploads/2013/12/referencemanager1.png)
 
@@ -28,27 +30,35 @@ You should now see that the appropriate references have been added to your proje
 
 Next, add the appropriate using directives to your code file.
 
-    using Microsoft.Office.Interop.Outlook;
-    using OutlookApp = Microsoft.Office.Interop.Outlook.Application;
+```csharp
+using Microsoft.Office.Interop.Outlook;
+using OutlookApp = Microsoft.Office.Interop.Outlook.Application;
+```
 
 The second directive is a recommendation to avoid ambiguity with other classes with the name **Application**. In the constructor of your application (or wherever you want this code to go), create an instance of the Outlook Application and create a new `MailItem` object, as shown;
 
-    OutlookApp outlookApp = new OutlookApp();
-    MailItem mailItem = outlookApp.CreateItem(OlItemType.olMailItem);
+```csharp
+OutlookApp outlookApp = new OutlookApp();
+MailItem mailItem = outlookApp.CreateItem(OlItemType.olMailItem);
+```
 
 ### Step 3 - Format and display the email to the user
 
 Finally you can begin to flesh out your email.
 
-    mailItem.Subject = "This is the subject";
-    mailItem.HTMLBody = "<html><body>This is the <strong>funky</strong> message body</body></html>";
+```csharp
+mailItem.Subject = "This is the subject";
+mailItem.HTMLBody = "<html><body>This is the <strong>funky</strong> message body</body></html>";
 
-    //Set a high priority to the message
-    mailItem.Importance = OlImportance.olImportanceHigh;
+//Set a high priority to the message
+mailItem.Importance = OlImportance.olImportanceHigh;
+```
 
 And to display the email, simply call the `Display` method;
 
-    mailItem.Display(false);
+```csharp
+mailItem.Display(false);
+```
 
 There are literally dozens of things you can do to an Outlook Email, including adding attachments, business cards, images, recipient, CC/BCC fields.
 

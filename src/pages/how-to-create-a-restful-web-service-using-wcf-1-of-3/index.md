@@ -38,51 +38,57 @@ I found that CORS requires quite a bit of additional code to work correctly. In 
 
 I find Entity Framework code first to be one of the best and fastest ways to rapidly prototype a SQL server database, fill it with data, and query that data. Perhaps not an approach you would want to use in a production environment, I find the whole concept of migrations to be a little clunky, but great for getting up and running quickly. I'm assuming that you have a good working knowledge of Entity Framework code first. If not, then have a look at my tutorial on [Entity Framework code first in 15 minutes](https://developerhandbook.com/2013/07/12/entity-framework-code-first-in-15-minutes/). And by the way, if you also need to scrub up on code first migrations, have a look at [Entity Framework code first migrations](https://developerhandbook.com/2013/08/16/wpf-entity-framework-code-first-migrations-in-a-production-environment/) tutorial. A blog post, for this tutorial at least, consists simply of an `Id`, `Title` and `Url` property. Add **BlogPost.cs** to your **Data** project as follows;
 
-    public class BlogPost
+```csharp
+public class BlogPost
+{
+    public int Id { get; set; }
+    public string Title { get; set; }
+
+    [Column("Url")]
+    public string UriString
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-
-        [Column("Url")]
-        public string UriString
-        {
-            get { return Url == null ? null : Url.ToString(); }
-            set { Url = value == null ? null : new Uri(value); }
-        }
-
-        [NotMapped]
-        public Uri Url { get; set; }
+        get { return Url == null ? null : Url.ToString(); }
+        set { Url = value == null ? null : new Uri(value); }
     }
+
+    [NotMapped]
+    public Uri Url { get; set; }
+}
+```
 
 As you may know, Entity Framework can only deal with simple types so we need a wrapper property to retrieve and set the value of the actual property for us. We have used the `ColumnAttribute` to indicate the name of the column that the property is to be mapped to, and used the `NotMappedAttribute` to explicitly tell Entity Framework not to use said `Url` property. (By default Entity Framework tries to map all public properties). We will revisit this class later and tidy it up for WCF and so that it can be consumed properly by the client. Next, add a **BlogContext.cs** as follows;
 
-    public class BlogContext : DbContext
+```csharp
+public class BlogContext : DbContext
+{
+    public BlogContext()
+        : base("BlogContext")
     {
-        public BlogContext()
-            : base("BlogContext")
-        {
-        }
-
-        public DbSet<BlogPost> BlogPosts { get; set; }
     }
+
+    public DbSet<BlogPost> BlogPosts { get; set; }
+}
+```
 
 And finally, add a database initializer and define some seed data;
 
-    public class BlogInitializer : DropCreateDatabaseAlways
+```csharp
+public class BlogInitializer : DropCreateDatabaseAlways
+{
+    protected override void Seed(BlogContext context)
     {
-        protected override void Seed(BlogContext context)
+        context.BlogPosts.AddRange(
+            new[]
         {
-            context.BlogPosts.AddRange(
-                new[]
-            {
-                new BlogPost { Id = 0, Title = "Resilient Connection for Entity Framework 6", Url = new Uri("https://developerhandbook.com/2014/02/05/resilient-connection-for-entity-framework-6/") },
-                new BlogPost { Id = 1, Title = "How to pass Microsoft Exam 70-486 (Developing ASP.NET MVC 4 Web Applications) in 30 days", Url = new Uri("https://developerhandbook.com/2014/02/01/how-to-pass-microsoft-exam-70-486-developing-asp-net-mvc-4-web-applications-in-30-days/") },
-                new BlogPost { Id = 2, Title = "5 easy security enhancements for your ASP .NET application", Url = new Uri("https://developerhandbook.com/2014/01/26/5-easy-security-enhancements-for-your-asp-net-application/") },
-                new BlogPost { Id = 3, Title = "10 things every software developer should do in 2014", Url = new Uri("https://developerhandbook.com/2014/01/18/10-things-every-software-developer-should-do-in-2014/") },
-                new BlogPost { Id = 4, Title = "15 reasons why I can't work without JetBrains ReSharper", Url = new Uri("https://developerhandbook.com/2013/12/28/15-reasons-why-i-cant-work-without-jetbrains-resharper/") }
-            });
-        }
+            new BlogPost { Id = 0, Title = "Resilient Connection for Entity Framework 6", Url = new Uri("https://developerhandbook.com/2014/02/05/resilient-connection-for-entity-framework-6/") },
+            new BlogPost { Id = 1, Title = "How to pass Microsoft Exam 70-486 (Developing ASP.NET MVC 4 Web Applications) in 30 days", Url = new Uri("https://developerhandbook.com/2014/02/01/how-to-pass-microsoft-exam-70-486-developing-asp-net-mvc-4-web-applications-in-30-days/") },
+            new BlogPost { Id = 2, Title = "5 easy security enhancements for your ASP .NET application", Url = new Uri("https://developerhandbook.com/2014/01/26/5-easy-security-enhancements-for-your-asp-net-application/") },
+            new BlogPost { Id = 3, Title = "10 things every software developer should do in 2014", Url = new Uri("https://developerhandbook.com/2014/01/18/10-things-every-software-developer-should-do-in-2014/") },
+            new BlogPost { Id = 4, Title = "15 reasons why I can't work without JetBrains ReSharper", Url = new Uri("https://developerhandbook.com/2013/12/28/15-reasons-why-i-cant-work-without-jetbrains-resharper/") }
+        });
     }
+}
+```
 
 I went with the `DropCreateDatabaseAlways` initializer so that I can add whatever dummy data I like and just reset everything by simply restarting the application.
 

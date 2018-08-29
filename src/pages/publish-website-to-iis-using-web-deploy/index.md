@@ -48,9 +48,10 @@ IIS requires read permissions to access the files that make up your website.  Th
 
 Finally, you can create a web deploy publish profile (simply an XML file with a few basic settings)  which you can import into Visual Studio to save you the hassle of having to type anything. [![image](image_thumb2.png "image")](https://developerhandbook.com/wp-content/uploads/2014/02/image2.png)Head back over to IIS, right click on your website, click **Deploy** > **Configure Web Deploy Publishing**. You can (and definitely should) create a restricted user account and grant permission to publish to that account (either an IIS account of a Windows authentication based account). Once you have selected a user, click **Setup**.  A message should appear in the **Results** text area;
 
-    Publish enabled for 'WIN-DLICU73MRD0Jon'
+<pre>Publish enabled for 'WIN-DLICU73MRD0Jon'
     Granted 'WIN-DLICU73MRD0Jon' full control on 'C:inetpubwwwroottestwebsite'
     Successfully created settings file 'C:UsersJonDesktopWIN-DLICU73MRD0_Jon_TestWebsite.PublishSettings'
+</pre>
 
 Success! This is your publish profile that you can import into Visual Studio.
 

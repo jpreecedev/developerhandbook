@@ -29,72 +29,82 @@ Before we kick things off, i found myself asking this question (like so many oth
 
 You can view and download the full source code for this project via GitHub, see the end of the post for more details. We have a WCF Service application with a Service Contract as follows;
 
-    [ServiceContract]
-    public interface IPeopleService
-    {
-        [OperationContract]
-        Person[] GetPeople();
-    }
+```csharp
+[ServiceContract]
+public interface IPeopleService
+{
+    [OperationContract]
+    Person[] GetPeople();
+}
+```
 
 And the implementation of the Service Contract;
 
-    public class PeopleService : IPeopleService
+```csharp
+public class PeopleService : IPeopleService
+{
+    public Person[] GetPeople()
     {
-        public Person[] GetPeople()
-        {
-            return new[]
-                        {
-                            new Person { Age = 45, FirstName = "John", LastName = "Smith" },
-                            new Person { Age = 42, FirstName = "Jane", LastName = "Smith" }
-                        };
-        }
+        return new[]
+                    {
+                        new Person { Age = 45, FirstName = "John", LastName = "Smith" },
+                        new Person { Age = 42, FirstName = "Jane", LastName = "Smith" }
+                    };
     }
+}
+```
 
 The model class (composite type, if you will) is as follows;
 
-    [DataContract]
-    public class Person
-    {
-        [DataMember]
-        public int Age { get; set; }
+```csharp
+[DataContract]
+public class Person
+{
+    [DataMember]
+    public int Age { get; set; }
 
-        [DataMember]
-        public string FirstName { get; set; }
+    [DataMember]
+    public string FirstName { get; set; }
 
-        [DataMember]
-        public string LastName { get; set; }
-    }
+    [DataMember]
+    public string LastName { get; set; }
+}
+```
 
 The initial configuration is as follows;
 
-    <system.serviceModel>
-      <behaviors>
-        <serviceBehaviors>
-          <behavior>
-            <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true"/>
-            <serviceDebug includeExceptionDetailInFaults="false"/>
-          </behavior>
-        </serviceBehaviors>
-      </behaviors>
-      <protocolMapping>
-        <add binding="basicHttpsBinding" scheme="https"/>
-      </protocolMapping>
-      <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true"/>
-    </system.serviceModel>
+```xml
+<system.serviceModel>
+  <behaviors>
+    <serviceBehaviors>
+      <behavior>
+        <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true"/>
+        <serviceDebug includeExceptionDetailInFaults="false"/>
+      </behavior>
+    </serviceBehaviors>
+  </behaviors>
+  <protocolMapping>
+    <add binding="basicHttpsBinding" scheme="https"/>
+  </protocolMapping>
+  <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true"/>
+</system.serviceModel>
+```
 
 The WCF service can easily be hosted in IIS, simply add a service reference to the WSDL definition file and you're away. In the interest of completeness, here is the entire client code;
 
-    static void Main(string[] args)
+```csharp
+static void Main(string[] args)
+{
+    PeopleServiceClient client = new PeopleServiceClient();
+
+    foreach (var person in client.GetPeople())
     {
-        PeopleServiceClient client = new PeopleServiceClient();
-
-        foreach (var person in client.GetPeople())
-        {
-            Console.WriteLine(person.FirstName);
-        }
-
-        Console.ReadLine();
+        Console.WriteLine(person.FirstName);
     }
+
+    Console.ReadLine();
+}
+```
 
 ## Hosting in IIS
 
@@ -112,43 +122,51 @@ Finally, flip back to Visual Studio and create a publish profile (which we will 
 
 Ok we have set up our environment, now its time to get down to the fun stuff...configuration. Its easier if you delete everything you have between the `<system.serviceModel>` elements and follow along with me. Add the following skeleton code between the `<system.serviceModel>` opening and closing tags, we will fill in each element separately; (update the **Service Name** to match that in your project)
 
-    <services>
-      <service name="PeopleService.Service.PeopleService" behaviorConfiguration="ServiceBehaviour">
-        <host>
-        </host>
-      </service>
-    </services>
-    <bindings>
-    </bindings>
-    <behaviors>
-      <serviceBehaviors>
-      </serviceBehaviors>
-    </behaviors>
+```xml
+<services>
+  <service name="PeopleService.Service.PeopleService" behaviorConfiguration="ServiceBehaviour">
+    <host>
+    </host>
+  </service>
+</services>
+<bindings>
+</bindings>
+<behaviors>
+  <serviceBehaviors>
+  </serviceBehaviors>
+</behaviors>
+```
 
 ### Base Address
 
 Start by adding a base address (directly inside the **host** element) so that we can use relative addresses';
 
-    <baseAddresses>
-      <add baseAddress="https://peoplesite.local/" />
-    </baseAddresses>
+```xml
+<baseAddresses>
+  <add baseAddress="https://peoplesite.local/" />
+</baseAddresses>
+```
 
 ### Endpoints
 
 Next, add two endpoints (one for the `WsHttpBinding` and one for MEX);
 
-    <endpoint address="" binding="wsHttpBinding" bindingConfiguration="BasicBinding" contract="PeopleService.Service.IPeopleService" name="BasicEndpoint" />
-    <endpoint address="mex" binding="mexHttpsBinding" contract="IMetadataExchange" name="mex" />
+```xml
+<endpoint address="" binding="wsHttpBinding" bindingConfiguration="BasicBinding" contract="PeopleService.Service.IPeopleService" name="BasicEndpoint" />
+<endpoint address="mex" binding="mexHttpsBinding" contract="IMetadataExchange" name="mex" />
+```
 
 Note that we are using `mexHttpsBinding` because our site does not support standard HTTP binding. We don't need to explicitly add a binding for the MEX endpoint as WCF will deal with this automatically for us. Add a `wsHttpBinding` as follows;
 
-    <wsHttpBinding>
-      <binding name="BasicBinding">
-        <security mode="TransportWithMessageCredential">
-          <message clientCredentialType="UserName" />
-        </security>
-      </binding>
-    </wsHttpBinding>
+```xml
+<wsHttpBinding>
+  <binding name="BasicBinding">
+    <security mode="TransportWithMessageCredential">
+      <message clientCredentialType="UserName" />
+    </security>
+  </binding>
+</wsHttpBinding>
+```
 
 ### Bindings
 
@@ -158,14 +176,16 @@ This is where we specify what type of security we want to use. In our case, we w
 
 Finally we need to update our existing service behaviour with a `serviceCredentials` element as follows;
 
-    <behavior name="ServiceBehaviour">
-      <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true" />
-      <serviceDebug includeExceptionDetailInFaults="true" />
-      <serviceCredentials>
-        <userNameAuthentication userNamePasswordValidationMode="Custom" customUserNamePasswordValidatorType="PeopleService.Service.Authenticator, PeopleService.Service" />
-        <serviceCertificate findValue="peoplesite.local" storeLocation="LocalMachine" storeName="TrustedPeople" x509FindType="FindBySubjectName" />
-      </serviceCredentials>
-    </behavior>
+```xml
+<behavior name="ServiceBehaviour">
+  <serviceMetadata httpGetEnabled="true" httpsGetEnabled="true" />
+  <serviceDebug includeExceptionDetailInFaults="true" />
+  <serviceCredentials>
+    <userNameAuthentication userNamePasswordValidationMode="Custom" customUserNamePasswordValidatorType="PeopleService.Service.Authenticator, PeopleService.Service" />
+    <serviceCertificate findValue="peoplesite.local" storeLocation="LocalMachine" storeName="TrustedPeople" x509FindType="FindBySubjectName" />
+  </serviceCredentials>
+</behavior>
+```
 
 The two elements of interest are `userNameAuthentication` and `serviceCertificate`.
 
@@ -173,19 +193,21 @@ The two elements of interest are `userNameAuthentication` and `serviceCertificat
 
 This is where we tell WCF about our custom authentication class. Lets go ahead and create this. Add a new class to your project called **Authenticator.cs** and add the following code;
 
-    using System.IdentityModel.Selectors;
-    using System.ServiceModel;
+```csharp
+using System.IdentityModel.Selectors;
+using System.ServiceModel;
 
-    public class Authenticator : UserNamePasswordValidator
+public class Authenticator : UserNamePasswordValidator
+{
+    public override void Validate(string userName, string password)
     {
-        public override void Validate(string userName, string password)
+        if (userName != "peoplesite" && password != "password")
         {
-            if (userName != "peoplesite" && password != "password")
-            {
-                throw new FaultException("Invalid user and/or password");
-            }
+            throw new FaultException("Invalid user and/or password");
         }
     }
+}
+```
 
 Basically, you can add whatever code you want here to do your authentication/authorisation. Notice that the **Validate** method returns `void`. If you determine that the credentials supplied are invalid, you should throw a [FaultException](<http://msdn.microsoft.com/en-us/library/ms576199(v=vs.110).aspx>), which will be automatically handled for you by WCF. You should ensure that the `customUserNamePasswordValidatorType` attribute in your App.config file is the fully qualified type of your authenticator type.
 
@@ -197,9 +219,11 @@ This is key, if this is not _quite_ right nothing will work. Basically you are t
 
 We just need one final tweak to our test client to make all this work. Update the test client code as follows;
 
-    PeopleServiceClient client = new PeopleServiceClient();
-    client.ClientCredentials.UserName.UserName = "peoplesite";
-    client.ClientCredentials.UserName.Password = "password";
+```csharp
+PeopleServiceClient client = new PeopleServiceClient();
+client.ClientCredentials.UserName.UserName = "peoplesite";
+client.ClientCredentials.UserName.Password = "password";
+```
 
 We pass in the client credentials via the, you guessed it, `ClientCredentials` object on the service client. If you run the client now, you should get some test data back from the service written out to the console window. Notice that you will get an exception if the username/password is incorrect, or if the connection is not over SSL.
 

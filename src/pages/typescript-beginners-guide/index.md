@@ -20,31 +20,33 @@ This is a great platform to explain to people _why_ they should use TypeScript. 
 
 TypeScript provides several out of the box features that enable you to write more robust JavaScript;
 
-### 1\. Static typing
+### 1. Static typing
 
 Properties, fields, function parameters and more can be decorated (sprinkled) with type declarations, which act as hints to the compiler and ultimately result in compile time type checking.
 
 You can start very simply, by, say, adding a `string` type to a function parameter.
 
-    function print(message:string) {
-        //Console log message here
-    }
+```javascript
+function print(message:string) {
+    //Console log message here
+}
+```
 
 This will ensure that any calling method passes a `string` value as a parameter. This means that should you attempt to pass, for example, a `number` you will get a compile time error.
 
 If you think type checking can be a hindrance to the dynamic nature of JavaScript, read on.
 
-### 2\. TypeScript is optional, and it takes a back seat
+### 2. TypeScript is optional, and it takes a back seat
 
 Unlike most other programming paradigms, TypeScript is completely optional. If there is a feature you don't like, you don't have to use it. In fact, you can write 100% pure vanilla JavaScript inside a **.ts** file and never include any TypeScript paradigms and everything will work just fine. If you do encounter compile time errors, TypeScript will still emit your compiled JavaScript... you are not forced to fix the compilation error, unlike other compiled languages like C++ or C# for example.
 
 In TypeScript 1.5+ there is a flag that stops compilation in the event that you encounter an error, should you choose to utilize this feature.
 
-### 3\. TypeScript is free, open source
+### 3. TypeScript is free, open source
 
 Not only is TypeScript completely free and open source (even for commercial development), but there is also tooling for all the main operating systems (Linux, Mac, Windows) and is not just limited to the Microsoft stack. You can get TypeScript via NPM, NuGet, or you can download it from [GitHub](https://github.com/Microsoft/TypeScript).
 
-### 4\. TypeScript enables developers to write modern JavaScript
+### 4. TypeScript enables developers to write modern JavaScript
 
 Good developers want to use the latest iteration of their tools. They use these tools everyday, so keeping up to date makes sense.
 
@@ -54,13 +56,17 @@ It is fair to say that the ECMAScript standard (the standard from which JavaScri
 
 Example; TypeScript 1.5 transforms the following ES6 string interpolation code;
 
-    var name = "Jon Preece";
-    var a = "Hello, ${name}";
+```javascript
+var name = "Jon Preece";
+var a = "Hello, ${name}";
+```
 
 to ES5 friendly string concatenation;
 
-    var name = "Jon Preece";
-    var a = "Hello, " + name;
+```javascript
+var name = "Jon Preece";
+var a = "Hello, " + name;
+```
 
 Yes, you can use most ES6 features knowing with 100% confidence that the emitted code is widely supported by all decent browsers (IE 7+ at least).
 
@@ -80,19 +86,23 @@ There are several approaches to using tsc depending on your operating system, ID
 
 The simplest feature of TypeScript to use out of the box, and arguably the best feature, is type declarations, or static typing. You declare the type of a function parameter using the following syntax;
 
-    function print(message:string) {
-        //Console log message here
-    }
+```javascript
+function print(message:string) {
+    //Console log message here
+}
+```
 
 This is the same code as shown earlier. We want to log a message to the console window, or display a message to the user, or whatever the case is. It's reasonable to assume that the message will be a sequence or alphanumeric characters... a `string`.
 
 It might not make any sense to do the following;
 
-    //Print '123' to the screen
-    print(123);
+```javascript
+//Print '123' to the screen
+print(123);
 
-    //Print this object to the screen
-    print({message: "abc" });
+//Print this object to the screen
+print({message: "abc" });
+```
 
 The result of calling the function in this matter is unpredictable a best, and at worst could result in an error in your application. By applying the type declaration to the parameter, we can get a warning at compile time that there is a problem.
 
@@ -108,7 +118,9 @@ There are other places, like [Type Declaration files](http://www.typescriptlang.
 
 Sometimes, a type isn't known until runtime. In situations where type isn't known, you could use the `any` type;
 
-    print(message: any) : string { }
+```typescript
+print(message: any) : string { }
+```
 
 This tells TSC that type is "unknown" and that static analysis is not required or appropriate.
 
@@ -118,18 +130,20 @@ By default, TypeScript does not use any sort of Asynchronous Module Defition (AM
 
 Modules help with code organisation and reduce global scope pollution. Take the following code;
 
-    module Printing {
-        class Printer {
-            constructor(private startingValue: number) {
+```typescript
+module Printing {
+    class Printer {
+        constructor(private startingValue: number) {
 
-            }
-            print(message: string): string {
-                //Do something
+        }
+        print(message: string): string {
+            //Do something
 
-                return "";
-            }
+            return "";
         }
     }
+}
+```
 
 TypeScript will generate a root object, named `Printing`. This object **will** be added to the global scope. This is the module, and you can have as many modules in your application as you like.
 
@@ -139,33 +153,39 @@ Anything nested inside a module will be added to it as an object. So in this cas
 
 Constructors are a feature of ES6, called when an object is instantiated. You can include your set up logic here for the specific instance. You can also pass values to the constructor and get full IntelliSense support;
 
-    module Printing {
-        class Printer {
-            private startingValue: number;
+```typescript
+module Printing {
+    class Printer {
+        private startingValue: number;
 
-            constructor(startingValue : number) {
-                this.startingValue = startingValue;
-            }
+        constructor(startingValue : number) {
+            this.startingValue = startingValue;
         }
     }
+}
+```
 
 #### Understanding constructor parameters
 
 Constructor parameters are slightly different compared to other programming languages. In the above example, we have a private field named `startingValue`, and we set it's value to whatever the value of the `startingValue` constructor parameter is;
 
-    this.startingValue = startingValue
+```typescript
+this.startingValue = startingValue
+```
 
 This is unnecessary in TypeScript... TypeScript provides some syntactic sugar to sweeten this up.
 
 The following code is valid TypeScript;
 
-    module Printing {
-        class Printer {
-            constructor(private startingValue : number) {
+```typescript
+module Printing {
+    class Printer {
+        constructor(private startingValue : number) {
 
-            }
         }
     }
+}
+```
 
 This is valid because under the hood TypeScript created a variable on the class with the name `startingValue` inside the constructor and assigned the value automatically. Unless you explicitly apply an access modifier to the parameter, it is `public`. You can add the `private` access modified to make that parameter only accessible with the class itself and not externally.
 

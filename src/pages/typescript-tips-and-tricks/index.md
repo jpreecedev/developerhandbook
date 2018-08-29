@@ -14,7 +14,9 @@ If you're writing TypeScript using Visual Studio, your files are automatically c
 
 First things first, how would you normally compile a TypeScript file to JavaScript? VS Code doesn't do this out of the box (perhaps the will add this functionality in the future, I'm not sure). You use a [task runner](https://code.visualstudio.com/docs/tasks). To configure a task runner, open your project that has some TypeScript files, and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>. A little notification to appear that tells you that no task runner is configured. Click **Configure Task Runner**. VS Code will create a directory called **.settings** and add a new JSON file called **tasks.json** to this directory. Open **tasks.json** and inspect the default configuration (the one that isn't commented out, VS Code will show you some other sample configurations that are commented out. Look for the following line;
 
-    "args": ["HelloWorld.ts"]
+```json
+"args": ["HelloWorld.ts"]
+```
 
 Change this path to point at a TypeScript file in your project. Save changes. Now open your TypeScript file, and open in it in side by side view. Put the TypeScript file (.ts) on the left, and put the compiled JavaScript code (.js) on the right. Make a change your TypeScript file and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> again. You should see the updated JavaScript file.
 
@@ -26,7 +28,9 @@ Having to press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> every time you wan
 
 My first thoughts when trying to get this to work were to pass the **-w** flag to tsc using VS Code. Try opening **tasks.json** and changing the `args` option as follows;
 
-    "args": ["-w", "test.ts"],
+```json
+"args": ["-w", "test.ts"],
+```
 
 Yeah that doesn't work (even though other sample configurations shown in the same file pass commands to tsc in this manner).
 
@@ -58,13 +62,15 @@ Modern browsers have the ability to disable source maps. **Chrome** 1\. Open dev
 
 There are a bunch of tools available to take care of bundling and minification of JavaScript files. You've probably used either [ASP .NET Bundling & Minification](http://www.asp.net/mvc/overview/performance/bundling-and-minification), [Web Essentials bundler](http://vswebessentials.com/features/bundling), [Uglify](https://github.com/mishoo/UglifyJS) or something similar. These tools generally work well and I've only experienced minor problems with each tool. (The ASP .NET bundler is a bit more troublesome than most, to be fair). When using a task runner such as Grunt or Gulp, you pass in an array of all the file paths you want to include in the bundle. [Example](https://github.com/gruntjs/grunt-contrib-uglify#basic-compression);
 
-    files: {
-            'dest/output.min.js': ['src/input.js']
-          }
+```json
+files: {
+  'dest/output.min.js': ['src/input.js']
+}
+```
 
 Generally I don't take this approach of passing in individual files, I prefer to pass in a recursive path, perhaps something like this;
 
-    "**/*.ts"
+<pre>"**/*.ts"</pre>
 
 That aside, if you prefer to include your files individually in Grunt/GulpFile, TypeScript can help you out by combining all the compiled JavaScript into a single file.
 
@@ -81,8 +87,9 @@ Typically you would use these two in conjunction with each other. You can then m
 
 The flags you need are as follows;
 
-    --out FILENAME
+<pre>--out FILENAME
     --outDir DIRECTORYPATH
+</pre>
 
 ## Available from version 1.5
 
@@ -100,21 +107,25 @@ Doesn't generate any JS files if any compile time errors are detected. You might
 
 The default behaviour in past versions of tsc was to remove enumerations and replace them with te actual value of the enumeration. So if your enum was;
 
-    enum DaysOfWeek{
-        Monday,
-        Tuesday
-        ...
-    }
-
+```typescript
+enum DaysOfWeek{
+    Monday,
+    Tuesday
     ...
+}
 
-    console.log(DayOfWeek.Monday)
+...
+
+console.log(DayOfWeek.Monday)
+```
 
 The transpiled output would be;
 
-    console.log(0 /*Monday*/)
+```typescript
+console.log(0 /*Monday*/)
+```
 
-Passing the **--preserveConstEnums** flag prevents this transformation from taking place, so the original code stays in act.
+Passing the `--preserveConstEnums` flag prevents this transformation from taking place, so the original code stays in act.
 
 ## Summary
 

@@ -25,11 +25,13 @@ Testing the other HTTP verbs takes a little bit more effort, but not much. Flip 
 3.  Change the service Url to **/BlogService/Post**
 4.  Add the following response body;
 
+```json
     {
-    "id": "0",
-    "title": "This is a test",
-    "url": "https://www.developerhandbook.com"
+      "id": "0",
+      "title": "This is a test",
+      "url": "https://www.developerhandbook.com"
     }
+```
 
 The web service should respond with HTTP status code 200 (OK). Also the web service will return the new blog post, with its Id property set to a proper value (6 in this case). To update the entity, switch the HTTP verb from **POST** to **PUT** (which is Update in RESTful speak)**.** Change the `title` property, and the `Id` property to **6** and click Execute again. Again the web service should return a 200 status code and the entity in JSON format (and again, with the **Id** of 6). The difference between a **POST** and a **PUT** is simple. **POST** should always return a different object than the object you sent it. **PUT** should always return the same object that you send to it. These are the characteristics of a properly implemented RESTful web service.
 
@@ -41,25 +43,29 @@ Change Fiddler to use the **DELETE** verb. When you do this, the Request Body fi
 
 We won't get too much into the nitty-gritty about how to consume the web service using jQuery, after all the entire source code is available on [GitHub](https://github.com/jpreecedev/RESTfulTutorial). I personally used jQuery's `ajax` method and simply varied the `type` depending on the verb I wanted to use. For example;
 
-    $.ajax({
-            type: "POST",
-            url: baseServiceUrl + "/Post",
-            contentType: "application/json",
-            data: JSON.stringify(blogPost),
-            dataType: "json",
-            success: function (data) {
-            blogPost.id = data.id;
-            self.reset();
-        }
-    });
+```javascript
+$.ajax({
+        type: "POST",
+        url: baseServiceUrl + "/Post",
+        contentType: "application/json",
+        data: JSON.stringify(blogPost),
+        dataType: "json",
+        success: function (data) {
+        blogPost.id = data.id;
+        self.reset();
+    }
+});
+```
 
 And the **DELETE** request is even simpler (shown below).
 
-    $.ajax({
-        url: baseServiceUrl + "/Post/" + blogPost.id,
-        type: "DELETE",
-        contentType: "application/json;charset=UTF-8"
-    });
+```javascript
+$.ajax({
+    url: baseServiceUrl + "/Post/" + blogPost.id,
+    type: "DELETE",
+    contentType: "application/json;charset=UTF-8"
+});
+```
 
 We're really just copying what we've already achieved using Fiddler. For the demo I've used jQuery, Bootstrap, and KnockoutJS...so please be sure to download it and check it out for yourself!
 

@@ -65,8 +65,8 @@ If you think that SQL server is the be-all-and-end-all, then its time to wake up
 
 It simply amazes me just how many developers don't understand boxing and un-boxing. Granted, its been less of an issue since [generics was introduced in .NET 2.0](<http://msdn.microsoft.com/en-us/library/ms379564(v=vs.80).aspx>) but done wrong, your application's performance and memory usage will be seriously affected. **Useful resources:**
 
-* [Six important .NET concepts: Stack, heap, value types, reference types, boxing and unboxing](http://www.codeproject.com/Articles/76153/Six-important-NET-concepts-Stack-heap-value-types) <font size="2">(Shivprasad Koirala)</font>
-* <font size="3">[Boxing and Unboxing](http://msdn.microsoft.com/en-GB/library/yz2be5wk.aspx) <font size="2">(MSDN)</font></font>
+* [Six important .NET concepts: Stack, heap, value types, reference types, boxing and unboxing](http://www.codeproject.com/Articles/76153/Six-important-NET-concepts-Stack-heap-value-types) (Shivprasad Koirala)
+* [Boxing and Unboxing](http://msdn.microsoft.com/en-GB/library/yz2be5wk.aspx) (MSDN)
 
 Also note, when a prospective employer asks you to explain this problem, they may also ask you to explain the difference between reference types and value types. Reference types of course are classes, whereas value types are structs. A value type can be thought of as the actual value of an object, whereas a reference type typically contains the address of the actual value, or null (value types are not nullable).
 

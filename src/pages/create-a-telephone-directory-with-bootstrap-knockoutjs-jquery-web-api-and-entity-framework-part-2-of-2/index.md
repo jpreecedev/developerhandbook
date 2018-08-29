@@ -100,8 +100,8 @@ Also, you should update your **site.css** file to include a few styles, as follo
 }
 
 .container-narrow {
-  margin: 25px auto 0 auto;
   max-width: 700px;
+  margin: 25px auto 0 auto;
 }
 
 .container-narrow > .row > h1 {
