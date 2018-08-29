@@ -70,7 +70,7 @@ var a = "Hello, " + name;
 
 Yes, you can use most ES6 features knowing with 100% confidence that the emitted code is widely supported by all decent browsers (IE 7+ at least).
 
-In the interest of fairness, this isn't true for all ES6 features. For example [Promises](http://www.html5rocks.com/en/tutorials/es6/promises/) must be supported natively by the browser (or [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#ecmascript-6-harmony)), there are many transformations available... resulting in a lot of developer feel-good. Check out my post [Using ES6 features with TypeScript](www.typescriptguy.com/getting-started/using-es6-features-with-typescript/) for more transformations.
+In the interest of fairness, this isn't true for all ES6 features. For example [Promises](http://www.html5rocks.com/en/tutorials/es6/promises/) must be supported natively by the browser (or [polyfilled](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills#ecmascript-6-harmony)), there are many transformations available... resulting in a lot of developer feel-good. Check out my post [Using ES6 features with TypeScript](/typescript/using-es6-features-with-typescript/) for more transformations.
 
 Ultimately, however, I always recommend to developers that they use the right tools for the job, and that they use the tools that they themselves are most comfortable using. I recommend the same for you. Take the time to evaluate TypeScript, experiment with it, and see if it can be introduced into your daily development workflow. If you are developing a greenfield project, why not introduce it from the beginning?...after all, TypeScript really comes into it's own when used in a medium to large team environment.
 

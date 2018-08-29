@@ -14,7 +14,7 @@ Like it or not, the days of developers being able to get away with having no des
 
 <u>Windows 8 Store Applications</u>
 
-[![Store](store_thumb1.png 'Store')](https://developerhandbook.com/wp-content/uploads/2014/01/store1.png)
+[![Store](store_thumb1.png 'Store')](store1.png)
 
 Windows 8 store applications are all the evidence you need here. Love it or hate it, Metro (for lack of an official name) is here to stay, in one form or another, and there is really nowhere to hide with applications like this. You have the entire screen (excluding a 1px border) to fill with graphical, well designed content. Users are simply not going to accept poorly designed, ugly applications. Gone are the days of console applications and drab dull websites. Deal with it.
 
@@ -24,7 +24,7 @@ The World Wide Web has never been as popular as it is today, and the growth is s
 
 <u>Internet user numbers have exploded in every region over the last 14 years</u>
 
-[![InternetUsageData](internetusagedata_thumb1.png 'InternetUsageData')](https://developerhandbook.com/wp-content/uploads/2014/01/internetusagedata1.png)
+[![InternetUsageData](internetusagedata_thumb1.png 'InternetUsageData')](internetusagedata1.png)
 
 ASP .NET MVC is a mature Microsoft .NET platform technology for developing web applications rapidly. Other technologies you will need to know include;
 
@@ -49,7 +49,7 @@ If you want to demand a top salary when seeking new employment, getting certifie
 
 <u>Microsoft Certified Solutions Developer</u>
 
-[![Untitled](untitled_thumb1.png 'Untitled')](https://developerhandbook.com/wp-content/uploads/2014/01/untitled1.png) When you decide on the route you want to take, each route will consist of multiple parts/exams you must sit. **You should complete every exam in the route**. You must not stop after finishing one exam. If you really want to better yourself and improve your skillset, you should learn a range of new skills. Chances are at least one of the exams that make up a complete certification is either new to you, or an area in which you need improvement.
+[![Untitled](untitled_thumb1.png 'Untitled')](untitled1.png) When you decide on the route you want to take, each route will consist of multiple parts/exams you must sit. **You should complete every exam in the route**. You must not stop after finishing one exam. If you really want to better yourself and improve your skillset, you should learn a range of new skills. Chances are at least one of the exams that make up a complete certification is either new to you, or an area in which you need improvement.
 
 ### 5. Develop your personal brand
 
@@ -87,4 +87,4 @@ The best way to learn new skills and get perspective is to read blogs from other
 
 ### 10. Work hard, enjoy yourself, and grow a beard
 
-Make sure you work hard and have fun. Remember you work in one of the most challenging and exciting industries in the world, so enjoy it. You should look after yourself by eating well and getting regular exercise, which will improve your concentration and make you more productive at work. [![DataBeard](databeard_thumb1.png 'DataBeard')](https://developerhandbook.com/wp-content/uploads/2014/01/databeard1.png)
+Make sure you work hard and have fun. Remember you work in one of the most challenging and exciting industries in the world, so enjoy it. You should look after yourself by eating well and getting regular exercise, which will improve your concentration and make you more productive at work. [![DataBeard](databeard_thumb1.png 'DataBeard')](databeard1.png)

@@ -24,11 +24,11 @@ I find that the best way to learn any new technology, or technology that are unf
 4.  How to create a simple Web API using C#/ASP .NET
 5.  How to persist data using Entity Framework code first
 
-This is part 1 of 2. The second part will be available soon. A screenshot of the end result; [![FinalProduct](finalproduct_thumb1.png 'FinalProduct')](https://developerhandbook.com/wp-content/uploads/2014/03/finalproduct1.png)
+This is part 1 of 2. The second part will be available soon. A screenshot of the end result; [![FinalProduct](finalproduct_thumb1.png 'FinalProduct')](finalproduct1.png)
 
 ## Prerequisites/Set Up
 
-We will not be using the standard ASP .NET template, for the sake of keeping the code simple and light. Regardless of whether you are using Visual Studio 2012 or 2013, start by creating a new **ASP .NET Empty Web Application**. Call the project **TelephoneDirectory**. [![NewProject](newproject_thumb2.png 'NewProject')](https://developerhandbook.com/wp-content/uploads/2014/03/newproject2.png) We're using this template to avoid a lot of the bulk that comes with the other default templates. The empty project is truely empty, apart from a web.config file and a couple of references.
+We will not be using the standard ASP .NET template, for the sake of keeping the code simple and light. Regardless of whether you are using Visual Studio 2012 or 2013, start by creating a new **ASP .NET Empty Web Application**. Call the project **TelephoneDirectory**. [![NewProject](newproject_thumb2.png 'NewProject')](newproject2.png) We're using this template to avoid a lot of the bulk that comes with the other default templates. The empty project is truely empty, apart from a web.config file and a couple of references.
 
 ### Third party dependencies
 
@@ -168,7 +168,7 @@ public class DataController : ApiController
  }
 ```
 
-In the interest of maximum scalability (its important to think ahead) you can make your method asynchronous (by using the **async** and **await** keywords) and use the **Async** versions of methods where possible, although you should know that this is not required (but a good habit to get into). Interestingly, you can now open up a web browser (by pressing F5) and query this method. Your browser will send a Get request by default; (note that your port number will vary to mine) [![GetData](getdata_thumb1.png 'GetData')](https://developerhandbook.com/wp-content/uploads/2014/03/getdata1.png)
+In the interest of maximum scalability (its important to think ahead) you can make your method asynchronous (by using the **async** and **await** keywords) and use the **Async** versions of methods where possible, although you should know that this is not required (but a good habit to get into). Interestingly, you can now open up a web browser (by pressing F5) and query this method. Your browser will send a Get request by default; (note that your port number will vary to mine) [![GetData](getdata_thumb1.png 'GetData')](getdata1.png)
 Well done, your API is now working. The method you have added will return all the telephone entries by default. Now, add the following method;
 
 ```csharp

@@ -52,7 +52,7 @@ We will create an attribute, and apply it to each of the Mammal classes, then wr
 
 ## Create/Apply an attribute
 
-There are two ways to create an attribute in C#, the easy way or the manual way. If you want to make your life a whole lot easier, you should use the **Attribute** code snippet. To use the **Attribute** snippet, simply start typing **Attribute** and press **Tab Tab** on the keyboard. [![Attribute Code Snippet](https://developerhandbook.com/wp-content/uploads/2014/02/attributecodesnippet1.png)](attributecodesnippet1.png) Call the attribute **LatinNameAttribute**, accept the other defaults, delete all the comments that come as part of the snippet, and add a public property called **Name** (type System.String). Your attribute should be as follows;
+There are two ways to create an attribute in C#, the easy way or the manual way. If you want to make your life a whole lot easier, you should use the **Attribute** code snippet. To use the **Attribute** snippet, simply start typing **Attribute** and press **Tab Tab** on the keyboard. [![Attribute Code Snippet](attributecodesnippet1.png)](attributecodesnippet1.png) Call the attribute **LatinNameAttribute**, accept the other defaults, delete all the comments that come as part of the snippet, and add a public property called **Name** (type System.String). Your attribute should be as follows;
 
 ```csharp
 [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
@@ -105,7 +105,7 @@ Lets step through each line;
 3.  Read the first `LatinNameAttribute` you find decorated on the class (we stated that we can have more than one attribute defined on our attribute) and select the value of the `Name` property.
 4.  Loop through each latin name, write it out for the user to see
 
-Note that I have only decorated `Human` and `Bat` with `LatinNameAttribute`, so you should only get two outputs when you run the program. [![Screenshot of attribute names](https://developerhandbook.com/wp-content/uploads/2014/02/screenshot1.png)](screenshot1.png) For the sake of completeness, here is the `Main` method;
+Note that I have only decorated `Human` and `Bat` with `LatinNameAttribute`, so you should only get two outputs when you run the program. [![Screenshot of attribute names](screenshot1.png)](screenshot1.png) For the sake of completeness, here is the `Main` method;
 
 ```csharp
 internal class Program {

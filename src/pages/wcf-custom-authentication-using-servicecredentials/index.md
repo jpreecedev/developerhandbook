@@ -49,12 +49,12 @@ I'm hosting this in IIS on my local machine (using a self-signed certificate) bu
 2.  Add a new website called "echo"
 3.  Add a HTTP binding with the host name "echo.local"
 4.  Open up the hosts file (C:\Windows\System32\drivers\etc) and add an entry for "echo.local" and IP address 127.0.0.1
-5.  Use your [favourite SSL self signed certificate creation tool](http://blog.pluralsight.com/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net) to generate a certificate for cn=echo.local ([See another tutorial I wrote that explains how to do this](https://www.developerhandbook.com/2014/07/19/how-to-secure-your-wcf-service-and-authenticate-users/)). Be sure to save the SSL certificate in PFX format, this is important for later.
+5.  Use your [favourite SSL self signed certificate creation tool](http://blog.pluralsight.com/selfcert-create-a-self-signed-certificate-interactively-gui-or-programmatically-in-net) to generate a certificate for cn=echo.local. Be sure to save the SSL certificate in PFX format, this is important for later.
 6.  The quickest way I've found to generate the CER file (which is the certificate excluding the private key, for security) is to import the PFX into the **Personal** certificate store for your local machine. Then right click > All Tasks > Export (excluding private key) and select **DER encoded binary X.509 (.CER)**. Save to some useful location for use later. Naturally when doing this "for real", your SSL certificate provider will provide the PFX and CER (and tonnes of other formats) so you can skip this step. This tutorial assumes you don't have access to the certificate store (either physically or programmatically) on the production machine.
 7.  DO NOT add a binding for HTTPS unless you are confident that your web host fully supports HTTPS connections. More on this later.
 8.  Flip back to Visual Studio and publish your site to IIS. I like to publish in "Debug" mode initially, just to make debugging slightly less impossible.
 
-[![ImportCertificate](ImportCertificate_thumb.png 'ImportCertificate')](https://www.developerhandbook.com/wp-content/uploads/2015/04/ImportCertificate.png) Open your favourite web browser and navigate to [http://echo.local/EchoService.svc?wsdl](http://echo.local/EchoService.svc?wsdl). You won't get much of anything at this time, just a message to say that service metadata is unavailable and instructions on how to turn it on. Forget it, its not important.
+[![ImportCertificate](ImportCertificate_thumb.png 'ImportCertificate')](ImportCertificate.png) Open your favourite web browser and navigate to [http://echo.local/EchoService.svc?wsdl](http://echo.local/EchoService.svc?wsdl). You won't get much of anything at this time, just a message to say that service metadata is unavailable and instructions on how to turn it on. Forget it, its not important.
 
 ## Beyond UserNamePasswordValidator
 
@@ -645,15 +645,15 @@ Console.WriteLine(service.Echo(10));
 
 Throughout this tutorial I have used HTTP bindings and told you explicitly not to use HTTPS, and there is a very good reason for that. If you have a simple hosting environment, i.e. an environment that is NOT load balanced, then you can go ahead and make the following changes;
 
-- Change your service URL to HTTPS
-- Change `HttpTransportBindingElement` (on the server, inside the `BindingHelper`) to `HttpsTransportBindingElement`.
-- Add a HTTPS binding in IIS
+* Change your service URL to HTTPS
+* Change `HttpTransportBindingElement` (on the server, inside the `BindingHelper`) to `HttpsTransportBindingElement`.
+* Add a HTTPS binding in IIS
 
 Re-launch the client and all should be good. If you get the following error message, you're in big trouble.
 
 > The protocol 'https' is not supported.
 
-After 4 days of battling with this error, I found what the problem is. Basically WCF requires end to end HTTPS for HTTPS to be "supported". Take the following set up; [![load-balancing-1](load-balancing-1_thumb.png 'load-balancing-1')](https://www.developerhandbook.com/wp-content/uploads/2015/04/load-balancing-1.png) Some hosting companies will load balance the traffic. That makes absolutely perfect sense and is completely reasonable. The communications will be made from the client (laptop, desktop or whatever) via HTTPS, that bit is fine. If you go to the service via HTTPS you will get a response. However, and here's the key, the communication between the load balancer and the physical web server probably isn't secured. I.e. doesn't use HTTPS. So the end-to-end communication isn't HTTPS and therefore you get the error message described. To work around this, use a HTTPS binding on the client, and a HTTP binding on the server. This will guarantee that the traffic between the client and the server will be secure (thus preventing MIM attacks) but the traffic between the load balancer and the physical web server will not be secure (you'll have to decide for yourself if you can live with that).
+After 4 days of battling with this error, I found what the problem is. Basically WCF requires end to end HTTPS for HTTPS to be "supported". Take the following set up; [![load-balancing-1](load-balancing-1_thumb.png 'load-balancing-1')](load-balancing-1.png) Some hosting companies will load balance the traffic. That makes absolutely perfect sense and is completely reasonable. The communications will be made from the client (laptop, desktop or whatever) via HTTPS, that bit is fine. If you go to the service via HTTPS you will get a response. However, and here's the key, the communication between the load balancer and the physical web server probably isn't secured. I.e. doesn't use HTTPS. So the end-to-end communication isn't HTTPS and therefore you get the error message described. To work around this, use a HTTPS binding on the client, and a HTTP binding on the server. This will guarantee that the traffic between the client and the server will be secure (thus preventing MIM attacks) but the traffic between the load balancer and the physical web server will not be secure (you'll have to decide for yourself if you can live with that).
 
 ## Quirks
 

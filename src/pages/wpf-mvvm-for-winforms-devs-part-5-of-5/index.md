@@ -10,7 +10,7 @@ The purpose of this series of tutorials is to introduce the Model-View-ViewModel
 
 ### User Controls
 
-User controls are controls that you have created for use throughout your application. Often user controls are a composite of existing WPF controls, pieced together to simplify code, improve maintainability by improving code reuse, and provide a consistent look and feel throughout your application. In this tutorial we are going to look at how to create a date time picker as a single, unified control that accepts a `DateTime` object as its value. [![Custom Date Picker](https://developerhandbook.com/wp-content/uploads/2013/06/customdatetimepicker1.png)](customdatetimepicker1.png) To make this possible, we will need to create the following;
+User controls are controls that you have created for use throughout your application. Often user controls are a composite of existing WPF controls, pieced together to simplify code, improve maintainability by improving code reuse, and provide a consistent look and feel throughout your application. In this tutorial we are going to look at how to create a date time picker as a single, unified control that accepts a `DateTime` object as its value. [![Custom Date Picker](customdatetimepicker1.png)](customdatetimepicker1.png) To make this possible, we will need to create the following;
 
 - Resource dictionary to store all our styles/layout behaviour (called CustomControls.xaml)
 - A class for the control behavioural logic itself (called CustomDateTimePicker.cs)

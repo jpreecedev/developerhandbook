@@ -106,7 +106,7 @@ Whilst the BaseWindowViewModel is similar to the BaseViewModel class, there are 
 
 ### Creating a window
 
-Now that we have the core pieces in place, we can turn our attention to creating a window. The window in this example is going to display a couple of views (one at a time) and navigation will be achieved via some buttons. This is what we're aiming for; [![WPF MVVM Structure Map Main Window](https://developerhandbook.com/wp-content/uploads/2013/06/wpfmvvmstructuremap-mainwindow1.png)](wpfmvvmstructuremap-mainwindow1.png)
+Now that we have the core pieces in place, we can turn our attention to creating a window. The window in this example is going to display a couple of views (one at a time) and navigation will be achieved via some buttons. This is what we're aiming for; [![WPF MVVM Structure Map Main Window](wpfmvvmstructuremap-mainwindow1.png)](wpfmvvmstructuremap-mainwindow1.png)
 
 When a button is clicked, the corresponding view is displayed whilst displaying details about its data context.
 

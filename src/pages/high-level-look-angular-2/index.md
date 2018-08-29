@@ -38,7 +38,7 @@ It is hard to talk about Angular 2 without discussing [TypeScript](https://en.wi
 
 Angular is written using TypeScript, however, you don't necessarily have to write you Angular code using TypeScript, you could use; Babel, ES5 or ES6 if you prefer. If you are familiar with [Google Dart](https://www.dartlang.org/), that is also supported.
 
-I believe that Angular 2 applications are most commonly being developed using TypeScript, so I'll use TypeScript throughout this post. If you need a summary of TypeScript, check out my [TypeScript Beginners Guide](https://www.developerhandbook.com/typescript/typescript-beginners-guide/) on this website, DeveloperHandbook.com.
+I believe that Angular 2 applications are most commonly being developed using TypeScript, so I'll use TypeScript throughout this post. If you need a summary of TypeScript, check out my [TypeScript Beginners Guide](/typescript/typescript-beginners-guide/) on this website, DeveloperHandbook.com.
 
 At a high level, TypeScript is JavaScript. You can convert all your existing JavaScript code to TypeScript as easily as changing the file extension from JS to TS. The most useful feature of TypeScript is its transpiler, which takes your TypeScript code (which is basically ES6), and converts it into ES5\. Why would you want to do this? Most developers will want to utilise the new language features of ES6, ES7 and beyond, whilst not having to worry about cross browser compatibility. Support for ES6 is shaky at best on the desktop ([Microsoft Edge, I'm looking at you](http://kangax.github.io/compat-table/es6/)), and very poor across mobile devices. TypeScript takes this pain away by converting your code to ES5, which is stable and does have excellent support.
 

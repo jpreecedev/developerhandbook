@@ -10,13 +10,13 @@ Entity Framework is an [Object Relational Mapper](http://en.wikipedia.org/wiki/O
 
 ### Adding Entity Framework to your project
 
-The quickest way to add Entity Framework to your project is using the Package Manager Console (NuGet). In Visual Studio, click "View > Other Windows > Package Manager Console", and type the following command; `Install-Package EntityFramework` [![Install Package](https://developerhandbook.com/wp-content/uploads/2013/06/installpackage1.png)](installpackage1.png) This process will add all the appropriate references to your project.
+The quickest way to add Entity Framework to your project is using the Package Manager Console (NuGet). In Visual Studio, click "View > Other Windows > Package Manager Console", and type the following command; `Install-Package EntityFramework` [![Install Package](installpackage1.png)](installpackage1.png) This process will add all the appropriate references to your project.
 
 ### Super Quick Walk-through
 
 This tutorial aims to get you up and running in about 15 minutes. We will create a very simple application, which has a WPF front end and an Entity Framework back end, based around the idea of customers, addresses and orders. Every customer will have an address and optionally they can have orders. So lets get to it, the clock is ticking. Create a new WPF project, call it SuperQuick.
 
-[![SuperQuick](newproject1.jpg?w=640)](https://developerhandbook.com/wp-content/uploads/2013/06/newproject1.jpg)
+[![SuperQuick](newproject1.jpg?w=640)](newproject1.jpg)
 
 Add the following classes to your project;
 
@@ -66,7 +66,7 @@ public class Customer {
 }
 ```
 
-Lets take a moment out to look at this code. Customer will be mapped to its own table in your database, and **Id** will be considered the primary key. Notice that we have a property called **Address** of type Address. Address is a complex type, meaning it consists of multiple fields/properties. How will this be mapped to the database? Well Entity Framework will analyse the class and create a column for each publicly accessible property. The database table will eventually look like this (once we flesh out the Address class); [![Complex Type](https://developerhandbook.com/wp-content/uploads/2013/06/complextype1.png)](complextype1.png) Notice the naming of each column. This is significant because Entity Framework uses the column name to match the value back to each property on your class. Also note the data type for each column. You can explicitly dictate what data type you want to use (perhaps NVARCHAR(255) for a string no longer than 255 characters) using a combination of attributes and the fluent API. We may cover these topics in more detail in another blog post. Also notice that we have a List of type Order placed by the company. This property basically has a one to many relationship with customer, as a customer can have none, one, or many orders. The property is marked as virtual so that Entity Framework can create a dynamic proxy for the property, which enables for lazy loading and change tracking. This may, when used right, improve performance by only retrieving data when needed. Add the following to Address.cs
+Lets take a moment out to look at this code. Customer will be mapped to its own table in your database, and **Id** will be considered the primary key. Notice that we have a property called **Address** of type Address. Address is a complex type, meaning it consists of multiple fields/properties. How will this be mapped to the database? Well Entity Framework will analyse the class and create a column for each publicly accessible property. The database table will eventually look like this (once we flesh out the Address class); [![Complex Type](complextype1.png)](complextype1.png) Notice the naming of each column. This is significant because Entity Framework uses the column name to match the value back to each property on your class. Also note the data type for each column. You can explicitly dictate what data type you want to use (perhaps NVARCHAR(255) for a string no longer than 255 characters) using a combination of attributes and the fluent API. We may cover these topics in more detail in another blog post. Also notice that we have a List of type Order placed by the company. This property basically has a one to many relationship with customer, as a customer can have none, one, or many orders. The property is marked as virtual so that Entity Framework can create a dynamic proxy for the property, which enables for lazy loading and change tracking. This may, when used right, improve performance by only retrieving data when needed. Add the following to Address.cs
 
 ```csharp
 public class Address {

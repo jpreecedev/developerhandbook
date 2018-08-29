@@ -10,11 +10,11 @@ As part of a recent mini series we created a very simple telephone directory web
 
 The first parts of the mini series can be found here;
 
-[https://developerhandbook.com/2014/03/08/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/](https://developerhandbook.com/2014/03/08/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/ 'https://developerhandbook.com/2014/03/08/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
+[/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/](/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/ '/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
 
-[https://developerhandbook.com/2014/03/12/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/](https://developerhandbook.com/2014/03/12/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/ 'https://developerhandbook.com/2014/03/08/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
+[/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/](/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/ '/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
 
-[![github4848](github4848_thumb1.png 'github4848')](https://developerhandbook.com/wp-content/uploads/2014/03/github48481.png)
+[![github4848](github4848_thumb1.png 'github4848')](github48481.png)
 
 This post is a continuation of the original project. You can find the entire source code over on [GitHub](https://github.com/jpreecedev/telephonedirectory).
 

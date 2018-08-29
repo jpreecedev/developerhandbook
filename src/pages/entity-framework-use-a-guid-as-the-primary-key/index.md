@@ -21,7 +21,7 @@ Entity framework will create the column as you would expect, with a primary key 
 
 <figcaption>Click to zoom in</figcaption>
 
-</figure>](https://developerhandbook.com/wp-content/uploads/2014/07/codefirst-defaultvalue1.png) Also notice, very important, that the default value on the column has been set to `(newsequentialid())`.  This generates a new sequential (continuous) Guid for each row.  If you were so inclined, you could change this to `newid())`, which would result in a completely random Guid for each new row.  This will be cleared each time your database gets dropped and re-created, so this works better when taking the Database First approach.
+</figure>](codefirst-defaultvalue1.png) Also notice, very important, that the default value on the column has been set to `(newsequentialid())`.  This generates a new sequential (continuous) Guid for each row.  If you were so inclined, you could change this to `newid())`, which would result in a completely random Guid for each new row.  This will be cleared each time your database gets dropped and re-created, so this works better when taking the Database First approach.
 
 ## Database First
 
@@ -29,7 +29,7 @@ The database first approach follows a similar line to the code first approach, b
 
 <figcaption>Click the image to zoom in</figcaption>
 
-</figure>](https://developerhandbook.com/wp-content/uploads/2014/07/databasefirst-model1.png) No need to give your entity an ID in your code, that will be populated for you automatically after the entity has been commited to the database;
+</figure>](databasefirst-model1.png) No need to give your entity an ID in your code, that will be populated for you automatically after the entity has been commited to the database;
 
 ```csharp
 using (ApplicationDbContext context = new ApplicationDbContext())

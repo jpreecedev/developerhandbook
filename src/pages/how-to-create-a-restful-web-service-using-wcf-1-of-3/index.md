@@ -10,14 +10,14 @@ RESTful (Representational State Transfer) web services use HTTP verbs to map CRU
 
 * Create (POST) > create a new resource.
 * Read (GET) > retrieve one or many resources.
-* Update (PUT) > update an existing resource.
+* Update (PUT) > update an existing resourπce.
 * Delete (DELETE) > delete an existing resource.
 
 This tutorial demonstrates to how implement a simple RESTful web service using WCF, and how to query it using various jQuery methods (at a high level). Entity Framework code first will be used for data persistence. The program we will create will be for reading, editing and updating a list of blog posts... what else?! By the way, throughout this tutorial I will use the terms RESTful service, web service, and WCF service interchangeably...which is fine for this tutorial (but not in the wild).
 
 ## Project Structure
 
-I think its very important to establish the correct project structure before developing a solution, as it can often be hard to change later. [![Solution](solution_thumb1.png 'Solution')](https://developerhandbook.com/wp-content/uploads/2014/03/solution1.png)Add three new projects; **Data**, **Service** and **Web** (as shown to the left). We want to define clear boundaries in our solution, which would (if this were a real project) make future maintenance easier. The data project will contain our entities, and all (surprisingly little) logic required to persist and retrieve data from an external data store. In this case, for simplicity, I have used Entity Framework code first approach. The service layer will contain our WCF RESTful service definition, all associated configuration, and each of our CRUD methods. Finally, the Web project will be the client. Again for simplicity, I simply added a HTML file (index.html) and jQuery to pass requests to the service. We will not dive too much into how this works, because its relatively straightforward. All associated source code for this solution is available on [GitHub](https://github.com/jpreecedev/RESTfulTutorial). Add each project using the following templates;
+I think its very important to establish the correct project structure before developing a solution, as it can often be hard to change later. [![Solution](solution_thumb1.png 'Solution')](solution1.png)Add three new projects; **Data**, **Service** and **Web** (as shown to the left). We want to define clear boundaries in our solution, which would (if this were a real project) make future maintenance easier. The data project will contain our entities, and all (surprisingly little) logic required to persist and retrieve data from an external data store. In this case, for simplicity, I have used Entity Framework code first approach. The service layer will contain our WCF RESTful service definition, all associated configuration, and each of our CRUD methods. Finally, the Web project will be the client. Again for simplicity, I simply added a HTML file (index.html) and jQuery to pass requests to the service. We will not dive too much into how this works, because its relatively straightforward. All associated source code for this solution is available on [GitHub](https://github.com/jpreecedev/RESTfulTutorial). Add each project using the following templates;
 
 * **Data** > standard C# class library
 * **Service** > WCF Service library
@@ -32,11 +32,11 @@ I found that CORS requires quite a bit of additional code to work correctly. In 
 * Click the **Web** tab.
 * Set the project Url to; [http://localhost:8085](http://localhost:8085 'http://localhost:8085') (or whatever port number you have decided to go with). What matters is that they are the same.
 
-[![Web](web_thumb1.png 'Web')](https://developerhandbook.com/wp-content/uploads/2014/03/web1.png) So now your WCF service and client run on the same port number, all the extra agony that comes with CORS is avoided.
+[![Web](web_thumb1.png 'Web')](web1.png) So now your WCF service and client run on the same port number, all the extra agony that comes with CORS is avoided.
 
 ## Data persistence using Entity Framework Code First
 
-I find Entity Framework code first to be one of the best and fastest ways to rapidly prototype a SQL server database, fill it with data, and query that data. Perhaps not an approach you would want to use in a production environment, I find the whole concept of migrations to be a little clunky, but great for getting up and running quickly. I'm assuming that you have a good working knowledge of Entity Framework code first. If not, then have a look at my tutorial on [Entity Framework code first in 15 minutes](https://developerhandbook.com/2013/07/12/entity-framework-code-first-in-15-minutes/). And by the way, if you also need to scrub up on code first migrations, have a look at [Entity Framework code first migrations](https://developerhandbook.com/2013/08/16/wpf-entity-framework-code-first-migrations-in-a-production-environment/) tutorial. A blog post, for this tutorial at least, consists simply of an `Id`, `Title` and `Url` property. Add **BlogPost.cs** to your **Data** project as follows;
+I find Entity Framework code first to be one of the best and fastest ways to rapidly prototype a SQL server database, fill it with data, and query that data. Perhaps not an approach you would want to use in a production environment, I find the whole concept of migrations to be a little clunky, but great for getting up and running quickly. I'm assuming that you have a good working knowledge of Entity Framework code first. If not, then have a look at my tutorial on [Entity Framework code first in 15 minutes](/entity-framework/entity-framework-code-first-in-15-minutes/). And by the way, if you also need to scrub up on code first migrations, have a look at [Entity Framework code first migrations](/entity-framework/wpf-entity-framework-code-first-migrations-in-a-production-environment/) tutorial. A blog post, for this tutorial at least, consists simply of an `Id`, `Title` and `Url` property. Add **BlogPost.cs** to your **Data** project as follows;
 
 ```csharp
 public class BlogPost
@@ -80,11 +80,11 @@ public class BlogInitializer : DropCreateDatabaseAlways
         context.BlogPosts.AddRange(
             new[]
         {
-            new BlogPost { Id = 0, Title = "Resilient Connection for Entity Framework 6", Url = new Uri("https://developerhandbook.com/2014/02/05/resilient-connection-for-entity-framework-6/") },
-            new BlogPost { Id = 1, Title = "How to pass Microsoft Exam 70-486 (Developing ASP.NET MVC 4 Web Applications) in 30 days", Url = new Uri("https://developerhandbook.com/2014/02/01/how-to-pass-microsoft-exam-70-486-developing-asp-net-mvc-4-web-applications-in-30-days/") },
-            new BlogPost { Id = 2, Title = "5 easy security enhancements for your ASP .NET application", Url = new Uri("https://developerhandbook.com/2014/01/26/5-easy-security-enhancements-for-your-asp-net-application/") },
-            new BlogPost { Id = 3, Title = "10 things every software developer should do in 2014", Url = new Uri("https://developerhandbook.com/2014/01/18/10-things-every-software-developer-should-do-in-2014/") },
-            new BlogPost { Id = 4, Title = "15 reasons why I can't work without JetBrains ReSharper", Url = new Uri("https://developerhandbook.com/2013/12/28/15-reasons-why-i-cant-work-without-jetbrains-resharper/") }
+            new BlogPost { Id = 0, Title = "Resilient Connection for Entity Framework 6", Url = new Uri("/entity-framework/resilient-connection-for-entity-framework-6/") },
+            new BlogPost { Id = 1, Title = "How to pass Microsoft Exam 70-486 (Developing ASP.NET MVC 4 Web Applications) in 30 days", Url = new Uri("/career/pass-microsoft-exam-70-486-in-30-days/") },
+            new BlogPost { Id = 2, Title = "5 easy security enhancements for your ASP .NET application", Url = new Uri("/dot-net/5-easy-security-enhancements-for-your-asp-net-application/") },
+            new BlogPost { Id = 3, Title = "10 things every software developer should do in 2014", Url = new Uri("/career/10-things-every-software-developer-should-do-in-2014/") },
+            new BlogPost { Id = 4, Title = "15 reasons why I can't work without JetBrains ReSharper", Url = new Uri("/career/15-reasons-why-i-cant-work-without-jetbrains-resharper/") }
         });
     }
 }

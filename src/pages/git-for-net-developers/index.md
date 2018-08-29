@@ -18,7 +18,7 @@ The easiest way to get started is;
 2.  Open the Team Explorer
 3.  Click **Changes**, and then from the **Actions** drop down click **Open Command Prompt**.
 
-[![VisualStudio](VisualStudio_thumb.png 'VisualStudio')](https://www.developerhandbook.com/wp-content/uploads/2014/09/VisualStudio.png) As an additional win, you can also bring up _extensive_ formal documentation about any Git command as follows;
+[![VisualStudio](VisualStudio_thumb.png 'VisualStudio')](VisualStudio.png) As an additional win, you can also bring up _extensive_ formal documentation about any Git command as follows;
 
 ```powershell
 git help {command}
@@ -59,7 +59,7 @@ There are some slight differences in terminology between Git and TFVC, here are 
 
 ## Git Add
 
-[![AddedReadMe](AddedReadMe_thumb.png 'AddedReadMe')](https://www.developerhandbook.com/wp-content/uploads/2014/09/AddedReadMe.png)Adds a given file to the tracked (uncommitted) list, or adds all untracked files under the given directory. By default, new files are not tracked by Git, they have to be added to the index. **Scenario**
+[![AddedReadMe](AddedReadMe_thumb.png 'AddedReadMe')](AddedReadMe.png)Adds a given file to the tracked (uncommitted) list, or adds all untracked files under the given directory. By default, new files are not tracked by Git, they have to be added to the index. **Scenario**
 
 1.  Add a new file to the root directory called **ReadMe** 2\. Run `git add ReadMe`
 2.  File is added to the **Included Changes** list
@@ -116,7 +116,7 @@ Clones (gets a copy of) the specified repository. This example is using Visual S
 git clone https://{your-user-name}.visualstudio.com/DefaultCollection/_git/{project-name} {local-path}
 ```
 
-Replace `{your-user-name}` with your TFS username and `{project-name}` with the name of the project you want to clone. `{local-path}` is the location on your hard drive where you want to store the cloned files. When you successfully connect, you will be prompted to enter your user name and password. When the clone starts, you'll will see some neat ASCII art and the progress of the operation; [![GitClone](GitClone_thumb.png 'GitClone')](https://www.developerhandbook.com/wp-content/uploads/2014/09/GitClone.png)
+Replace `{your-user-name}` with your TFS username and `{project-name}` with the name of the project you want to clone. `{local-path}` is the location on your hard drive where you want to store the cloned files. When you successfully connect, you will be prompted to enter your user name and password. When the clone starts, you'll will see some neat ASCII art and the progress of the operation; [![GitClone](GitClone_thumb.png 'GitClone')](GitClone.png)
 
 ## Git Commit
 
@@ -126,7 +126,7 @@ Takes a snapshot (also known as a revision) of the file/folder at the current po
 git commit -m "{your-message-here}"
 ```
 
-Git will display the first part of the commit identifier, which can be helpful for use later (rolling back the commit for example using the `git reset` command). You can view a recent list of commits using the `git log` command. [![image](image_thumb.png 'image')](https://www.developerhandbook.com/wp-content/uploads/2014/09/image.png)
+Git will display the first part of the commit identifier, which can be helpful for use later (rolling back the commit for example using the `git reset` command). You can view a recent list of commits using the `git log` command. [![image](image_thumb.png 'image')](image.png)
 
 ## Git Diff
 
@@ -142,7 +142,7 @@ To display all the differences against the most recent commit;
 git diff HEAD
 ```
 
-[![Diff](Diff_thumb.png 'Diff')](https://www.developerhandbook.com/wp-content/uploads/2014/09/Diff.png) The standard diff tool will display differences inline (red is the indexed/HEAD copy, green is the local copy). To be honest, I don't find this particularly helpful ... especially when you are working with lots of differences.
+[![Diff](Diff_thumb.png 'Diff')](Diff.png) The standard diff tool will display differences inline (red is the indexed/HEAD copy, green is the local copy). To be honest, I don't find this particularly helpful ... especially when you are working with lots of differences.
 
 ### Custom Diff Tool
 
@@ -162,7 +162,7 @@ git config --global mergetool.bc3.path "c:/Program Files (x86)/Beyond Compare 4/
 
 To run the diff in the custom tool, run `git difftool {file-to-diff}`
 
-## [![BComp](BComp_thumb.png 'BComp')](https://www.developerhandbook.com/wp-content/uploads/2014/09/BComp.png)
+## [![BComp](BComp_thumb.png 'BComp')](BComp.png)
 
 I'm much more comfortable working with a proper GUI as I'm so used to using Visual Studio's built in diff tool (which is also great).
 
@@ -174,7 +174,7 @@ Displays recent commits to the current branch. Simple but very useful command th
 git log -n {number-to-display}
 ```
 
-[![GitLog](GitLog_thumb.png 'GitLog')](https://www.developerhandbook.com/wp-content/uploads/2014/09/GitLog.png) The `-n` option is optional, but its useful as you could end up with a big list if you work with a larger team.
+[![GitLog](GitLog_thumb.png 'GitLog')](GitLog.png) The `-n` option is optional, but its useful as you could end up with a big list if you work with a larger team.
 
 ## Git Pull
 

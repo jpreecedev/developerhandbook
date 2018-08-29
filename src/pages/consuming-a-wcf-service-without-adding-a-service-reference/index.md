@@ -12,7 +12,7 @@ A problem I have had with WCF since I first discovered it a few years ago is rel
 
 One approach to do this is to take over the responsibility of creating bindings and endpoints yourself in your consuming application to take over this job, and its really a lot simpler than it seems. To make this work, we are going to need to place all of our Service Contracts and Data Contracts into a shared library, which can be consumed by our client application. I suggest creating a new project using the '_WCF Service Library'_ project template;
 
-[![WCF Service Library Template](https://developerhandbook.com/wp-content/uploads/2013/07/wcfservicelibrarytemplate1.png)](wcfservicelibrarytemplate1.png)
+[![WCF Service Library Template](hwcfservicelibrarytemplate1.png)](wcfservicelibrarytemplate1.png)
 
 Move your Service Contracts and Data Contracts into the shared library and update your main WCF service application project to reflect the changes (add a reference to the shared library).
 

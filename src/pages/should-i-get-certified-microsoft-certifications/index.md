@@ -20,15 +20,15 @@ The fact that there are so many paths available targeting all developers from no
 
 The answer is not simple, "Yes with an _if_, no with a _but_". [According to Mutually Human](http://www.mutuallyhuman.com/blog/2012/04/26/hiring-a-developer-you-re-doing-it-wrong/), employers hire developers based on the following criteria;
 
-- Experience
-- Skills
-- Education
+* Experience
+* Skills
+* Education
 
 When a company is looking to match a candidate to a role, they favour experience and skills over education. Don't be fooled, Microsoft certifications fall under the education banner, and aren't necessarily "proof" that you are highly skilled. This is true for all but the most junior positions. **Yes, if you are at the very beginning of your career.** Having a decent Microsoft certification will give you a good edge over your competition. At worst, it shows that you know how to study training material and that you had the drive and determination to do so. It's also a couple of extra lines on your CV and a little "something extra" to chat about when you get invited to interview. **No, but exams like the ones offered by Microsoft will highlight areas that you are most passionate about.** If you can identify where your skills are strongest, you may become a specialist. If your specialist skill is in high demand (a good SQL developer is always a good example) you will certainly be able to demand higher rates if you are a contractor/freelancer/consultant.
 
 ## 3. Is it worth the time/effort?
 
-If you are serious about sitting a Microsoft exam, and I mean _without cheating_ then you will be required to make a **significant** time investment. If you are already an experienced software developer looking to sit the MCSD Web Applications route, I estimate that it should take about 90 days to complete (30 days per exam [[70-480](https://developerhandbook.com/2013/09/20/how-to-pass-microsoft-exam-070-480-html-5-css-3-and-javascript-in-30-days/), [70-486](https://developerhandbook.com/2014/02/01/how-to-pass-microsoft-exam-70-486-developing-asp-net-mvc-4-web-applications-in-30-days/), [70-487](https://developerhandbook.com/2014/07/26/pass-microsoft-exam-70-487-developing-microsoft-azure-web-services-30-days/)]). And really that is for developers who have already been actively using/developing code using those technologies on a daily basis for at least a year. If you are not using these technologies regularly, you would have to at least double or triple the amount of time/effort required.
+If you are serious about sitting a Microsoft exam, and I mean _without cheating_ then you will be required to make a **significant** time investment. If you are already an experienced software developer looking to sit the MCSD Web Applications route, I estimate that it should take about 90 days to complete (30 days per exam [[70-480](/career/how-to-pass-microsoft-exam-070-480-html-5-css-3-and-javascript-in-30-days/), [70-486](/career/how-to-pass-microsoft-exam-70-486-developing-asp-net-mvc-4-web-applications-in-30-days/), [70-487](/career/pass-microsoft-exam-70-487-developing-microsoft-azure-web-services-30-days/)]). And really that is for developers who have already been actively using/developing code using those technologies on a daily basis for at least a year. If you are not using these technologies regularly, you would have to at least double or triple the amount of time/effort required.
 
 ### So it is?
 

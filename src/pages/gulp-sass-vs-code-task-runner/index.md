@@ -45,7 +45,7 @@ Now type the following command;
 
 As shown here;
 
-[![npm init](https://www.developerhandbook.com/wp-content/uploads/2015/08/npm-init.png)](npm-init.png)
+[![npm init](npm-init.png)](npm-init.png)
 
 You will be prompted to enter details about your project. Either accept the default by pressing <kbd>Enter</kbd> or enter the details as appropriate. This will generate a **package.json** file for your project.
 
@@ -53,7 +53,7 @@ You will be prompted to enter details about your project. Either accept the defa
 
 The quickest, easiest way to configure the task runner is to press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> and click the **Configure Task Runner** button.
 
-[![Configure Task Runner](https://www.developerhandbook.com/wp-content/uploads/2015/08/configure-task-runner.png)](configure-task-runner.png)
+[![Configure Task Runner](configure-task-runner.png)](configure-task-runner.png)
 
 VS Code will switch to a file called **tasks.json**. This file contains several possible configurations depending on what you want to do.
 
@@ -160,7 +160,7 @@ body {
 
 Now with everything set up, press the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> keyboard combination to kick off the task.
 
-[![Task Finished](https://www.developerhandbook.com/wp-content/uploads/2015/08/task-finished.png)](task-finished.png)
+[![Task Finished](task-finished.png)](task-finished.png)
 
 If all goes well, the corresponding CSS files should be compiled for you.
 

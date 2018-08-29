@@ -84,7 +84,7 @@ The code digested;
 4.  Now fetch our entity and return it back.
 5.  Finally, if any of our safety nets fail, just return back to the model binder and let that try and figure it out for us.
 
-And the end result? [![ErrorIsBound](ErrorIsBound_thumb.png 'ErrorIsBound')](https://developerhandbook.com/wp-content/uploads/2014/08/ErrorIsBound.png) Your new model binder can now be used on any action method throughout your ASP .NET MVC application.
+And the end result? [![ErrorIsBound](ErrorIsBound_thumb.png 'ErrorIsBound')](ErrorIsBound.png) Your new model binder can now be used on any action method throughout your ASP .NET MVC application.
 
 ## Summary
 

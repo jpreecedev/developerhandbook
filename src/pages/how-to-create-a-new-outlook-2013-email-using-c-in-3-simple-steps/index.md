@@ -17,14 +17,14 @@ Microsoft.Office.Core
 Microsoft.Office.Interop.Office
 ```
 
-The quickest way to add these references to your project is to right click on the **References** folder in your project, and click **Add Reference**. The **Reference Manager** dialog window will appear as shown below; [![Reference Manager](referencemanager1.png?w=640)](https://developerhandbook.com/wp-content/uploads/2013/12/referencemanager1.png)
+The quickest way to add these references to your project is to right click on the **References** folder in your project, and click **Add Reference**. The **Reference Manager** dialog window will appear as shown below; [![Reference Manager](referencemanager1.png?w=640)](referencemanager1.png)
 
 1.  Click the **COM** tab
 2.  Type **Outlook** into the search box
 3.  Tick **Microsoft Outlook 15.0 Object Library**
 4.  Click **OK**
 
-You should now see that the appropriate references have been added to your project; [![References](https://developerhandbook.com/wp-content/uploads/2013/12/references1.png)](references1.png)
+You should now see that the appropriate references have been added to your project; [![References](references1.png)](references1.png)
 
 ### Step 2 - Using Directives and Initialization
 

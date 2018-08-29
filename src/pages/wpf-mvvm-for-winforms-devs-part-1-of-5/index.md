@@ -22,7 +22,7 @@ Subsequent posts will attempt to;
 
 From a high level, [MVVM is a design pattern](http://en.wikipedia.org/wiki/MVVM 'Model-View-ViewModel'). MVVM provides a way for you to structure your code in a way that promotes maintainability, reusability and scalability. This is primarily achieved by separating code into focused sections, a technique known as [Separation of Concerns](http://en.wikipedia.org/wiki/Separation_of_concerns 'Separation of Concerns') (S0C). Separation of Concerns is the idea that your business logic, view (UI) specific logic and data access code should be decoupled from each other. For example; the view should not know anything about how data is retrieved from an external data source... likewise in the case of N-tier architecture (client/server) applications, the server side code should know nothing of how data that has been retrieved is going to be visually represented to the user.
 
-[![MVVM Simplified](https://developerhandbook.com/wp-content/uploads/2013/05/mvvm-simplification1.jpg)](mvvm-simplification1.jpg)
+[![MVVM Simplified](mvvm-simplification1.jpg)](mvvm-simplification1.jpg)
 
 The above is certainly an oversimplification, but it shows how the different entities interact with each other. The model class is populated from an external data source, typically a relational database (such as SQL Server or Oracle Database). The model is wrapped by the view-model, which prepares the data for presentation to the view. The view-model also handles passing the data back to the model class in the event that the data has changed (i.e. the user edited a value using a text box on the UI). The view presents the data to the user.
 

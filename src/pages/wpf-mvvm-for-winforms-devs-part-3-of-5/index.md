@@ -58,7 +58,7 @@ In the previous walkthrough we; set up our view model, bound it to the view, and
 
 The UI should now look something like this;
 
-[![Updated UI](https://developerhandbook.com/wp-content/uploads/2013/05/updatedui1.jpg)](updatedui1.jpg)
+[![Updated UI](updatedui1.jpg)](updatedui1.jpg)
 
 Let's take a moment to review the behaviour...go ahead and make changes to the First Name and Last Name text boxes. You will notice that when the text box loses focus, the Customers Name label is updated with the new values. I can also assure you that the underlying model is also being updated to reflect these changes.
 
@@ -156,7 +156,7 @@ using System.Runtime.CompilerServices;
 
 ### A Better Way
 
-You're in luck, there is one final way to resolve this nuisance...and we need to take a second to thank the open source community for this one. Whilst there are several packages available, I am particularly fond of [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody/ 'PropertyChanged.Fody') ... a free & open source project hosted on NuGet. [![Package Manager Console](https://developerhandbook.com/wp-content/uploads/2013/06/capture1.jpg)](capture1.jpg) From a (very!) high level, this tool (and tools like it) convert your automatic properties into properties with backing fields and inject the `OnPropertyChanged` method call for you...all at compile time! (hold for applause) So as long as your class either implements `INotifyPropertyChanged` directly, or gets it from a base model class, your work is done.
+You're in luck, there is one final way to resolve this nuisance...and we need to take a second to thank the open source community for this one. Whilst there are several packages available, I am particularly fond of [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody/ 'PropertyChanged.Fody') ... a free & open source project hosted on NuGet. [![Package Manager Console](capture1.jpg)](capture1.jpg) From a (very!) high level, this tool (and tools like it) convert your automatic properties into properties with backing fields and inject the `OnPropertyChanged` method call for you...all at compile time! (hold for applause) So as long as your class either implements `INotifyPropertyChanged` directly, or gets it from a base model class, your work is done.
 
 ### Summary
 
