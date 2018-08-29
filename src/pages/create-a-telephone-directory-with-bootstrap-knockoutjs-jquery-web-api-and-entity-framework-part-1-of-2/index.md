@@ -34,11 +34,11 @@ We will not be using the standard ASP .NET template, for the sake of keeping the
 
 Next, use the Package Manager Console to add our third party dependencies;
 
-- Bootstrap (<font size="2" face="Lucida Console">Install-Package bootstrap</font> (this will also bring down jQuery, which is a dependency)) >> Used to give us a super pretty user interface.
-- Entity Framework (<font size="2" face="Lucida Console">Install-Package entityframework</font>) >> Used for data persistence
-- KnockoutJS (<font size="2" face="Lucida Console">install-package knockoutjs</font> (which surprisingly, has no dependencies itself)) >> Used for model binding our form/displaying our data
-- WebAPI (<font size="2" face="Lucida Console">Install-Package Microsoft.AspNet.WebApi</font>) >> Used as the back end data service
-- Newtonsoft.Json (<font size="2" face="Lucida Console">install-package Newtonsoft.Json</font>) >> Used to JSON-ify our data servers responses
+- Bootstrap (`Install-Package bootstrap` (this will also bring down jQuery, which is a dependency)) >> Used to give us a super pretty user interface.
+- Entity Framework (`Install-Package entityframework`) >> Used for data persistence
+- KnockoutJS (`install-package knockoutjs` (which surprisingly, has no dependencies itself)) >> Used for model binding our form/displaying our data
+- WebAPI (`Install-Package Microsoft.AspNet.WebApi`) >> Used as the back end data service
+- Newtonsoft.Json (`install-package Newtonsoft.Json`) >> Used to JSON-ify our data servers responses
 
 ### Other files
 
