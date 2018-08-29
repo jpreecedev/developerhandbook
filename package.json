@@ -7,20 +7,18 @@
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
-    "fix-semi":
-      "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jpreecedev/developerhandbook.git"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-plugin-import": "^2.14.0",
@@ -41,19 +39,29 @@
     "gatsby-plugin-feed": "^1.3.20",
     "gatsby-plugin-google-analytics": "^1.0.29",
     "gatsby-plugin-offline": "^1.0.15",
-    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-react-helmet": "^2.0.11",
     "gatsby-plugin-sharp": "^1.6.42",
     "gatsby-remark-copy-linked-files": "^1.5.31",
     "gatsby-remark-images": "^1.5.61",
-    "gatsby-remark-prismjs": "^1.2.24",
+    "gatsby-remark-prismjs": "^2.0.5",
     "gatsby-remark-responsive-iframe": "^1.4.18",
     "gatsby-remark-smartypants": "^1.4.12",
     "gatsby-source-filesystem": "^1.5.31",
-    "gatsby-transformer-remark": "^1.7.40",
+    "gatsby-transformer-remark": "^1.7.44",
     "gatsby-transformer-sharp": "^1.6.22",
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.5",
+    "prismjs": "^1.15.0",
+    "react-helmet": "^5.2.0"
   },
-  "keywords": ["blog", "development", "c#", ".net", "code", "javascript", "react"],
+  "keywords": [
+    "blog",
+    "development",
+    "c#",
+    ".net",
+    "code",
+    "javascript",
+    "react"
+  ],
   "author": "Jon Preece",
   "license": "MIT",
   "bugs": {
