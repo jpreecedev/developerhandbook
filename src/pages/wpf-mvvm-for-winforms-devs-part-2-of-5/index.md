@@ -7,7 +7,7 @@ tags: ["c#","mvvm","wpf","WPF MVVM"]
 
 The purpose of this series of tutorials is to introduce the WPF MVVM (Model-View-ViewModel) design pattern, and look at how to correctly implement it in an Windows Presentation Foundation (WPF) application. This series is targeted at developers of all levels, but especially at developers who are looking to make the transition from Windows Forms to WPF.
 
-### **How to quickly implement MVVM in your C# WPF application**
+### How to quickly implement MVVM in your C# WPF application
 
 Start by firing up an instance of your favourite version of Visual Studio (free or paid) and create a new WPF application, call it CustomerPortal.
 
@@ -17,6 +17,6 @@ Add a new class to your project, called Customer.  This will be your model class
 
 [![Main Window](https://developerhandbook.com/wp-content/uploads/2013/05/mainwindow1.jpg)](mainwindow1.jpg)
 
-### **Summary**
+### Summary
 
 We have seen how we can implement the MVVM design pattern in our application with very little effort.  We've seen the role played by the view-model. We have not yet discussed how we get data back from the view to the model and the role of change notifications.  We will explore these topics and more in the next post. [![Download](https://developerhandbook.com/wp-content/uploads/2013/05/downloadicon1.png)](downloadicon1.png)  [Download Source Code](https://dl.dropboxusercontent.com/u/14543010/CustomerPortal.zip "Download Source Code")

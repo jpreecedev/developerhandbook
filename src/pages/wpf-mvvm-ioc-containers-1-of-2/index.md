@@ -61,7 +61,7 @@ Constructor injection is a step in the right direction, but taking this approach
 
 Inversion of Control (IoC) containers take over the responsibility of two important aspects of your code; managing instances of your views/view models, and performing dependency injection automatically. There are many IoC containers available to use within your .NET applications.  I personally have worked directly with two; the [Unity Application Block from the Microsoft Patterns and Practices library](http://unity.codeplex.com/ "Unity Application Block"), and [Structure Map](http://docs.structuremap.net/ "Structure Map").  There are lots of blog posts that compare the intricacies of these containers, and many more, so I won't try and re-invent the wheel.  There is a [very good post on ElegantCode.com](http://elegantcode.com/2009/01/07/ioc-libraries-compared/ "IoC Libraries Compared") that goes in to a good level of detail. For the remainder of this blog post and the next in the series, we will focus on Structure Map - as its lightweight, quick to get started with, and highly configurable.
 
-### **Structure Map - A crash course**
+### Structure Map - A crash course
 
 Getting started with Structure Map in Visual Studio 2010/2012 has never been easier, thanks to NuGet.  Fire up the package manager console and run the following command;
 

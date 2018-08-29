@@ -7,11 +7,11 @@ tags: ["c#","entity framework","Entity Framework","wpf"]
 
 Entity Framework is an [Object Relational Mapper](http://en.wikipedia.org/wiki/Object-relational_mapping "Object Relational Mapper") (ORM), created by Microsoft and built on top of the popular ADO.NET framework.  Entity framework was first released in the second half of 2008.  In 2011, with the release of version 4.1, a new feature was introduced... known as "Code First". Code first allows us to write code without having to care (to a certain extent) about the make-up of the database, its tables and their relationships.  The idea is that Entity Framework figures all this out for us, and it does a pretty good job!  Entity Framework code first is designed around the "convention over configuration" principal, meaning as long as things are named in a consistent way your code should "just work" with very little effort.  If its not possible to write your code in a way that Entity Framework understands, it is possible to tell Entity Framework about your model using attributes, the Fluent API, or a combination of both.
 
-### **Adding Entity Framework to your project**
+### Adding Entity Framework to your project
 
 The quickest way to add Entity Framework to your project is using the Package Manager Console (NuGet). In Visual Studio, click "View > Other Windows > Package Manager Console", and type the following command; `Install-Package EntityFramework` [![Install Package](https://developerhandbook.com/wp-content/uploads/2013/06/installpackage1.png)](installpackage1.png) This process will add all the appropriate references to your project.
 
-### **Super Quick Walk-through**
+### Super Quick Walk-through
 
 This tutorial aims to get you up and running in about 15 minutes.  We will create a very simple application, which has a WPF front end and an Entity Framework back end, based around the idea of customers, addresses and orders.  Every customer will have an address and optionally they can have orders. So lets get to it, the clock is ticking.  Create a new WPF project, call it SuperQuick.
 
@@ -118,14 +118,14 @@ Add the following code to Customer.cs [code language="csharp"] public class Cust
 
 } [/code]
 
-### **User Interface**
+### User Interface
 
 We're just about done with setting up our model, so now lets turn our attention to the user interface.  First set the MainWindow data context to an instance of MainWindowViewModel. Switch over to MainWindow.xaml and add the following code underneath the opening `Window` tag; (be sure to add an xml namespace, called local) [code language="xml"] <Window.DataContext>     <local:MainWindowViewModel /> </Window.DataContext> [/code] Replace the existing Grid control with the following code; [code language="xml"] <Grid>     <ScrollViewer>         <ItemsControl ItemsSource="{Binding Customers}"                         AlternationCount="2"                         ScrollViewer.CanContentScroll="True">             <ItemsControl.ItemTemplate>                 <DataTemplate>                     <StackPanel x:Name="Main">                         <TextBlock Text="{Binding}"                                     FontWeight="Bold"                                     FontSize="14"                                     Padding="10,10,0,0" />                         <TextBlock Text="{Binding Address}"                                     FontSize="12"                                     Padding="10,0,0,10" />                         <StackPanel Orientation="Horizontal">                             <TextBlock Text="Orders:"                                         Margin="0,0,5,0"                                         Padding="10,0,0,10"                                         FontWeight="Bold" />                             <TextBlock Text="{Binding Orders.Count}"                                          Padding="0,0,0,10"/>                         </StackPanel>                     </StackPanel>                     <DataTemplate.Triggers>                         <Trigger Property="ItemsControl.AlternationIndex"                                     Value="0">                             <Setter TargetName="Main"                                     Property="Background"                                     Value="#220000FF" />                         </Trigger>                         <Trigger Property="ItemsControl.AlternationIndex"                                     Value="1">                             <Setter TargetName="Main"                                     Property="Background"                                     Value="White" />                         </Trigger>                     </DataTemplate.Triggers>                 </DataTemplate>             </ItemsControl.ItemTemplate>         </ItemsControl>     </ScrollViewer> </Grid> [/code] This will display our customers, their address, and the number of orders they have placed. To satisfy the XAML, we need to add some code to our view-model ... as follows; [code language="csharp"] public ObservableCollection<Customer> Customers { get; set; } [/code] Finally, we need to populate the ObservableCollection with code from our database. Add the following constructor to the class; [code language="csharp"] public MainWindowViewModel() { var context = new SuperQuickContext();
 
     Customers = new ObservableCollection(context.Customers);
 
-} [/code]  
+} [/code]
 
-### **Summary**
+### Summary
 
 In this super quick introduction, we have seen how easy it is to create an application that persists data to a database using Entity Framework. We have touched on topics such as complex types, navigation properties database initializers. Subsequent posts will cover more advanced topics such as data annotations, the Fluent API, and code first migrations.

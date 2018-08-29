@@ -8,7 +8,7 @@ tags: ['c#', 'entity framework', 'Entity Framework', 'wpf']
 
 Recently I wrote a WPF application using Entity Framework Code First and released it into the wild. Shortly after, the business requirements changed and I had to make changes to the model. Thus, I was introduced to Code First migrations. I did a lot of research on Code First migrations and could only really find the most simple of examples, and almost [robotic documentation on MSDN](http://msdn.microsoft.com/en-us/data/jj591621.aspx 'Code First Migrations') that provided minimal help. This post aims to provide a clearer view on migrations, and how to properly create them. Before we can start with migrations, we need to create our normal C# code and then add in Entity Framework using NuGet. Once done, we can create our first migration and then explore a second migration.
 
-### **The Code**
+### The Code
 
 The code is going to revolve around the common idea of customers and orders.
 
@@ -89,7 +89,7 @@ With the code structure in place, we can now introduce Entity Framework. Go ahea
 install-package EntityFramework
 ```
 
-### **Enabling Migrations**
+### Enabling Migrations
 
 Before enabling migrations, ensure that you have a DbContext class that contains a DbSet for use throughout the application;
 
@@ -110,7 +110,7 @@ You will notice that this process has has created a new folder (_Migrations_), a
 
 [![Entity Framework Initial Create](https://developerhandbook.com/wp-content/uploads/2013/07/entityframeworkinitialcreate1.png)](entityframeworkinitialcreate1.png)
 
-### **A word about seed data**
+### A word about seed data
 
 At the time of writing, the current version of Entity Framework is 5.0.0.0 (public release). I have found that seed data does not behave in the way that I expect. Open _Configuration.cs_ and observe the seed data method;
 
@@ -143,7 +143,7 @@ public class Initializer: MigrateDatabaseToLatestVersion <Context, Configuration
 
 You can now deploy your application to your customers, knowing that when the customer runs the program for the first time, the database will be created as you expect and and seed data will also be added.
 
-### **Your second migration**
+### Your second migration
 
 Your second migration now should be straight forward. Simply go ahead and make the desired changes to your model. We will add the following class;
 
@@ -249,6 +249,6 @@ Update-Database
 
 Run the application again, and all should work as you expect.
 
-### **Summary**
+### Summary
 
 Entity Framework Code First migrations are an exciting and powerful new feature that will dramatically simplify your deployment and update process. The `MigrateDatabaseToLatestVersion` database initialization strategy will take care of automatically updating your database to the most current version, and can even help with seed data. Seed data is made easy thanks to a new `AddOrUpdate` extension method, but is limited in that you cannot use the table primary key as the identifier.

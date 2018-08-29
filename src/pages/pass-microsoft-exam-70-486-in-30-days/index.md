@@ -7,19 +7,19 @@ tags: ["Career","exam","microsoft"]
 
 Before you continue reading this blog, you need to be aware of the following; This is not a "quick fix" or an "easy solution".  I have not discovered some secret formula to guarantee you pass with 100% marks every time.  I am not trying to sell you anything.  The exam is genuinely challenging and the only way you are going to pass is by working hard!  You will not find any brain dumps here!  If you're afraid of working hard to achieve your goals, you best leave now ... Still Here? Congratulations, you are taking your first steps towards passing the Microsoft exam 70-486 in just 30 days.  The purpose of this post is to link to all the resources that I used when revising for the exam myself. So why 30 days? Well its important to set yourself a target.  Setting yourself a target motivates you.  If you are paying for this exam yourself (like I did), you'll really want to make sure you give the exam your best shot (after all, £99 is a hefty amount of money!)
 
-### **Know the exam objectives**
+### Know the exam objectives
 
 Probably the most important thing you should do before starting studying for any exam is to find out what the exam objectives are.  Basically the exam objectives tell you what to study for! There is not much point in learning material that is of no relevance! You can find the exam objectives under the "Skills Measured" section on [the official 70-486 exam page](http://www.microsoft.com/learning/en-gb/exam-70-486.aspx "Microsoft Exam Objective").
 
-### **Books**
+### Books
 
 Books aren't for everybody, some people find it hard to sit down and read a book ... I get that, but you should at least _try_. Have a look at [Exam Ref 70-486: Developing ASP.NET MVC 4 Web Applications](http://www.amazon.co.uk/gp/product/0735677220/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0735677220&linkCode=as2&tag=jprecom-21)![](ir?t=jprecom-21&l=as2&o=2&a=0735677220) [![Developing ASP .NET MVC 4 Web Applications](https://developerhandbook.com/wp-content/uploads/2014/01/0029c928_medium1.jpeg)](0029c928_medium1.jpeg) <span style="line-height:1.714285714;font-size:1rem;">This book was written by William Penberthy.  And its <del>terrible</del> not the best book I've ever read.</span> **Pros;** Each objective on the exam receives equal coverage.  There are some good insights into the various technologies at a high level, and the author is clearly very experienced in this field. **Cons;**  This is the official book from Microsoft from the 70-486 exam, and it is somewhat off the mark.  The objectives/sections/chapters are disjointed and only covered at a very high level.  The book is severely lacking in detail and code samples/walkthroughs. <span style="font-size:1rem;line-height:1.714285714;">If you really want to read a book, I</span> **highly** <span style="font-size:1rem;line-height:1.714285714;">recommend reading</span> [Professional ASP.NET MVC 4](http://www.amazon.co.uk/gp/product/B009F09SRM/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B009F09SRM&linkCode=as2&tag=jprecom-21)![](ir?t=jprecom-21&l=as2&o=2&a=B009F09SRM), which was written by Jon Galloway, Phil Haack, Brad Wilson, Scott Allen and Scott Hanselman.  Five people who are leading experts in this field.  I learnt a lot from this book, it flows well, there are sufficient<span style="font-size:1rem;line-height:1.714285714;"> code samples and the book is very engaging.</span>
 
-### **Microsoft Virtual Academy (MVA) JumpStart**
+### Microsoft Virtual Academy (MVA) JumpStart
 
 Microsoft has provided some great FREE training videos on the [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/ "Microsoft Virtual Academy") website, so its only polite that you fully exploit these resources. You will want to start with the [Building Web Apps with ASP .NET Jump Start](http://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start "Building Web Apps with ASP .NET Jump Start") video series.  Just a note, you will need a free Microsoft account to access the videos.
 
-### **Pluralsight Training Videos**
+### Pluralsight Training Videos
 
 [Pluralsight ](http://www.pluralsight.com/training/ "Pluralsight")is a subscription (paid for) site offering training material for developers (and now IT professionals as well) at all levels, and in all stages of their careers.  If you don't already have a subscription (??) you can get a free 10 day trial (up to 200 minutes) to give you a taste.  The subscription starts [at a mere $29](http://www.pluralsight.com/training/Products/Individual "Pluralsight") (£17.62 ish) a month. Here are some of the videos I watched whilst preparing for this exam; (Make sure you follow along whilst the presenter is talking!)
 

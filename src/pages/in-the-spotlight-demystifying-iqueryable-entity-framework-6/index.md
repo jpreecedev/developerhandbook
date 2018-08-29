@@ -7,7 +7,7 @@ tags: ['Architecture', 'c#', 'entity framework', 'Entity Framework']
 
 I'm not afraid to admit it. I can't be the only one who has been confused by [IQueryable](<http://msdn.microsoft.com/en-us/library/system.linq.iqueryable(v=vs.110).aspx> 'IQueryable') when working with Entity Framework or LINQ to SQL. When using the web to research the topic, I have seen many conflicting blog posts and contradicting answers on StackOverflow. I have read various posts on MSDN about the subject, and I find them difficult to understand and incomplete. I seek to at least attempt to clarify the subject a little with this post. Entity Framework has become such a powerful object rational mapper (ORM) that performance of desktop and web applications seems to be drifting towards the back of developers minds. Personally, I'm so used to doing things the "traditional way" (using ADO.NET `SqlConnection`, `DbCommand` etc and testing/optimizing using a combination of SQL Server Management Studio and SQL Profiler) that I find it hard to "write code and forget". So naturally, I keep a close eye on what queries are being ran against my database. The purpose of this blog post is to have a closer look at `IQueryable`, see how it is implemented in Entity Framework, what happens to our code at compile time, and understand what impact `IQueryable` has on our repositories. All code samples in this post use [Entity Framework 6](http://entityframework.codeplex.com/wikipage?title=specs 'Entity Framework 6') (although all versions behave the same) and use the [Adventure Works 2012 database](http://msftdbprodsamples.codeplex.com/releases/view/55330 'Adventure Works 2012'). Just for reference, I am also using Visual Studio 2013 and SQL Server 2012 but all should hold true with any past version. The code has not been tested with MySQL or any other database provider. Code can be downloaded at the end of this post.
 
-### **Deferred execution**
+### Deferred execution
 
 Before we do anything, lets get one thing straight so that we are absolutely clear on this. BOTH `IQueryable` and `IEnumerable` code expressions are deferred (lazily) executed. This means that the expression itself is created immediately, but it isn't executed until needed (invoked or evaluated). Example:
 
@@ -22,7 +22,7 @@ Before we do anything, lets get one thing straight so that we are absolutely cle
 
 Before running the above code, set a breakpoint on line 4 and start running SQL profiler. Step through the program and you will see that `result` doesn't become populated until the first iteration of the loop. If `result` never gets used/invoked, then the query will never be executed. Virtual navigation properties are also lazy loaded, and lazy loading can also be turned off. Both these topics are out of the scope of this post.
 
-### **LINQ to Objects**
+### LINQ to Objects
 
 First things first... so that we prevent any confusion, this post takes aim at Entity Framework and LINQ to SQL but not LINQ to Objects. Why? Well simply because (as far as I can tell) all LINQ to Objects queries return [IEnumerable](<http://msdn.microsoft.com/en-us/library/system.collections.ienumerable(v=vs.110).aspx> 'IEnumerable') or a derivative of `IEnumerable`, such as [IOrderedEnumerable](<http://msdn.microsoft.com/en-us/library/bb534852(v=vs.110).aspx> 'IOrderedEnumerable') or [IEnumerable<IGrouping<TKey,TElement>>](<http://msdn.microsoft.com/en-us/library/bb344977(v=vs.110).aspx> 'IEnumerable<IGrouping<TKey,TElement>>') to name just a couple. `IEnumerable` expressions and executed in memory against the full dataset. Example;
 
@@ -36,7 +36,7 @@ First things first... so that we prevent any confusion, this post takes aim at E
 
 In the above example, the entire collection of data (in this case, a series of colours) is loaded into memory (`string[] colours`) and then ordered, which creates a new collection of type `IOrderedEnumerable<string>`. The only way of returning `IQueryable<string>` instead of `IOrderedEnumable<string>` is to use the `AsQueryable()` extension method. There generally wouldn't be much point in doing this, as the expression would likely never be executed by a query provider.
 
-### **IQueryable, a simple example**
+### IQueryable, a simple example
 
 Lets have a look at some simple code that uses `IQueryable`;
 
@@ -76,7 +76,7 @@ This query is very efficient. Only 10 rows are selected (`Take(10)`) and the res
 
 Specifically notice that the `Take` extension method is not coming from the `System.Linq.Enumerable` extensions file, but instead from the `System.Linq.Queryable` extensions file. A small detail that is easily overlooked. Hence `Queryable.Take<SalesPerson>` rather than `Enumerable.Take<SalesPerson>`. The conclusion we can make from the above code sample, is that Entity Framework (or indeed LINQ to SQL) is going to attempt to write the most efficient query to run against our database. By efficient, I mean a query that is going to return the smallest amount of data needed to fulfil the request.
 
-### **IQueryable in Entity Framework**
+### IQueryable in Entity Framework
 
 As part of getting to grips with `IQueryable`, I downloaded the Entity Framework source code from [CodePlex](http://entityframework.codeplex.com/ 'Entity Framework') and started examining it. All of your queries for data when using Entity Framework are written against `DbSet`. For example, in the above code we are querying against the SalesPerson entity, which is exposed on our `DbContext` as a `DbSet`;
 
@@ -227,6 +227,6 @@ Simply put, there is not a T-SQL method thats mapped to `String.Format`. This pr
 
 Keep in mind though, that this will cause the entire dataset to be returned and stored in memory, which will probably be expensive in terms of CPU time and Memory usage.
 
-### **Summary**
+### Summary
 
 `IQueryable` works to translate your code into the most efficient queries it can, and for the most part it does a great job. When working with the repository/unit of work pattern, you should think very hard about returning `IQueryable` to your consuming code, because this results in boundary bleed and can also result in exceptions, as each query interpreter cannot translate every single expression you throw at it. [Download the source code](https://dl.dropboxusercontent.com/u/14543010/Demystified.zip 'Download source code').

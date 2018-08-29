@@ -7,7 +7,7 @@ tags: ['c#', 'dependency injection', 'ioc', 'mvvm', 'structuremap', 'wpf', 'WPF 
 
 This short post is a follow on from an earlier series of posts that discussed how to achieve MVVM purity in WPF using Structure Map. You may want to check out those posts first before reading this post. However, if you just generally want to know how to do setter injection using Structure Map, you are in the right place!
 
-### **A Scenario**
+### A Scenario
 
 It is very common in modern applications to have a repository that does the job of retrieving and saving data from/to your database. Your repository may look like this;
 
@@ -61,7 +61,7 @@ public override void Load() {
 
 You can use the static `ObjectFactory.GetInstance()` method to get an instance of the repository and set the public property to that value. Don't get me wrong, this approach works... but it is widely considered to be an anti-pattern. The second approach is to use setter injection, which basically means that StructureMap will inject a value for that property automatically for you at runtime, so that you don't have to worry about it.
 
-### **Bootstrapper**
+### Bootstrapper
 
 All StructureMap based applications begin with a bootstrapper. Your bootstrapper class will typically be a public static class that calls the `ObjectFactory.Initialise()` method passing an `IInitializationExpression` object. We will need to add our repository to the container so that it can be used thoughout the application;
 
@@ -85,6 +85,6 @@ public static class Bootstrapper {
 
 To make StructureMap take care of the setter injection for us, we simply needed to call the `SetAllProperties` method. When StructureMap resolves an instance of our view model (or any class for that matter), it inspects it, identifies all the public properties in that class, and looks inside the container to see if it has any matching instances. If it does, it simply injects them for us.
 
-### **Summary**
+### Summary
 
 We can use StructureMap to inject instances of objects into the public properties on our view models simply by calling the `SetAllProperties` method when initialising the container and telling it what type we want injecting.

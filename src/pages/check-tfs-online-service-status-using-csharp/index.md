@@ -2,58 +2,89 @@
 layout: post
 title: Check TFS Online service status using C#
 date: 2014-01-10
-tags: ["c#","C#","tfs"]
+categories: ['C#']
+tags: ['c#', 'C#', 'tfs']
 ---
 
-If you use TFS Online you may have experienced some unexpected downtime over the last few months.  Whilst the service is getting better and better all the time, downtime is still an issue.  I have written a little screen scraping tool based on the [HTML Agility Pack](http://htmlagilitypack.codeplex.com/ "HTML Agility Pack") that will scrape the service status page and report back the current status. Add the following class to your project;   [code language="csharp"] using HtmlAgilityPack; /// <summary> /// The TFS heartbeat helper. /// </summary> public static class TFSHeartbeatHelper { #region Constants
+If you use TFS Online you may have experienced some unexpected downtime over the last few months. Whilst the service is getting better and better all the time, downtime is still an issue. I have written a little screen scraping tool based on the [HTML Agility Pack](http://htmlagilitypack.codeplex.com/ 'HTML Agility Pack') that will scrape the service status page and report back the current status. Add the following class to your project;
 
-    /// <summary>
-    /// The service status url.
-    /// </summary>
-    private const string ServiceStatusUrl = "http://www.visualstudio.com/en-us/support/support-overview-vs.aspx";
+```csharp
+using HtmlAgilityPack;
 
-    #endregion
+/// <summary>
+/// The TFS heartbeat helper.
+/// </summary>
+public static class TFSHeartbeatHelper {
+  #region Constants
 
-    #region Public Methods and Operators
+  /// <summary>
+  /// The service status url.
+  /// </summary>
+  private const string ServiceStatusUrl = "http://www.visualstudio.com/en-us/support/support-overview-vs.aspx";
 
-    /// <summary>
-    /// Gets the TFS service status
-    /// </summary>
-    /// <returns>
-    /// The <see cref="ServiceStatus"/>.
-    /// </returns>
-    public static ServiceStatus GetStatus()
-    {
-        HtmlDocument doc = new HtmlWeb().Load(ServiceStatusUrl);
+  #endregion
 
-        HtmlNode detailedImage = doc.DocumentNode.SelectSingleNode("//div[@class='DetailedImage']");
-        HtmlNode supportImageNode = detailedImage.ChildNodes.FindFirst("img");
+  #region Public Methods and Operators
 
-        if (supportImageNode.Id == "Support_STATUS_Check")
-        {
-            return ServiceStatus.NoIssues;
-        }
+  /// <summary>
+  /// Gets the TFS service status
+  /// </summary>
+  /// <returns>
+  /// The <see cref="ServiceStatus"/>.
+  /// </returns>
+  public static ServiceStatus GetStatus() {
+    HtmlDocument doc = new HtmlWeb().Load(ServiceStatusUrl);
 
-        if (supportImageNode.Id == "Support_STATUS_Exclamation_Y")
-        {
-            return ServiceStatus.Issues;
-        }
+    HtmlNode detailedImage = doc.DocumentNode.SelectSingleNode("//div[@class='DetailedImage']");
+    HtmlNode supportImageNode = detailedImage.ChildNodes.FindFirst("img");
 
-        return ServiceStatus.Undetermined;
+    if (supportImageNode.Id == "Support_STATUS_Check") {
+      return ServiceStatus.NoIssues;
     }
 
-    #endregion
+    if (supportImageNode.Id == "Support_STATUS_Exclamation_Y") {
+      return ServiceStatus.Issues;
+    }
 
-} /// <summary> /// The service status. /// </summary> public enum ServiceStatus { /// <summary> /// No issues. /// </summary> NoIssues,
+    return ServiceStatus.Undetermined;
+  }
 
-    /// <summary>
-    /// There are issues.
-    /// </summary>
-    Issues,
+ #endregion
+}
 
-    /// <summary>
-    /// Unable to determine the status
-    /// </summary>
-    Undetermined
+/// <summary>
+/// The service status.
+/// </summary>
+public enum ServiceStatus {
 
-} [/code] The usage for this code is as follows; [code language="csharp"] switch (TFSHeartbeatHelper.GetStatus()) { case ServiceStatus.NoIssues: ////Good news! break; case ServiceStatus.Issues: ////Bad news! break; case ServiceStatus.Undetermined: ////Erm..not sure :S break; } [/code] I hope you find this little helper useful. Please leave a comment below.
+  /// <summary>
+  /// No issues.
+  /// </summary>
+  NoIssues,
+
+  /// <summary>
+  /// There are issues.
+  /// </summary>
+  Issues,
+
+  /// <summary>
+  /// Unable to determine the status
+  /// </summary>
+  Undetermined
+}
+```
+
+The usage for this code is as follows;
+
+```csharp
+switch (TFSHeartbeatHelper.GetStatus()) {
+ case ServiceStatus.NoIssues: ////Good news!
+   break;
+ case ServiceStatus.Issues: ////Bad news!
+   break;
+ case ServiceStatus.Undetermined: ////Erm..not sure :S
+   break;
+}
+```
+
+I hope you find this little helper useful. Please leave a comment below.

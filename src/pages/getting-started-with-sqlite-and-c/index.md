@@ -8,7 +8,7 @@ tags: ['c#', 'C#', 'sqlite']
 
 SQLite is a powerful, extremely light-weight transactional SQL database provider. SQLite is free and open source, and it does not require any server processes to handle it. SQLite is cross platform and runs on multiple architectures, making it ideal for use on the major operating systems such as Windows, Mac OS, Linux, and even lower powered devices such as PDAs, MP3 players etc.
 
-### **Prerequisites**
+### Prerequisites
 
 It is possible to get up and running with SQLite quickly in C#, by adding the [System.Data.SQLite](http://www.nuget.org/packages/System.Data.SQLite 'System.Data.SQLite') package to your project. Open the package manager console window run the following;
 
@@ -18,7 +18,7 @@ Install-package System.Data.SQLite
 
 Or alternatively, right click your project and click _Manage NuGet Packages_ and search the online gallery for _System.Data.SQLite_.
 
-### **A Helpful Wrapper Class**
+### A Helpful Wrapper Class
 
 I have put together a _very_ simple wrapper class that will get you up and running quickly. Here it is;
 
@@ -69,7 +69,7 @@ public class SQLiteDatabase {
 
 This wrapper is loosely based on some code written by [Mike Duncan](http://www.mikeduncan.com/ 'Mike Duncan').
 
-### **Usage**
+### Usage
 
 The constructor takes the database path (the extension is completely up to you);
 
@@ -93,6 +93,6 @@ SQLiteCommand a = database.GetCommand("SELECT * FROM Customers");
 DataTable res = database.GetDataTable(a);
 ```
 
-### **Summary**
+### Summary
 
 SQLite gives us the ability to write extremely light-weight databases, that have no dependence on third party products or servers. In order to properly utilise SQLite in all but the simplest applications, a major investment would be required to write additional architectural code to load SQL from external SQL files, so as to avoid writing in-line SQL. If you want to browse your SQLite database, you'll need the [SQLite Browser from Sourceforge](http://sourceforge.net/projects/sqlitebrowser/ 'SQLite Browser').

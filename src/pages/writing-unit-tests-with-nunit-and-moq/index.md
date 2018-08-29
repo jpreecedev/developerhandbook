@@ -9,13 +9,13 @@ I'm assuming that you have seen the light, and that you are sold on the benefits
 
 > Moq (pronounced "Mock-you" or just "Mock") is the only mocking library for .NET developed from scratch to take full advantage of .NET 3.5 (i.e. Linq expression trees) and C# 3.0 features (i.e. lambda expressions) that make it the most productive, type-safe and refactoring-friendly mocking library available. And it supports mocking interfaces as well as classes. Its API is extremely simple and straightforward, and doesn't require any prior knowledge or experience with mocking concepts.
 
-### **Getting Moq**
+### Getting Moq
 
 Installing Moq these days is a breeze. You can either [download Moq from GitHub](https://github.com/Moq/moq4 "Moq on GitHub") and add the appropriate references to your project, or you can install it using nuget;
 
 <pre>Install-Package Moq</pre>
 
-### **Naming your unit tests**
+### Naming your unit tests
 
 How to correctly name your unit tests is always a very controversial topic, and I have seen conversations about this become quite heated in the past. My advice to you would be to name your tests in a way that makes them descriptive. The name should accurately reflect what you are trying to achieve. Don't worry at all about the length on your unit test method signatures, making them descriptive is the important goal here. Some possible naming conventions include; Pascal case;
 
@@ -48,7 +48,7 @@ MethodName_StateUnderTest_ExpectedBehaviour
 
 Personally, I prefer the latter two approaches. And which one I use largely depends on what project I am working on. Feel free to use whichever you feel most comfortable with, and if you want to come up with your own naming convention, that's fine too.
 
-### **Mocking and Verification**
+### Mocking and Verification
 
 A great definition of Mocking from [Wikipedia](http://en.wikipedia.org/wiki/Mock_object "Mock Object");
 
@@ -72,7 +72,7 @@ The above code tests that the `Add` method was called on the mock repository obj
 
     mockCustomerRepository.Verify(t =>; t.Add(It.Is<Customer>(t => t.Name == "Jon")));
 
-### **The AAA Syntax (Arrange, Act, Assert)**
+### The AAA Syntax (Arrange, Act, Assert)
 
 A very common approach to structuring your unit tests is using the AAA syntax. The AAA syntax is only a way of structuring your unit tests, and is supported by any framework. The basic idea is that you create all the dependencies required by your method under test (Arrange), run your method under test (Act) and verify that the requirements of your test were met (Assert). A simple example;
 
@@ -94,7 +94,7 @@ A very common approach to structuring your unit tests is using the AAA syntax. T
         Assert.IsTrue(viewModel.CustomersRepository.Count == 1);
     }
 
-### **Exceptions**
+### Exceptions
 
 A nice feature provided by the NUnit framework is the ability to test for an exception. To do this, you set up the Arrange and Act parts of your code, and add the `ExpectedException` attribute to your test method;
 
@@ -113,13 +113,13 @@ A nice feature provided by the NUnit framework is the ability to test for an exc
 
 In the above code sample, if an `InvalidOperationException` is thrown at some point in the test, the test will pass. Otherwise, the test will fail.
 
-### **Recursive mocking**
+### Recursive mocking
 
 Often you will encounter scenarios where you want to Mock complex types on complex types. Moq is smart enough to recognised this and automatically mock nested complex types for you. Take the following situation; Say you have a `Customer` object, which has a complex type of `Address`, which has a complex type of `GeoCoordinate`, which has several properties such as; `Altitude`, `Latitude`, `Longitude` etc. You may want to specify a return value for `Latitude`. Some mocking frameworks would require you to mock each object (Customer, Address, GeoCoordinate), but Moq can deal with this automatically for you. Simply use the `Setup` method as normal;
 
     mockCustomerRepository.Setup(t => t.Customer.Address.Geocoordinate.Longitude).Returns(13.92);
 
-### **Returning different objects each time a method is called**
+### Returning different objects each time a method is called
 
 There are many scenarios when you may want to return a different object or value each time a mocked method is called. Say, for example, you are mocking your data access layer and every time the `GetId()` method is called, you want to return a new Id;
 
@@ -128,7 +128,7 @@ There are many scenarios when you may want to return a different object or value
 
 The `Returns()` method is called the first time the `GetId()` method is called, when subsequent calls are made, the logic in the `Callback()` is executed.
 
-### **Mock Repositories**
+### Mock Repositories
 
 When you have multiple mock objects in your test, and you have multiple `Setup` methods, your verification code may look something like this;
 
@@ -160,6 +160,6 @@ There is nothing particularly wrong with this code, other than the fact that it 
 
 You can declare the behaviour of each `MockObject` created by the `MockRepository` in the repository constructor, or you can set this by passing in the desired `MockBehavior` to the `MockRepository.Create` method.
 
-### **Summary**
+### Summary
 
 Moq is a powerful, extremely flexible mocking framework. When used in conjunction with NUnit, you have all the tools you need to write fast, useful unit tests that can improve the reliability of your code.

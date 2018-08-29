@@ -11,7 +11,7 @@ The ultimate goal of MVVM is to achieve true separation of concerns, meaning tha
 
 It's worth noting just before we get started that you will need to invest a little time to get this set up initially.  That investment will pay off almost immediately as your application begins to scale. Please take the time to, if you haven't already, install [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody "PropertyChanged.Fody") and [StructureMap](http://nuget.org/packages/structuremap/ "StructureMap") from NuGet.
 
-### **Core Classes**
+### Core Classes
 
 Start by creating some core classes for use within the rest of your application.  Getting these in a good state early will make architecting the rest of the application a lot easier. I like to have all my classes inherit from a class called BaseNotification, so that I (thanks to PropertyChanged.Fody) get all the change notification functionality added for free to all my derived classes.
 
@@ -161,7 +161,7 @@ Note if you have not previously encountered the DelegateCommand, there are lots 
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ContentControl Content="{Binding View}" 
+        <ContentControl Content="{Binding View}"
                         Margin="10"/>
 
         <StackPanel Orientation="Horizontal"
