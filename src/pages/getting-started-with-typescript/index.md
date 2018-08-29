@@ -30,7 +30,7 @@ See the output? Identical. You can take advantage of TypeScript is much or as li
 })()
 ```
 
-Click the "Run" button on the top-right hand side and press <kbd>F12</kbd> to bring up the developer tools in your browser. Click on the "Console" tab and you should see the message "Hello, World!". [![Hello World!](http://www.typescriptguy.com/wp-content/uploads/2015/07/HelloWorld.png)](HelloWorld.png) What happened? Well, not a lot (or so you might think!). Take a look at the compiled JavaScript code;
+Click the "Run" button on the top-right hand side and press <kbd>F12</kbd> to bring up the developer tools in your browser. Click on the "Console" tab and you should see the message "Hello, World!". [![Hello World!](HelloWorld.png)](HelloWorld.png) What happened? Well, not a lot (or so you might think!). Take a look at the compiled JavaScript code;
 
 ```javascript
 ;(function() {
@@ -41,7 +41,7 @@ Click the "Run" button on the top-right hand side and press <kbd>F12</kbd> to br
 })()
 ```
 
-JavaScript is a dynamic language, it has no concept of types (that's what TypeScript provides!). TypeScript uses the type information to catch coding errors at compile time and provide other IDE functionality. TypeScript generates 100% vanilla JavaScript code that is fully cross browser/cross operating system compatible. By default, TypeScript will generate ECMAScript 5 (ES5) compliant code, although at the time of writing it is possible to generate ES3 and ES6 code too (and no doubt support will be added for ESx on a yearly basis). Change the code as follows (changing the log message from a string to a number); [![TypeScript Compile Time Behaviour](http://www.typescriptguy.com/wp-content/uploads/2015/07/CompileTimeBehaviour.png)](CompileTimeBehaviour.png) Three very interesting things have happened here, and this is the perfect demonstration of the general attitude of TypeScript. Looking at the red arrows, in order from left to right
+JavaScript is a dynamic language, it has no concept of types (that's what TypeScript provides!). TypeScript uses the type information to catch coding errors at compile time and provide other IDE functionality. TypeScript generates 100% vanilla JavaScript code that is fully cross browser/cross operating system compatible. By default, TypeScript will generate ECMAScript 5 (ES5) compliant code, although at the time of writing it is possible to generate ES3 and ES6 code too (and no doubt support will be added for ESx on a yearly basis). Change the code as follows (changing the log message from a string to a number); [![TypeScript Compile Time Behaviour](CompileTimeBehaviour.png)](CompileTimeBehaviour.png) Three very interesting things have happened here, and this is the perfect demonstration of the general attitude of TypeScript. Looking at the red arrows, in order from left to right
 
 1.  You get compile time checking. TypeScript recognizes that you have supplied a value to the **log** method that is not a string, and highlights the erroneous code to you.
 2.  You get a detailed error message that explains in simple terms what the error was, and the type of value that the calling method was expecting (this is typical behaviour regardless of the complexity of code you are writing).
@@ -51,13 +51,13 @@ JavaScript is a dynamic language, it has no concept of types (that's what TypeSc
 
 You might be surprised to see Node mentioned on this page. TypeScript is a Microsoft product right? Traditionally tools like this might have been constrained to Microsoft IDE's or operating systems, but today's modern Microsoft is moving away from that traditional stance and moving towards being more open. TypeScript is not only completely free, open source, cross browser, cross operating system, but it is also community driven and [actively accepts pull requests directly from community members](https://github.com/Microsoft/TypeScript). In fact, the tooling is so good that its becoming widely adopted in many IDE's including (but not limited to);
 
-- [PhpStorm](https://www.jetbrains.com/phpstorm/help/typescript-support.html), [WebStorm](https://www.jetbrains.com/webstorm/help/typescript-support.html)
-- [Atom](https://atom.io/packages/atom-typescript)
-- [Cloud9 IDE](https://github.com/lennartcl/cloud9-typescript)
-- [Eclipse](https://github.com/palantir/eclipse-typescript)
-- [Sublime Text](https://github.com/Microsoft/TypeScript-Sublime-Plugin)
-- Visual Studio 2012/13/15
-- [VS Code](https://code.visualstudio.com/)
+* [PhpStorm](https://www.jetbrains.com/phpstorm/help/typescript-support.html), [WebStorm](https://www.jetbrains.com/webstorm/help/typescript-support.html)
+* [Atom](https://atom.io/packages/atom-typescript)
+* [Cloud9 IDE](https://github.com/lennartcl/cloud9-typescript)
+* [Eclipse](https://github.com/palantir/eclipse-typescript)
+* [Sublime Text](https://github.com/Microsoft/TypeScript-Sublime-Plugin)
+* Visual Studio 2012/13/15
+* [VS Code](https://code.visualstudio.com/)
 
 If you already have Node and Node Package Manager (npm) installed, open a **Node.js command prompt** and enter the following command to globally install TypeScript;
 
@@ -79,16 +79,16 @@ Now enter the following command;
 
 <pre>tsc -w helloworld.ts</pre>
 
-The **watch** flag (denoted by the -w) tells the TypeScript compiler to watch your file. Meaning that, if you make some edits and save your changes, TypeScript will automatically recompile the file for you each time. Open the helloworld.ts file in Notepad, make a small change, save the file. You should notice the JS gets updated automatically. [![TypeScript compilation completed](http://www.typescriptguy.com/wp-content/uploads/2015/07/CompilationCompleted.png)](CompilationCompleted.png)
+The **watch** flag (denoted by the -w) tells the TypeScript compiler to watch your file. Meaning that, if you make some edits and save your changes, TypeScript will automatically recompile the file for you each time. Open the helloworld.ts file in Notepad, make a small change, save the file. You should notice the JS gets updated automatically. [![TypeScript compilation completed](CompilationCompleted.png)](CompilationCompleted.png)
 
 ## VS Code
 
 VS Code, at the time of writing at least (they may or may not streamline this process in the future), requires a little more leg work to get TS files to compile (almost) automatically. You can find a more [comprehensive tutorial over on MSDN](http://blogs.msdn.com/b/typescript/archive/2015/04/30/using-typescript-in-visual-studio-code.aspx), but this is how you get up and running quickly;
 
-- Create a new folder on your desktop and create a new file called helloworld.ts (or use the one you created for the Node.js part of this tutorial).
-- Add the code shown above, named **Log function with string type definition.**
-- Open VS Code, click **File > Open Folder...** and point to the new folder you just created.
-- Add a new file called **tsconfig.json**, and add the following;
+* Create a new folder on your desktop and create a new file called helloworld.ts (or use the one you created for the Node.js part of this tutorial).
+* Add the code shown above, named **Log function with string type definition.**
+* Open VS Code, click **File > Open Folder...** and point to the new folder you just created.
+* Add a new file called **tsconfig.json**, and add the following;
 
 ```json
 {
@@ -98,7 +98,7 @@ VS Code, at the time of writing at least (they may or may not streamline this pr
 }
 ```
 
-Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> on your keyboard. This would normally kick off the task runner built into VS code. However, we haven't configured the task runner yet, so a small toolbar will appear at the top telling us there is no task runner configured. There is a handy button on the right that says "Configure Task Runner". Click the button. [![Configure VS Code Task Runner](http://www.typescriptguy.com/wp-content/uploads/2015/07/ConfigureTaskRunner.png)](ConfigureTaskRunner.png) VS Code will now generate a bunch of TypeScript specific configuration for us. This will be covered in detail in a future post. For now, however, just accept that TypeScript is ready to go. Switch back to your **helloworld.ts** file, click Save and open the equivalent JavaScript file (helloworld.js). You should see the compiled output. It can be helpful to put the two files side by side you that you can see the updated changes every time you click Save. [![Side By Side View](http://www.typescriptguy.com/wp-content/uploads/2015/07/SideBySide.png)](SideBySide.png)
+Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> on your keyboard. This would normally kick off the task runner built into VS code. However, we haven't configured the task runner yet, so a small toolbar will appear at the top telling us there is no task runner configured. There is a handy button on the right that says "Configure Task Runner". Click the button. [![Configure VS Code Task Runner](ConfigureTaskRunner.png)](ConfigureTaskRunner.png) VS Code will now generate a bunch of TypeScript specific configuration for us. This will be covered in detail in a future post. For now, however, just accept that TypeScript is ready to go. Switch back to your **helloworld.ts** file, click Save and open the equivalent JavaScript file (helloworld.js). You should see the compiled output. It can be helpful to put the two files side by side you that you can see the updated changes every time you click Save. [![Side By Side View](SideBySide.png)](SideBySide.png)
 
 ## Wait, there's more! TypeScript is a transpiler too...
 
@@ -113,7 +113,6 @@ A transpiler is a method of converting code from one language to another. So wha
 
   console.log(message)
 })()
-
 ;(function() {
   var hello = 'Hello'
   var world = 'World'
