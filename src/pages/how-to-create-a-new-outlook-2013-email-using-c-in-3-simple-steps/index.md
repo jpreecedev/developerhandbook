@@ -6,7 +6,7 @@ categories: ["C#"]
 tags: ["c#","C#","microsoft"]
 ---
 
-It has traditionally been quite painful to interact with any part of the Microsoft Office product family from a C# application, but thanks to the introduction of [dynamics](http://msdn.microsoft.com/en-us/library/dd264736.aspx "Dynamic Keyword in C#") and [optional parameters](http://msdn.microsoft.com/en-us/library/dd264739.aspx "Optional Parameters") over recent years, the process has dramatically improved.
+It has traditionally been quite painful to interact with any part of the Microsoft Office product family from a C# application, but thanks to the introduction of [dynamics](http://msdn.microsoft.com/en-us/library/dd264736.aspx 'Dynamic Keyword in C#') and [optional parameters](http://msdn.microsoft.com/en-us/library/dd264739.aspx 'Optional Parameters') over recent years, the process has dramatically improved.
 
 ### Step 1 - Prerequisites and Assembly References
 
@@ -17,14 +17,17 @@ Microsoft.Office.Core
 Microsoft.Office.Interop.Office
 ```
 
-The quickest way to add these references to your project is to right click on the **References** folder in your project, and click **Add Reference**. The **Reference Manager** dialog window will appear as shown below; [![Reference Manager](referencemanager1.png?w=640)](referencemanager1.png)
+The quickest way to add these references to your project is to right click on the **References** folder in your project, and click **Add Reference**. The **Reference Manager** dialog window will appear as shown below;
+
+![Reference Manager](referencemanager1.png)
 
 1.  Click the **COM** tab
 2.  Type **Outlook** into the search box
 3.  Tick **Microsoft Outlook 15.0 Object Library**
 4.  Click **OK**
 
-You should now see that the appropriate references have been added to your project; [![References](references1.png)](references1.png)
+You should now see that the appropriate references have been added to your project;
+![References](references1.png)
 
 ### Step 2 - Using Directives and Initialization
 
