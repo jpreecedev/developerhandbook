@@ -5,9 +5,9 @@ module.exports = {
     title: 'DeveloperHandbook.com - Cleaner code, better code.',
     author: 'Jon Preece',
     description: 'Cleaner code, better code',
-    siteUrl: siteConfig.url
+    siteUrl: siteConfig.url,
+    pathPrefix: `/developerhandbook`
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -53,19 +53,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-feed`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#f7f0eb`,
-        theme_color: `#a2466c`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`
-      }
-    },
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
