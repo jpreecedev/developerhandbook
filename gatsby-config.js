@@ -1,9 +1,11 @@
+const siteConfig = require('./site-config')
+
 module.exports = {
   siteMetadata: {
     title: 'DeveloperHandbook.com - Cleaner code, better code.',
     author: 'Jon Preece',
     description: 'Cleaner code, better code',
-    siteUrl: 'https://www.developerhandbook.com'
+    siteUrl: siteConfig.url
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -42,6 +44,12 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-42743116-1`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: siteConfig.url
       }
     },
     `gatsby-plugin-feed`,

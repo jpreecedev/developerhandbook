@@ -1,6 +1,7 @@
 ---
 layout: post
 title: A high level look at Angular 2
+description: From Google, Angular 2 is the newest version of the popular Single Page Application framework, this post covers everything you need to know at a high level.
 date: 2016-09-03
 categories: ['Angular','TypeScript']
 tags:

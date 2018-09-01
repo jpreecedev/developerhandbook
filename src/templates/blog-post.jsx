@@ -1,20 +1,19 @@
 import * as React from 'react'
-import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
-import get from 'lodash/get'
 
 import Bio from '../components/Bio'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
+import SEO from '../components/SEO'
 
 function BlogPostTemplate(props) {
   const { data, pathContext } = props
   const post = data.markdownRemark
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const { previous, next } = pathContext
+  const siteTitle = data.site.siteMetadata.title
+  const { previous, next, slug } = pathContext
   return (
     <div>
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+      <SEO post={post} siteTitle={siteTitle} slug={slug} />
       <Jumbotron title={post.frontmatter.title} />
       <main role="main" className="container" style={{ marginBottom: '10rem' }}>
         <Published post={post} />
@@ -59,6 +58,7 @@ export const pageQuery = graphql`
       frontmatter {
         categories
         title
+        description
         date(formatString: "MMMM DD, YYYY")
       }
     }
