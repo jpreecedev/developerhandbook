@@ -52,7 +52,7 @@ The [Angular documentation](https://angular.io/docs/ts/latest/), [once you get b
 
 Personally I have worked with both Gulp and Webpack when developing Angular applications. I prefer Webpack for how well it works, but I do not like the configuration aspect. Gulp is much easier to configure, but not as powerful (my feeling) as Webpack.
 
-I have an example [Gulp](https://github.com/jpreecedev/WebcalConnectFrontEnd/blob/ef138505579e45aed5ef5a8a964bd026e2b0b3d5/gulpfile.js) and [Webpack](https://github.com/jpreecedev/WebcalConnectFrontEnd/blob/master/webpack.config.js) configuration file on GitHub, that have both been used in real world applications.
+I have an example [Gulp](https://github.com/jpreecedev/WebcalConnectFrontEnd/blob/ef138505579e45aed5ef5a8a964bd026e2b0b3d5/gulpfile.js) and [Webpack](https://github.com/jpreecedev/webpack-4-scratch) configuration file on GitHub, that have both been used in real world applications.
 
 ## Components
 

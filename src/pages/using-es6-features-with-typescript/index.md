@@ -168,9 +168,9 @@ var hello = new Hello()
 
 You can use the following access modifiers to state the accessibility of your methods and variables;
 
-- public
-- protected
-- private
+* public
+* protected
+* private
 
 Note that these access modifiers are only used at compile time, and don't affect the transpiled JavaScript.
 

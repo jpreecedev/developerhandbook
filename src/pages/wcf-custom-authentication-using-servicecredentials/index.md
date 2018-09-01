@@ -54,7 +54,9 @@ I'm hosting this in IIS on my local machine (using a self-signed certificate) bu
 7.  DO NOT add a binding for HTTPS unless you are confident that your web host fully supports HTTPS connections. More on this later.
 8.  Flip back to Visual Studio and publish your site to IIS. I like to publish in "Debug" mode initially, just to make debugging slightly less impossible.
 
-[![ImportCertificate](ImportCertificate_thumb.png 'ImportCertificate')](ImportCertificate.png) Open your favourite web browser and navigate to [http://echo.local/EchoService.svc?wsdl](http://echo.local/EchoService.svc?wsdl). You won't get much of anything at this time, just a message to say that service metadata is unavailable and instructions on how to turn it on. Forget it, its not important.
+![ImportCertificate](ImportCertificate.png)
+
+Open your favourite web browser and navigate to [http://echo.local/EchoService.svc?wsdl](http://echo.local/EchoService.svc?wsdl). You won't get much of anything at this time, just a message to say that service metadata is unavailable and instructions on how to turn it on. Forget it, its not important.
 
 ## Beyond UserNamePasswordValidator
 
@@ -653,7 +655,11 @@ Re-launch the client and all should be good. If you get the following error mess
 
 > The protocol 'https' is not supported.
 
-After 4 days of battling with this error, I found what the problem is. Basically WCF requires end to end HTTPS for HTTPS to be "supported". Take the following set up; [![load-balancing-1](load-balancing-1_thumb.png 'load-balancing-1')](load-balancing-1.png) Some hosting companies will load balance the traffic. That makes absolutely perfect sense and is completely reasonable. The communications will be made from the client (laptop, desktop or whatever) via HTTPS, that bit is fine. If you go to the service via HTTPS you will get a response. However, and here's the key, the communication between the load balancer and the physical web server probably isn't secured. I.e. doesn't use HTTPS. So the end-to-end communication isn't HTTPS and therefore you get the error message described. To work around this, use a HTTPS binding on the client, and a HTTP binding on the server. This will guarantee that the traffic between the client and the server will be secure (thus preventing MIM attacks) but the traffic between the load balancer and the physical web server will not be secure (you'll have to decide for yourself if you can live with that).
+After 4 days of battling with this error, I found what the problem is. Basically WCF requires end to end HTTPS for HTTPS to be "supported". Take the following set up;
+
+![load-balancing-1](load-balancing-1.png)
+
+Some hosting companies will load balance the traffic. That makes absolutely perfect sense and is completely reasonable. The communications will be made from the client (laptop, desktop or whatever) via HTTPS, that bit is fine. If you go to the service via HTTPS you will get a response. However, and here's the key, the communication between the load balancer and the physical web server probably isn't secured. I.e. doesn't use HTTPS. So the end-to-end communication isn't HTTPS and therefore you get the error message described. To work around this, use a HTTPS binding on the client, and a HTTP binding on the server. This will guarantee that the traffic between the client and the server will be secure (thus preventing MIM attacks) but the traffic between the load balancer and the physical web server will not be secure (you'll have to decide for yourself if you can live with that).
 
 ## Quirks
 

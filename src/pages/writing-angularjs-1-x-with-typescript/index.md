@@ -209,11 +209,11 @@ You can configure IIS to host the site for you. To do so, follow these steps;
 
 In order to demonstrate the concepts thoroughly, we are going to develop a simple project that utilizes the [HaveIBeenPwned API](https://haveibeenpwned.com/API/v2). If you are not familiar with this service, [HaveIBeenPwned](https://haveibeenpwned.com/) is developed and maintained by [developer security expert Troy Hunt](http://www.troyhunt.com/). HaveIBeenPwned checks to see if your email address or username has been compromised in a data breach. The HaveIBeenPwned API is a way to access this wealth of information programmatically via a Restful endpoint. The project shows how to write the following AngularJS concepts in TypeScript;
 
-- Controllers
-- Directives
-- Filters
-- Services
-- Routing
+* Controllers
+* Directives
+* Filters
+* Services
+* Routing
 
 The sample project is certainly not feature complete. In fact, all the samples are about as simplistic as they can possibly be... but that's intentional.
 
@@ -404,9 +404,13 @@ $routeProvider
   })
 ```
 
-You should immediately see the benefits now. [![IntelliSense On Routing Provider](IntelliSense.png)](IntelliSense.png) Not only do you get IntelliSense will full documentation, but you also get the added benefit of compile time checking;
+You should immediately see the benefits now.
 
-[![Compile Time Checking](Compile-Time-Checking.png)](Compile-Time-Checking.png)
+![IntelliSense On Routing Provider](IntelliSense.png)
+
+Not only do you get IntelliSense will full documentation, but you also get the added benefit of compile time checking;
+
+![Compile Time Checking](Compile-Time-Checking.png)
 
 In this case I have provided the wrong number of arguments to the function... I get instant visual feedback on that. **Note**: My code still compiled. Even though the code I wrote in the above examples was _wrong_, the JavaScript was still generated and I could call that in the browser (all be it, with unpredictable behaviour). To complete the routing, add the following code to the `routes` function;
 
@@ -526,7 +530,7 @@ Unless you explicitly apply an access modifier to the parameter, it is `public`.
 
 The code shown in the previous example creates a controller called **SearchController**, using the ES6 `class` feature. By default, the class is not accessible to any other external objects.
 
-[![SearchController Is Inaccessible](SearchController.png)](SearchController.png)
+![SearchController Is Inaccessible](SearchController.png)
 
 **SearchController** is not defined because it is not accessible. It is desirable to expose certain objects so that they can be consumed in other places. Generally I only expose objects that have to be exposed, but there is no hard and fast rule on this and no performance impact that I'm aware of, other than a slightly busier namespace object. To expose a class, interface, or function to other objects, use the `export` keyword.
 
@@ -542,7 +546,7 @@ HaveIBeenPwned.SearchController = SearchController
 
 Now re-running the code in developer tools results in the following;
 
-[![SearchController Is Accessible](SearchControllerAccessible.png)](SearchControllerAccessible.png)
+![SearchController Is Accessible](SearchControllerAccessible.png)
 
 **Note**: This is a transformation provided by TypeScript and there is not a comparable feature in ES6 at the time of writing (July 2015).
 
@@ -985,7 +989,11 @@ tr td {
 }
 ```
 
-It's going to look functional, not beautiful. [![HaveIBeenPwned](HaveIBeenPwned.png)](HaveIBeenPwned.png) Enter the test email address, **foo@bar.com** and press **Enter**. You should get some sample data regarding breaches for that account.
+It's going to look functional, not beautiful.
+
+![HaveIBeenPwned](HaveIBeenPwned.png)
+
+Enter the test email address, **foo@bar.com** and press **Enter**. You should get some sample data regarding breaches for that account.
 
 ## Summary
 

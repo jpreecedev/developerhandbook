@@ -17,7 +17,11 @@ This tutorial demonstrates to how implement a simple RESTful web service using W
 
 ## Project Structure
 
-I think its very important to establish the correct project structure before developing a solution, as it can often be hard to change later. [![Solution](solution_thumb1.png 'Solution')](solution1.png)Add three new projects; **Data**, **Service** and **Web** (as shown to the left). We want to define clear boundaries in our solution, which would (if this were a real project) make future maintenance easier. The data project will contain our entities, and all (surprisingly little) logic required to persist and retrieve data from an external data store. In this case, for simplicity, I have used Entity Framework code first approach. The service layer will contain our WCF RESTful service definition, all associated configuration, and each of our CRUD methods. Finally, the Web project will be the client. Again for simplicity, I simply added a HTML file (index.html) and jQuery to pass requests to the service. We will not dive too much into how this works, because its relatively straightforward. All associated source code for this solution is available on [GitHub](https://github.com/jpreecedev/RESTfulTutorial). Add each project using the following templates;
+I think its very important to establish the correct project structure before developing a solution, as it can often be hard to change later.
+
+![Solution](solution1.png)
+
+Add three new projects; **Data**, **Service** and **Web** (as shown to the left). We want to define clear boundaries in our solution, which would (if this were a real project) make future maintenance easier. The data project will contain our entities, and all (surprisingly little) logic required to persist and retrieve data from an external data store. In this case, for simplicity, I have used Entity Framework code first approach. The service layer will contain our WCF RESTful service definition, all associated configuration, and each of our CRUD methods. Finally, the Web project will be the client. Again for simplicity, I simply added a HTML file (index.html) and jQuery to pass requests to the service. We will not dive too much into how this works, because its relatively straightforward. All associated source code for this solution is available on [GitHub](https://github.com/jpreecedev/RESTfulTutorial). Add each project using the following templates;
 
 * **Data** > standard C# class library
 * **Service** > WCF Service library
@@ -32,7 +36,9 @@ I found that CORS requires quite a bit of additional code to work correctly. In 
 * Click the **Web** tab.
 * Set the project Url to; [http://localhost:8085](http://localhost:8085 'http://localhost:8085') (or whatever port number you have decided to go with). What matters is that they are the same.
 
-[![Web](web_thumb1.png 'Web')](web1.png) So now your WCF service and client run on the same port number, all the extra agony that comes with CORS is avoided.
+![Web](web1.png)
+
+So now your WCF service and client run on the same port number, all the extra agony that comes with CORS is avoided.
 
 ## Data persistence using Entity Framework Code First
 

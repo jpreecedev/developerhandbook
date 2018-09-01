@@ -10,7 +10,11 @@ If, like me, you are working on multiple projects that reference the same packag
 
 ### Root source control folder
 
-Here was my root source control folder before making any changes. [![TFS Root Folder](tfsrootfolder1.png)](tfsrootfolder1.png) When I dive into each folder, I see a _packages_ folder, which contains each of my packages. Generally I use the same packages across multiple projects. What I would like is to be able to create a folder at the root level, called _Library_ and place all my packages in there. Achieving this takes a bit of effort at first, but will pay off in no time. Go ahead and create the _Library_ folder at the root level. Then for each project, go into the project folder and add a new file called _NuGet.config_. The contents of NuGet.config should match as follows;
+Here was my root source control folder before making any changes.
+
+![TFS Root Folder](tfsrootfolder1.png)
+
+When I dive into each folder, I see a _packages_ folder, which contains each of my packages. Generally I use the same packages across multiple projects. What I would like is to be able to create a folder at the root level, called _Library_ and place all my packages in there. Achieving this takes a bit of effort at first, but will pay off in no time. Go ahead and create the _Library_ folder at the root level. Then for each project, go into the project folder and add a new file called _NuGet.config_. The contents of NuGet.config should match as follows;
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -19,7 +23,9 @@ Here was my root source control folder before making any changes. [![TFS Root Fo
 </settings>
 ```
 
-Your project folder should now look like this; [![NuGet Config File](nugetconfigfile1.png)](nugetconfigfile1.png)
+Your project folder should now look like this;
+
+![NuGet Config File](nugetconfigfile1.png)
 
 ### The painful bit
 

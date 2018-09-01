@@ -14,7 +14,13 @@ If you haven't come across [Fiddler](http://www.telerik.com/fiddler) before, its
 
 ### HTTP GET
 
-We will start by testing the HTTP GET method that we wrote a little earlier (we know for sure that already works). [![execute_thumb2](execute_thumb2_thumb11.png 'execute_thumb2')](execute_thumb21.png) [![getresponse_thumb2](getresponse_thumb2_thumb1.png 'getresponse_thumb2')](getresponse_thumb21.png) Open Fiddler, click the **Composer** tab and enter the Url to the web service (the same Url you entered into your web browser earlier). Once done, ensure that GET is selected, and click the **Execute** button (above). The web service should respond after a couple of seconds, and you can see that response by clicking the **Inspectors** tab and clicking **JSON** (shown on the left)
+We will start by testing the HTTP GET method that we wrote a little earlier (we know for sure that already works).
+
+![execute_thumb2](execute_thumb21.png)
+
+![getresponse_thumb2](getresponse_thumb21.png)
+
+Open Fiddler, click the **Composer** tab and enter the Url to the web service (the same Url you entered into your web browser earlier). Once done, ensure that GET is selected, and click the **Execute** button (above). The web service should respond after a couple of seconds, and you can see that response by clicking the **Inspectors** tab and clicking **JSON** (shown on the left)
 
 ### HTTP POST/PUT
 
@@ -71,4 +77,6 @@ We're really just copying what we've already achieved using Fiddler. For the dem
 
 ## Summary
 
-WCF provides out of the box support for writing RESTful web services. Using service contracts, operation contracts, and data contracts, we can make available all the basic information about our web service for consumption from any external clients, including non- .NET clients. We can easily test that our service is working using Fiddler, a free debugging proxy tool that allows us to intercept and "fiddle" with traffic. ...and after all _that_, if your thinking "why not just use Web API?", my response would be "its hard to disagree with you!". [![github4848_thumb.png](github4848_thumb1.png)Download the full source code including the full demo project from GitHub today!](https://github.com/jpreecedev/RESTfulTutorial)
+WCF provides out of the box support for writing RESTful web services. Using service contracts, operation contracts, and data contracts, we can make available all the basic information about our web service for consumption from any external clients, including non- .NET clients. We can easily test that our service is working using Fiddler, a free debugging proxy tool that allows us to intercept and "fiddle" with traffic. ...and after all _that_, if your thinking "why not just use Web API?", my response would be "its hard to disagree with you!".
+
+[Download the full source code including the full demo project from GitHub today!](https://github.com/jpreecedev/RESTfulTutorial)
