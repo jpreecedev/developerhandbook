@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Entity Framework Code First In 15 Minutes
+description: Want to learn Entity Framework in 15 minutes? Theres a tutorial for that... you're welcome!
 date: 2013-07-12
 categories: ['Entity Framework']
 tags: ['c#', 'entity framework', 'Entity Framework', 'wpf']

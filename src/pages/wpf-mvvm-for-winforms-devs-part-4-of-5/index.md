@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WPF MVVM For WinForms Devs - Part 4/5
+description: The purpose of this series of tutorials is to introduce the Model-View-ViewModel (MVVM) design pattern, and look at how to correctly implement it in an Windows Presentation Foundation (WPF) application.
 date: 2013-06-29
 categories: ['WPF MVVM']
 tags: ['c#', 'mvvm', 'wpf', 'WPF MVVM']
@@ -39,9 +40,9 @@ We haven't yet spoken about Prism, what it is and why you should care. Prism (al
 
 Commands are the WPF equivalent of reacting to user instigated interactions. Commands are to WPF what Events are to WinForms. Commands can be implemented in ways that make them reusable throughout your entire application, even across modules. There are two approaches to create commands. Firstly, you could create a new class and implement the [ICommand](http://msdn.microsoft.com/en-us/library/ms752308.aspx 'ICommand') interface. The `ICommand` interface exposes the following;
 
-- CanExecute method (returns true if its OK to execute the actual command)
-- CanExecuteChanged event handler (controls can and do subscribe to this to determine if the CanExecute value has changed)
-- Execute (called when the user actually wants to execute the command)
+* CanExecute method (returns true if its OK to execute the actual command)
+* CanExecuteChanged event handler (controls can and do subscribe to this to determine if the CanExecute value has changed)
+* Execute (called when the user actually wants to execute the command)
 
 ```csharp
 public class ClickCommand: ICommand {

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: C# Writing unit tests with NUnit and Moq
+description: Learn how to effectively write unit tests with NUnit and Moq. This tutorial covers getting started, naming conventions, best practices and more.
 date: 2013-08-30
 categories: ['Unit Testing']
 tags: ['c#', 'moq', 'nunit', 'Unit Testing']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: C# Create a custom XML configuration section
+description: This post looks at how you can create a configuration settings section to help simplify configuration management.
 date: 2013-12-21
 categories: ['C#']
 tags: ['Architecture', 'c#', 'C#']

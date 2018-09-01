@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WPF MVVM For WinForms Devs - Part 1/5
+description: WPF MVVM - A series of posts describing how to get started with C# WPF. Learn what MVVM is and why you should care.
 date: 2013-06-08
 categories: ['WPF MVVM']
 tags: ['c#', 'mvvm', 'wpf', 'WPF MVVM']

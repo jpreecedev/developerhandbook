@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Writing AngularJS 1.x with TypeScript
+description: AngularJS is a front end JavaScript framework that has gained huge traction and popularity in the development community. TypeScript and AngularJS tutorial.
 date: 2015-09-24
 categories: ['TypeScript']
 tags: ['angularjs', 'TypeScript', 'typescript']

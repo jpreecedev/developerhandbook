@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting started with TypeScript
+description: TypeScript, a superset of JavaScript, enables you to build large robust JavaScript applications through optional static typing and more. Start learning now.
 date: 2015-09-11
 categories: ['TypeScript']
 tags: ['TypeScript', 'typescript']

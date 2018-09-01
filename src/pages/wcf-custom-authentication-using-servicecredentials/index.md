@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WCF custom authentication using ServiceCredentials
+description: WCF custom authentication using ServiceCredentials is no trivial matter... used when the bog standard UserNamePasswordValidator just doesn't cut it
 date: 2015-04-03
 categories: ['WCF']
 tags: ['api', 'Architecture', 'c#', 'security', 'wcf', 'WCF']

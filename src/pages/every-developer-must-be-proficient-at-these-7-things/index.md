@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Every developer must be proficient at these 7 things...
+description: Give yourself a boost and make yourself stand out by ensuring that you've got these developer fundamentals covered.
 date: 2015-02-21
 categories: ["Career"]
 tags: ["Career","career","software development"]

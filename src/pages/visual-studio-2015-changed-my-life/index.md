@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why Visual Studio 2015 has changed my life
+description: I've been using Visual Studio on an almost daily basis since 2002, the 2015 release feels like a huge paradigm shift, comparable to Visual Studio 6 to 2002.
 date: 2015-07-24
 categories: ['Visual Studio']
 tags: ['visual studio', 'Visual Studio']

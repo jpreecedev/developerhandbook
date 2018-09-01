@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Getting started with SQLite and C#
+description: SQLite is a powerful, extremely light-weight transactional SQL database provider. SQLite is cross platform and runs on multiple architectures.
 date: 2013-08-07
 categories: ['C#']
 tags: ['c#', 'C#', 'sqlite']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to connect to a SQL Azure database using SQL Server Management Studio
+description: A brief tutorial that explains how to use SQL Server Management Studio to connect to a SQL Azure database
 date: 2014-03-01
 categories: ['Azure']
 tags: ['Azure', 'sql azure', 'windows azure']

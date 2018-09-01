@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to add SignalR to the telephone directory sample application
+description: As part of a mini series we created a very simple telephone directory web page that showed features of Bootstrap, Knockout, jQuery, Web API and Entity Framework. 
 date: 2014-03-15
 categories: ['.NET']
 tags: ['.NET', 'c#', 'html', 'javascript', 'signalr']

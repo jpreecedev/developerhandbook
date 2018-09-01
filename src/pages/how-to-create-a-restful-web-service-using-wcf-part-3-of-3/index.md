@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to create a RESTful web service using WCF (Part 3 of 3)
+description: This is a comprehensive 3 part tutorial that discusses how to create a RESTful web service using WCF. This is the introductory post to get you set up.
 date: 2014-04-04
 categories: ['WCF']
 tags: ['c#', 'rest', 'wcf', 'WCF']

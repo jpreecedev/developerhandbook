@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Check TFS Online service status using C#
+description:  I have written a little screen scraping tool based on the HTML Agility Pack that will scrape the service status page and report back the current status.
 date: 2014-01-10
 categories: ['C#']
 tags: ['c#', 'C#', 'tfs']

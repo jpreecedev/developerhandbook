@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WPF MVVM For WinForms Devs - Part 3/5
+description: The purpose of this series of tutorials is to introduce the Model-View-ViewModel (MVVM) design pattern, and look at how to correctly implement it in a Windows Presentation Foundation (WPF) application.
 date: 2013-06-22
 categories: ['WPF MVVM']
 tags: ['c#', 'mvvm', 'wpf', 'WPF MVVM']

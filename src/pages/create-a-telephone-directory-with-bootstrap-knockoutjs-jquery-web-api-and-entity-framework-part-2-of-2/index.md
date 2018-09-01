@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Create a telephone directory with Bootstrap, KnockoutJS, jQuery, Web API and Entity Framework (Part 2 of 2)
+description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. 
 date: 2014-03-12
 categories: ['.NET']
 tags:
@@ -30,11 +31,11 @@ This is part 2 of 2. You can read the first part here.
 
 Our user interface has several jobs to do;
 
-- It must look good (Bootstrap to the rescue here)
-- It must allow the user to enter their name and number
-- It must allow the user to submit their details to the server
-- It must allow the user to reset the data
-- It must allow the user to edit and delete existing entries
+* It must look good (Bootstrap to the rescue here)
+* It must allow the user to enter their name and number
+* It must allow the user to submit their details to the server
+* It must allow the user to reset the data
+* It must allow the user to edit and delete existing entries
 
 What we don't want is we don't want to see the page refresh. This is going to be such a simple page that the act of refreshing the entire page will feel clunky (not to mention the additional overhead of contacting the server to retrieve our entities again). To aid this, we will use KnockoutJS, which provides JavaScript bindings out of the box. You have already created the basic structure of your web page, add the following code to the body to create the basic design;
 

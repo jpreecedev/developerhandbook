@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to pass Microsoft Exam 70-486 (Developing ASP.NET MVC 4 Web Applications) in 30 days
+description: This post discusses how to study for, sit and pass the Microsoft Exam 70-486 in just 30 days. Be prepared to knuckle down, there are no quick fixes here!
 date: 2014-02-01
 categories: ['Career']
 tags: ['Career', 'exam', 'microsoft']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Create a telephone directory with Bootstrap, KnockoutJS, jQuery, Web API and Entity Framework (Part 1 of 2)
+description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. 
 date: 2014-03-08
 categories: ['.NET']
 tags:

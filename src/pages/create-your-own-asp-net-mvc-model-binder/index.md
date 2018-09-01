@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to create your own ASP .NET MVC model binder
+description: You can easily tidy up your ASP .NET MVC controller classes by creating a custom model binder. This simple tutorial shows you how.
 date: 2014-08-11
 categories: ['C#']
 tags: ['Architecture', 'asp', 'c#', 'C#', 'microsoft']

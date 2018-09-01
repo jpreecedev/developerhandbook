@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Use T4 Templates to create enumerations from your database lookup tables
+description: T4 templates can be used to auto generate C# code files. You create a text template, which is then transformed by Visual Studio into a working file
 date: 2014-02-15
 categories: ['C#']
 tags: ['Architecture', 'C#']

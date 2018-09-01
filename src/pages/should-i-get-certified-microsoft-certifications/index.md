@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Should I get certified?
+description: The value of Microsoft certifications has split opinion for years, and both camps feel very passionate about their side of the argument. Lets find out...
 date: 2014-07-28
 categories: ['Career']
 tags: ['Career', 'exam', 'microsoft']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Create custom C# attributes
+description: Attributes allow you to provide meta data to the consuming code, but have you ever created and consumed your own attributes?
 date: 2014-02-22
 categories: ['C#']
 tags: ['Architecture', 'c#', 'C#']

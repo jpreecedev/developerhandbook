@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to create a new Outlook 2013 Email using C# in 3 simple steps
+description: Working with any part of the Microsoft Office product family from a C# application is hard, but thanks to dynamics and optional parameters the process has dramatically simpler.
 date: 2013-12-14
 categories: ["C#"]
 tags: ["c#","C#","microsoft"]

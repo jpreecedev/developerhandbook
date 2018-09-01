@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to pass Microsoft Exam 70-480 (HTML 5, CSS3 and JavaScript) in 30 days
+description: The purpose of this post is to link to all the resources that I used when revising for the exam myself.  So why 30 days? Well its important to set yourself a target.
 date: 2013-09-20
 categories: ['Career']
 tags: ['Career', 'exam', 'microsoft']

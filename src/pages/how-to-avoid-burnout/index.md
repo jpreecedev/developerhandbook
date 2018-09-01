@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to avoid burnout
+description: Learn the ultimate techniques to break the endless burnout cycle and find a more maintainable work-life balance.  Here are my 5 tips to avoid burnout.
 date: 2015-11-19
 categories: ["Career"]
 tags: ["Career","career"]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to create a RESTful web service using WCF (Part 2 of 3)
+description: This is a comprehensive 3 part tutorial that discusses how to create a RESTful web service using WCF. This is the introductory post to get you set up.
 date: 2014-04-03
 categories: ['WCF']
 tags: ['c#', 'rest', 'wcf', 'WCF']
@@ -89,7 +90,7 @@ Before we can test our WCF service, we need to make a few edits to the configura
       <service name="RESTfulTutorial.Service.BlogService">
 ```
 
-2. Update the base address to tell WCF to use the port number **8085**, and simplify the address a little to tidy it up;
+2.  Update the base address to tell WCF to use the port number **8085**, and simplify the address a little to tidy it up;
 
 ```xml
 <baseAddresses>
@@ -97,7 +98,7 @@ Before we can test our WCF service, we need to make a few edits to the configura
 </baseAddresses>
 ```
 
-3. Update the endpoint to use `webHttpBinding` rather than `basicHttpBinding` Also check that the contract namespace is correct, and add a `behaviourConfiguration` named `Web` (we will define this shortly).
+3.  Update the endpoint to use `webHttpBinding` rather than `basicHttpBinding` Also check that the contract namespace is correct, and add a `behaviourConfiguration` named `Web` (we will define this shortly).
 
 ```xml
 <endpoint address=""
@@ -106,7 +107,7 @@ Before we can test our WCF service, we need to make a few edits to the configura
     behaviorConfiguration="Web"/>
 ```
 
-4. Add an endpoint behaviour (just after the service behaviours section), which will tell WCF to respond in JSON by default, but permit responses in both JSON and XML;
+4.  Add an endpoint behaviour (just after the service behaviours section), which will tell WCF to respond in JSON by default, but permit responses in both JSON and XML;
 
 ```xml
 <endpointBehaviors>

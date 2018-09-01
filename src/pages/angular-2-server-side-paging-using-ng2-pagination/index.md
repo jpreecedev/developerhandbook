@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Angular 2 server side paging using ng2-pagination
+description: Learn how to implement server side paging in Angular 2 using ng2-pagination
 date: 2016-03-31
 categories: [".NET","TypeScript","Web API"]
 tags: [".NET","angular","api","Architecture","c#","TypeScript","typescript","web api","Web API"]

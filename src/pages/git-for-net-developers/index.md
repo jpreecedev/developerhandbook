@@ -1,6 +1,7 @@
 ---
 layout: post
 title: .NET developers, utilize Git better using the command prompt
+description: Git is a complex tool and can be difficult for .NET developers who are not used to using the command line. This post looks at how start putting that right.
 date: 2014-09-14
 categories: ['Git']
 tags: ['git', 'Git', 'tfs']

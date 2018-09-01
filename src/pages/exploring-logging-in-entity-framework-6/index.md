@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Exploring logging in Entity Framework 6
+description: One of the most compelling features of Entity framework is the new logging (SQL Interception) functionality that ships out of the box.
 date: 2013-11-13
 categories: ['Entity Framework']
 tags: ['c#', 'entity framework', 'Entity Framework']

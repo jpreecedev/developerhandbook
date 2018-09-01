@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WPF MVVM IoC containers - Part 2 of 2
+description: WPF MVVC IoC containers-The ultimate goal of MVVM is to achieve separation of concerns, but to do this we need an IoC container, this tutorial shows you how
 date: 2013-08-02
 categories: ['WPF MVVM']
 tags: ['c#', 'dependency injection', 'ioc', 'mvvm', 'structuremap', 'wpf', 'WPF MVVM']

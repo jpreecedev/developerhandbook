@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Why I don't want to be a front-end web developer
+description: I high level look at what makes somebody a front-end web developer and why I feel this can limit your career and earnings potential
 date: 2015-06-25
 categories: ['Career']
 tags: ['Career', 'career', 'software development']
@@ -10,19 +11,19 @@ tags: ['Career', 'career', 'software development']
 
 As a front-end developer, you portray yourself as having a narrow set of skills. This probably isn't the case. I did a quick search on a [popular job forum](http://www.theitjobboard.co.uk/) for front-end developer jobs, and there is a clear recurring theme as to what skills are required to be a mid-level/senior front-end developer;
 
-- (X)HTML (5), CSS, SASS/SCSS, LESS.
-- Backbone, Angular, Knockout.
-- Responsive web design (I'm assuming Bootstrap knowledge, Foundation etc).
-- Adobe Photoshop, Magento.
-- Knowledge of source control and some form of client side unit testing.
+* (X)HTML (5), CSS, SASS/SCSS, LESS.
+* Backbone, Angular, Knockout.
+* Responsive web design (I'm assuming Bootstrap knowledge, Foundation etc).
+* Adobe Photoshop, Magento.
+* Knowledge of source control and some form of client side unit testing.
 
 My perception of these skills;
 
-- HTML has remained relatively unchanged since it was invented in 1990\. If you don't agree, just [take a look at the source code for the first web page](http://info.cern.ch/hypertext/WWW/TheProject.html). HTML is easy, whatever the flavour. That's actually is greatest strength, no barrier to entry for new developers.
-- CSS is easy to learn, impossible to be great at. Thankfully tools such as SASS/SCSS and LESS are eliminating the pain. A web developer of any skill level and experience can learn to use these CSS pre-processors in 60 minutes or less. They're simple. They just work.
-- If you're good at responsive web design, this is a valuable skill. Thankfully, if, like me, you're not strong with design... front-end frameworks, such as Bootstrap and Foundation, help most developers sweep this skill gap under the rug.
-- Photoshop is in a world of its own. Its ridiculous level of complexity is only matched by its mind boggling feature set. Kudos if you can even get it to install and run.
-- Source control. All you need to know; **git push** and **git pull**.
+* HTML has remained relatively unchanged since it was invented in 1990\. If you don't agree, just [take a look at the source code for the first web page](http://info.cern.ch/hypertext/WWW/TheProject.html). HTML is easy, whatever the flavour. That's actually is greatest strength, no barrier to entry for new developers.
+* CSS is easy to learn, impossible to be great at. Thankfully tools such as SASS/SCSS and LESS are eliminating the pain. A web developer of any skill level and experience can learn to use these CSS pre-processors in 60 minutes or less. They're simple. They just work.
+* If you're good at responsive web design, this is a valuable skill. Thankfully, if, like me, you're not strong with design... front-end frameworks, such as Bootstrap and Foundation, help most developers sweep this skill gap under the rug.
+* Photoshop is in a world of its own. Its ridiculous level of complexity is only matched by its mind boggling feature set. Kudos if you can even get it to install and run.
+* Source control. All you need to know; **git push** and **git pull**.
 
 These are, of course, tongue-in-cheek observations. What I'm trying to say is that a full-stack developer can be strong in all of these areas with minimal exposure and experience. These are not specialist skills. This generalisation I think applies to JavaScript development too. After 3 months of constant exposure to AngularJS, for example, you should have a good (if high level) understanding of how it works, how to use it, when to use it, and most importantly, when not to use it. I don't want to be a front-end developer because I have broader range of skills and I don't want to undersell myself.
 

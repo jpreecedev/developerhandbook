@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ASP .NET 5 (vNext), first thoughts
+description: Microsoft ASP .NET 5 is a major shift from traditional .NET methodologies, this is a high level post about the great and no so great things on the horizon
 date: 2015-08-21
 categories: ["C#", "Career"]
 tags: ["asp.net","c#","C#","Career","web api"]
@@ -16,7 +17,7 @@ Lets take a second to disambiguate some terminology. Microsoft's understanding o
 
 > Bill Gates on counting to ten. 1, 2, 3, 95, 98, NT, 2000, XP, Vista, 7, 8, 10.
 >
-> - Todd Motto (@toddmotto) [August 3, 2015](https://twitter.com/toddmotto/status/628124608999329792)
+> * Todd Motto (@toddmotto) [August 3, 2015](https://twitter.com/toddmotto/status/628124608999329792)
 
 Looks like versioning is not going to get any simpler for the time being
 
@@ -28,7 +29,7 @@ ASP .NET 5 is currently scheduled for release in the first quarter of 2016, as p
 
 > [@jpreecedev](https://twitter.com/jpreecedev) getting it right and making sure it runs on all three platforms is a big undertaking
 >
-> - Scott Hanselman (@shanselman) [July 20, 2015](https://twitter.com/shanselman/status/623227525682991104)
+> * Scott Hanselman (@shanselman) [July 20, 2015](https://twitter.com/shanselman/status/623227525682991104)
 
 The ASP .NET team would rather "get it right" and take longer, than rush the product and get it wrong (which would spell long term disaster for the platform)
 
@@ -36,12 +37,12 @@ The ASP .NET team would rather "get it right" and take longer, than rush the pro
 
 This is the new version of Microsoft's Model-View-Controller framework. There is a nice post on StackOverflow that describes the [new features of MVC 6](http://stackoverflow.com/questions/24533380/what-are-the-asp-net-mvc-6-features). Here are a few of the best;
 
-*   "Cloud optimization" ... so better performance.
-*   MVC, WebAPI and Web Pages are now unified.
-*   Removed dependency on System.Web, which results in more an 10x reduction in request overhead.
-*   Built in dependency injection, which is pluggable, so it can be switched out for other DI providers.
-*   Roslyn enables dynamic compilation. Save your file, refresh the browser. Works for C# too. No compilation required.
-*   Cross platform.
+* "Cloud optimization" ... so better performance.
+* MVC, WebAPI and Web Pages are now unified.
+* Removed dependency on System.Web, which results in more an 10x reduction in request overhead.
+* Built in dependency injection, which is pluggable, so it can be switched out for other DI providers.
+* Roslyn enables dynamic compilation. Save your file, refresh the browser. Works for C# too. No compilation required.
+* Cross platform.
 
 ### DNX (.NET Execution Environment)
 
@@ -49,26 +50,26 @@ The [.NET Execution Environment, DNX,](https://github.com/aspnet/dnx) is a cross
 
 ## Interesting new features and changes
 
-*   Use of data annotations for things that would previously have been HTML helpers (Tag helpers)
-*   Environment tag on _Layout. Enables a simple means to specify which resources to load depending on the application configuration (Debug mode, release mode etc)
-*   Bower support
-*   Gulp out of the box (interesting that they chose Gulp over Grunt, I think its [Gulps superior speed](http://tech.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt/) that has won the day.)
-*   .NET Core. Drastically reduced web pipeline, could result in 10x faster response in some cases (remains to be seen!).
-*   Noticeably faster starting up.
-*   Save to build. With Roslyn, it is now not necessary to build every time you make a change to a CSharp (.cs) code file. Just save and refresh. Compilation is done in memory.
-*   Intellisense hints that assembly is not available in .NET Core (nice!)
-*   Built in dependency injection, which can be switched out for a third party mechanism.
-*   Web API is now no longer a separate component. Web API was originally a separate technology from MVC. The two were always very alike, and it makes sense that the two should be merged together.
+* Use of data annotations for things that would previously have been HTML helpers (Tag helpers)
+* Environment tag on \_Layout. Enables a simple means to specify which resources to load depending on the application configuration (Debug mode, release mode etc)
+* Bower support
+* Gulp out of the box (interesting that they chose Gulp over Grunt, I think its [Gulps superior speed](http://tech.tmw.co.uk/2014/01/speedtesting-gulp-and-grunt/) that has won the day.)
+* .NET Core. Drastically reduced web pipeline, could result in 10x faster response in some cases (remains to be seen!).
+* Noticeably faster starting up.
+* Save to build. With Roslyn, it is now not necessary to build every time you make a change to a CSharp (.cs) code file. Just save and refresh. Compilation is done in memory.
+* Intellisense hints that assembly is not available in .NET Core (nice!)
+* Built in dependency injection, which can be switched out for a third party mechanism.
+* Web API is now no longer a separate component. Web API was originally a separate technology from MVC. The two were always very alike, and it makes sense that the two should be merged together.
 
 ## Deleted stuff
 
-*   Web.config has finally been removed and exchanged for a simpler JSON formatted file. Parties have been thrown for less.
-*   packages.config has gone, seems redundant now that things are in line with how the rest of the web develop, i.e. using package.json
+* Web.config has finally been removed and exchanged for a simpler JSON formatted file. Parties have been thrown for less.
+* packages.config has gone, seems redundant now that things are in line with how the rest of the web develop, i.e. using package.json
 
 ## Bad points
 
-*   Still heavy use of the Viewbag in default projects. I'd like to see the ViewBag removed entirely, but I suspect that will never happen.
-*   The default project template is still full of "junk", although it is now a bit simpler to tidy up. Visual Studio automatically managers bower and npm packages, so removing a package is as simple as deleting it from the package.json file.
+* Still heavy use of the Viewbag in default projects. I'd like to see the ViewBag removed entirely, but I suspect that will never happen.
+* The default project template is still full of "junk", although it is now a bit simpler to tidy up. Visual Studio automatically managers bower and npm packages, so removing a package is as simple as deleting it from the package.json file.
 
 ## Summary
 

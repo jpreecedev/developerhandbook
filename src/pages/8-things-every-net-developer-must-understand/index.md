@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 8 things every .NET developer must understand
+description: After interviewing a lot recently, I've found that some employers are asking the same questions. Here are 8 things every .NET developer must understand.
 date: 2014-09-19
 categories: ["Career"]
 tags: ["c#","Career","career","javascript","software development"]

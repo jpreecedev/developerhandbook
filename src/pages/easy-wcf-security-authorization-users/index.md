@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Easy WCF Security and authorization of users
+description: WCF security and authorization in general is easy, there are just a few steps involved in making your WCF service secure
 date: 2014-07-19
 categories: ['WCF']
 tags: ['Architecture', 'c#', 'microsoft', 'wcf', 'WCF']

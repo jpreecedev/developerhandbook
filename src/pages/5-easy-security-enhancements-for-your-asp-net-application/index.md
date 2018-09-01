@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 5 easy security enhancements for your ASP .NET application
+description: Here I outline 5 ways to protect your website from malicious attacks, with explanations of each vulnerability and how to resolve it
 date: 2014-01-26
 categories: ['.NET']
 tags: ['.NET', 'asp', 'mvc', 'security']
@@ -54,8 +55,8 @@ Redirect(Request.QueryString["returnUrl"]);
 
 There are two solutions;
 
-- Don't use the `Redirect` method at all. Instead use `RedirectToLocal` or even better, use `RedirectToRoute` or `RedirectToAction`.
-- Only ever use hard coded return Urls when calling the `Redirect` method.
+* Don't use the `Redirect` method at all. Instead use `RedirectToLocal` or even better, use `RedirectToRoute` or `RedirectToAction`.
+* Only ever use hard coded return Urls when calling the `Redirect` method.
 
 ### Cross Site Scripting (XSS)
 
@@ -110,9 +111,9 @@ Look closely, and you will see that the Request Verification Token includes the 
 
 **Solution:** You should purchase an [SSL certificate](http://www.sslshopper.com/ssl-certificate-wizard.html) and apply it to your website. Doing so will encrypt the traffic so that it cannot be easily viewed between the source and destination. If your website is hosted using Internet Information Services (IIS);
 
-- Open the IIS Manager (inetmgr.exe)
-- Select the root level node under "Connections"
-- Double click "Server Certificates"
-- Import the certificate using the links on the "Actions" pane
-- Click on your website
-- Add a new **https** binding and select the SSL certificate you just imported.
+* Open the IIS Manager (inetmgr.exe)
+* Select the root level node under "Connections"
+* Double click "Server Certificates"
+* Import the certificate using the links on the "Actions" pane
+* Click on your website
+* Add a new **https** binding and select the SSL certificate you just imported.

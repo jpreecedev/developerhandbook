@@ -1,6 +1,7 @@
 ---
 layout: post
 title: In the spotlight - Demystifying IQueryable (Entity Framework 6)
+description: This post takes a closer look at IQueryable, how it is implemented in Entity Framework, what happens to our code at compile time, and understand what impact IQueryable has on our repositories.
 date: 2013-11-24
 categories: ['Entity Framework']
 tags: ['Architecture', 'c#', 'entity framework', 'Entity Framework']

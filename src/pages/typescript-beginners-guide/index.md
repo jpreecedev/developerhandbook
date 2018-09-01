@@ -1,6 +1,7 @@
 ---
 layout: post
 title: TypeScript beginners guide
+description: New to TypeScript, have a small about of web development experience? Need to get started NOW?! This is the ultimate TypeScript beginners guide.
 date: 2015-10-02
 categories: ["TypeScript"]
 tags: ["TypeScript","typescript"]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: WPF Entity Framework Code First migrations
+description: Recently I wrote a WPF application using Entity Framework Code First and released it into the wild.  Shortly after, the business requirements changed and I had to make changes to the model.  Thus, I was introduced to Code First migrations.
 date: 2013-08-16
 categories: ['Entity Framework']
 tags: ['c#', 'entity framework', 'Entity Framework', 'wpf']

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 15 reasons why I can’t work without JetBrains ReSharper
+description: If you know me personally, you’ll know how much I love JetBrains ReSharper, I use it every day and I swear by it.  People often ask me what I like most about it, and here I often stutter. 
 date: 2013-12-28
 categories: ["Career"]
 tags: ["Career","jetbrains","resharper"]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 5 AutoMapper tips and tricks
+description: AutoMapper is a productivity tool designed to help you write less of the boring, tedious, repetitive code we have to write on a near day to day basis.
 date: 2014-08-23
 categories: ['C#']
 tags: ['Architecture', 'AutoMapper', 'c#', 'C#']

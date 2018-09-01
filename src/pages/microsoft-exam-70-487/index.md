@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to pass Microsoft Exam 70-487 (Developing Microsoft Azure and Web Services) in 30 days
+description: You can pass Microsoft Exam 70-487 (Developing Microsoft Azure and Web Services) in 30 days using these resources.
 date: 2014-07-26
 categories: ['Career']
 tags: ['Career', 'exam', 'microsoft']
