@@ -4,4 +4,14 @@ const CATEGORIES_MAP = {
   'VS Code': 'vs-code'
 }
 
-module.exports = { CATEGORIES_MAP }
+const DEFAULT_CATEGORIES = ['C#', 'Career', 'TypeScript', 'Angular', 'Unit Testing']
+
+function getLink(category) {
+  return `/${
+    category in CATEGORIES_MAP
+      ? CATEGORIES_MAP[category]
+      : category.toLowerCase().replace(' ', '-')
+  }`
+}
+
+module.exports = { CATEGORIES_MAP, DEFAULT_CATEGORIES, getLink }

@@ -1,7 +1,17 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import logo from '../images/developerhandbook.png'
-import { CATEGORIES_MAP } from '../utils/categories'
+import { DEFAULT_CATEGORIES, getLink } from '../utils/categories'
+
+function getMainNavItems(categories) {
+  return DEFAULT_CATEGORIES.map(defaultCategory =>
+    categories.filter(category => category === defaultCategory)
+  )
+}
+
+function getOtherNavItems(categories) {
+  return categories.filter(category => !DEFAULT_CATEGORIES.includes(category))
+}
 
 function Nav({ categories }) {
   return (
@@ -24,20 +34,39 @@ function Nav({ categories }) {
 
         <div className="collapse navbar-collapse justify-content-md-end" id="mainNavBar">
           <ul className="navbar-nav">
-            {categories.slice(0, 8).map(category => (
-              <li className="nav-item" key={category}>
-                <Link
-                  className="nav-link"
-                  to={`/${
-                    category in CATEGORIES_MAP
-                      ? CATEGORIES_MAP[category]
-                      : category.toLowerCase().replace(' ', '-')
-                  }`}
-                >
-                  {category}
-                </Link>
-              </li>
-            ))}
+            {getMainNavItems(categories).map(navCategory =>
+              navCategory.map(category => (
+                <li className="nav-item" key={category}>
+                  <Link className="nav-link" to={getLink(category)}>
+                    {category}
+                  </Link>
+                </li>
+              ))
+            )}
+
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="/"
+                id="dropdown07"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <div className="dropdown-menu" aria-labelledby="dropdown07">
+                {getOtherNavItems(categories).map(navCategory => (
+                  <Link
+                    className="dropdown-item"
+                    key={navCategory}
+                    to={getLink(navCategory)}
+                  >
+                    {navCategory}
+                  </Link>
+                ))}
+              </div>
+            </li>
           </ul>
         </div>
       </div>

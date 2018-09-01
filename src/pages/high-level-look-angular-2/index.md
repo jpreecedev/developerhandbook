@@ -2,7 +2,7 @@
 layout: post
 title: A high level look at Angular 2
 date: 2016-09-03
-categories: ['Angular','Typescript']
+categories: ['Angular','TypeScript']
 tags:
   [
     'angular',

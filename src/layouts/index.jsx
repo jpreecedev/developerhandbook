@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import Nav from '../components/Nav'
 
 import 'prismjs/themes/prism-coy.css'

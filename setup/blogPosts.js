@@ -28,6 +28,7 @@ function blogPosts({ createPage, graphql }) {
                   frontmatter {
                     categories
                     title
+                    date(formatString: "MMMM DD, YYYY")
                   }
                 }
               }

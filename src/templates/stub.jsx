@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Link from 'gatsby-link'
 import Jumbotron from '../components/Jumbotron'
+import Published from '../components/Published'
 
 function StubTemplate(props) {
   const { posts, siteTitle, category, mappedCategory } = props.pathContext
@@ -18,6 +19,7 @@ function StubTemplate(props) {
               <h2>
                 <Link to={`/${mappedCategory}${post.fields.slug}`}>{title}</Link>
               </h2>
+              <Published post={post} />
               <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
             </div>
           )

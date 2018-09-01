@@ -57,6 +57,7 @@ export const pageQuery = graphql`
       html
       timeToRead
       frontmatter {
+        categories
         title
         date(formatString: "MMMM DD, YYYY")
       }
