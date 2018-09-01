@@ -14,8 +14,6 @@ The first parts of the mini series can be found here;
 
 [/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/](/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/ '/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
 
-[![github4848](github4848_thumb1.png 'github4848')](github48481.png)
-
 This post is a continuation of the original project. You can find the entire source code over on [GitHub](https://github.com/jpreecedev/telephonedirectory).
 
 ## Add SignalR using NuGet

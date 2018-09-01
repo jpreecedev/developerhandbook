@@ -10,11 +10,15 @@ The purpose of this series of tutorials is to introduce the Model-View-ViewModel
 
 ### User Controls
 
-User controls are controls that you have created for use throughout your application. Often user controls are a composite of existing WPF controls, pieced together to simplify code, improve maintainability by improving code reuse, and provide a consistent look and feel throughout your application. In this tutorial we are going to look at how to create a date time picker as a single, unified control that accepts a `DateTime` object as its value. [![Custom Date Picker](customdatetimepicker1.png)](customdatetimepicker1.png) To make this possible, we will need to create the following;
+User controls are controls that you have created for use throughout your application. Often user controls are a composite of existing WPF controls, pieced together to simplify code, improve maintainability by improving code reuse, and provide a consistent look and feel throughout your application. In this tutorial we are going to look at how to create a date time picker as a single, unified control that accepts a `DateTime` object as its value.
 
-- Resource dictionary to store all our styles/layout behaviour (called CustomControls.xaml)
-- A class for the control behavioural logic itself (called CustomDateTimePicker.cs)
-- A view and a view model for displaying and binding (called MainWindow.xaml and MainWindowViewModel.cs)
+![Custom Date Picker](customdatetimepicker1.png)
+
+To make this possible, we will need to create the following;
+
+* Resource dictionary to store all our styles/layout behaviour (called CustomControls.xaml)
+* A class for the control behavioural logic itself (called CustomDateTimePicker.cs)
+* A view and a view model for displaying and binding (called MainWindow.xaml and MainWindowViewModel.cs)
 
 Go ahead and add the above files into your project. If you followed on from earlier parts of this post, simply stick with your existing project.
 
@@ -201,4 +205,4 @@ Now flip over to the xaml, and add the control;
 
 ### Summary
 
-There are many ways to create custom controls in WPF. We have seen one approach here where we create a code file that inherits from `UserControl` and and we define the layout for that control in a resource dictionary. [Download source code](https://dl.dropboxusercontent.com/u/14543010/WPFCustomControl.zip 'WPF Custom Control') I hope you enjoyed this mini series of introductory WPF MVVM tutorials.
+There are many ways to create custom controls in WPF. We have seen one approach here where we create a code file that inherits from `UserControl` and and we define the layout for that control in a resource dictionary.

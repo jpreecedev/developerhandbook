@@ -27,8 +27,8 @@ Properties, fields, function parameters and more can be decorated (sprinkled) wi
 You can start very simply, by, say, adding a `string` type to a function parameter.
 
 ```javascript
-function print(message:string) {
-    //Console log message here
+function print(message: string) {
+  //Console log message here
 }
 ```
 
@@ -52,20 +52,20 @@ Good developers want to use the latest iteration of their tools. They use these 
 
 The single biggest frustration for web developers who write JavaScript is cross browser support (is your company still supporting IE8?). TypeScript enables developers to write code against emerging standards whilst maintaining backwards compatibility. TypeScript is technically a transpiler and not a compiler, and it has a bunch of useful transformations to make this possible.
 
-It is fair to say that the ECMAScript standard (the standard from which JavaScript ultimately derives) hasn't evolved much over the last decade. There has been incremental updates, yes, but there has been a long gap between ES5 and ES6 (about 6 years to be precise). That's all changed now, as the [TC39 committee](http://www.ecma-international.org/memento/TC39.htm) have committed to releasing revised standards on a yearly basis. In fact, officially, the ES6 standard has been renamed to ES2015, ES7 has been renamed to ES2016, and there will be yearly releases going forward. TypeScript enables developers to utilise these new standards because it provides transformations for many of them.
+It is fair to say that the ECMAScript standard (the standard from which JavaScript ultimately derives) hasn't evolved much over the last decade. There has been incremental updates, yes, but there has been a long gap between ES5 and ES6 (about 6 years to be precise). That's all changed now, as the TC39 committee have committed to releasing revised standards on a yearly basis. In fact, officially, the ES6 standard has been renamed to ES2015, ES7 has been renamed to ES2016, and there will be yearly releases going forward. TypeScript enables developers to utilise these new standards because it provides transformations for many of them.
 
 Example; TypeScript 1.5 transforms the following ES6 string interpolation code;
 
 ```javascript
-var name = "Jon Preece";
-var a = "Hello, ${name}";
+var name = 'Jon Preece'
+var a = 'Hello, ${name}'
 ```
 
 to ES5 friendly string concatenation;
 
 ```javascript
-var name = "Jon Preece";
-var a = "Hello, " + name;
+var name = 'Jon Preece'
+var a = 'Hello, ' + name
 ```
 
 Yes, you can use most ES6 features knowing with 100% confidence that the emitted code is widely supported by all decent browsers (IE 7+ at least).
@@ -87,8 +87,8 @@ There are several approaches to using tsc depending on your operating system, ID
 The simplest feature of TypeScript to use out of the box, and arguably the best feature, is type declarations, or static typing. You declare the type of a function parameter using the following syntax;
 
 ```javascript
-function print(message:string) {
-    //Console log message here
+function print(message: string) {
+  //Console log message here
 }
 ```
 
@@ -98,10 +98,10 @@ It might not make any sense to do the following;
 
 ```javascript
 //Print '123' to the screen
-print(123);
+print(123)
 
 //Print this object to the screen
-print({message: "abc" });
+print({ message: 'abc' })
 ```
 
 The result of calling the function in this matter is unpredictable a best, and at worst could result in an error in your application. By applying the type declaration to the parameter, we can get a warning at compile time that there is a problem.
@@ -131,17 +131,15 @@ By default, TypeScript does not use any sort of Asynchronous Module Defition (AM
 Modules help with code organisation and reduce global scope pollution. Take the following code;
 
 ```typescript
-module Printing {
-    class Printer {
-        constructor(private startingValue: number) {
+namespace Printing {
+  class Printer {
+    constructor(private startingValue: number) {}
+    print(message: string): string {
+      //Do something
 
-        }
-        print(message: string): string {
-            //Do something
-
-            return "";
-        }
+      return ''
     }
+  }
 }
 ```
 
@@ -154,14 +152,14 @@ Anything nested inside a module will be added to it as an object. So in this cas
 Constructors are a feature of ES6, called when an object is instantiated. You can include your set up logic here for the specific instance. You can also pass values to the constructor and get full IntelliSense support;
 
 ```typescript
-module Printing {
-    class Printer {
-        private startingValue: number;
+namespace Printing {
+  class Printer {
+    private startingValue: number
 
-        constructor(startingValue : number) {
-            this.startingValue = startingValue;
-        }
+    constructor(startingValue: number) {
+      this.startingValue = startingValue
     }
+  }
 }
 ```
 
@@ -178,12 +176,10 @@ This is unnecessary in TypeScript... TypeScript provides some syntactic sugar to
 The following code is valid TypeScript;
 
 ```typescript
-module Printing {
-    class Printer {
-        constructor(private startingValue : number) {
-
-        }
-    }
+namespace Printing {
+  class Printer {
+    constructor(private startingValue: number) {}
+  }
 }
 ```
 

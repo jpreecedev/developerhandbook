@@ -23,7 +23,7 @@ public class Customer {
 
 A quick look in SQL Server Management studio reveals that the index has been added for us.
 
-[![image](image_thumb11.png 'image')](image11.png)
+![image](image11.png)
 
 The key created was non-unique, non-clustered. There are overloads available to override these defaults;
 
@@ -35,7 +35,9 @@ public int Id {
 }
 ```
 
-Which results in a unique index as shown below; [![indexes](indexes_thumb1.png 'indexes')](indexes1.png)
+Which results in a unique index as shown below;
+
+![indexes](indexes1.png)
 
 ### Summary
 

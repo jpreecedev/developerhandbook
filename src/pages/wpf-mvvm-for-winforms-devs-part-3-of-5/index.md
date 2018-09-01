@@ -58,7 +58,7 @@ In the previous walkthrough we; set up our view model, bound it to the view, and
 
 The UI should now look something like this;
 
-[![Updated UI](updatedui1.jpg)](updatedui1.jpg)
+![Updated UI](updatedui1.jpg)
 
 Let's take a moment to review the behaviour...go ahead and make changes to the First Name and Last Name text boxes. You will notice that when the text box loses focus, the Customers Name label is updated with the new values. I can also assure you that the underlying model is also being updated to reflect these changes.
 
@@ -75,8 +75,8 @@ protected override void AfterDelayElapsed() {
 
 The above method (which is located in our MainWindowViewModel class) runs after a period of time (in this case 10 seconds) has elapsed. Its reasonable to assume that because we have a TwoWay binding to the property on our view, the view should just be updated automatically. This is not the case. When making changes to your model classes, you have to inform the runtime that said property has changed. This practice is known as **raising change notifications** in WPF. (and is arguably the vein of every WPF developers life). There are several approaches you can take for raising change notifications, and they all start in the same way.
 
-- Your class must implement the `INotifyPropertyChanged` interface ([System.ComponentModel.INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx 'INotifyPropertyChanged')). This can be either on the individual class itself, or on a base class (the recommended approach)
-- The above interface provides an event that must be called, passing in the name of the property that has changed.
+* Your class must implement the `INotifyPropertyChanged` interface ([System.ComponentModel.INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx 'INotifyPropertyChanged')). This can be either on the individual class itself, or on a base class (the recommended approach)
+* The above interface provides an event that must be called, passing in the name of the property that has changed.
 
 **Base Classes Are Your Friend** I highly recommend that instead of implementing `INotifyPropertyChanged` directly on all of your model and view-model classes, you create a base class (called for example; BaseNotification or BaseViewModel or BaseModel) and implement the interface on there instead. Then it is customary to have a protected method that actually takes care of raising the event. First example implementation:
 
@@ -156,7 +156,11 @@ using System.Runtime.CompilerServices;
 
 ### A Better Way
 
-You're in luck, there is one final way to resolve this nuisance...and we need to take a second to thank the open source community for this one. Whilst there are several packages available, I am particularly fond of [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody/ 'PropertyChanged.Fody') ... a free & open source project hosted on NuGet. [![Package Manager Console](capture1.jpg)](capture1.jpg) From a (very!) high level, this tool (and tools like it) convert your automatic properties into properties with backing fields and inject the `OnPropertyChanged` method call for you...all at compile time! (hold for applause) So as long as your class either implements `INotifyPropertyChanged` directly, or gets it from a base model class, your work is done.
+You're in luck, there is one final way to resolve this nuisance...and we need to take a second to thank the open source community for this one. Whilst there are several packages available, I am particularly fond of [PropertyChanged.Fody](http://nuget.org/packages/PropertyChanged.Fody/ 'PropertyChanged.Fody') ... a free & open source project hosted on NuGet.
+
+![Package Manager Console](capture1.jpg)
+
+From a (very!) high level, this tool (and tools like it) convert your automatic properties into properties with backing fields and inject the `OnPropertyChanged` method call for you...all at compile time! (hold for applause) So as long as your class either implements `INotifyPropertyChanged` directly, or gets it from a base model class, your work is done.
 
 ### Summary
 

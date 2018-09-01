@@ -12,7 +12,7 @@ The purpose of this series of tutorials is to introduce the WPF MVVM (Model-View
 
 Start by firing up an instance of your favourite version of Visual Studio (free or paid) and create a new WPF application, call it CustomerPortal.
 
-[![VS Create Project Dialog](vssavedialog1.jpg)](vssavedialog1.jpg)
+![VS Create Project Dialog](vssavedialog1.jpg)
 
 Add a new class to your project, called Customer. This will be your model class. Add the following code;
 
@@ -84,10 +84,8 @@ Finally, we're ready to present the value of our `FullName` property to the user
 
 In the above sample, we have used data binding to retrieve the value of the property `FullName` from the views data context (our view model). If you run the application, you should now see the following;
 
-[![Main Window](mainwindow1.jpg)](mainwindow1.jpg)
+![Main Window](mainwindow1.jpg)
 
 ### Summary
 
 We have seen how we can implement the MVVM design pattern in our application with very little effort. We've seen the role played by the view-model. We have not yet discussed how we get data back from the view to the model and the role of change notifications. We will explore these topics and more in the next post.
-
-[![Download](downloadicon1.png)](downloadicon1.png) [Download Source Code](https://dl.dropboxusercontent.com/u/14543010/CustomerPortal.zip 'Download Source Code')

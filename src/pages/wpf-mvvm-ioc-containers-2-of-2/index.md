@@ -106,7 +106,9 @@ Whilst the BaseWindowViewModel is similar to the BaseViewModel class, there are 
 
 ### Creating a window
 
-Now that we have the core pieces in place, we can turn our attention to creating a window. The window in this example is going to display a couple of views (one at a time) and navigation will be achieved via some buttons. This is what we're aiming for; [![WPF MVVM Structure Map Main Window](wpfmvvmstructuremap-mainwindow1.png)](wpfmvvmstructuremap-mainwindow1.png)
+Now that we have the core pieces in place, we can turn our attention to creating a window. The window in this example is going to display a couple of views (one at a time) and navigation will be achieved via some buttons. This is what we're aiming for;
+
+![WPF MVVM Structure Map Main Window](wpfmvvmstructuremap-mainwindow1.png)
 
 When a button is clicked, the corresponding view is displayed whilst displaying details about its data context.
 
@@ -170,7 +172,7 @@ public class MainWindowViewModel : BaseWindowViewModel, IMainWindowViewModel
 }
 ```
 
-Note if you have not previously encountered the DelegateCommand, there are lots of implementations available online. You can download the version I have used [here](https://dl.dropboxusercontent.com/u/14543010/DelegateCommand.cs 'Delegate Command'). The constructor here is of critical importance to the whole concept. If you are using a refactoring tool such as ReSharper, please be sure to double check that the constructors first parameter is of type IMainWindow and not IWindow. ReSharper notices that you can use the more generic IWindow, as no properties from IMainWindow are used on the base class. Doing this, however, will result in StructureMap not knowing which type it actually needs to inject. As we added the logic for displaying the actual view in our BaseWindowViewModel, we simply need to call `ShowView()` passing in the type of the view model we actually want to display. (The view that corresponds to the aforementioned view model). Finally, open MainWindow.xaml and replace the existing `Grid` with the `Grid` below;
+Note if you have not previously encountered the DelegateCommand, there are lots of implementations available online. The constructor here is of critical importance to the whole concept. If you are using a refactoring tool such as ReSharper, please be sure to double check that the constructors first parameter is of type IMainWindow and not IWindow. ReSharper notices that you can use the more generic IWindow, as no properties from IMainWindow are used on the base class. Doing this, however, will result in StructureMap not knowing which type it actually needs to inject. As we added the logic for displaying the actual view in our BaseWindowViewModel, we simply need to call `ShowView()` passing in the type of the view model we actually want to display. (The view that corresponds to the aforementioned view model). Finally, open MainWindow.xaml and replace the existing `Grid` with the `Grid` below;
 
 ```xml
 <Grid>
@@ -299,4 +301,4 @@ For the sake of completeness, I added a Resource Dictionary with the below style
 
 ### Summary
 
-IoC containers provide a simple and elegant solution to doing dependency injection in a large WPF MVVM application. IoC containers are also responsible for managing the lifetime of our windows/views/view models. Using an IoC container also has a positive side effect of forcing you to structure your classes in a way that promotes unit testing. [Download source code](https://dl.dropboxusercontent.com/u/14543010/WPFMVVMWithStructureMap.zip 'IoC Demo Code')
+IoC containers provide a simple and elegant solution to doing dependency injection in a large WPF MVVM application. IoC containers are also responsible for managing the lifetime of our windows/views/view models. Using an IoC container also has a positive side effect of forcing you to structure your classes in a way that promotes unit testing.

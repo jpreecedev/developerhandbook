@@ -14,7 +14,7 @@ The ultimate goal of MVVM is to achieve true separation of concerns, meaning tha
 </Window.DataContext>
 ```
 
-2. You could set the data context in the views code behind file;
+2.  You could set the data context in the views code behind file;
 
 ```csharp
 public partial class MainWindow : BaseWindow
@@ -27,7 +27,7 @@ public partial class MainWindow : BaseWindow
 }
 ```
 
-3. Or you could set the data context when the view is instantiated;
+3.  Or you could set the data context when the view is instantiated;
 
 ```csharp
 View = new MainWindow();
@@ -124,4 +124,4 @@ protected override void OnStartup(StartupEventArgs e)
 
 ### Summary
 
-In this short post we have discussed what Dependency Injection is, and how a Inversion of Control (IoC) container goes a step further. An IoC container manages the instances of our objects automatically for us, and can take responsibility for injecting instances of any object that it knows about into the constructor of our view models. In the next post, we will look at fully implementing IoC containers in a WPF MVVM application. [Download source code](https://dl.dropboxusercontent.com/u/14543010/DI.zip 'Download Source Code')
+In this short post we have discussed what Dependency Injection is, and how a Inversion of Control (IoC) container goes a step further. An IoC container manages the instances of our objects automatically for us, and can take responsibility for injecting instances of any object that it knows about into the constructor of our view models. In the next post, we will look at fully implementing IoC containers in a WPF MVVM application.

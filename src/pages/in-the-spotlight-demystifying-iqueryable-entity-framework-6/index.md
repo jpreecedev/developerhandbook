@@ -262,4 +262,4 @@ Keep in mind though, that this will cause the entire dataset to be returned and 
 
 ### Summary
 
-`IQueryable` works to translate your code into the most efficient queries it can, and for the most part it does a great job. When working with the repository/unit of work pattern, you should think very hard about returning `IQueryable` to your consuming code, because this results in boundary bleed and can also result in exceptions, as each query interpreter cannot translate every single expression you throw at it. [Download the source code](https://dl.dropboxusercontent.com/u/14543010/Demystified.zip 'Download source code').
+`IQueryable` works to translate your code into the most efficient queries it can, and for the most part it does a great job. When working with the repository/unit of work pattern, you should think very hard about returning `IQueryable` to your consuming code, because this results in boundary bleed and can also result in exceptions, as each query interpreter cannot translate every single expression you throw at it.

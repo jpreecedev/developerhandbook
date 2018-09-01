@@ -12,7 +12,7 @@ Recently I wrote a WPF application using Entity Framework Code First and release
 
 The code is going to revolve around the common idea of customers and orders.
 
-[![C# Code Structure](codestructure21.png)](codestructure21.png)
+![C# Code Structure](codestructure21.png)
 
 Code structure; An `Order` has a collection of `Product` and a `Customer`, the `Customer` has a `CustomerName`. Any properties that are marked as virtual are navigation properties, and are lazy loaded by Entity Framework at runtime.
 
@@ -108,7 +108,7 @@ Entity Framework uses the DbContext class to determine the structure of your dat
 
 You will notice that this process has has created a new folder (_Migrations_), and two new files; (_Configuration.cs_ and _InitialCreate_, prefixed with a Date/Time stamp)
 
-[![Entity Framework Initial Create](entityframeworkinitialcreate1.png)](entityframeworkinitialcreate1.png)
+![Entity Framework Initial Create](entityframeworkinitialcreate1.png)
 
 ### A word about seed data
 
@@ -133,7 +133,7 @@ protected override void Seed(CodeFirstMigrations.Context context) {
 
 Note that the comment clearly states that the method will be called directly after migrating to the latest version. I've found that, in reality, this method is called every time your application starts up. I suppose this is why the `AddOrUpdate` extension method was added, to prevent duplicate seed data. Analysing the Visual Studio IntelliSense documentation closely, its pretty clear what this method expects for the first parameter;
 
-[![AddOrUpdate Extension Method](addorupdate1.png)](addorupdate1.png)
+![AddOrUpdate Extension Method](addorupdate1.png)
 
 For the `AddOrUpdate` method, we must pass in a parameter that will determine if the seed data is ADDED or UPDATED. Unfortunately, this doesn't seem to work when passing in the primary key of the table (the `Id` property). For me, this is a major limitation and hopefully it will be resolved in future releases. The solution here is to skip the seed data method altogether, and add some logic in the application start-up method to determine if the seed data needs to be added or updated. The final step is to update your initializer to use the `MigrateDatabaseToLatestVersion` database initializer;
 
