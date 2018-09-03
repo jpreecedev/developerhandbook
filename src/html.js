@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === `production`) {
 
 const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" />
 const popper = (
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js" />
+  <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" />
 )
 const bootstrap = (
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" />

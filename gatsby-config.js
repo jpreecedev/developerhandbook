@@ -1,12 +1,12 @@
 const siteConfig = require('./site-config')
 
 module.exports = {
+  pathPrefix: `/developerhandbook`,
   siteMetadata: {
     title: 'DeveloperHandbook.com - Cleaner code, better code.',
     author: 'Jon Preece',
     description: 'Cleaner code, better code',
-    siteUrl: siteConfig.url,
-    pathPrefix: `/developerhandbook`
+    siteUrl: siteConfig.url
   },
   plugins: [
     {
