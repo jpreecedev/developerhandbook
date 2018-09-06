@@ -10,7 +10,8 @@
     "format":
       "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
-    "build": "gatsby build --prefix-paths"
+    "build": "gatsby build --prefix-paths",
+    "build:prod": "gatsby build"
   },
   "repository": {
     "type": "git",
