@@ -36,11 +36,11 @@ module.exports = class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
+        </head>
+        <body {...this.props.bodyAttributes}>
           {jquery}
           {popper}
           {bootstrap}
-        </head>
-        <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
           <div
             key={`body`}
