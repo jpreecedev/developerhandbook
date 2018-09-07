@@ -1,4 +1,3 @@
-const Promise = require('bluebird')
 const path = require('path')
 const { CATEGORIES_MAP } = require('../src/utils/categories')
 
@@ -16,33 +15,29 @@ function getPostsForCategory(posts, category) {
 }
 
 function stub({ createPage, posts, siteTitle }) {
-  return new Promise(resolve => {
-    const stub = path.resolve('./src/templates/stub.jsx')
+  const stub = path.resolve('./src/templates/stub.jsx')
 
-    posts.forEach(post => {
-      if (!post.node.frontmatter.categories) {
-        post.node.frontmatter.categories = ['Unsorted']
-      }
+  posts.forEach(post => {
+    if (!post.node.frontmatter.categories) {
+      post.node.frontmatter.categories = ['Unsorted']
+    }
 
-      post.node.frontmatter.categories.forEach(category => {
-        const mappedCategory =
-          category in CATEGORIES_MAP ? CATEGORIES_MAP[category] : category
+    post.node.frontmatter.categories.forEach(category => {
+      const mappedCategory =
+        category in CATEGORIES_MAP ? CATEGORIES_MAP[category] : category
 
-        const path = `${mappedCategory.toLowerCase().replace(' ', '-')}`
+      const path = `${mappedCategory.toLowerCase().replace(' ', '-')}`
 
-        createPage({
-          path,
-          component: stub,
-          context: {
-            posts: getPostsForCategory(posts, category),
-            category,
-            mappedCategory: path,
-            siteTitle
-          }
-        })
+      createPage({
+        path,
+        component: stub,
+        context: {
+          posts: getPostsForCategory(posts, category),
+          category,
+          mappedCategory: path,
+          siteTitle
+        }
       })
-
-      resolve()
     })
   })
 }

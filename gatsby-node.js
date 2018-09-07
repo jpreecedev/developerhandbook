@@ -6,9 +6,51 @@ const stubs = require('./setup/stub')
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
-  return blogPosts({ createPage, graphql }).then(({ posts, siteTitle }) =>
-    stubs({ siteTitle, posts, createPage, graphql })
-  )
+  return new Promise((resolve, reject) => {
+    graphql(`
+          {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+            allMarkdownRemark(
+              sort: { fields: [frontmatter___date], order: DESC }
+              limit: 1000
+            ) {
+              edges {
+                node {
+                  excerpt(pruneLength: 1200)
+                  timeToRead
+                  fields {
+                    slug
+                  }
+                  frontmatter {
+                    categories
+                    title
+                    description
+                    date(formatString: "MMMM DD, YYYY")
+                  }
+                }
+              }
+            }
+          }
+        `).then(result => {
+      if (result.errors) {
+        console.log(result.errors)
+        reject(result.errors)
+      }
+
+      // Create blog posts pages.
+      const posts = result.data.allMarkdownRemark.edges
+      const siteTitle = result.data.site.siteMetadata.title
+
+      blogPosts({ createPage, posts })
+      stubs({ createPage, posts, siteTitle })
+
+      resolve()
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
