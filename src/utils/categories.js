@@ -7,7 +7,7 @@ const CATEGORIES_MAP = {
 const DEFAULT_CATEGORIES = ['C#', 'Career', 'TypeScript', 'Angular', 'Unit Testing']
 
 function getLink(category) {
-  return `/${
+  return `/category/${
     category in CATEGORIES_MAP
       ? CATEGORIES_MAP[category]
       : category.toLowerCase().replace(' ', '-')

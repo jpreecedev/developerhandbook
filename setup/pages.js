@@ -10,7 +10,7 @@ function pages(props) {
   let temparray
   const chunk = 5
 
-  for (i = 5, j = posts.length, k = 1; i < j; i += chunk, k += 1) {
+  for (i = 5, j = posts.length, k = 2; i < j; i += chunk, k += 1) {
     temparray = posts.slice(i, i + chunk)
 
     temparray.forEach(() => {

@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import { CATEGORIES_MAP } from '../utils/categories'
+import Pagination from '../components/Pagination'
 
 function getPostCategory(post) {
   if (!post.frontmatter.categories) {
@@ -17,7 +18,8 @@ function getPostCategory(post) {
 }
 
 function StubTemplate(props) {
-  const { posts, siteTitle, category, mappedCategory } = props.pathContext
+  const { location, pathContext } = props
+  const { posts, siteTitle, category, mappedCategory } = pathContext
   return (
     <div>
       <Helmet title={`${category} | ${siteTitle}`} />
@@ -39,6 +41,7 @@ function StubTemplate(props) {
             </div>
           )
         })}
+        <Pagination location={location} />
       </main>
     </div>
   )

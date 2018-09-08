@@ -5,9 +5,10 @@ import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
 import { CATEGORIES_MAP } from '../utils/categories'
 
-function BlogIndex({ data }) {
+function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+
   return (
     <div>
       <Helmet title={siteTitle} />
@@ -25,6 +26,7 @@ function BlogIndex({ data }) {
 
           return (
             <PostOverview
+              key={node.fields.slug}
               title={title}
               slug={node.fields.slug}
               mappedCategory={mappedCategory}
@@ -32,7 +34,7 @@ function BlogIndex({ data }) {
             />
           )
         })}
-        <Pagination />
+        <Pagination location={location} />
       </main>
     </div>
   )

@@ -30,7 +30,7 @@ function stub(props) {
       const path = `${mappedCategory.toLowerCase().replace(' ', '-')}`
 
       createPage({
-        path,
+        path: `/category/${path}`,
         component: stub,
         context: {
           posts: getPostsForCategory(posts, category),
