@@ -14,7 +14,8 @@ function getPostsForCategory(posts, category) {
   }, [])
 }
 
-function stub({ createPage, posts, siteTitle }) {
+function stub(props) {
+  const { createPage, posts, siteTitle } = props
   const stub = path.resolve('./src/templates/stub.jsx')
 
   posts.forEach(post => {
@@ -40,6 +41,8 @@ function stub({ createPage, posts, siteTitle }) {
       })
     })
   })
+
+  return props
 }
 
 module.exports = stub

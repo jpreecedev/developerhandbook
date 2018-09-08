@@ -2,6 +2,9 @@ const Promise = require('bluebird')
 const { createFilePath } = require('gatsby-source-filesystem')
 const blogPosts = require('./setup/blogPosts')
 const stubs = require('./setup/stub')
+const pages = require('./setup/pages')
+
+const pipe = (...functions) => args => functions.reduce((arg, fn) => fn(arg), args)
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
@@ -44,9 +47,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       // Create blog posts pages.
       const posts = result.data.allMarkdownRemark.edges
       const siteTitle = result.data.site.siteMetadata.title
+      const args = { createPage, posts, siteTitle }
 
-      blogPosts({ createPage, posts })
-      stubs({ createPage, posts, siteTitle })
+      pipe(blogPosts, stubs, pages)(args)
 
       resolve()
     })

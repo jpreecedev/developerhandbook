@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 let stylesStr
 if (process.env.NODE_ENV === `production`) {
@@ -10,9 +10,7 @@ if (process.env.NODE_ENV === `production`) {
 }
 
 const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" />
-const popper = (
-  <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" />
-)
+const popper = <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" />
 const bootstrap = (
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" />
 )
@@ -43,7 +41,7 @@ module.exports = class HTML extends React.Component {
           {bootstrap}
           {this.props.preBodyComponents}
           <div
-            key={`body`}
+            key="body"
             id="___gatsby"
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />

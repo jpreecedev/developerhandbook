@@ -1,22 +1,21 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Jumbotron from '../components/Jumbotron'
+import PostOverview from '../components/PostOverview'
+import Pagination from '../components/Pagination'
 import { CATEGORIES_MAP } from '../utils/categories'
 
-function BlogIndex(props) {
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const posts = get(props, 'data.allMarkdownRemark.edges')
-
+function BlogIndex({ data }) {
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMarkdownRemark.edges
   return (
     <div>
       <Helmet title={siteTitle} />
       <Jumbotron title="Cleaner code, better code." />
       <main role="main" className="container">
         {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          const category = get(node, 'frontmatter.categories[0]') || 'Unsorted'
+          const title = node.frontmatter.title
+          const category = node.frontmatter.categories[0]
           const mappedCategory = `${(category in CATEGORIES_MAP
             ? CATEGORIES_MAP[category]
             : category
@@ -25,14 +24,15 @@ function BlogIndex(props) {
             .replace(' ', '-')}`
 
           return (
-            <div key={node.fields.slug}>
-              <h2>
-                <Link to={`/${mappedCategory}${node.fields.slug}`}>{title}</Link>
-              </h2>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+            <PostOverview
+              title={title}
+              slug={node.fields.slug}
+              mappedCategory={mappedCategory}
+              excerpt={node.excerpt}
+            />
           )
         })}
+        <Pagination />
       </main>
     </div>
   )
@@ -47,7 +47,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(limit: 5, skip: 0, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt(pruneLength: 1200)

@@ -1,7 +1,8 @@
 const path = require('path')
 const { CATEGORIES_MAP } = require('../src/utils/categories')
 
-function blogPosts({ createPage, posts }) {
+function blogPosts(props) {
+  const { createPage, posts } = props
   const blogPost = path.resolve('./src/templates/blog-post.jsx')
 
   posts.forEach((post, index) => {
@@ -28,6 +29,8 @@ function blogPosts({ createPage, posts }) {
       })
     })
   })
+
+  return props
 }
 
 module.exports = blogPosts
