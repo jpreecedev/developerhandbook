@@ -28,6 +28,7 @@ function Nav({ categories }) {
           aria-controls="mainNavBar"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          ref={button => (this.toggleButton = button)}
         >
           <span className="navbar-toggler-icon" />
         </button>
@@ -37,7 +38,11 @@ function Nav({ categories }) {
             {getMainNavItems(categories).map(navCategory =>
               navCategory.map(category => (
                 <li className="nav-item" key={category}>
-                  <Link className="nav-link" to={getLink(category)}>
+                  <Link
+                    onClick={() => this.toggleButton.click()}
+                    className="nav-link"
+                    to={getLink(category)}
+                  >
                     {category}
                   </Link>
                 </li>
@@ -58,6 +63,7 @@ function Nav({ categories }) {
               <div className="dropdown-menu" aria-labelledby="dropdown07">
                 {getOtherNavItems(categories).map(navCategory => (
                   <Link
+                    onClick={() => this.toggleButton.click()}
                     className="dropdown-item"
                     key={navCategory}
                     to={getLink(navCategory)}
