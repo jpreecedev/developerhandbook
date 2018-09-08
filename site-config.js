@@ -1,4 +1,5 @@
 module.exports = {
   url: 'https://www.developerhandbook.com',
-  twitter: 'jpreecedev'
+  twitter: 'jpreecedev',
+  siteTitleAlt: 'DeveloperHandbook.com - Cleaner code, better code.'
 }

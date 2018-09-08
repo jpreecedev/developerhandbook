@@ -4,16 +4,16 @@ import Link from 'gatsby-link'
 import Bio from '../components/Bio'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
-import SEO from '../components/SEO'
+import PostSEO from '../components/PostSEO'
 
 function BlogPostTemplate(props) {
-  const { data, pathContext } = props
+  const { data, location, pathContext } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next, slug } = pathContext
+  const { previous, next } = pathContext
   return (
     <div>
-      <SEO post={post} siteTitle={siteTitle} slug={slug} />
+      <PostSEO post={post} siteTitle={siteTitle} location={location} />
       <Jumbotron title={post.frontmatter.title} />
       <main role="main" className="container" style={{ marginBottom: '10rem' }}>
         <Published post={post} />
