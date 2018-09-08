@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import profilePic from '../images/jonpreece.jpg'
 
@@ -21,8 +22,14 @@ function Bio() {
 who lives and works in Manchester, North
           West England.
           {' '}
-          <a href="https://twitter.com/jpreecedev">You should follow him on Twitter</a>
-.
+          <OutboundLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://twitter.com/jpreecedev"
+          >
+            You should follow him on Twitter
+          </OutboundLink>
+          .
         </p>
       </div>
     </div>
