@@ -47,8 +47,6 @@ function PostSEO({ post, siteTitle, location }) {
     }
   ]
 
-  debugger
-
   return (
     <Helmet title={`${title} | ${siteTitle}`}>
       {description && <meta name="description" content={description} />}

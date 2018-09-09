@@ -1,22 +1,12 @@
 import * as React from 'react'
 import Nav from '../components/Nav'
+import { getDistinctCategories } from '../utils/categories'
 
 import 'prismjs/themes/prism-coy.css'
 import '../styles.scss'
 
 function Template({ children, data }) {
-  const categories = data.allMarkdownRemark.edges.reduce((acc, current) => {
-    const data = current.node.frontmatter.categories
-    if (data) {
-      data.forEach(item => {
-        if (item && !acc.includes(item)) {
-          acc.push(item)
-        }
-      })
-    }
-    return acc
-  }, [])
-
+  const categories = getDistinctCategories(data.allMarkdownRemark.edges)
   return (
     <div>
       <Nav categories={categories} />
