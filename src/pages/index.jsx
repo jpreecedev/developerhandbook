@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import Jumbotron from '../components/Jumbotron'
 import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
-import { CATEGORIES_MAP } from '../utils/categories'
+import { getCategoryUrlFriendly } from '../utils/categories'
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title
@@ -17,19 +17,13 @@ function BlogIndex({ data, location }) {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title
           const category = node.frontmatter.categories[0]
-          const mappedCategory = `${(category in CATEGORIES_MAP
-            ? CATEGORIES_MAP[category]
-            : category
-          )
-            .toLowerCase()
-            .replace(' ', '-')}`
 
           return (
             <PostOverview
               key={node.fields.slug}
               title={title}
               slug={node.fields.slug}
-              mappedCategory={mappedCategory}
+              mappedCategory={`${getCategoryUrlFriendly(category)}`}
               excerpt={node.excerpt}
             />
           )

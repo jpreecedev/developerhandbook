@@ -9,7 +9,7 @@ tags: ['Architecture', 'AutoMapper', 'c#', 'C#']
 
 [AutoMapper](https://github.com/AutoMapper/AutoMapper) is a productivity tool designed to help you write less repetitive code mapping code. AutoMapper maps objects to objects, using both convention and configuration. AutoMapper is flexible enough that it can be overridden so that it will work with even the oldest legacy systems. This post demonstrates what I have found to be 5 of the most useful, lesser known features.
 
-**Tip:** I wrote unit tests to demonstrate each of the basic concepts. If you would like to learn more about unit testing, please check out my post [C# Writing Unit Tests with NUnit And Moq](/csharp-writing-unit-tests-with-nunit-and-moq/).
+**Tip:** I wrote unit tests to demonstrate each of the basic concepts. If you would like to learn more about unit testing, please check out my post [C# Writing Unit Tests with NUnit And Moq](/writing-unit-tests-with-nunit-and-moq/).
 
 ## Demo project code
 

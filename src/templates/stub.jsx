@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import Link from 'gatsby-link'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
-import { CATEGORIES_MAP } from '../utils/categories'
+import { getCategoryUrlFriendly } from '../utils/categories'
 import Pagination from '../components/Pagination'
 
 function getPostCategory(post) {
@@ -12,9 +12,7 @@ function getPostCategory(post) {
     return 'Unsorted'
   }
 
-  const category = post.frontmatter.categories[0]
-  const mappedCategory = category in CATEGORIES_MAP ? CATEGORIES_MAP[category] : category
-  return mappedCategory.toLowerCase().replace(' ', '-')
+  return getCategoryUrlFriendly(post.frontmatter.categories[0])
 }
 
 function StubTemplate(props) {

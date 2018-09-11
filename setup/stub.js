@@ -1,5 +1,5 @@
 const path = require('path')
-const { CATEGORIES_MAP } = require('../src/utils/categories')
+const { getCategoryUrlFriendly } = require('../src/utils/categories')
 
 function getPostsForCategory(posts, category) {
   return posts.reduce((acc, current) => {
@@ -24,10 +24,7 @@ function stub(props) {
     }
 
     post.node.frontmatter.categories.forEach(category => {
-      const mappedCategory =
-        category in CATEGORIES_MAP ? CATEGORIES_MAP[category] : category
-
-      const path = `${mappedCategory.toLowerCase().replace(' ', '-')}`
+      const path = `${getCategoryUrlFriendly(category)}`
 
       createPage({
         path: `/category/${path}`,

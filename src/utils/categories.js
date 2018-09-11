@@ -21,11 +21,19 @@ function getDistinctCategories(edges) {
 }
 
 function getLink(category) {
-  return `/category/${
-    category in CATEGORIES_MAP
-      ? CATEGORIES_MAP[category]
-      : category.toLowerCase().replace(' ', '-')
-  }`
+  return `/category/${getCategoryUrlFriendly(category)}`
 }
 
-module.exports = { CATEGORIES_MAP, DEFAULT_CATEGORIES, getLink, getDistinctCategories }
+function getCategoryUrlFriendly(category) {
+  return category in CATEGORIES_MAP
+    ? CATEGORIES_MAP[category]
+    : category.toLowerCase().replace(' ', '-')
+}
+
+module.exports = {
+  CATEGORIES_MAP,
+  DEFAULT_CATEGORIES,
+  getLink,
+  getDistinctCategories,
+  getCategoryUrlFriendly
+}

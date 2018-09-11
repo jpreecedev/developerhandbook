@@ -1,13 +1,12 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import config from '../../site-config'
-import { CATEGORIES_MAP } from '../utils/categories'
+import { getCategoryUrlFriendly } from '../utils/categories'
 import icon from '../../static/icon.png'
 
-function PostSEO({ post, siteTitle, location }) {
+function PostSEO({ post, siteTitle, baseUrl, fullUrl }) {
   const { description, title, image = icon, categories } = post.frontmatter
-  const { twitter, siteTitleAlt, url } = config
-  const { pathname } = location
+  const { twitter, siteTitleAlt } = config
 
   const category = categories[0]
 
@@ -15,7 +14,7 @@ function PostSEO({ post, siteTitle, location }) {
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
-      url,
+      baseUrl,
       name: title,
       alternateName: siteTitleAlt || ''
     },
@@ -27,11 +26,7 @@ function PostSEO({ post, siteTitle, location }) {
           '@type': 'ListItem',
           position: 1,
           item: {
-            '@id': `${url}/${
-              category in CATEGORIES_MAP
-                ? CATEGORIES_MAP[category]
-                : category.toLowerCase().replace(' ', '-')
-            }`,
+            '@id': `${baseUrl}/${getCategoryUrlFriendly(category)}`,
             name: title
           }
         },
@@ -39,7 +34,7 @@ function PostSEO({ post, siteTitle, location }) {
           '@type': 'ListItem',
           position: 2,
           item: {
-            '@id': url + pathname,
+            '@id': fullUrl,
             name: title
           }
         }
@@ -52,7 +47,7 @@ function PostSEO({ post, siteTitle, location }) {
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={image} />}
 
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content="article" />
       {title && <meta property="og:title" content={title} />}
       {description && <meta property="og:description" content={description} />}

@@ -1,41 +1,37 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
+import config from '../../site-config'
 
 import Bio from '../components/Bio'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
+import Comments from '../components/Comments'
 
 function BlogPostTemplate(props) {
-  const { data, location, pathContext } = props
+  const { data, location } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pathContext
+  const { pathname } = location
+
+  const { url } = config
+  const fullUrl = url + pathname
+
   return (
     <div>
-      <PostSEO post={post} siteTitle={siteTitle} location={location} />
+      <PostSEO
+        post={post}
+        siteTitle={siteTitle}
+        pathname={pathname}
+        baseUrl={url}
+        fullUrl={fullUrl}
+      />
       <Jumbotron title={post.frontmatter.title} />
       <main role="main" className="container" style={{ marginBottom: '10rem' }}>
         <Published post={post} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Bio />
-        {(previous || next) && (
-          <div>
-            <hr />
-            <h5 className="mt-5">Continue Reading</h5>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                {previous.frontmatter.title}
-                <br />
-              </Link>
-            )}
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title}
-              </Link>
-            )}
-          </div>
-        )}
+        <Comments url={fullUrl} identifier={pathname} title={post.frontmatter.title} />
       </main>
     </div>
   )
