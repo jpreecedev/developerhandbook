@@ -1,5 +1,6 @@
+/* eslint-disable react/no-danger */
+
 import * as React from 'react'
-import Link from 'gatsby-link'
 import config from '../../site-config'
 
 import Bio from '../components/Bio'

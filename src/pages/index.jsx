@@ -15,7 +15,7 @@ function BlogIndex({ data, location }) {
       <Jumbotron title="Cleaner code, better code." />
       <main role="main" className="container">
         {posts.map(({ node }) => {
-          const title = node.frontmatter.title
+          const {title} = node.frontmatter
           const category = node.frontmatter.categories[0]
 
           return (

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const Promise = require('bluebird')
 const { createFilePath } = require('gatsby-source-filesystem')
 const blogPosts = require('./setup/blogPosts')

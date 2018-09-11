@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension,no-console,global-require,react/no-danger */
+
 import * as React from 'react'
 
 let stylesStr
@@ -15,39 +17,42 @@ const bootstrap = (
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" />
 )
 
-module.exports = class HTML extends React.Component {
-  render() {
-    let css
-    if (process.env.NODE_ENV === `production`) {
-      css = (
-        <style id="gatsby-inlined-css" dangerouslySetInnerHTML={{ __html: stylesStr }} />
-      )
-    }
-    return (
-      <html lang="en-GB" prefix="og: http://ogp.me/ns#" {...this.props.htmlAttributes}>
-        <head>
-          <meta charSet="utf-8" />
-          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-          />
-          {this.props.headComponents}
-          {css}
-        </head>
-        <body {...this.props.bodyAttributes}>
-          {jquery}
-          {popper}
-          {bootstrap}
-          {this.props.preBodyComponents}
-          <div
-            key="body"
-            id="___gatsby"
-            dangerouslySetInnerHTML={{ __html: this.props.body }}
-          />
-          {this.props.postBodyComponents}
-        </body>
-      </html>
+function HTML({
+  headComponents,
+  htmlAttributes,
+  bodyAttributes,
+  preBodyComponents,
+  body,
+  postBodyComponents
+}) {
+  let css
+  if (process.env.NODE_ENV === `production`) {
+    css = (
+      <style id="gatsby-inlined-css" dangerouslySetInnerHTML={{ __html: stylesStr }} />
     )
   }
+  return (
+    <html lang="en-GB" prefix="og: http://ogp.me/ns#" {...htmlAttributes}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        {headComponents}
+        {css}
+      </head>
+      <body {...bodyAttributes}>
+        {jquery}
+        {popper}
+        {bootstrap}
+        {preBodyComponents}
+        <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
+        {postBodyComponents}
+      </body>
+    </html>
+  )
 }
+
+module.exports = HTML

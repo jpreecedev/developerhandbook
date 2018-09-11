@@ -14,7 +14,7 @@ function NotFoundPage({ data }) {
       <Jumbotron title="Cleaner code, better code." />
       <main role="main" className="container">
         <h1>404</h1>
-        <p>Sorry, we're not sure what to do with that request.</p>
+        <p>Sorry, we are not sure what to do with that request.</p>
         <p>Perhaps try one of these categories instead?</p>
         <ul>
           {categories.map(category => (

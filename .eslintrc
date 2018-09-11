@@ -3,7 +3,6 @@
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
       "jsx": true,
       "modules": true
     }
@@ -23,6 +22,16 @@
   "rules": {
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/named": "off"
+    "import/named": "off",
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreRefs": true,
+        "allowArrowFunctions": true,
+        "allowFunctions": false,
+        "allowBind": false,
+        "ignoreDOMComponents": true
+      }
+    ]
   }
 }

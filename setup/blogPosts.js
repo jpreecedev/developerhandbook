@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 const path = require('path')
 const { getCategoryUrlFriendly } = require('../src/utils/categories')
 

@@ -1,9 +1,11 @@
+/* eslint-disable no-param-reassign */
+
 const path = require('path')
 const { getCategoryUrlFriendly } = require('../src/utils/categories')
 
 function getPostsForCategory(posts, category) {
   return posts.reduce((acc, current) => {
-    const categories = current.node.frontmatter.categories
+    const {categories} = current.node.frontmatter
     if (categories) {
       const hasCategory = categories.includes(category)
       if (hasCategory) {
@@ -14,7 +16,7 @@ function getPostsForCategory(posts, category) {
   }, [])
 }
 
-function stub(props) {
+function Stub(props) {
   const { createPage, posts, siteTitle } = props
   const stub = path.resolve('./src/templates/stub.jsx')
 
@@ -24,15 +26,15 @@ function stub(props) {
     }
 
     post.node.frontmatter.categories.forEach(category => {
-      const path = `${getCategoryUrlFriendly(category)}`
+      const categoryPath = `${getCategoryUrlFriendly(category)}`
 
       createPage({
-        path: `/category/${path}`,
+        path: `/category/${categoryPath}`,
         component: stub,
         context: {
           posts: getPostsForCategory(posts, category),
           category,
-          mappedCategory: path,
+          mappedCategory: categoryPath,
           siteTitle
         }
       })
@@ -42,4 +44,4 @@ function stub(props) {
   return props
 }
 
-module.exports = stub
+module.exports = Stub

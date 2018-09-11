@@ -6,6 +6,12 @@ const CATEGORIES_MAP = {
 
 const DEFAULT_CATEGORIES = ['C#', 'Career', 'TypeScript', 'Angular', 'Unit Testing']
 
+function getCategoryUrlFriendly(category) {
+  return category in CATEGORIES_MAP
+    ? CATEGORIES_MAP[category]
+    : category.toLowerCase().replace(' ', '-')
+}
+
 function getDistinctCategories(edges) {
   return edges.reduce((acc, current) => {
     const data = current.node.frontmatter.categories
@@ -22,12 +28,6 @@ function getDistinctCategories(edges) {
 
 function getLink(category) {
   return `/category/${getCategoryUrlFriendly(category)}`
-}
-
-function getCategoryUrlFriendly(category) {
-  return category in CATEGORIES_MAP
-    ? CATEGORIES_MAP[category]
-    : category.toLowerCase().replace(' ', '-')
 }
 
 module.exports = {

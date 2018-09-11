@@ -1,3 +1,5 @@
+/* eslint-disable no-loop-func */
+
 const path = require('path')
 
 function pages(props) {
@@ -14,11 +16,11 @@ function pages(props) {
     temparray = posts.slice(i, i + chunk)
 
     temparray.forEach(() => {
-      const path = `/page/${k}`
+      const pagePath = `/page/${k}`
       const category = `Page ${k}`
 
       createPage({
-        path,
+        path: pagePath,
         component: stub,
         context: {
           posts: temparray.map(post => post.node),

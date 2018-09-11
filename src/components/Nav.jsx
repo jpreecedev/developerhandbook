@@ -14,6 +14,12 @@ function getOtherNavItems(categories) {
 }
 
 function Nav({ categories }) {
+  let toggleButton
+
+  function setToggleRef(button) {
+    toggleButton = button
+  }
+
   return (
     <nav className="navbar navbar-expand-md navbar-light nav-shadow fixed-top bg-light">
       <div className="container">
@@ -28,7 +34,7 @@ function Nav({ categories }) {
           aria-controls="mainNavBar"
           aria-expanded="false"
           aria-label="Toggle navigation"
-          ref={button => (this.toggleButton = button)}
+          ref={setToggleRef}
         >
           <span className="navbar-toggler-icon" />
         </button>
@@ -39,7 +45,7 @@ function Nav({ categories }) {
               navCategory.map(category => (
                 <li className="nav-item" key={category}>
                   <Link
-                    onClick={() => this.toggleButton.click()}
+                    onClick={() => toggleButton.click()}
                     className="nav-link"
                     to={getLink(category)}
                   >
@@ -63,7 +69,7 @@ function Nav({ categories }) {
               <div className="dropdown-menu" aria-labelledby="dropdown07">
                 {getOtherNavItems(categories).map(navCategory => (
                   <Link
-                    onClick={() => this.toggleButton.click()}
+                    onClick={() => toggleButton.click()}
                     className="dropdown-item"
                     key={navCategory}
                     to={getLink(navCategory)}
