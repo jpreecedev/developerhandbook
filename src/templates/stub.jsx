@@ -20,6 +20,11 @@ function getPostCategory(post) {
 function StubTemplate(props) {
   const { location, pathContext } = props
   const { posts, siteTitle, category, mappedCategory } = pathContext
+
+  if (!posts) {
+    return null
+  }
+
   return (
     <div>
       <Helmet title={`${category} | ${siteTitle}`} />

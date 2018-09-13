@@ -18,6 +18,10 @@ function BlogPostTemplate(props) {
   const { url } = config
   const fullUrl = url + pathname
 
+  if (!post) {
+    return null;
+  }
+
   return (
     <div>
       <PostSEO
