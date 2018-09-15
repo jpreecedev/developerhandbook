@@ -18,8 +18,14 @@ function BlogPostTemplate(props) {
   const { url } = config
   const fullUrl = url + pathname
 
+  const disqusConfig = {
+    url: fullUrl,
+    identifier: pathname,
+    title: post.frontmatter.title
+  }
+
   if (!post) {
-    return null;
+    return null
   }
 
   return (
@@ -33,10 +39,10 @@ function BlogPostTemplate(props) {
       />
       <Jumbotron title={post.frontmatter.title} />
       <main role="main" className="container" style={{ marginBottom: '10rem' }}>
-        <Published post={post} />
+        <Published post={post} {...disqusConfig} showComments />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <Bio />
-        <Comments url={fullUrl} identifier={pathname} title={post.frontmatter.title} />
+        <Comments {...disqusConfig} />
       </main>
     </div>
   )
