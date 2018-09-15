@@ -44,12 +44,12 @@ function HTML({
         {css}
       </head>
       <body {...bodyAttributes}>
-        {jquery}
-        {popper}
-        {bootstrap}
         {preBodyComponents}
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
+        {jquery}
+        {popper}
+        {bootstrap}
       </body>
     </html>
   )
