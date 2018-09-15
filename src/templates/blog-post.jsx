@@ -8,12 +8,14 @@ import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
 import Comments from '../components/Comments'
+import PullRequest from '../components/PullRequest'
 
 function BlogPostTemplate(props) {
-  const { data, location } = props
+  const { data, location, pathContext } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { pathname } = location
+  const { slug } = pathContext
 
   const { url } = config
   const fullUrl = url + pathname
@@ -41,6 +43,7 @@ function BlogPostTemplate(props) {
       <main role="main" className="container" style={{ marginBottom: '10rem' }}>
         <Published post={post} {...disqusConfig} showComments />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <PullRequest slug={slug} />
         <Bio />
         <Comments {...disqusConfig} />
       </main>
