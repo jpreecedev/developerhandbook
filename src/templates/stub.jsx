@@ -29,7 +29,7 @@ function StubTemplate(props) {
     <div>
       <Helmet title={`${category} | ${siteTitle}`} />
       <Jumbotron title={category} />
-      <main role="main" className="container mb-5">
+      <main id="content" role="main" className="container mb-5">
         {posts.map(post => {
           const title = get(post, 'frontmatter.title') || post.fields.slug
           return (

@@ -40,7 +40,12 @@ function BlogPostTemplate(props) {
         fullUrl={fullUrl}
       />
       <Jumbotron title={post.frontmatter.title} />
-      <main role="main" className="container" style={{ marginBottom: '10rem' }}>
+      <main
+        id="content"
+        role="main"
+        className="container"
+        style={{ marginBottom: '10rem' }}
+      >
         <Published post={post} {...disqusConfig} showComments />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <PullRequest slug={slug} />

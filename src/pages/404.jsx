@@ -12,7 +12,7 @@ function NotFoundPage({ data }) {
     <div>
       <Helmet title={siteTitle} />
       <Jumbotron title="Cleaner code, better code." />
-      <main role="main" className="container">
+      <main id="content" role="main" className="container">
         <h1>404</h1>
         <p>Sorry, we are not sure what to do with that request.</p>
         <p>Perhaps try one of these categories instead?</p>

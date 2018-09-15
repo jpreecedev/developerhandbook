@@ -13,9 +13,9 @@ function BlogIndex({ data, location }) {
     <div>
       <Helmet title={siteTitle} />
       <Jumbotron title="Cleaner code, better code." />
-      <main role="main" className="container">
+      <main id="content" role="main" className="container">
         {posts.map(({ node }) => {
-          const {title} = node.frontmatter
+          const { title } = node.frontmatter
           const category = node.frontmatter.categories[0]
 
           return (
@@ -43,7 +43,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 5, skip: 0, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 5
+      skip: 0
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt(pruneLength: 1200)

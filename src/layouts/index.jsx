@@ -9,6 +9,9 @@ function Template({ children, data }) {
   const categories = getDistinctCategories(data.allMarkdownRemark.edges)
   return (
     <div>
+      <a className="sr-only sr-only-focusable" href="#content">
+        Skip to main content
+      </a>
       <Nav categories={categories} />
       {children()}
     </div>
