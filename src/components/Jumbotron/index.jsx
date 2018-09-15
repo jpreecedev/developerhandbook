@@ -5,15 +5,14 @@ import styles from './styles.module.scss'
 
 function Jumbotron({ title }) {
   return (
-    <div className={`${styles.jumbotron} jumbotron jumbotron-fluid`}>
+    <div
+      className={`${styles.jumbotron} jumbotron jumbotron-fluid `}
+      style={{ backgroundImage: `url(${code})` }}
+    >
       <div className="container">
-        <div
-          className={styles.image}
-          style={{
-            backgroundImage: `url(${code})`
-          }}
-        />
-        <h1 className={`${styles.title} text-center`}>{title}</h1>
+        <div className="">
+          <h1 className={`${styles.title} text-center`}>{title}</h1>
+        </div>
       </div>
     </div>
   )
