@@ -12,7 +12,7 @@ function CommentCount({ url, identifier, title }) {
   return (
     <a href="#discussion">
       <DisqusCommentCount shortname={shortname} config={disqusConfig}>
-        Comments
+        0 Comments
       </DisqusCommentCount>
     </a>
   )
