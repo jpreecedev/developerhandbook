@@ -4,6 +4,7 @@ import Jumbotron from '../components/Jumbotron'
 import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
 import { getCategoryUrlFriendly } from '../utils/categories'
+import SocialProfile from '../components/StructuredData/SocialProfile'
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title
@@ -11,7 +12,9 @@ function BlogIndex({ data, location }) {
 
   return (
     <div>
-      <Helmet title={siteTitle} />
+      <Helmet title={siteTitle}>
+        <script type="application/ld+json">{SocialProfile()}</script>
+      </Helmet>
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="container">
         {posts.map(({ node }) => {
