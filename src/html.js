@@ -1,14 +1,6 @@
-/* eslint-disable react/jsx-filename-extension,no-console,global-require,react/no-danger */
-import * as React from 'react'
+/* eslint-disable react/jsx-filename-extension, react/no-danger  */
 
-let stylesStr
-if (process.env.NODE_ENV === `production`) {
-  try {
-    stylesStr = require(`!raw-loader!../public/styles.css`)
-  } catch (e) {
-    console.log(e)
-  }
-}
+import * as React from 'react'
 
 const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer />
 const popper = <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" defer />
@@ -19,22 +11,18 @@ const bootstrap = (
   />
 )
 
-function HTML({
-  headComponents,
-  htmlAttributes,
-  bodyAttributes,
-  preBodyComponents,
-  body,
-  postBodyComponents
-}) {
-  let css
-  if (process.env.NODE_ENV === `production`) {
-    css = (
-      <style id="gatsby-inlined-css" dangerouslySetInnerHTML={{ __html: stylesStr }} />
-    )
-  }
+function HTML(props) {
+  const {
+    htmlAttributes,
+    headComponents,
+    bodyAttributes,
+    preBodyComponents,
+    body,
+    postBodyComponents
+  } = props
+
   return (
-    <html lang="en-GB" prefix="og: http://ogp.me/ns#" {...htmlAttributes}>
+    <html lang="en" {...htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -43,7 +31,6 @@ function HTML({
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {headComponents}
-        {css}
       </head>
       <body {...bodyAttributes}>
         {preBodyComponents}
