@@ -55,6 +55,7 @@ module.exports = {
     `gatsby-plugin-feed`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-sitemap`
     }

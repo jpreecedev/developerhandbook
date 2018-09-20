@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 import Jumbotron from '../components/Jumbotron'
 import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
+import Layout from '../components/Layout'
 import { getCategoryUrlFriendly } from '../utils/categories'
 
 function BlogIndex({ data, location }) {
@@ -10,7 +12,7 @@ function BlogIndex({ data, location }) {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <div>
+    <Layout>
       <Helmet title={siteTitle} />
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="container">
@@ -30,7 +32,7 @@ function BlogIndex({ data, location }) {
         })}
         <Pagination location={location} />
       </main>
-    </div>
+    </Layout>
   )
 }
 

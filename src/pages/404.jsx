@@ -1,15 +1,17 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 import Jumbotron from '../components/Jumbotron'
 import { getLink, getDistinctCategories } from '../utils/categories'
+import Layout from '../components/Layout'
 
 function NotFoundPage({ data }) {
   const siteTitle = data.site.siteMetadata.title
   const categories = getDistinctCategories(data.allMarkdownRemark.edges)
 
   return (
-    <div>
+    <Layout>
       <Helmet title={siteTitle} />
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="container">
@@ -26,7 +28,7 @@ function NotFoundPage({ data }) {
           ))}
         </ul>
       </main>
-    </div>
+    </Layout>
   )
 }
 

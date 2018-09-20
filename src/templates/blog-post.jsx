@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import config from '../../site-config'
 
 import Bio from '../components/Bio'
