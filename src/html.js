@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-filename-extension,no-console,global-require,react/no-danger */
-
 import * as React from 'react'
 
 let stylesStr
@@ -58,4 +57,4 @@ function HTML({
   )
 }
 
-module.exports = HTML
+export default HTML

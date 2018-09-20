@@ -1,8 +1,10 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 import Jumbotron from '../components/Jumbotron'
 import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
+import Layout from '../components/Layout'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import SocialProfile from '../components/StructuredData/SocialProfile'
 
@@ -11,7 +13,7 @@ function BlogIndex({ data, location }) {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <div>
+    <Layout>
       <Helmet title={siteTitle}>
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
@@ -33,7 +35,7 @@ function BlogIndex({ data, location }) {
         })}
         <Pagination location={location} />
       </main>
-    </div>
+    </Layout>
   )
 }
 
