@@ -10,13 +10,14 @@ import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
 import Comments from '../components/Comments'
 import PullRequest from '../components/PullRequest'
+import Layout from '../components/Layout'
 
 function BlogPostTemplate(props) {
-  const { data, location, pathContext } = props
+  const { data, location, pageContext } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { pathname } = location
-  const { slug } = pathContext
+  const { slug } = pageContext
 
   const { url } = config
   const fullUrl = url + pathname
@@ -32,7 +33,7 @@ function BlogPostTemplate(props) {
   }
 
   return (
-    <div>
+    <Layout>
       <PostSEO
         post={post}
         siteTitle={siteTitle}
@@ -53,14 +54,14 @@ function BlogPostTemplate(props) {
         <Bio />
         <Comments {...disqusConfig} />
       </main>
-    </div>
+    </Layout>
   )
 }
 
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query($slug: String!) {
     site {
       siteMetadata {
         title

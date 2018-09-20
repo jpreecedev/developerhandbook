@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import CommentCount from './CommentCount'
 
 import { getLink } from '../utils/categories'
@@ -8,7 +8,7 @@ function Published({ post, url, identifer, title, showComments = false }) {
   return (
     <div style={{ display: 'flex', marginBottom: '1rem', fontSize: '0.75rem' }}>
       <p style={{ alignSelf: 'center', marginBottom: 0 }}>
-        Published on
+        Published on 
         {' '}
         <strong>{post.frontmatter.date}</strong>
         {' '}
@@ -21,7 +21,7 @@ in
           </span>
         ))}
         {' · '}
-        Read time
+        Read time 
         {' '}
         {post.timeToRead}
         {' '}

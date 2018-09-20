@@ -3,11 +3,12 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import Pagination from '../components/Pagination'
+import Layout from '../components/Layout'
 
 function getPostCategory(post) {
   if (!post.frontmatter.categories) {
@@ -18,15 +19,15 @@ function getPostCategory(post) {
 }
 
 function StubTemplate(props) {
-  const { location, pathContext } = props
-  const { posts, siteTitle, category, mappedCategory } = pathContext
+  const { location, pageContext } = props
+  const { posts, siteTitle, category, mappedCategory } = pageContext
 
   if (!posts) {
     return null
   }
 
   return (
-    <div>
+    <Layout>
       <Helmet title={`${category} | ${siteTitle}`} />
       <Jumbotron title={category} />
       <main id="content" role="main" className="container mb-5">
@@ -48,7 +49,7 @@ function StubTemplate(props) {
         })}
         <Pagination location={location} />
       </main>
-    </div>
+    </Layout>
   )
 }
 

@@ -10,7 +10,7 @@ function Template({ children }) {
   return (
     <StaticQuery
       query={graphql`
-        query LayoutQuery {
+        {
           allMarkdownRemark {
             edges {
               node {

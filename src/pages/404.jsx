@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Jumbotron from '../components/Jumbotron'
 import { getLink, getDistinctCategories } from '../utils/categories'
 import Layout from '../components/Layout'
@@ -35,7 +34,7 @@ function NotFoundPage({ data }) {
 export default NotFoundPage
 
 export const pageQuery = graphql`
-  query NotFoundQuery {
+  {
     site {
       siteMetadata {
         title

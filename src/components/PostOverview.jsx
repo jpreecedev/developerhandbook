@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 function PostOverview({ slug, title, mappedCategory, excerpt }) {
   return (

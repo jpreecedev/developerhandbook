@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import logo from '../images/developerhandbook.png'
 import { DEFAULT_CATEGORIES, getLink } from '../utils/categories'
 

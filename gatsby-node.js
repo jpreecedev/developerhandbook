@@ -8,39 +8,39 @@ const pages = require('./setup/pages')
 
 const pipe = (...functions) => args => functions.reduce((arg, fn) => fn(arg), args)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     graphql(`
-          {
-            site {
-              siteMetadata {
-                title
+      {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              excerpt(pruneLength: 1200)
+              timeToRead
+              fields {
+                slug
               }
-            }
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
-            ) {
-              edges {
-                node {
-                  excerpt(pruneLength: 1200)
-                  timeToRead
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    categories
-                    title
-                    description
-                    date(formatString: "MMMM DD, YYYY")
-                  }
-                }
+              frontmatter {
+                categories
+                title
+                description
+                date(formatString: "MMMM DD, YYYY")
               }
             }
           }
-        `).then(result => {
+        }
+      }
+    `).then(result => {
       if (result.errors) {
         console.log(result.errors)
         reject(result.errors)
@@ -51,15 +51,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       const siteTitle = result.data.site.siteMetadata.title
       const args = { createPage, posts, siteTitle }
 
-      pipe(blogPosts, stubs, pages)(args)
+      pipe(
+        blogPosts,
+        stubs,
+        pages
+      )(args)
 
       resolve()
     })
   })
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
