@@ -32,6 +32,8 @@ who lives and works in Manchester, North
           .
         </p>
       </div>
+
+      <hr />
     </div>
   )
 }

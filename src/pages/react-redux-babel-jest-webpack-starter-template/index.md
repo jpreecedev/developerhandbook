@@ -11,7 +11,7 @@ I love template projects.
 
 In fact, I use them all the time. Template projects, seed projects, starter projects, whatever you want to call them, they are fantastic. Starter templates help you get up and running very quickly and can be very useful and powerful when learning something new.
 
-However, where starter projects stop making sense is when said project becomes bloated with every feature under the sun. Without naming names (_cough, [create-react-app](https://github.com/facebook/create-react-app)_), some projects have grown significantly in _features_, which can increase complexity, the learning curve, bundle size, and reduce performance.
+Many template projects I see around the web are bloated with every feature under the sun. Having a long list of features can be amazing, however, some projects have grown significantly... which can increase complexity, the learning curve, bundle size, and reduce performance.
 
 Under no circumstances am I suggesting that using a popular open source larger starter project is a bad idea. However, when working on projects I like to start with the minimum feature set required to get the project off the ground, and then add features on demand.
 
@@ -30,6 +30,8 @@ Before we get into the details, lets answer the most important question first. W
 
 That is about it. Everything you need to get started.
 
+I primarily am a front-end developer, and most new projects I start, or projects I work on, use React, a state management system, and a router.
+
 ## The fastest way to get started
 
 To use this starter project, run the following commands;
@@ -45,13 +47,13 @@ Now open your browser to `http://localhost:8080` to see the welcome page.
 
 ![Webpack 4 Starter Project](starter-project-in-chrome.png)
 
-You should notice in Chrome developer tools that Hot Module Replacement (HMR) is enabled and active. The site is minimal with a few components. Try clicking the links at the bottom to navigate between pages. Clicking the green button will display a mssage, but possibly not what you might expect to see, more on this lataer.
+You should notice in Chrome developer tools that Hot Module Replacement (HMR) is enabled and active. The site is minimal with a few components. Try clicking the links at the bottom to navigate between pages. Clicking the green button will display an `alert`. If you check the code, you will see that a JavaScript decorator is used to change the message dynamically. Pretty sweet huh!
 
 ## React, React Router and Redux out-of-the-box
 
 The project has been pre-configured to use the latest versions of React, React Router and Redux out-of-the-box.
 
-Routing is configured at the application entry point. This repo does not create sub routes, nested routes, etc. You would need to configure this yourself.
+Routing is configured at the application entry point. This repo does not create sub routes, nested routes, etc. You would need to configure this yourself should the project grow to justify the need to do so.
 
 ## Babel 7 for cross browser support
 
@@ -91,3 +93,5 @@ To simplify testing of your React components, we have also pre-configured Jest t
 ## Summary
 
 Webpack-4-scratch is an excellent starting point for a single developer or a large team when starting a new project. The project comes with React, Redux, React Router, the latest Babel plugins, Webpack pre-configured and much more to make getting up and running quickly as easy as possible.
+
+###Enjoy, and please comment below if you find this repo useful.
