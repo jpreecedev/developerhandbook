@@ -58,6 +58,7 @@ module.exports = {
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-sitemap`
-    }
+    },
+    'gatsby-plugin-no-sourcemaps'
   ]
 }

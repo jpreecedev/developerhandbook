@@ -10,7 +10,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "build": "gatsby build --prefix-paths",
-    "build:prod": "gatsby build"
+    "build:prod": "rimraf .cache public && gatsby build"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,11 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "gatsby-plugin-canonical-urls": "^2.0.5",
+    "gatsby-plugin-no-sourcemaps": "^2.0.0",
     "gatsby-plugin-sass": "^2.0.1",
     "gatsby-plugin-sitemap": "^2.0.1",
     "prettier": "^1.14.3",
+    "rimraf": "^2.6.2",
     "stylelint": "^9.5.0",
     "stylelint-config-rational-order": "^0.0.2",
     "webpack": "^4.19.1"
