@@ -1,6 +1,6 @@
 {
   "name": "developerhandbook",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Source code for DeveloperHandbook.com blog",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
+    "bump": "bump",
     "build": "rimraf .cache public && gatsby build",
-    "deploy": "npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
+    "deploy": "npm run bump -- --prompt --tag --push --all && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
     "clear": "aws-cloudfront-invalidate E30EVLSKZ74XDW"
   },
   "repository": {
@@ -34,6 +35,7 @@
     "s3-deploy": "^1.1.1",
     "stylelint": "^9.5.0",
     "stylelint-config-rational-order": "^0.0.2",
+    "version-bump-prompt": "^4.1.0",
     "webpack": "^4.19.1"
   },
   "dependencies": {
