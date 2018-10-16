@@ -93,5 +93,3 @@ To simplify testing of your React components, we have also pre-configured Jest t
 ## Summary
 
 Webpack-4-scratch is an excellent starting point for a single developer or a large team when starting a new project. The project comes with React, Redux, React Router, the latest Babel plugins, Webpack pre-configured and much more to make getting up and running quickly as easy as possible.
-
-###Enjoy, and please comment below if you find this repo useful.
