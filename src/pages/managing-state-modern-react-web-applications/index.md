@@ -43,7 +43,7 @@ Redux is probably the most well know and least understood state management tool 
 
 ### Any many, many more
 
-There are other state management tools available, such as MobX and Unstated. There is a comprehensive list on Hackernoon, (The React State Museum)[https://hackernoon.com/the-react-state-museum-a278c726315].
+There are other state management tools available, such as MobX and Unstated. There is a comprehensive list on Hackernoon, [The React State Museum](https://hackernoon.com/the-react-state-museum-a278c726315).
 
 ## Which state management tool should I choose?
 
@@ -59,7 +59,7 @@ Local state works best with forms. When local state is used frequently it become
 
 Context API, thanks to its hierarchical nature, is particularly useful for enabling access to data from child components. Historically, if we had some data defined in a parent component that we need to access in a child component, we would pass that data down via `props`. This would often go several levels deep. This was messy and made code more noisey and harder to reason about. Context API exposes a Consumer, which has access to the state, eliminating prop drilling. We will see a couple of demos shortly.
 
-Redux is strikingly similar to Context API in that it effectively has a Provider/Consumer pattern, although its less obvious. The main difference is that instead of having potentially many different states, there is a single state contained within a global store, that can be accessed using a function called `connect`, which can be used to access the state and pass that state through to the component. Redux is built on top of the Context API, which can be clearly seen when looking at the `Provider` component in the `react-redux` Github repository. (Link)[https://github.com/reduxjs/react-redux/blob/master/src/components/Provider.js].
+Redux is strikingly similar to Context API in that it effectively has a Provider/Consumer pattern, although its less obvious. The main difference is that instead of having potentially many different states, there is a single state contained within a global store, that can be accessed using a function called `connect`, which can be used to access the state and pass that state through to the component. Redux is built on top of the Context API, which can be clearly seen when looking at the `Provider` component in the `react-redux` Github repository. [Link](https://github.com/reduxjs/react-redux/blob/master/src/components/Provider.js).
 
 ## Local state demo
 
