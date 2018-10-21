@@ -52,6 +52,7 @@ export const pageQuery = graphql`
       limit: 5
       skip: 0
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { isLive: { ne: false } } }
     ) {
       edges {
         node {
