@@ -59,6 +59,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`
     },
-    'gatsby-plugin-no-sourcemaps'
+    'gatsby-plugin-no-sourcemaps',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `DeveloperHandbook.com`,
+        short_name: 'DeveloperHandbook.com',
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#ff8300`,
+        display: `minimal-ui`,
+        icon: `src/images/code.png` // This path is relative to the root of the site.
+      }
+    },
+    `gatsby-plugin-offline`
   ]
 }
