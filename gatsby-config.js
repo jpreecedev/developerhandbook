@@ -65,7 +65,7 @@ module.exports = {
       options: {
         name: `DeveloperHandbook.com`,
         short_name: 'DeveloperHandbook.com',
-        start_url: `/`,
+        start_url: `https://www.developerhandbook.com`,
         background_color: `#f7f0eb`,
         theme_color: `#ff8300`,
         display: `minimal-ui`,
