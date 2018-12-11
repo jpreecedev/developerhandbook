@@ -8,7 +8,7 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "bump": "bump",
+    "bump": "bump --prompt",
     "build": "rimraf .cache public && gatsby build",
     "deploy": "npm run bump -- --prompt --tag --push --all && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
     "clear": "aws-cloudfront-invalidate E30EVLSKZ74XDW"
