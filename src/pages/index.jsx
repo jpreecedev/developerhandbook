@@ -25,6 +25,7 @@ function BlogIndex({ data, location }) {
 
           return (
             <PostOverview
+              post={node}
               key={node.fields.slug}
               title={title}
               slug={node.fields.slug}
@@ -56,6 +57,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          timeToRead
           excerpt(pruneLength: 1200)
           fields {
             slug
