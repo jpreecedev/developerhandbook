@@ -11,7 +11,6 @@ function Comments({ url, identifier, title }) {
   }
   return (
     <div id="discussion">
-      <h4>Discussion</h4>
       <DiscussionEmbed shortname={shortname} config={disqusConfig} />
     </div>
   )

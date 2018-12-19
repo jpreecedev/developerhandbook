@@ -4,7 +4,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import config from '../../site-config'
 
-import Bio from '../components/Bio'
 import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
@@ -48,10 +47,9 @@ function BlogPostTemplate(props) {
         className="container"
         style={{ marginBottom: '10rem' }}
       >
-        <Published post={post} {...disqusConfig} showComments />
+        <Published post={post} {...disqusConfig} showComments showImage />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <PullRequest slug={slug} />
-        <Bio />
         <Comments {...disqusConfig} />
       </main>
     </Layout>
