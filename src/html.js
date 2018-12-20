@@ -39,6 +39,17 @@ function HTML(props) {
         {jquery}
         {popper}
         {bootstrap}
+        <script
+          type="text/javascript"
+          src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js"
+          data-dojo-config="usePlainJson: true, isDebug: false"
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us7.list-manage.com","uuid":"59dc75620baddb24611cddb4a","lid":"cb867e2fbf","uniqueMethods":true}) })`
+          }}
+        />
       </body>
     </html>
   )
