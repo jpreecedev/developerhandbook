@@ -10,7 +10,7 @@ import SocialProfile from '../components/StructuredData/SocialProfile'
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
 
   return (
     <Layout>
@@ -18,22 +18,27 @@ function BlogIndex({ data, location }) {
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
       <Jumbotron title="Cleaner code, better code." />
-      <main id="content" role="main" className="container">
-        {posts.map(({ node }) => {
-          const { title } = node.frontmatter
-          const category = node.frontmatter.categories[0]
-
-          return (
-            <PostOverview
-              post={node}
-              key={node.fields.slug}
-              title={title}
-              slug={node.fields.slug}
-              mappedCategory={`${getCategoryUrlFriendly(category)}`}
-              excerpt={node.excerpt}
-            />
-          )
-        })}
+      <main id="content" role="main" className="container mb-5">
+        <div className="row mb-2">
+          {posts.map(post => (
+            <div className="col-md-6">
+              <div className="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div className="card-body d-flex flex-column align-items-start">
+                  <PostOverview
+                    post={post}
+                    key={post.fields.slug}
+                    title={post.frontmatter.title}
+                    slug={post.fields.slug}
+                    mappedCategory={`${getCategoryUrlFriendly(
+                      post.frontmatter.categories[0]
+                    )}`}
+                    excerpt={post.excerpt}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         <Pagination location={location} />
       </main>
     </Layout>
@@ -50,7 +55,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 5
+      limit: 10
       skip: 0
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { isLive: { ne: false } } }
@@ -58,7 +63,7 @@ export const pageQuery = graphql`
       edges {
         node {
           timeToRead
-          excerpt(pruneLength: 1200)
+          excerpt(pruneLength: 500)
           fields {
             slug
           }

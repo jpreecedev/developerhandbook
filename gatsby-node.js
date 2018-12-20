@@ -26,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
         ) {
           edges {
             node {
-              excerpt(pruneLength: 1200)
+              excerpt(pruneLength: 500)
               timeToRead
               fields {
                 slug
@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
                 categories
                 title
                 description
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "DD MMMM, YYYY")
               }
             }
           }

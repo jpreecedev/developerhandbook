@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
 import CommentCount from './CommentCount'
+import Categories from './Categories'
 
-import { getLink } from '../utils/categories'
 import profilePic from '../images/jonpreece.png'
 
 function Published({
@@ -15,13 +14,7 @@ function Published({
 }) {
   return (
     <>
-      <p className="mb-3">
-        {post.frontmatter.categories.map(category => (
-          <Link key={category} class="badge badge-secondary mr-1" to={getLink(category)}>
-            {category}
-          </Link>
-        ))}
-      </p>
+      <Categories post={post} />
       <div style={{ display: 'flex', marginBottom: '1rem', fontSize: '0.75rem' }}>
         {showImage && <img src={profilePic} className="rounded mr-3" alt="Jon Preece" />}
         <p style={{ alignSelf: 'center', marginBottom: 0 }}>
