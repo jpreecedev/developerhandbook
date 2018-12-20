@@ -7,6 +7,7 @@ import Pagination from '../components/Pagination'
 import Layout from '../components/Layout'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import SocialProfile from '../components/StructuredData/SocialProfile'
+import MiniProfile from '../components/MiniProfile'
 
 function BlogIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title
@@ -19,9 +20,10 @@ function BlogIndex({ data, location }) {
       </Helmet>
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="container mb-5">
+        <MiniProfile />
         <div className="row mb-2">
           {posts.map(post => (
-            <div className="col-md-6">
+            <div className="col-md-6" key={post.fields.slug}>
               <div className="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div className="card-body d-flex flex-column align-items-start">
                   <PostOverview

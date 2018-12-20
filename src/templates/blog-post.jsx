@@ -10,6 +10,7 @@ import PostSEO from '../components/PostSEO'
 import Comments from '../components/Comments'
 import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
+import MiniProfile from '../components/MiniProfile'
 
 function BlogPostTemplate(props) {
   const { data, location, pageContext } = props
@@ -47,8 +48,9 @@ function BlogPostTemplate(props) {
         className="container"
         style={{ marginBottom: '10rem' }}
       >
-        <Published post={post} {...disqusConfig} showComments showImage />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Published post={post} {...disqusConfig} showComments />
+        <div className="mb-5" dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MiniProfile />
         <PullRequest slug={slug} />
         <Comments {...disqusConfig} />
       </main>

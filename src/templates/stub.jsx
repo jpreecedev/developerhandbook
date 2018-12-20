@@ -23,7 +23,7 @@ function StubTemplate(props) {
       <main id="content" role="main" className="container mb-5">
         <div className="row mb-2">
           {posts.map(post => (
-            <div className="col-md-6">
+            <div className="col-md-6" key={post.fields.slug}>
               <div className="card flex-md-row mb-4 shadow-sm h-md-250">
                 <div className="card-body d-flex flex-column align-items-start">
                   <PostOverview
