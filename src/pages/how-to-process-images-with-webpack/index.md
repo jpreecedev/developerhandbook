@@ -3,11 +3,9 @@ layout: post
 title: How to process images with Webpack
 description: Webpack, with various plugins, is fantastic for processing assets, including images.  We can configure Webpack to automatically compress and cache-bust our images at build time.
 date: 2018-12-31
-categories: ['Webpack', 'JavaScript']
-tags: ['webpack', 'javascript', 'babel']
+categories: ['Webpack']
+tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
 ---
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 With a couple of small Webpack plugins we can add the ability to be able to import images directly in our JavaScript files, and also process those images (compress them).
 

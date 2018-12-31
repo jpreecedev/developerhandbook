@@ -3,11 +3,9 @@ layout: post
 title: Getting started with Webpack Dev Server
 description: Webpack Dev Server is fantastic for quickly running and debugging Webpack based websites, thanks in part to its support for Hot Module Reloading (HMR)
 date: 2018-12-31
-categories: ['Webpack', 'JavaScript']
-tags: ['webpack', 'javascript', 'babel']
+categories: ['Webpack']
+tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
 ---
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 So far, our application writes out to the console, which is not terribly helpful. Let's get something up and running in the browser before we configure our React code.
 

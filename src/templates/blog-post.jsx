@@ -11,10 +11,15 @@ import Comments from '../components/Comments'
 import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
+import IntroToWebpackMiniSeries from '../components/IntroToWebpackMiniSeries'
+
+const isIntroToWebpackMiniSeries = tags =>
+  tags.filter(tag => tag === 'webpack-intro-series').length > 0
 
 function BlogPostTemplate(props) {
   const { data, location, pageContext } = props
   const post = data.markdownRemark
+  const { frontmatter } = post
   const siteTitle = data.site.siteMetadata.title
   const { pathname } = location
   const { slug } = pageContext
@@ -25,7 +30,7 @@ function BlogPostTemplate(props) {
   const disqusConfig = {
     url: fullUrl,
     identifier: pathname,
-    title: post.frontmatter.title
+    title: frontmatter.title
   }
 
   if (!post) {
@@ -41,7 +46,7 @@ function BlogPostTemplate(props) {
         baseUrl={url}
         fullUrl={fullUrl}
       />
-      <Jumbotron title={post.frontmatter.title} />
+      <Jumbotron title={frontmatter.title} />
       <main
         id="content"
         role="main"
@@ -49,6 +54,9 @@ function BlogPostTemplate(props) {
         style={{ marginBottom: '10rem' }}
       >
         <Published post={post} {...disqusConfig} showComments />
+        {isIntroToWebpackMiniSeries(frontmatter.tags) && (
+          <IntroToWebpackMiniSeries currentUrl={location.pathname} />
+        )}
         <div className="mb-5" dangerouslySetInnerHTML={{ __html: post.html }} />
         <MiniProfile />
         <PullRequest slug={slug} />
@@ -74,6 +82,7 @@ export const pageQuery = graphql`
       timeToRead
       frontmatter {
         categories
+        tags
         title
         description
         date(formatString: "DD MMMM, YYYY")

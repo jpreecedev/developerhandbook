@@ -3,11 +3,9 @@ layout: post
 title: How to create a production ready Webpack config
 description: Webpack is a fantastic automated build tool and with a few settings we can easily make it create production ready bundles for us
 date: 2018-12-31
-categories: ['Webpack', 'JavaScript']
-tags: ['webpack', 'javascript', 'babel']
+categories: ['Webpack']
+tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
 ---
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 We have seen the basics of a Webpack config, but let's take a few steps to make the config more production ready and useful for development.
 

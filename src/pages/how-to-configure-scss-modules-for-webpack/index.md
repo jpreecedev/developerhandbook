@@ -3,11 +3,9 @@ layout: post
 title: How to configure SCSS modules for Webpack
 description: SCSS modules are a fantastic way of writing clean, self contained styles, that are usually consumed by components
 date: 2018-12-31
-categories: ['Webpack', 'JavaScript']
-tags: ['webpack', 'javascript', 'babel']
+categories: ['Webpack']
+tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
 ---
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 Your website will look pretty plain without some styles. SCSS is a popular choice for styling and is fairly straightforward to configure.
 

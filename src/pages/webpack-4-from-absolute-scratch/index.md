@@ -3,11 +3,9 @@ layout: post
 title: Webpack 4 from absolute scratch
 description: Learn how to write your own Webpack configuration from absolute scratch quickly
 date: 2018-12-31
-categories: ['Webpack', 'JavaScript']
-tags: ['webpack', 'javascript', 'babel']
+categories: ['Webpack']
+tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
 ---
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 Writing your own Webpack 4 configuration from absolute scratch is not strictly necessary. You could go online, find a basic Webpack configuration file and fork it/copy it to your project and use that as your starting point.
 
