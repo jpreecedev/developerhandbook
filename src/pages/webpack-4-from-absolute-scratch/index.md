@@ -7,6 +7,8 @@ categories: ['Webpack', 'JavaScript']
 tags: ['webpack', 'javascript', 'babel']
 ---
 
+**Please note, this post is part of a wider series (see the end for links)**
+
 Writing your own Webpack 4 configuration from absolute scratch is not strictly necessary. You could go online, find a basic Webpack configuration file and fork it/copy it to your project and use that as your starting point.
 
 Whilst using a starter project is good for getting started quickly, it is better to have a more indepth understanding of what is happening, to help with customisations and debugging later.
@@ -16,8 +18,6 @@ We will configure Webpack to do the following;
 - Build our JavaScript, use Babel and various plugins to allow us to use the latest language features whilst maintaining backwards compatibility
 - Enable hot module reloading (HMR)
 - Build other assets such as SCSS and images
-
-**Please note, this post is part of a wider series (see the end for links)**
 
 ## Set up a simple Webpack project from scratch
 
