@@ -43,6 +43,10 @@ pre[class*='language-'] {
   }
 }
 
+:not(pre) > code[class*='language-'] {
+  padding: 0 4px;
+}
+
 code {
   font-size: 0.875rem;
 }
