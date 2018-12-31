@@ -38,6 +38,14 @@ function IntroToWebpackMiniSeries({ currentUrl }) {
           )
         })}
       </ul>
+      <p>
+        The full source code that accompanies this
+        {' '}
+        <a href="https://github.com/jpreecedev/webpack-4-react-from-scratch">
+          tutorial series in over on GitHub
+        </a>
+        .
+      </p>
     </div>
   )
 }
