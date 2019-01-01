@@ -52,7 +52,22 @@ module.exports = {
         siteUrl: siteConfig.url
       }
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteTitle
+              description
+              siteUrl
+            }
+          }
+        }
+      `
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-postcss`,
