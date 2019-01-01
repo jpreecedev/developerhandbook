@@ -7,7 +7,7 @@ categories: ['parcel.js']
 tags: ['parcel.js', 'javascript', 'babel']
 ---
 
-I have been using Webpack for quite some time now, and I have found it to be slow, frustrating to configure and debug, tidious to change and upgrade (and do not even get me started on the documentation!).
+I have been using Webpack for quite some time now, and I have found it to be slow, frustrating to configure and debug, tedious to change and upgrade (and do not even get me started on the documentation!).
 
 I have had the **exact opposite experience** with Parcel.js.
 
@@ -78,7 +78,7 @@ Finally, add the following NPM script to your `package.json` file;
 
 Run `npm start` in your terminal and you are up and running.
 
-On my machine (2018 Macbook pro) the build time was **54ms**. That is **insanely fast**, we are talking multiple seconds for Webpack to achieve the same thing.
+On my machine (2018 MacBook pro) the build time was **54ms**. That is **insanely fast**, we are talking multiple seconds for Webpack to achieve the same thing.
 
 ## Add React to your Parcel.js web app
 
@@ -192,4 +192,4 @@ That's it, you now have Hot Module Reloading. It is 8:05am, I had that estimated
 
 ## Summary
 
-We just looked at Parcel.js, a lightning fast zero configuration Webpack replacement for building our JavaScript bundles. Parcel has a built in development server with hot module reloading, making developing quicky and easy!
+We just looked at Parcel.js, a lightning fast zero configuration Webpack replacement for building our JavaScript bundles. Parcel has a built-in development server with hot module reloading, making developing quick and easy!
