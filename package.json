@@ -11,7 +11,7 @@
     "bump": "bump --prompt",
     "build": "rimraf .cache public && gatsby build",
     "deploy": "npm run bump -- --prompt --tag --push --all && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
-    "clear": "aws-cloudfront-invalidate E30EVLSKZ74XDW"
+    "clear": "aws-cloudfront-invalidate EI5Q6NGOHKSZ4"
   },
   "repository": {
     "type": "git",
