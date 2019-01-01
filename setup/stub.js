@@ -5,7 +5,7 @@ const { getCategoryUrlFriendly } = require('../src/utils/categories')
 
 function getPostsForCategory(posts, category) {
   return posts.reduce((acc, current) => {
-    const {categories} = current.node.frontmatter
+    const { categories } = current.node.frontmatter
     if (categories) {
       const hasCategory = categories.includes(category)
       if (hasCategory) {
@@ -17,7 +17,7 @@ function getPostsForCategory(posts, category) {
 }
 
 function Stub(props) {
-  const { createPage, posts, siteTitle } = props
+  const { createPage, posts, siteTitle, description } = props
   const stub = path.resolve('./src/templates/stub.jsx')
 
   posts.forEach(post => {
@@ -35,7 +35,8 @@ function Stub(props) {
           posts: getPostsForCategory(posts, category),
           category,
           mappedCategory: categoryPath,
-          siteTitle
+          siteTitle,
+          description
         }
       })
     })

@@ -16,7 +16,8 @@ exports.createPages = ({ graphql, actions }) => {
       {
         site {
           siteMetadata {
-            title
+            siteTitle
+            description
           }
         }
         allMarkdownRemark(
@@ -49,8 +50,8 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create blog posts pages.
       const posts = result.data.allMarkdownRemark.edges
-      const siteTitle = result.data.site.siteMetadata.title
-      const args = { createPage, posts, siteTitle }
+      const { siteTitle, description } = result.data.site.siteMetadata
+      const args = { createPage, posts, siteTitle, description }
 
       pipe(
         blogPosts,

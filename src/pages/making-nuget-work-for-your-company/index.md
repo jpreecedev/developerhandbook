@@ -47,7 +47,7 @@ To create your package, first you'll need a little command line tool called [NuG
 		<authors>Jon Preece</authors>
 		<owners>Jon Preece</owners>
 		<licenseUrl>http://www.codeproject.com/info/cpol10.aspx</licenseUrl>
-		<projectUrl>https://www.developerhandbook.com</projectUrl>
+		<projectUrl>https://developerhandbook.com</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>developerhandbook.com Shared Code Library</description>
 		<releaseNotes>First release.</releaseNotes>
@@ -97,8 +97,8 @@ As you can see, the update is now available for your project. Go ahead and click
 
 In this tutorial, we only visited how to create a simple NuGet package. There are more advanced features you can utilise to add additional functionality to your package;
 
-* Run powershell scripts on both install/uninstall operations
-* Add dependencies to the target project (for example, assembly references)
+- Run powershell scripts on both install/uninstall operations
+- Add dependencies to the target project (for example, assembly references)
 
 ...and much more.
 

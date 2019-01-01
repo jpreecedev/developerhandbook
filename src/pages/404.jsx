@@ -6,12 +6,15 @@ import { getLink, getDistinctCategories } from '../utils/categories'
 import Layout from '../components/Layout'
 
 function NotFoundPage({ data }) {
-  const siteTitle = data.site.siteMetadata.title
+  const { siteTitle, description } = data.site.siteMetadata
   const categories = getDistinctCategories(data.allMarkdownRemark.edges)
 
   return (
     <Layout>
-      <Helmet title={siteTitle} />
+      <Helmet>
+        <title>{siteTitle}</title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="container">
         <h1>404</h1>
@@ -37,7 +40,8 @@ export const pageQuery = graphql`
   {
     site {
       siteMetadata {
-        title
+        siteTitle
+        description
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

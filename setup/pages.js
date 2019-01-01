@@ -3,7 +3,7 @@
 const path = require('path')
 
 function pages(props) {
-  const { createPage, posts, siteTitle } = props
+  const { createPage, posts, siteTitle, description } = props
   const stub = path.resolve('./src/templates/stub.jsx')
 
   let i
@@ -25,7 +25,8 @@ function pages(props) {
         context: {
           posts: temparray.map(post => post.node),
           category,
-          siteTitle
+          siteTitle,
+          description
         }
       })
     })

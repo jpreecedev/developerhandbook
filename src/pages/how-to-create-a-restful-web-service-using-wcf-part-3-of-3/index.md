@@ -36,7 +36,7 @@ Testing the other HTTP verbs takes a little bit more effort, but not much. Flip 
 {
   "id": "0",
   "title": "This is a test",
-  "url": "https://www.developerhandbook.com"
+  "url": "https://developerhandbook.com"
 }
 ```
 

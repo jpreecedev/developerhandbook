@@ -3,9 +3,9 @@ const siteConfig = require('./site-config')
 module.exports = {
   pathPrefix: `/developerhandbook`,
   siteMetadata: {
-    title: 'DeveloperHandbook.com - Cleaner code, better code.',
+    siteTitle: 'DeveloperHandbook.com - Cleaner code, better code.',
     author: 'Jon Preece',
-    description: 'Cleaner code, better code',
+    description: siteConfig.description,
     siteUrl: siteConfig.url
   },
   plugins: [
@@ -65,7 +65,7 @@ module.exports = {
       options: {
         name: `DeveloperHandbook.com`,
         short_name: 'DeveloperHandbook.com',
-        homepage_url: `https://www.developerhandbook.com`,
+        homepage_url: `https://developerhandbook.com`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#ff8300`,

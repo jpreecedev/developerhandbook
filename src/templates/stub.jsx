@@ -7,10 +7,11 @@ import { getCategoryUrlFriendly } from '../utils/categories'
 import Pagination from '../components/Pagination'
 import Layout from '../components/Layout'
 import PostOverview from '../components/PostOverview'
+import SocialProfile from '../components/StructuredData/SocialProfile'
 
 function StubTemplate(props) {
   const { location, pageContext } = props
-  const { posts, siteTitle, category } = pageContext
+  const { posts, siteTitle, description, category } = pageContext
 
   if (!posts) {
     return null
@@ -18,7 +19,11 @@ function StubTemplate(props) {
 
   return (
     <Layout>
-      <Helmet title={`${category} | ${siteTitle}`} />
+      <Helmet>
+        <title>{siteTitle}</title>
+        <meta name="description" content={description} />
+        <script type="application/ld+json">{SocialProfile()}</script>
+      </Helmet>
       <Jumbotron title={category} />
       <main id="content" role="main" className="container mb-5">
         <div className="row mb-2">

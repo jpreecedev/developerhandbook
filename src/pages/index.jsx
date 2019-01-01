@@ -10,12 +10,14 @@ import SocialProfile from '../components/StructuredData/SocialProfile'
 import MiniProfile from '../components/MiniProfile'
 
 function BlogIndex({ data, location }) {
-  const siteTitle = data.site.siteMetadata.title
+  const { siteTitle, description } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
 
   return (
     <Layout>
-      <Helmet title={siteTitle}>
+      <Helmet>
+        <title>{siteTitle}</title>
+        <meta name="description" content={description} />
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
       <Jumbotron title="Cleaner code, better code." />
@@ -53,7 +55,8 @@ export const pageQuery = graphql`
   {
     site {
       siteMetadata {
-        title
+        siteTitle
+        description
       }
     }
     allMarkdownRemark(

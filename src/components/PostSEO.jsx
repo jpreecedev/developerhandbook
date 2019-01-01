@@ -4,7 +4,7 @@ import config from '../../site-config'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import icon from '../../static/icon.png'
 
-function PostSEO({ post, siteTitle, baseUrl, fullUrl }) {
+function PostSEO({ post, baseUrl, fullUrl }) {
   const { description, title, image = icon, categories } = post.frontmatter
   const { twitter, siteTitleAlt } = config
 
@@ -43,7 +43,8 @@ function PostSEO({ post, siteTitle, baseUrl, fullUrl }) {
   ]
 
   return (
-    <Helmet title={`${title} | ${siteTitle}`}>
+    <Helmet>
+      <title>{title}</title>
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={image} />}
 

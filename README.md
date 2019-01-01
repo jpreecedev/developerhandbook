@@ -2,7 +2,7 @@
 
 ## About
 
-This is the source code repository for my blog, [DeveloperHandbook.com](https://www.developerhandbook.com). My blog has been my personal space since 2013 to teach myself through teaching others. The blog was originally hosted through Wordpress, and has now been migrated to be a statically generated site using [GatsbyJS](https://www.gatsbyjs.org/).
+This is the source code repository for my blog, [DeveloperHandbook.com](https://developerhandbook.com). My blog has been my personal space since 2013 to teach myself through teaching others. The blog was originally hosted through Wordpress, and has now been migrated to be a statically generated site using [GatsbyJS](https://www.gatsbyjs.org/).
 
 ## Contributing
 

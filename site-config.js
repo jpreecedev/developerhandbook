@@ -1,5 +1,7 @@
 module.exports = {
-  url: 'https://www.developerhandbook.com',
+  url: 'https://developerhandbook.com',
+  description:
+    'Here to help you write cleaner code, better code through comprehensive and interesting tutorials',
   twitter: 'jpreecedev',
   siteTitleAlt: 'DeveloperHandbook.com - Cleaner code, better code.',
   disqus: {

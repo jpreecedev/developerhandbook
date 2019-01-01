@@ -20,7 +20,7 @@ function BlogPostTemplate(props) {
   const { data, location, pageContext } = props
   const post = data.markdownRemark
   const { frontmatter } = post
-  const siteTitle = data.site.siteMetadata.title
+  const { siteTitle } = data.site.siteMetadata
   const { pathname } = location
   const { slug } = pageContext
 
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
   query($slug: String!) {
     site {
       siteMetadata {
-        title
+        siteTitle
         author
       }
     }
