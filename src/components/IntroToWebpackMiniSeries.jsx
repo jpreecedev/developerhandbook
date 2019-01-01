@@ -21,7 +21,7 @@ function IntroToWebpackMiniSeries({ currentUrl }) {
         Please be aware, this post is part of a mini series!
       </h4>
       <p />
-      <ul>
+      <ol>
         {Object.keys(posts).map(key => {
           const isSamePage = key === currentUrl
           return (
@@ -37,7 +37,7 @@ function IntroToWebpackMiniSeries({ currentUrl }) {
             </li>
           )
         })}
-      </ul>
+      </ol>
       <p>
         The full source code that accompanies this
         {' '}
