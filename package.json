@@ -1,6 +1,6 @@
 {
   "name": "developerhandbook",
-  "version": "2.7.4",
+  "version": "2.7.5",
   "description": "Source code for DeveloperHandbook.com blog",
   "main": "index.js",
   "scripts": {
