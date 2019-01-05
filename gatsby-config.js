@@ -4,6 +4,7 @@ module.exports = {
   pathPrefix: `/developerhandbook`,
   siteMetadata: {
     siteTitle: 'DeveloperHandbook.com - Cleaner code, better code.',
+    title: 'DeveloperHandbook.com - Cleaner code, better code.',
     author: 'Jon Preece',
     description: siteConfig.description,
     siteUrl: siteConfig.url
@@ -55,11 +56,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
+        title: 'DeveloperHandbook.com - Cleaner code, better code.',
         query: `
         {
           site {
             siteMetadata {
-              siteTitle
+              title: siteTitle
               description
               siteUrl
             }
