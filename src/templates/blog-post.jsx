@@ -12,6 +12,7 @@ import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import IntroToWebpackMiniSeries from '../components/IntroToWebpackMiniSeries'
+import Sidebar from '../components/Sidebar'
 
 const isIntroToWebpackMiniSeries = tags =>
   tags.filter(tag => tag === 'webpack-intro-series').length > 0
@@ -53,14 +54,21 @@ function BlogPostTemplate(props) {
         className="container"
         style={{ marginBottom: '10rem' }}
       >
-        <Published post={post} {...disqusConfig} showComments />
-        {isIntroToWebpackMiniSeries(frontmatter.tags) && (
-          <IntroToWebpackMiniSeries currentUrl={location.pathname} />
-        )}
-        <div className="mb-5" dangerouslySetInnerHTML={{ __html: post.html }} />
-        <MiniProfile />
-        <PullRequest slug={slug} />
-        <Comments {...disqusConfig} />
+        <div className="row">
+          <article className="col-12 col-md-9">
+            <Published post={post} {...disqusConfig} showComments />
+            {isIntroToWebpackMiniSeries(frontmatter.tags) && (
+              <IntroToWebpackMiniSeries currentUrl={location.pathname} />
+            )}
+            <div className="mb-5" dangerouslySetInnerHTML={{ __html: post.html }} />
+            <MiniProfile />
+            <PullRequest slug={slug} />
+            <Comments {...disqusConfig} />
+          </article>
+          <aside className="d-none d-md-block col-3">
+            <Sidebar />
+          </aside>
+        </div>
       </main>
     </Layout>
   )
