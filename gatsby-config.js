@@ -90,6 +90,6 @@ module.exports = {
         icon: `src/images/code.png` // This path is relative to the root of the site.
       }
     },
-    `gatsby-plugin-offline`
+    'gatsby-plugin-remove-serviceworker'
   ]
 }
