@@ -1,10 +1,11 @@
 const siteConfig = require('./site-config')
+const siteTitle = 'DeveloperHandbook.com - Cleaner code, better code.'
 
 module.exports = {
   pathPrefix: `/developerhandbook`,
   siteMetadata: {
-    siteTitle: 'DeveloperHandbook.com - Cleaner code, better code.',
-    title: 'DeveloperHandbook.com - Cleaner code, better code.',
+    siteTitle,
+    title: siteTitle,
     author: 'Jon Preece',
     description: siteConfig.description,
     siteUrl: siteConfig.url
@@ -56,18 +57,61 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        title: 'DeveloperHandbook.com - Cleaner code, better code.',
         query: `
-        {
-          site {
-            siteMetadata {
-              title: siteTitle
-              description
-              siteUrl
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
             }
           }
-        }
-      `
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                const url = `${
+                  site.siteMetadata.siteUrl
+                }/${edge.node.frontmatter.categories[0].toLowerCase()}${
+                  edge.node.fields.slug
+                }`
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url,
+                  guid: url,
+                  custom_elements: [{ 'content:encoded': edge.node.html }]
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 1000,
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                        categories
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: siteTitle
+          }
+        ]
       }
     },
     `gatsby-plugin-react-helmet`,
