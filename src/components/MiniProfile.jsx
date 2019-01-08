@@ -4,16 +4,16 @@ import jonpreece from '../images/jonpreece-square.png'
 function MiniProfile() {
   return (
     <div className="container">
-      <div className="row mb-5 bg-light rounded border border-success p-md-3">
-        <div className="col">
-          <div className="d-md-flex">
+      <div className="row">
+        <div className="col-12">
+          <div className="d-md-flex mb-5 bg-light rounded border border-success p-md-3">
             <img
               src={jonpreece}
               className="align-self-center rounded-circle mr-auto ml-auto d-block mt-3 mb-3"
               alt="Jon Preece"
             />
 
-            <div className="align-self-center pl-3">
+            <div className="align-self-center pl-3 pr-3 text-center text-md-left">
               <h3 className="mt-0">About the author</h3>
               <p>
                 I am

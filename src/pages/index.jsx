@@ -21,27 +21,29 @@ function BlogIndex({ data, location }) {
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
       <Jumbotron title="Cleaner code, better code." />
-      <main id="content" role="main" className="container mb-5">
+      <main id="content" role="main" className="mb-5">
         <MiniProfile />
-        <div className="row mb-2">
-          {posts.map(post => (
-            <div className="col-md-6" key={post.fields.slug}>
-              <div className="card flex-md-row mb-4 shadow-sm h-md-250">
-                <div className="card-body d-flex flex-column align-items-start">
-                  <PostOverview
-                    post={post}
-                    key={post.fields.slug}
-                    title={post.frontmatter.title}
-                    slug={post.fields.slug}
-                    mappedCategory={`${getCategoryUrlFriendly(
-                      post.frontmatter.categories[0]
-                    )}`}
-                    excerpt={post.excerpt}
-                  />
+        <div className="container">
+          <div className="row mb-2">
+            {posts.map(post => (
+              <div className="col-md-6" key={post.fields.slug}>
+                <div className="card flex-md-row mb-4 shadow-sm h-md-250">
+                  <div className="card-body d-flex flex-column align-items-start">
+                    <PostOverview
+                      post={post}
+                      key={post.fields.slug}
+                      title={post.frontmatter.title}
+                      slug={post.fields.slug}
+                      mappedCategory={`${getCategoryUrlFriendly(
+                        post.frontmatter.categories[0]
+                      )}`}
+                      excerpt={post.excerpt}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <Pagination location={location} />
       </main>
