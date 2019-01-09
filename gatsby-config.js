@@ -1,8 +1,10 @@
 const siteConfig = require('./site-config')
+
 const siteTitle = 'DeveloperHandbook.com - Cleaner code, better code.'
+const googleTrackingId = `UA-42743116-1`
+const baseUrl = siteConfig.url
 
 module.exports = {
-  pathPrefix: `/developerhandbook`,
   siteMetadata: {
     siteTitle,
     title: siteTitle,
@@ -45,7 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-42743116-1`
+        trackingId: googleTrackingId
       }
     },
     {
@@ -126,7 +128,7 @@ module.exports = {
       options: {
         name: `DeveloperHandbook.com`,
         short_name: 'DeveloperHandbook.com',
-        homepage_url: `https://developerhandbook.com`,
+        homepage_url: baseUrl,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#ff8300`,
