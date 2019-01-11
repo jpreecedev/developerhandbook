@@ -36,18 +36,6 @@ function HTML(props) {
         {preBodyComponents}
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
-        {jquery}
-        {popper}
-        {bootstrap}
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: ` (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-7672048829297382",
-          enable_page_level_ads: true
-     })`
-          }}
-        />
       </body>
     </html>
   )
