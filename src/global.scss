@@ -27,6 +27,14 @@ body {
   padding-top: 76px;
 }
 
+:root {
+  font-size: 16px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 18px;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -45,10 +53,26 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'] {
   padding: 0 4px;
+  font-size: 0.875rem;
 }
 
-code {
-  font-size: 0.875rem;
+pre[class*='language-'] > code {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  font-size: 0.75rem;
+  background-image: none;
+}
+
+.gatsby-highlight[data-language] {
+  position: relative;
+  &:before {
+    position: absolute;
+    right: 3px;
+    z-index: 1;
+    padding: 3px 3px 0 0;
+    font-size: 10px;
+    text-align: right;
+    content: attr(data-language);
+  }
 }
 
 .nav-shadow {

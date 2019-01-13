@@ -3,7 +3,7 @@ layout: post
 title: Build a React web app with Parcel.js lightning fast
 description: Learn how to get a React app off the ground quickly with Parcel.js
 date: 2019-01-01
-categories: ['parcel.js']
+categories: ['Parcel.js']
 tags: ['parcel.js', 'javascript', 'babel']
 ---
 

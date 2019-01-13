@@ -3,8 +3,19 @@ layout: post
 title: Create a RESTful API with authentication using Web API and Jwt
 description: The purpose of this tutorial is to develop the beginnings of a Book Store API, using Microsoft Web API with (C#), and JWT.
 date: 2016-03-15
-categories: [".NET","C#","Entity Framework"]
-tags: [".NET","api","Architecture","c#","C#","entity framework","Entity Framework","microsoft","web api"]
+categories: ['.NET', 'C#', 'Entity Framework']
+tags:
+  [
+    '.NET',
+    'api',
+    'Architecture',
+    'c#',
+    'C#',
+    'entity framework',
+    'Entity Framework',
+    'microsoft',
+    'web api',
+  ]
 ---
 
 Web API is a feature of the ASP .NET framework that dramatically simplifies building RESTful (REST like) HTTP services that are cross platform and device and browser agnostic. With Web API, you can create endpoints that can be accessed using a combination of descriptive URLs and HTTP verbs. Those endpoints can serve data back to the caller as either JSON or XML that is standards compliant. With JSON Web Tokens (Jwt), which are typically stateless, you can add an authentication and authorization layer enabling you to restrict access to some or all of your API.
@@ -492,8 +503,8 @@ var issuer = ConfigurationManager.AppSettings["issuer"];
 var secret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["secret"]);
 ```
 
-* Issuer - a unique identifier for the _entity_ that issued the token (not to be confused with Entity Framework's _entities_)
-* Secret - a secret key used to secure the token and prevent tampering
+- Issuer - a unique identifier for the _entity_ that issued the token (not to be confused with Entity Framework's _entities_)
+- Secret - a secret key used to secure the token and prevent tampering
 
 I keep these values in the Web configuration file (Web.config). To be precise, I split these values out into their own configuration file called **keys.config** and add a reference to that file in the main **Web.config**. I do this so that I can exclude just the keys from source control by adding a line to my **.gitignore** file.
 
@@ -546,8 +557,8 @@ app.UseJwtBearerAuthentication(new JwtBearerAuthenticationOptions
 
 The key takeaway of this code;
 
-* State who is the audience (we're specifying "Any" for the audience, as this is a required field but we're not fully implementing it).
-* State who is responsible for generating the tokens. Here we're using `SymmetricKeyIssuerSecurityTokenProvider` and passing it our secret key to prevent tampering. We could use the `X509CertificateSecurityTokenProvider`, which uses a X509 certificate to secure the token (but I've found these to be overly complex in the past and I prefer a simpler implementation).
+- State who is the audience (we're specifying "Any" for the audience, as this is a required field but we're not fully implementing it).
+- State who is responsible for generating the tokens. Here we're using `SymmetricKeyIssuerSecurityTokenProvider` and passing it our secret key to prevent tampering. We could use the `X509CertificateSecurityTokenProvider`, which uses a X509 certificate to secure the token (but I've found these to be overly complex in the past and I prefer a simpler implementation).
 
 This code adds JWT bearer authentication to the OWIN pipeline.
 
@@ -570,10 +581,10 @@ app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions
 
 Some important notes with this code;
 
-* We're going to allow insecure HTTP requests whilst we are in development mode. You might want to disable this using a `#IF Debug` directive so that you don't allow insecure connections in production.
-* Open an endpoint under **/oauth2/token** that accepts post requests.
-* When generating a token, make it expire after 30 minutes (1800 seconds).
-* We will use our own provider, `CustomOAuthProvider`, and formatter, `CustomJwtFormat`, to take care of authentication and building the actual token itself.
+- We're going to allow insecure HTTP requests whilst we are in development mode. You might want to disable this using a `#IF Debug` directive so that you don't allow insecure connections in production.
+- Open an endpoint under **/oauth2/token** that accepts post requests.
+- When generating a token, make it expire after 30 minutes (1800 seconds).
+- We will use our own provider, `CustomOAuthProvider`, and formatter, `CustomJwtFormat`, to take care of authentication and building the actual token itself.
 
 We need to write the provider and formatter next.
 
@@ -767,14 +778,14 @@ Great its working. Now let's fix that problem.
 
 Make a **POST** request to the OAuth endpoint, and include the following;
 
-* Headers
-  * Accept application/json
-  * Accept-Language en-gb
-  * Audience Any
-* Body
-  * username administrator
-  * password administrator123
-  * grant_type password
+- Headers
+  - Accept application/json
+  - Accept-Language en-gb
+  - Audience Any
+- Body
+  - username administrator
+  - password administrator123
+  - grant_type password
 
 Shown in the below screenshot;
 

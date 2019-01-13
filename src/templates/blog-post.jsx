@@ -60,9 +60,9 @@ function BlogPostTemplate(props) {
             {isIntroToWebpackMiniSeries(frontmatter.tags) && (
               <IntroToWebpackMiniSeries currentUrl={location.pathname} />
             )}
-            <div className="mb-5" dangerouslySetInnerHTML={{ __html: post.html }} />
-            <MiniProfile />
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
             <PullRequest slug={slug} />
+            <MiniProfile />
             <Comments {...disqusConfig} />
           </article>
           <aside className="d-none d-md-block col-3">

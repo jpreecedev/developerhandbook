@@ -4,7 +4,7 @@ import Nav from './Nav'
 import { getDistinctCategories } from '../utils/categories'
 
 import 'prismjs/themes/prism-coy.css'
-import '../styles.scss'
+import '../global.scss'
 
 function Template({ children }) {
   return (

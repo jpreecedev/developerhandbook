@@ -22,8 +22,12 @@ function BlogIndex({ data, location }) {
       </Helmet>
       <Jumbotron title="Cleaner code, better code." />
       <main id="content" role="main" className="mb-5">
-        <MiniProfile />
         <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <MiniProfile />
+            </div>
+          </div>
           <div className="row mb-2">
             {posts.map(post => (
               <div className="col-md-6" key={post.fields.slug}>
