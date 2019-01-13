@@ -27,7 +27,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1110
+              maxWidth: 1110,
+              linkImagesToOriginal: true,
+              withWebp: true
             }
           },
           {
@@ -73,8 +75,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({ query: { site, allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(edge => {
                 const url = `${
                   site.siteMetadata.siteUrl
                 }/${edge.node.frontmatter.categories[0].toLowerCase()}${
@@ -87,8 +89,7 @@ module.exports = {
                   guid: url,
                   custom_elements: [{ 'content:encoded': edge.node.html }]
                 })
-              })
-            },
+              }),
             query: `
               {
                 allMarkdownRemark(

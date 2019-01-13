@@ -28,13 +28,13 @@ function MiniProfile() {
                 , an experienced full stack website and software developer from Warrington
                 (UK) currently working in and around Manchester (UK).
               </p>
-              <p>
+              <p className="d-none d-md-block">
                 Throughout my 10+ year professional career I have done it all. E-commerce,
                 financial services, marketing, healthcare, travel and accountancy. My
                 drive and determination to deliver the best has meant that I have risen to
                 every challenge. I do not struggle under pressure, I excel under pressure.
               </p>
-              <p>
+              <p className="d-none d-md-block">
                 I love to teach, I love to train and share my knowledge with others, I
                 love to speak at public events.
               </p>
