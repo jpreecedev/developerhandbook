@@ -6,7 +6,7 @@ import { getDistinctCategories } from '../utils/categories'
 import 'prismjs/themes/prism-coy.css'
 import '../global.scss'
 
-function Template({ children }) {
+function Layout({ children }) {
   return (
     <StaticQuery
       query={graphql`
@@ -35,4 +35,4 @@ function Template({ children }) {
   )
 }
 
-export default Template
+export default Layout

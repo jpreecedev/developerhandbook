@@ -32,7 +32,7 @@ In a nutshell, ESLint will analyse your code, check it against known common prob
 Take this rather auspicious looking code;
 
 ```javascript
-document.write("Hello, World!");
+document.write('Hello, World!')
 ```
 
 When I run ESLint against this code, I get the following;
@@ -82,7 +82,11 @@ Take the following code;
 
 ```javascript
 <footer className="text-center mb-5">
-  Developed By <a href="https://twitter.com/jpreecedev" target="_blank" rel="noopener noreferrer">Jon Preece</a>, 2019
+  Developed By{' '}
+  <a href="https://twitter.com/jpreecedev" target="_blank" rel="noopener noreferrer">
+    Jon Preece
+  </a>
+  , 2019
 </footer>
 ```
 
@@ -92,12 +96,8 @@ As soon as I hit save, this happens;
 
 ```javascript
 <footer className="text-center mb-5">
-  Developed By{" "}
-  <a
-    href="https://twitter.com/jpreecedev"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  Developed By{' '}
+  <a href="https://twitter.com/jpreecedev" target="_blank" rel="noopener noreferrer">
     Jon Preece
   </a>
   , 2019

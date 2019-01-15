@@ -12,6 +12,8 @@ import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import IntroToWebpackMiniSeries from '../components/IntroToWebpackMiniSeries'
+import StandardLayout from '../components/StandardLayout'
+import SeriesLayout from '../components/SeriesLayout'
 
 const isIntroToWebpackMiniSeries = tags =>
   tags.filter(tag => tag === 'webpack-intro-series').length > 0
@@ -33,9 +35,24 @@ function BlogPostTemplate(props) {
     title: frontmatter.title
   }
 
+  const isSeries = false
+
   if (!post) {
     return null
   }
+
+  const postContent = (
+    <>
+      <Published post={post} {...disqusConfig} showComments />
+      {isIntroToWebpackMiniSeries(frontmatter.tags) && (
+        <IntroToWebpackMiniSeries currentUrl={location.pathname} />
+      )}
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <PullRequest slug={slug} />
+      <MiniProfile />
+      <Comments {...disqusConfig} />
+    </>
+  )
 
   return (
     <Layout>
@@ -47,25 +64,8 @@ function BlogPostTemplate(props) {
         fullUrl={fullUrl}
       />
       <Jumbotron title={frontmatter.title} />
-      <main
-        id="content"
-        role="main"
-        className="container"
-        style={{ marginBottom: '10rem' }}
-      >
-        <div className="row">
-          <article className="col-12">
-            <Published post={post} {...disqusConfig} showComments />
-            {isIntroToWebpackMiniSeries(frontmatter.tags) && (
-              <IntroToWebpackMiniSeries currentUrl={location.pathname} />
-            )}
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            <PullRequest slug={slug} />
-            <MiniProfile />
-            <Comments {...disqusConfig} />
-          </article>
-        </div>
-      </main>
+      {!isSeries && <StandardLayout>{postContent}</StandardLayout>}
+      {isSeries && <SeriesLayout>{postContent}</SeriesLayout>}
     </Layout>
   )
 }
