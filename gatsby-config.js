@@ -128,7 +128,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `DeveloperHandbook.com`,
-        short_name: 'DeveloperHandbook.com',
+        short_name: 'devhbk',
         homepage_url: baseUrl,
         start_url: `/`,
         background_color: `#f7f0eb`,
