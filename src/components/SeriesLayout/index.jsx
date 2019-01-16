@@ -13,23 +13,41 @@ function SeriesLayout({ children }) {
     >
       <div className="row">
         <aside className={classnames('col-2')}>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Getting Started</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Intermediate</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Build Tools</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
         </aside>
         <article className="col-8">{children}</article>

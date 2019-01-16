@@ -1,3 +1,28 @@
 .container {
   max-width: 1400px;
 }
+
+.indented {
+  dt {
+    font-weight: 500;
+  }
+
+  dd {
+    margin-bottom: 0;
+    padding: 4px 8px;
+  }
+
+  a {
+    color: #717171;
+    font-size: 0.875rem;
+
+    &:hover {
+      color: #111;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: #111;
+    }
+  }
+}
