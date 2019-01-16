@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to add SignalR to the telephone directory sample application
-description: As part of a mini series we created a very simple telephone directory web page that showed features of Bootstrap, Knockout, jQuery, Web API and Entity Framework. 
+description: As part of a mini series we created a very simple telephone directory web page that showed features of Bootstrap, Knockout, jQuery, Web API and Entity Framework.
 date: 2014-03-15
 categories: ['.NET']
 tags: ['.NET', 'c#', 'html', 'javascript', 'signalr']
@@ -11,9 +11,9 @@ As part of a recent mini series we created a very simple telephone directory web
 
 The first parts of the mini series can be found here;
 
-[/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/](/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/ '/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
+[/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/](/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/ '/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
 
-[/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/](/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/ '/dot-net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
+[/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/](/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/ '/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/')
 
 This post is a continuation of the original project. You can find the entire source code over on [GitHub](https://github.com/jpreecedev/telephonedirectory).
 

@@ -1,6 +1,6 @@
 const CATEGORIES_MAP = {
   'C#': 'c-sharp',
-  '.NET': 'dot-net',
+  '.NET': '.net',
   'VS Code': 'vs-code'
 }
 
