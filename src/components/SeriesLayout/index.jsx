@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import TableOfContents from '../TableOfContents'
 
 import styles from './styles.module.scss'
 
@@ -51,7 +52,7 @@ function SeriesLayout({ children }) {
           </dl>
         </aside>
         <article className="col-8">{children}</article>
-        <nav className="col-2 post-overview" />
+        <TableOfContents className="col-2" />
       </div>
     </main>
   )
