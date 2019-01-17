@@ -52,7 +52,7 @@ function SeriesLayout({ children, headings }) {
           </dl>
         </aside>
         <article className="col-8">{children}</article>
-        <TableOfContents className="col-2" />
+        <TableOfContents className="col-2" headings={headings} />
       </div>
     </main>
   )
