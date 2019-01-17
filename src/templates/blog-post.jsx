@@ -21,6 +21,7 @@ const isIntroToWebpackMiniSeries = tags =>
 function BlogPostTemplate(props) {
   const { data, location, pageContext } = props
   const post = data.markdownRemark
+  const { headings } = post
   const { frontmatter } = post
   const { siteTitle } = data.site.siteMetadata
   const { pathname } = location
@@ -65,7 +66,7 @@ function BlogPostTemplate(props) {
       />
       <Jumbotron title={frontmatter.title} />
       {!isSeries && <StandardLayout>{postContent}</StandardLayout>}
-      {isSeries && <SeriesLayout>{postContent}</SeriesLayout>}
+      {isSeries && <SeriesLayout headings={headings}>{postContent}</SeriesLayout>}
     </Layout>
   )
 }
@@ -84,6 +85,10 @@ export const pageQuery = graphql`
       id
       html
       timeToRead
+      headings {
+        value
+        depth
+      }
       frontmatter {
         categories
         tags

@@ -1,9 +1,10 @@
 import React from 'react'
 import classnames from 'classnames'
+import TableOfContents from '../TableOfContents'
 
 import styles from './styles.module.scss'
 
-function SeriesLayout({ children }) {
+function SeriesLayout({ children, headings }) {
   return (
     <main
       id="content"
@@ -13,27 +14,45 @@ function SeriesLayout({ children }) {
     >
       <div className="row">
         <aside className={classnames('col-2')}>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Getting Started</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Intermediate</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
-          <dl>
+          <dl className={styles.indented}>
             <dt>Build Tools</dt>
-            <dd>First</dd>
-            <dd>Second</dd>
-            <dd>Third</dd>
+            <dd>
+              <a href="#">First</a>
+            </dd>
+            <dd>
+              <a href="#">Second</a>
+            </dd>
+            <dd>
+              <a href="#">Third</a>
+            </dd>
           </dl>
         </aside>
         <article className="col-8">{children}</article>
-        <nav className="col-2 post-overview" />
+        <TableOfContents className="col-2" headings={headings} />
       </div>
     </main>
   )
