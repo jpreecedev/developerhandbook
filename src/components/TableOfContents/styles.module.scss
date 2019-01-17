@@ -1,7 +1,21 @@
 .nav {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
 
   a {
+    color: #717171;
     font-size: inherit;
+
+    &:hover {
+      color: #111;
+      text-decoration: none;
+    }
+  }
+}
+
+.list {
+  border-left: 1px solid #e0e0e0;
+
+  li {
+    padding: 2px 0;
   }
 }

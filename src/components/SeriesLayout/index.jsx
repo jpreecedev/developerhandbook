@@ -4,7 +4,7 @@ import TableOfContents from '../TableOfContents'
 
 import styles from './styles.module.scss'
 
-function SeriesLayout({ children }) {
+function SeriesLayout({ children, headings }) {
   return (
     <main
       id="content"

@@ -6,7 +6,7 @@ import styles from './styles.module.scss'
 function TableOfContents({ className }) {
   return (
     <nav className={classnames(styles.nav, className)}>
-      <ul className="list-unstyled">
+      <ul className={classnames('list-unstyled', 'pl-3', styles.list)}>
         <li className="toc-entry toc-h2">
           <a href="#how-it-works">How it works</a>
         </li>
@@ -19,9 +19,9 @@ function TableOfContents({ className }) {
         <li className="toc-entry toc-h2">
           <a href="#example-with-list-group">Example with list-group</a>
         </li>
-        <li className="toc-entry toc-h2">
+        <li className="toc-entry toc-h2 pt-3">
           <a href="#usage">Usage</a>
-          <ul className="list-unstyled pl-3">
+          <ul className="list-unstyled pl-2">
             <li className="toc-entry toc-h3">
               <a href="#via-data-attributes">Via data attributes</a>
             </li>
@@ -30,7 +30,7 @@ function TableOfContents({ className }) {
             </li>
             <li className="toc-entry toc-h3">
               <a href="#methods">Methods</a>
-              <ul className="list-unstyled pl-3">
+              <ul className="list-unstyled pl-2">
                 <li className="toc-entry toc-h4">
                   <a href="#scrollspyrefresh">.scrollspy('refresh')</a>
                 </li>
