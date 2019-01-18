@@ -1,0 +1,34 @@
+.indented {
+  dt {
+    padding-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.75rem;
+  }
+
+  dd {
+    margin-bottom: 0;
+    padding: 4px 4px 4px 0;
+    font-size: 0.75rem;
+  }
+
+  a {
+    color: #717171;
+    font-size: inherit;
+
+    &:hover {
+      color: #212529;
+    }
+
+    &.active {
+      color: #212529;
+    }
+  }
+
+  span {
+    color: #717171;
+  }
+}
+
+.title {
+  font-size: 1rem !important;
+}
