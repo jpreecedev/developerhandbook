@@ -43,7 +43,7 @@ function BlogPostTemplate(props) {
 
   const postContent = (
     <>
-      <Published post={post} {...disqusConfig} showComments />
+      <Published post={post} {...disqusConfig} showProfile />
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <PullRequest slug={slug} />
       <MiniProfile />
@@ -94,7 +94,7 @@ export const pageQuery = graphql`
         tags
         title
         description
-        date(formatString: "DD MMMM, YYYY")
+        date(formatString: "MMM DD, YYYY")
       }
     }
   }
