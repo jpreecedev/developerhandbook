@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import TableOfContents from '../TableOfContents'
 
 import styles from './styles.module.scss'
 import SeriesNavigation from '../SeriesNavigation'
@@ -18,7 +17,7 @@ const posts = {
   '/webpack/how-to-process-images-with-webpack/': 'How to process images with Webpack'
 }
 
-function SeriesLayout({ title, children, headings, pathname }) {
+function SeriesLayout({ title, children, pathname }) {
   return (
     <main
       id="content"
@@ -27,9 +26,8 @@ function SeriesLayout({ title, children, headings, pathname }) {
       style={{ marginBottom: '10rem' }}
     >
       <div className="row">
+        <article className="col col-md-9">{children}</article>
         <SeriesNavigation title={title} posts={posts} currentUrl={pathname} />
-        <article className="col col-md-8">{children}</article>
-        <TableOfContents className="d-none d-md-block col-2" headings={headings} />
       </div>
     </main>
   )

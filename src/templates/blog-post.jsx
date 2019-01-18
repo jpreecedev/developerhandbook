@@ -35,7 +35,7 @@ function BlogPostTemplate(props) {
   const isSeries = (tags =>
     tags.filter(tag => tag === 'webpack-intro-series').length > 0)(frontmatter.tags)
 
-  const seriesTitle = 'Intro to Webpack'
+  const seriesTitle = 'Intro to Webpack mini series'
 
   if (!post) {
     return null
