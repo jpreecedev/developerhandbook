@@ -60,18 +60,38 @@ pre[class*='language-'] > code {
   padding: 1.5rem 1rem 1.5rem 1rem;
   font-size: 0.75rem;
   background-image: none;
+  border-top: 8px solid #358ccb;
+  border-left: 0;
+  border-radius: 6px;
+  box-shadow: -1px 0px 0px 0px #dfdfdf, 0px 0px 0px 1px #dfdfdf;
 }
 
 .gatsby-highlight[data-language] {
   position: relative;
   &:before {
     position: absolute;
-    right: 3px;
+    right: 20px;
     z-index: 1;
-    padding: 3px 3px 0 0;
+    padding: 8px 6px 2px 6px;
+    color: #fff;
     font-size: 10px;
+    letter-spacing: 0.8px;
     text-align: right;
+    text-transform: uppercase;
+    background-color: #358ccb;
+    border-radius: 4px;
     content: attr(data-language);
+  }
+}
+
+pre[class*='language-javascript'] > code {
+  border-top-color: #ffe725;
+}
+
+.gatsby-highlight[data-language='javascript'] {
+  &:before {
+    color: #000;
+    background-color: #ffe725;
   }
 }
 
