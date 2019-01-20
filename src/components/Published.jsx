@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import profilePic from '../images/jonpreece.png'
+import profilePic from '../images/jonpreece-square.png'
 import twitter from '../images/twitter.png'
 
 function Published({ post, showProfile }) {
@@ -8,7 +8,12 @@ function Published({ post, showProfile }) {
     <>
       {showProfile && (
         <div style={{ display: 'flex', marginBottom: '1rem', fontSize: '0.75rem' }}>
-          <img src={profilePic} className="rounded mr-3 rounded-pill" alt="Jon Preece" />
+          <img
+            src={profilePic}
+            className="rounded mr-3 rounded-pill"
+            alt="Jon Preece"
+            style={{ maxWidth: '75px', maxHeight: '75px' }}
+          />
           <p style={{ alignSelf: 'center', marginBottom: 0 }} className="text-muted">
             <img
               src={twitter}

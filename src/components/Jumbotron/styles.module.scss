@@ -8,7 +8,7 @@
   position: relative;
   margin-bottom: 1rem !important;
   padding: 3rem !important;
-  background-size: cover;
+  overflow: hidden;
 
   @include media-breakpoint-up(md) {
     margin-bottom: 2rem !important;
@@ -23,5 +23,17 @@
   @include media-breakpoint-up(xl) {
     margin-bottom: 2rem !important;
     padding: 8rem 4rem !important;
+  }
+}
+
+.hero {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  img,
+  source {
+    width: 100%;
   }
 }
