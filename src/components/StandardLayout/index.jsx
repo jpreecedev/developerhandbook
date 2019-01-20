@@ -1,6 +1,6 @@
 import React from 'react'
 
-function StandardLayout({ children }) {
+function StandardLayout({ children, title }) {
   return (
     <main
       id="content"
@@ -9,7 +9,10 @@ function StandardLayout({ children }) {
       style={{ marginBottom: '10rem' }}
     >
       <div className="row">
-        <article className="col-12">{children}</article>
+        <article className="col-12">
+          <h1 className="mt-0 mb-4">{title}</h1>
+          {children}
+        </article>
       </div>
     </main>
   )

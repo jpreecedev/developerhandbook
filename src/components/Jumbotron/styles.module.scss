@@ -2,28 +2,26 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 
+// Remove !important when Gatsby CSS order issue resolved
+
 .jumbotron {
   position: relative;
-  padding: 4rem 2rem;
+  margin-bottom: 1rem !important;
+  padding: 3rem !important;
   background-size: cover;
-}
-
-.title {
-  padding: 8px 16px;
-  color: #fff;
-  font-size: 1.5rem;
-  background-color: #000;
-  border-radius: 4px;
-
-  @include media-breakpoint-up(sm) {
-    font-size: 1.25rem;
-  }
 
   @include media-breakpoint-up(md) {
-    font-size: 2.5rem;
+    margin-bottom: 2rem !important;
+    padding: 4rem !important;
   }
 
   @include media-breakpoint-up(lg) {
-    font-size: 3rem;
+    margin-bottom: 2rem !important;
+    padding: 6rem 4rem !important;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 2rem !important;
+    padding: 8rem 4rem !important;
   }
 }

@@ -24,8 +24,13 @@ function StubTemplate(props) {
         <meta name="description" content={description} />
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
-      <Jumbotron title={category} />
+      <Jumbotron />
       <main id="content" role="main" className="container mb-5">
+        <div className="row">
+          <div className="col">
+            <h1 className="mt-0 mb-4">{category}</h1>
+          </div>
+        </div>
         <div className="row mb-2">
           {posts.map(post => (
             <div className="col-md-6" key={post.fields.slug}>

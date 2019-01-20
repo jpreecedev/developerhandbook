@@ -20,7 +20,7 @@ function BlogIndex({ data, location }) {
         <meta name="description" content={description} />
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
-      <Jumbotron title="Cleaner code, better code." />
+      <Jumbotron />
       <main id="content" role="main" className="mb-5">
         <div className="container">
           <div className="row">

@@ -15,7 +15,7 @@ function NotFoundPage({ data }) {
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <Jumbotron title="Cleaner code, better code." />
+      <Jumbotron />
       <main id="content" role="main" className="container">
         <h1>404</h1>
         <p>Sorry, we are not sure what to do with that request.</p>

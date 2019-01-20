@@ -17,7 +17,7 @@ const posts = {
   '/webpack/how-to-process-images-with-webpack/': 'How to process images with Webpack'
 }
 
-function SeriesLayout({ title, children, pathname }) {
+function SeriesLayout({ title, postTitle, children, pathname }) {
   return (
     <main
       id="content"
@@ -26,7 +26,10 @@ function SeriesLayout({ title, children, pathname }) {
       style={{ marginBottom: '10rem' }}
     >
       <div className="row">
-        <article className="col col-md-9">{children}</article>
+        <article className="col col-md-9">
+          <h1 className="mt-0 mb-4">{postTitle}</h1>
+          {children}
+        </article>
         <SeriesNavigation title={title} posts={posts} currentUrl={pathname} />
       </div>
     </main>

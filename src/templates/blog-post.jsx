@@ -8,6 +8,7 @@ import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
 import Comments from '../components/Comments'
+import Categories from '../components/Categories'
 import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
@@ -45,6 +46,7 @@ function BlogPostTemplate(props) {
     <>
       <Published post={post} {...disqusConfig} showProfile />
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <Categories post={post} />
       <PullRequest slug={slug} />
       <MiniProfile />
       <Comments {...disqusConfig} />
@@ -60,10 +62,17 @@ function BlogPostTemplate(props) {
         baseUrl={url}
         fullUrl={fullUrl}
       />
-      <Jumbotron title={frontmatter.title} />
-      {!isSeries && <StandardLayout>{postContent}</StandardLayout>}
+      <Jumbotron />
+      {!isSeries && (
+        <StandardLayout title={frontmatter.title}>{postContent}</StandardLayout>
+      )}
       {isSeries && (
-        <SeriesLayout headings={headings} pathname={pathname} title={seriesTitle}>
+        <SeriesLayout
+          headings={headings}
+          pathname={pathname}
+          title={seriesTitle}
+          postTitle={frontmatter.title}
+        >
           {postContent}
         </SeriesLayout>
       )}
