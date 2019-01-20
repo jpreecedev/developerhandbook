@@ -61,7 +61,7 @@ pre[class*='language-'] > code {
   font-size: 0.75rem;
   background-image: none;
   border-top: 8px solid #358ccb;
-  border-left: 0;
+  border-left: 0 !important;
   border-radius: 6px;
   box-shadow: -1px 0px 0px 0px #dfdfdf, 0px 0px 0px 1px #dfdfdf;
 }
