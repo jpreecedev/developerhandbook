@@ -43,7 +43,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 }
 
 h1 {
@@ -153,10 +153,25 @@ kbd {
 }
 
 blockquote {
-  padding: 8px 16px;
-  background-color: #fafafa;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  quotes: '\201C' '\201D' '\2018' '\2019';
 
+  &:before {
+    margin-right: 0.25em;
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+    content: open-quote;
+  }
   p:last-child {
     margin-bottom: 0;
   }
+}
+
+cite {
+  font-size: 0.75rem;
 }
