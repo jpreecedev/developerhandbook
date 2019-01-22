@@ -32,7 +32,7 @@ No configuration is needed here, you can make changes to the code and see those 
 - Very quick and easy to get started, no configuration needed
 - Full syntax highlighting, intellisense (autocomplete), and console for detailed feedback messages
 - Has a built-in test runner so we can write unit tests and run them right in the browser
-- Good integration with GitHub so we can move away from GitHub
+- Good integration with GitHub so we can move away from CodeSandbox when the time is right
 
 ### Cons of CodeSandbox
 
@@ -40,7 +40,7 @@ No configuration is needed here, you can make changes to the code and see those 
 
 ## How to get started with React using Create-React-App
 
-Create-React-App is the de facto standard for new developers getting started with React. Create-React-App is best initialised using the CLI, so Node.js and some basic knowledge of how to use the terminal is required.
+[Create-React-App](https://facebook.github.io/create-react-app/) is the de facto standard for new developers getting started with React. Create-React-App is best initialised using the CLI, so Node.js and some basic knowledge of how to use the terminal is required.
 
 Create-React-App comes with MANY features out of the box, including;
 
@@ -72,12 +72,12 @@ Now you can browse to `http://localhost:3000` and see the site. Open the code in
 ### Cons of Create-React-App
 
 - Has a broad range of functionality out-of-the-box, can be complex
-- Almost always refers to `yarn` instead of `npm`. Most people do not have `yarn` and would have to know to install in separately, or that `npm` can usually be used in its place
+- Docs almost always refer to `yarn` instead of `npm`. Most people do not have `yarn` and would have to know to install in separately, or that `npm` can usually be used in its place
 - All the configuration is "brushed under the rug" and you have to irreversibly "eject" the code to be able to make configuration changes
 
 ## How to get started with React using Parcel.js
 
-Parcel.js is the new kid on the block, and is a Webpack competitor. Parcel.js takes your code, analyses it and builds it automatically, no configuration needed. I have a more [comprehensive Parcel.js tutorial](/parcel.js/build-a-react-web-app-with-parcel/), but this is what you need to know;
+Parcel.js is the new kid on the block, and is a Webpack competitor. Parcel.js takes your code, analyses it and builds it automatically, no configuration needed. I have a more comprehensive [Parcel.js React tutorial](/parcel.js/build-a-react-web-app-with-parcel/), but this is what you need to know;
 
 - You create your `index.html` file, `index.js` file and link the two using a `script` tag.
 - Then add your React code to `index.js` in the same way that CodeSandbox does
@@ -91,8 +91,70 @@ Parcel.js is the new kid on the block, and is a Webpack competitor. Parcel.js ta
 
 ### Cons of Parcel.js
 
-- Whilst Parcel itself is configuration free, other tools such as Babel require some configuration
-- Less widely used than other tools like Webpack
+- Less widely used than other tools like Webpack (community is smaller)
+
+## More depth: What the heck is JSX anyway?
+
+This post has mentioned JSX several times and offered no explanation as to what that is, so let's just tidy that up.
+
+When JSX first burst onto the screen, it was possibly one of the most controversial technologies in the history of web development (I am barely even exaggerating!).
+
+Since the dawn of time, us developers have _known_ that the ultimate web development sin was to mix concerns. HTML, CSS, and JavaScript should all live in their own separate files and be completely disconnected from each other. This has been reinforced by countless books, YouTube videos and training workshops.
+
+JSX not only blurs the lines, but it straight up requires you to mix your concerns into one single file.
+
+Take the following example;
+
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+function App() {
+  return (
+    <div className="App" style={{ backgroundColor: 'yellow' }}>
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
+```
+
+Yes, this is a JavaScript file. Specifically it is a JavaScript file that contains JSX (sometimes these files have a `.jsx` file extension).
+
+Here we have a mix of JavaScript, HTML, and inline CSS all in the same place. We could also import CSS and have it included directly in our JavaScript bundles (although you probably would want to extract it as part of your build pipeline).
+
+Let's be clear, this code does not work in the browser (...without a lot of legwork! See my post on Medium, [You might not need a build toolchain](https://itnext.io/you-might-not-need-a-build-toolchain-324edcef7f9a) for more details). To understand why, we have to understand what happens to JSX when built/transpiled.
+
+Take the following snippet (some bits have been removed for brevity).
+
+```javascript
+'use strict'
+
+var _react = require('react')
+var _react2 = _interopRequireDefault(_react)
+var _reactDom = require('react-dom')
+
+function App() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'App', style: { backgroundColor: 'yellow' } },
+    _react2.default.createElement('h1', null, 'Hello CodeSandbox'),
+    _react2.default.createElement('h2', null, 'Start editing to see some magic happen!')
+  )
+}
+
+var rootElement = document.getElementById('root')
+_reactDom2.default.render(_react2.default.createElement(App, null), rootElement)
+```
+
+This is what our React code looks like when it has been run through our compiler.
+
+React provides a function called `createElement` that takes the type of element, its attributes, content, and children. At runtime React evaluates all this code and eventually the DOM is built from it.
+
+In a nutshell, JSX saves us the considerable pain of having to write and maintain code like this and provides a higher-level API that most developers are very comfortable with and that significantly reduces the learning curve.
 
 ## Summary
 
