@@ -13,7 +13,7 @@ Head over to CodeSandbox and if you do not already have an account, I highly rec
 
 We will create a couple of components and then migrate our code from CodeSandbox to our local machine in the next post in this series.
 
-**Note for clarification as this is a standalone post**. This post is also part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms. A _property_ === Real estate === a house/flat/apartment etc.
+**Note for clarification as this is also a standalone post**. This post is also part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms. A _property_ === Real estate === a house/flat/apartment etc.
 
 ## Getting started with CodeSandbox
 
