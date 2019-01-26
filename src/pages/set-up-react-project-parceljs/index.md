@@ -20,7 +20,7 @@ I chose to use [Parcel.js](https://parceljs.org/) for my project for several rea
 
 If you have not used Parcel.js before, this is a fantastic time to learn, so stick with me!
 
-**Note for clarification as this is also a standalone post.** This post is also part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms.
+**Note for clarification as this is also a standalone post.** This post is part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms.
 
 ## Build a React app with Parcel.js from scratch
 

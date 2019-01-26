@@ -13,7 +13,7 @@ Traditionally, a user navigates a website by clicking a link (or some other form
 
 With a _single page_ application, the user stays on one page and instead pieces of the page are changed and updated. This is great because the page will generally update significantly faster compared to the classic method, even when the device is a slow mobile phone running on 2G.
 
-**Note for clarification as this is also a standalone post**. This post is also part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms.
+**Note for clarification as this is also a standalone post**. This post is part of a mini-series where we are building a real estate property listing website, complete with routing and advanced forms.
 
 ## Examples of Non-SPA vs SPA
 
