@@ -5,33 +5,41 @@ import Jumbotron from '../components/Jumbotron'
 import { getLink, getDistinctCategories } from '../utils/categories'
 import Layout from '../components/Layout'
 
-function NotFoundPage({ data }) {
-  const { siteTitle, description } = data.site.siteMetadata
-  const categories = getDistinctCategories(data.allMarkdownRemark.edges)
+class NotFoundPage extends React.Component {
+  componentDidMount() {
+    const { pathname } = this.props.location
+    Sentry.captureMessage(`404! ${pathname}`)
+  }
 
-  return (
-    <Layout>
-      <Helmet>
-        <title>{siteTitle}</title>
-        <meta name="description" content={description} />
-      </Helmet>
-      <Jumbotron />
-      <main id="content" role="main" className="container">
-        <h1>404</h1>
-        <p>Sorry, we are not sure what to do with that request.</p>
-        <p>Perhaps try one of these categories instead?</p>
-        <ul>
-          {categories.map(category => (
-            <li key={category}>
-              <Link className="nav-link" to={getLink(category)}>
-                {category}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </main>
-    </Layout>
-  )
+  render() {
+    const { data } = this.props
+    const { siteTitle, description } = data.site.siteMetadata
+    const categories = getDistinctCategories(data.allMarkdownRemark.edges)
+
+    return (
+      <Layout>
+        <Helmet>
+          <title>{siteTitle}</title>
+          <meta name="description" content={description} />
+        </Helmet>
+        <Jumbotron />
+        <main id="content" role="main" className="container">
+          <h1>404</h1>
+          <p>Sorry, we are not sure what to do with that request.</p>
+          <p>Perhaps try one of these categories instead?</p>
+          <ul>
+            {categories.map(category => (
+              <li key={category}>
+                <Link className="nav-link" to={getLink(category)}>
+                  {category}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </main>
+      </Layout>
+    )
+  }
 }
 
 export default NotFoundPage

@@ -2,6 +2,12 @@
 
 import * as React from 'react'
 
+const sentry = (
+  <script
+    src="https://browser.sentry-cdn.com/4.5.3/bundle.min.js"
+    crossOrigin="anonymous"
+  />
+)
 const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer />
 const popper = <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" defer />
 const bootstrap = (
@@ -31,8 +37,16 @@ function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {headComponents}
+        {sentry}
       </head>
       <body {...bodyAttributes}>
+        {
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `Sentry.init({ dsn: 'https://594c4a6c1a7a4773b4cc091391baa124@sentry.io/1380152' });`
+            }}
+          />
+        }
         {preBodyComponents}
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
