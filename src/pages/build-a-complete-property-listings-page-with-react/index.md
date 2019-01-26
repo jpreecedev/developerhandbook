@@ -131,8 +131,8 @@ In the same folder as your `<Hero />` component, create a new file called `style
 .hero {
   background-image: url('../../images/hero.jpg');
   background-repeat: no-repeat;
-  background-attachment: scroll;
   background-size: cover;
+  background-attachment: scroll;
 }
 
 @media screen and (min-width: 992px) {
