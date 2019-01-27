@@ -86,8 +86,8 @@
   },
   "homepage": "https://github.com/jpreecedev/developerhandbook#readme",
   "browserslist": [
-    ">0.25%",
-    "not dead",
+    "last 1 version",
+    ">1%",
     "Firefox >= 43"
   ]
 }
