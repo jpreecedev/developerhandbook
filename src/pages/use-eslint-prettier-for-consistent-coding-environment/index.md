@@ -80,7 +80,7 @@ So, why do I personally choose to use Prettier, even when working on solo-projec
 
 Take the following code;
 
-```javascript
+```jsx
 <footer className="text-center mb-5">
   Developed By{' '}
   <a href="https://twitter.com/jpreecedev" target="_blank" rel="noopener noreferrer">
@@ -94,7 +94,7 @@ I wrote this React code. At first glance, it looks pretty reasonable. I want to 
 
 As soon as I hit save, this happens;
 
-```javascript
+```jsx
 <footer className="text-center mb-5">
   Developed By{' '}
   <a href="https://twitter.com/jpreecedev" target="_blank" rel="noopener noreferrer">
@@ -122,7 +122,7 @@ I could write my own ruleset but that would take an awful lot of effort, so I le
 
 Here is an example from my [Premium Property Finder](https://github.com/jpreecedev/premium-property-finder) code repo;
 
-```javascript
+```json
 {
   "parser": "babel-eslint",
   "parserOptions": {

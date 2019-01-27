@@ -83,7 +83,7 @@ class Example extends React.Component {
 
 Now, in your `map/index.js` file, add the following code;
 
-```javascript
+```jsx
 import React from 'react'
 
 function Map() {
@@ -132,7 +132,7 @@ import Map from './components/map/'
 
 Use the `<Map />` component by adding it below the `<h2>` tag as shown below;
 
-```javascript
+```jsx
 function App() {
   return (
     <div className="App">
@@ -162,7 +162,7 @@ Create a new directory in `src` called `keyFeatures`, and create a new file call
 
 Add the following code;
 
-```javascript
+```jsx
 import React from 'react'
 
 class KeyFeatures extends React.Component {
@@ -265,7 +265,7 @@ const features = [
 
 And use the `<KeyFeatures />` above the existing `<Map />` component, passing in the features as props;
 
-```javascript
+```jsx
 function App() {
   const features = [
     'Help to Buy available, ideal for first time buyers',
@@ -314,7 +314,7 @@ import styles from './styles.module.css'
 
 And update your `<ul>` so that it uses the list CSS class as follows;
 
-```javascript
+```jsx
 <ul className={styles.list}>
 ```
 

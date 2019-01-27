@@ -35,7 +35,7 @@ The hero component is, in our case, a large image with text within that promotes
 
 Go to `src/components`, create a new folder called `Hero`, and a new file called `index.js`. Add the following code;
 
-```javascript
+```jsx
 import * as React from 'react'
 
 function Hero() {
@@ -58,7 +58,7 @@ We will come back to this momentarily. First, let's use our `<Hero />` component
 
 Open `src/pages/Home/index.js` and update the code as follows;
 
-```javascript
+```jsx
 import * as React from 'react'
 
 import Hero from '../../components/hero'

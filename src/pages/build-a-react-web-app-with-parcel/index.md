@@ -92,7 +92,7 @@ Open `index.html` and add a `script` tag to `index.js` (we will create this next
 
 Now create a new file called `index.js` and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app.js'
@@ -104,7 +104,7 @@ All familiar stuff so far.
 
 Now create a new file called `app.js` and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 import Counter from './counter.js'
 
@@ -117,7 +117,7 @@ export default App
 
 Then create a new file called `counter.js` and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 
 class Counter extends React.Component {

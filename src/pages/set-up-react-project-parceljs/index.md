@@ -88,7 +88,7 @@ Open `index.html` and add a `script` tag to `index.js` (we will create this next
 
 Now create a new file called `index.js` and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -99,7 +99,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 Copy it and paste just before our call to `ReactDOM.render`, as follows;
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 

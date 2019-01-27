@@ -105,7 +105,7 @@ JSX not only blurs the lines, but it straight up requires you to mix your concer
 
 Take the following example;
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -130,7 +130,7 @@ Let's be clear, this code does not work in the browser (...without a lot of legw
 
 Take the following snippet (some bits have been removed for brevity).
 
-```javascript
+```jsx
 'use strict'
 
 var _react = require('react')

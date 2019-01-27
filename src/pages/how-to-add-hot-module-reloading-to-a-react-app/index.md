@@ -23,7 +23,7 @@ npm install --save react react-dom
 
 Open `index.js` (in the `src` folder), delete all the existing code, and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app'
@@ -33,7 +33,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 Next, create a new file called `app.js` and add the following;
 
-```javascript
+```jsx
 import React from 'react'
 
 function App() {
@@ -70,7 +70,7 @@ We then add `react-hot-loader` to Babel as a plugin. Update the `.babelrc` as fo
 
 Then we update our application to utilise HMR. Open `app.js` and change the code as follows;
 
-```javascript
+```jsx
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 

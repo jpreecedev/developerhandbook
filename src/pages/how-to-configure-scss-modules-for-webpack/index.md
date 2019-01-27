@@ -135,7 +135,7 @@ We do not need to include the file extension because we have already told Webpac
 
 Now for the usage;
 
-```javascript
+```jsx
 function App() {
   return <h2 className={styles.red}>This is our React application!</h2>
 }

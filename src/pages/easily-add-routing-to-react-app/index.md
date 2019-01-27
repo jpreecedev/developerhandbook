@@ -55,7 +55,7 @@ import { Router } from '@reach/router'
 
 Then wrap our existing `<App />` component with `<Router />` in the `render` method as shown;
 
-```javascript
+```jsx
 const rootElement = document.getElementById('root')
 ReactDOM.render(
   <Router>
@@ -89,7 +89,7 @@ Your project should look like this;
 
 Open `src/index.js` and cut the imports for `Map` and `KeyFeatures`, and paste them in `Details/index.js`. Cut `<Map />`, `<KeyFeatures />`, and the `features` array from the `App` function, then create a new `function` in `Details/index.js` and paste them in, as follows;
 
-```javascript
+```jsx
 import * as React from 'react'
 import Map from './components/map/'
 import KeyFeatures from './components/keyFeatures/'
@@ -118,7 +118,7 @@ Your `App` function is now quite empty and is no longer serving a purpose, so go
 
 Finally, we need to tell the router about our new pages. Update the `render` function in `src/index.js` as follows (full code shown for complete reference);
 
-```javascript
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router } from '@reach/router'
@@ -164,7 +164,7 @@ In the above example, `:propertyId` is a variable value.
 
 Open `src/index.js` and update the `path` for `<Details />` as follows;
 
-```javascript
+```jsx
 <Details path="/details/:propertyId" />
 ```
 
@@ -188,7 +188,7 @@ Every JavaScript function has an ~~array~~ object(ish) called `arguments` (gotta
 
 We now know that we have a variable available to us called `propertyId` that we can destructure from props as follows;
 
-```javascript
+```jsx
 // ...
 function Details({ propertyId }) {
   const features = [

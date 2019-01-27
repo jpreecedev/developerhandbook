@@ -82,7 +82,7 @@ import jonpreece from './images/jonpreece-square'
 
 Now update the `App` component as follows;
 
-```javascript
+```jsx
 function App() {
   return (
     <>
