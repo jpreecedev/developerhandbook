@@ -88,6 +88,6 @@
   "browserslist": [
     ">0.25%",
     "not dead",
-    "Firefox > 43"
+    "Firefox >= 43"
   ]
 }
