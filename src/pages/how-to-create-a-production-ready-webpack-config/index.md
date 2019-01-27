@@ -5,6 +5,7 @@ description: Webpack is a fantastic automated build tool and with a few settings
 date: 2018-12-31
 categories: ['Webpack']
 tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
+seriesTitle: Intro to Webpack mini series
 ---
 
 We have seen the basics of a Webpack config, but let's take a few steps to make the config more production ready and useful for development.

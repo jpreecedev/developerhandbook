@@ -5,6 +5,7 @@ description: '@reach/router is a fantastic choice for routing today, being; smal
 date: 2019-01-25
 categories: ['React']
 tags: ['react', '@reach/router', 'practical-react-series']
+seriesTitle: Practical React Developer
 ---
 
 We are building a property listings website, called **Premium Property Finder**, using React. Our website is a Single Page Application (SPA), designed to load fast and dynamically update based on user interaction or network changes.

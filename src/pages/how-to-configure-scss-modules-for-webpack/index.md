@@ -5,6 +5,7 @@ description: SCSS modules are a fantastic way of writing clean, self contained s
 date: 2018-12-31
 categories: ['Webpack']
 tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
+seriesTitle: Intro to Webpack mini series
 ---
 
 Your website will look pretty plain without some styles. SCSS is a popular choice for styling and is fairly straightforward to configure.

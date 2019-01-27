@@ -5,6 +5,7 @@ description: Webpack, with various plugins, is fantastic for processing assets, 
 date: 2018-12-31
 categories: ['Webpack']
 tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
+seriesTitle: Intro to Webpack mini series
 ---
 
 With a couple of small Webpack plugins we can add the ability to be able to import images directly in our JavaScript files, and also process those images (compress them).

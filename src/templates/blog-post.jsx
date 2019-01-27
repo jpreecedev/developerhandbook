@@ -33,10 +33,11 @@ function BlogPostTemplate(props) {
     title: frontmatter.title
   }
 
-  const isSeries = (tags =>
-    tags.filter(tag => tag === 'webpack-intro-series').length > 0)(frontmatter.tags)
+  const isSeries = (tags => tags.filter(tag => tag.indexOf('-series') > -1).length > 0)(
+    frontmatter.tags
+  )
 
-  const seriesTitle = 'Intro to Webpack mini series'
+  const { seriesTitle } = frontmatter
 
   if (!post) {
     return null
@@ -104,6 +105,7 @@ export const pageQuery = graphql`
         title
         description
         date(formatString: "MMM DD, YYYY")
+        seriesTitle
       }
     }
   }

@@ -5,6 +5,7 @@ description: Learn how to quickly take your React project from CodeSandbox to yo
 date: 2019-01-24
 categories: ['React', 'Parcel.js']
 tags: ['react', 'codesandbox', 'parceljs', 'practical-react-series']
+seriesTitle: Practical React Developer
 ---
 
 CodeSandbox is great for getting up and running quickly with no setup. However, CodeSandbox is not usually how I choose to bootstrap my projects and typically the companies I work for do not use an approach like this either (maybe they should, but that is a different post!).

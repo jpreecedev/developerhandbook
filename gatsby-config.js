@@ -109,6 +109,7 @@ module.exports = {
                         title
                         date
                         categories
+                        seriesTitle
                       }
                     }
                   }
