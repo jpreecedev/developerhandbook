@@ -10,6 +10,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "bump": "bump --prompt",
     "build": "rimraf .cache public && gatsby build",
+    "build:noclean": "gatsby build",
     "deploy": "npm run bump -- --prompt --tag --push --all && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
     "clear": "aws-cloudfront-invalidate EI5Q6NGOHKSZ4"
   },

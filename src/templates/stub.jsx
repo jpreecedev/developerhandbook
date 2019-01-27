@@ -41,7 +41,9 @@ function StubTemplate(props) {
                     key={post.fields.slug}
                     title={post.frontmatter.title}
                     slug={post.fields.slug}
-                    mappedCategory={`${getCategoryUrlFriendly(category)}`}
+                    mappedCategory={`${getCategoryUrlFriendly(
+                      post.frontmatter.categories[0]
+                    )}`}
                     excerpt={post.excerpt}
                   />
                 </div>
