@@ -84,5 +84,10 @@
   "bugs": {
     "url": "https://github.com/jpreecedev/developerhandbook/issues"
   },
-  "homepage": "https://github.com/jpreecedev/developerhandbook#readme"
+  "homepage": "https://github.com/jpreecedev/developerhandbook#readme",
+  "browserslist": [
+    ">0.25%",
+    "not dead",
+    "Firefox > 43"
+  ]
 }
