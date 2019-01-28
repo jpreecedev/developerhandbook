@@ -63,6 +63,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        policy: [{ userAgent: '*', disallow: '/tags', allow: '*' }]
+      }
+    },
+    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
