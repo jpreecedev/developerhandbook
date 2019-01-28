@@ -4,7 +4,6 @@ title: Why Visual Studio 2015 has changed my life
 description: I've been using Visual Studio on an almost daily basis since 2002, the 2015 release feels like a huge paradigm shift, comparable to Visual Studio 6 to 2002.
 date: 2015-07-24
 categories: ['Visual Studio']
-tags: ['visual studio', 'Visual Studio']
 ---
 
 I've been using Visual Studio on an almost daily basis since 2002\. Before that, my development tool of choice was Visual Basic 6 (Visual Studio 6). The shift between those two versions felt like using a whole new product at the time. Since then, changes to Visual Studio have been incremental. Microsoft have released a new version every 2-3 years. Visual Studio 2015, however, feels like another significant paradigm shift. The point of this post is not to outline all the shiny new features, there are [official blog posts for that](http://blogs.msdn.com/b/somasegar/archive/2015/07/20/visual-studio-2015-and-net-4-6-available-for-download.aspx). No. I wanted to tell you how the changes to Visual Studio have directly changed the way I work on a day to day basis.

@@ -3,8 +3,7 @@ layout: post
 title: Effectively debugging WPF MVVM applications
 description: WPF applications can be particularly hard to debug, if you are not using the correct tools.  This post attempts to help you utilise various free tools to help simplify the debugging process.
 date: 2013-09-13
-categories: ['WPF MVVM']
-tags: ['c#', 'wpf', 'WPF MVVM']
+categories: ['WPF MVVM', 'C#', '.NET']
 ---
 
 Being able to effectively debug any application is key to the success of an application. Every developer, no matter how good they are or how long they have been writing code, introduces bugs. Debugging is the process of identifying bugs and removing them. WPF applications can be particularly hard to debug, if you are not using the correct tools. This post attempts to help you utilise various free tools to help simplify the debugging process.

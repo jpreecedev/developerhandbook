@@ -3,8 +3,7 @@ layout: post
 title: Build a complete property listings page with React.js
 description: Learn how to build a complete React.js application, including Context API, State, and more!
 date: 2019-01-26
-categories: ['React', 'Parcel.js']
-tags: ['react', 'context-api', 'parceljs', 'practical-react-series']
+categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 ---
 

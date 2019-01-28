@@ -3,8 +3,7 @@ layout: post
 title: How to add routing to a React app using @reach/router
 description: '@reach/router is a fantastic choice for routing today, being; small, lightweight, with a familiar API, that makes routing in React easier'
 date: 2019-01-25
-categories: ['React']
-tags: ['react', '@reach/router', 'practical-react-series']
+categories: ['React', 'practical-react-series']
 seriesTitle: Practical React Developer
 ---
 

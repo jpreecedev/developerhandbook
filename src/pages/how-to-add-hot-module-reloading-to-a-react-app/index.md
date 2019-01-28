@@ -3,8 +3,7 @@ layout: post
 title: How to add Hot Module Reloading (HMR) to a React app
 description: When using Webpack Dev Server, we can easily add support for Hot Module Reloading (HMR) which will signficantly reduce development time by reducing time required to see our changes on screen
 date: 2018-12-31
-categories: ['Webpack']
-tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
+categories: ['Webpack', 'React', 'JavaScript', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 ---
 

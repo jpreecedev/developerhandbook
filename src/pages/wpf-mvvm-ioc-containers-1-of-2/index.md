@@ -3,8 +3,7 @@ layout: post
 title: WPF MVVM IoC containers - Part 1 of 2
 description: WPF MVVC IoC containers-The ultimate goal of MVVM is to achieve separation of concerns, but to do this we need an IoC container, this tutorial shows you how
 date: 2013-07-26
-categories: ['WPF MVVM']
-tags: ['c#', 'dependency injection', 'ioc', 'mvvm', 'structuremap', 'wpf', 'WPF MVVM']
+categories: ['WPF MVVM', 'C#', '.NET']
 ---
 
 The ultimate goal of MVVM is to achieve true separation of concerns, meaning that the various elements of your project know nothing about each other. It's virtually impossible to achieve this in an elegant way in WPF without some outside help. For example, how to you tie the view model to a view? Here are some ideas that spring to mind; 1) You could set the data context directly in the view;

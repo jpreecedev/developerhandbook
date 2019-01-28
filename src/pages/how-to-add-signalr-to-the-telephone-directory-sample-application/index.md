@@ -3,8 +3,7 @@ layout: post
 title: How to add SignalR to the telephone directory sample application
 description: As part of a mini series we created a very simple telephone directory web page that showed features of Bootstrap, Knockout, jQuery, Web API and Entity Framework.
 date: 2014-03-15
-categories: ['.NET']
-tags: ['.NET', 'c#', 'html', 'javascript', 'signalr']
+categories: ['.NET', 'C#', 'JavaScript']
 ---
 
 As part of a recent mini series we created a very simple telephone directory web page that showed some features of Bootstrap, KnockoutJS, jQuery, Web API and the Entity Framework. Just for fun, I figured it would be cool to add SignalR so that we could see how simple it is to add full duplex, real time communications to your website.

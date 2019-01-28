@@ -4,7 +4,6 @@ title: 5 AutoMapper tips and tricks
 description: AutoMapper is a productivity tool designed to help you write less of the boring, tedious, repetitive code we have to write on a near day to day basis.
 date: 2014-08-23
 categories: ['C#']
-tags: ['Architecture', 'AutoMapper', 'c#', 'C#']
 ---
 
 [AutoMapper](https://github.com/AutoMapper/AutoMapper) is a productivity tool designed to help you write less repetitive code mapping code. AutoMapper maps objects to objects, using both convention and configuration. AutoMapper is flexible enough that it can be overridden so that it will work with even the oldest legacy systems. This post demonstrates what I have found to be 5 of the most useful, lesser known features.

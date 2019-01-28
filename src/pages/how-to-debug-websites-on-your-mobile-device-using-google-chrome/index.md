@@ -3,7 +3,6 @@ layout: post
 title: How to debug websites on your mobile device using Google Chrome
 date: 2016-01-31
 categories: ["Other"]
-tags: ["google chrome","Other"]
 ---
 
 I can't believe I have survived this long as a web developer without knowing you can debug websites (JavaScript, CSS, HTML, TypeScript etc.) directly on your mobile device using Google Chrome developer tools. If you are currently using emulators/simulators or testing solutions such as Browser Stack, you will love this easy and free solution. Be warned, however, you will be expected to download 6+ gigabytes of _stuff_ before the magic begins. I've only tested this on my Samsung Galaxy S6 Edge (running Android 5.1.1) but I believe it also works on an iPhone.

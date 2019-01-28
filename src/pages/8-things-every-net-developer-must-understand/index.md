@@ -4,7 +4,6 @@ title: 8 things every .NET developer must understand
 description: After interviewing a lot recently, I've found that some employers are asking the same questions. Here are 8 things every .NET developer must understand.
 date: 2014-09-19
 categories: ["Career"]
-tags: ["c#","Career","career","javascript","software development"]
 ---
 
 You've been in your current job for a while now, and you're really starting to get good at what you do. You're perhaps thinking about finding something new, and you're wondering what sort of questions a potential new employer might ask. I've been interviewing a lot recently and I have noticed there are 8 questions that get asked a lot. Spend some time and make sure that you understand each point in turn, doing so will help make that dream job become a reality.

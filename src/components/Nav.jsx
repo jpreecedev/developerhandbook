@@ -10,7 +10,9 @@ function getMainNavItems(categories) {
 }
 
 function getOtherNavItems(categories) {
-  return categories.filter(category => !DEFAULT_CATEGORIES.includes(category))
+  return categories.filter(
+    category => !DEFAULT_CATEGORIES.includes(category) && !category.endsWith('-series')
+  )
 }
 
 function Nav({ categories }) {

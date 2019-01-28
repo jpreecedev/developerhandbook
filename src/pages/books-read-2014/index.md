@@ -4,7 +4,6 @@ title: Books I read in 2014
 description: A brief list of the books I read throughout 2014.  Reading is important for rest, relaxation, education, and creative thought, are you reading enough?
 date: 2015-01-01
 categories: ["Career"]
-tags: ['Career', 'career', 'personal']
 ---
 
 Last year I set out to try and diversify myself and learn new things. I have focused primarily on software development for at least the last 13 years, and this year I wanted to do something different. I shied away from reading software development books and started reading sci-fi books, books of historical importance, fantasy, and yes the occasional development book when I felt the urge. Here are some of the books I read during 2014 (in no particular order);

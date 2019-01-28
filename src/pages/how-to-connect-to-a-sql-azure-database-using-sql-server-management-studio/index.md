@@ -4,7 +4,6 @@ title: How to connect to a SQL Azure database using SQL Server Management Studio
 description: A brief tutorial that explains how to use SQL Server Management Studio to connect to a SQL Azure database
 date: 2014-03-01
 categories: ['Azure']
-tags: ['Azure', 'sql azure', 'windows azure']
 ---
 
 If you are writing a website that will be deployed to Windows Azure, or indeed you are using SQL Azure as the backend for some other endeavour, chances are you will want to connect to that database with a management tool and query its data. You can achieve this in one of two ways; using Visual Studio or using SQL Server Management Studio. Using Visual Studio is fine, but I have been using SQL Server Management Studio for many years and I have grown accustomed to it, so it is my preferred tool. There are a couple of steps you need to take to make this work.

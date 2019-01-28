@@ -4,7 +4,6 @@ title: How to write more efficient and maintainable C# code
 description: When you are writing your C# applications, you are aware that you want to make your applications as efficient, maintainable, and as scalable as possible.
 date: 2013-08-23
 categories: ['C#']
-tags: ['c#', 'C#']
 ---
 
 When you are writing your C# applications, you are aware that you want to make your applications as efficient, maintainable, and as scalable as possible. These are some great keywords that look great on blog posts like this, but how do you actually set about achieving this goal? We will look at some simply guidelines which try to make this goal more achievable.

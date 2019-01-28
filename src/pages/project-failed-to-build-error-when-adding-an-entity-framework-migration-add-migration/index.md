@@ -3,8 +3,7 @@ layout: post
 title: How to fix 'Project failed to build' error when adding an Entity Framework migration (add-migration)
 description: I recently spent several hours tearing my hair out try to figure out why Entity Framework was preventing me from adding a migration to my project.
 date: 2013-09-06
-categories: ['Entity Framework']
-tags: ['c#', 'entity framework', 'Entity Framework']
+categories: ['Entity Framework', 'C#', '.NET']
 ---
 
 I recently spent several hours tearing my hair out try to figure out why Entity Framework was preventing me from adding a migration to my project. I made some very simple changes to my existing model (I'm developing using the Entity Framework Code First approach) and when trying to add a migration, I was presented with the following error message;

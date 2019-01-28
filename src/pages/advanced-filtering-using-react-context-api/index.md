@@ -3,8 +3,7 @@ layout: post
 title: Add advanced filtering to a React app using React Context API
 description: Learn how to add advanced filtering to a React application using Context API, and local state, to dynamically update a list of data
 date: 2019-01-27
-categories: ['React', 'Parcel.js']
-tags: ['react', 'context-api', 'practical-react-series']
+categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 ---
 

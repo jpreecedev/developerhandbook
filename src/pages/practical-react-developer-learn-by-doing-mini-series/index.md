@@ -3,8 +3,7 @@ layout: post
 title: 'The Practical React Developer: Learn By Doing Not-So-Mini-Series'
 description: The best way to learn is by doing.  This is the start of a not-so-mini series for everything you need to know about building React web applications
 date: 2019-01-27
-categories: ['React']
-tags: ['react']
+categories: ['React', 'JavaScript']
 ---
 
 The best way to learn is hands on.

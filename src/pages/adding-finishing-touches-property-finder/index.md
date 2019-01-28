@@ -3,8 +3,7 @@ layout: post
 title: Adding the finishing touches to 'Property Finder'
 description: This post focuses on adding the final touches to our 'Property Finder' React.js website
 date: 2019-01-27
-categories: ['React']
-tags: ['react', 'practical-react-series']
+categories: ['React', 'practical-react-series']
 seriesTitle: Practical React Developer
 ---
 

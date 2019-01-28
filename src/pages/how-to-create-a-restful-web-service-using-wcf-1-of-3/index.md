@@ -3,8 +3,7 @@ layout: post
 title: How to create a RESTful web service using WCF (Part 1 of 3)
 description: This is a comprehensive 3 part tutorial that discusses how to create a RESTful web service using WCF. This is the introductory post to get you set up.
 date: 2014-04-02
-categories: ['WCF']
-tags: ['c#', 'rest', 'wcf', 'WCF']
+categories: ['WCF', 'C#', '.NET']
 ---
 
 RESTful (Representational State Transfer) web services use HTTP verbs to map CRUD operations to HTTP methods. RESTful web services expose either a collection resource (representational of a list) or an element resource (representational of a single item in the list).HTTP verbs are used as follows;

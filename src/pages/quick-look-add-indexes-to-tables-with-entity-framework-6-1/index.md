@@ -3,8 +3,7 @@ layout: post
 title: Quick look - Add indexes to tables with Entity Framework 6.1 Beta 1
 description: There is a new feature of note in Entity Framework, the ability to add indexes using data annotationa when using the code first approach.
 date: 2014-02-26
-categories: ['Entity Framework']
-tags: ['c#', 'entity framework', 'Entity Framework', 'sql server']
+categories: ['Entity Framework', 'C#', '.NET']
 ---
 
 At the time of writing, beta 1 of Entity Framework 6.1 has recently been released. This is [mostly a maintenance release](http://blogs.msdn.com/b/adonet/archive/2014/02/11/ef-6-1-0-beta-1-available.aspx), however, there are several new feature of note, including the ability to add indexes using a new data annotation when developing using the code first approach.

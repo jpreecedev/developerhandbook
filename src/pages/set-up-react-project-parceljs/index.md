@@ -3,8 +3,7 @@ layout: post
 title: How to export your React project from CodeSandbox to your desktop with Parcel.js
 description: Learn how to quickly take your React project from CodeSandbox to your local with Parcel.js for building your assets
 date: 2019-01-24
-categories: ['React', 'Parcel.js']
-tags: ['react', 'codesandbox', 'parceljs', 'practical-react-series']
+categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 ---
 

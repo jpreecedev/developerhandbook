@@ -3,8 +3,7 @@ layout: post
 title: Build a React web app with Parcel.js lightning fast
 description: Learn how to get a React app off the ground quickly with Parcel.js
 date: 2019-01-01
-categories: ['Parcel.js']
-tags: ['parcel.js', 'javascript', 'babel']
+categories: ['Parcel.js', 'React', 'JavaScript']
 ---
 
 I have been using Webpack for quite some time now, and I have found it to be slow, frustrating to configure and debug, tedious to change and upgrade (and do not even get me started on the documentation!).

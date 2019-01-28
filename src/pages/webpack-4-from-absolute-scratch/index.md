@@ -3,8 +3,7 @@ layout: post
 title: Webpack 4 from absolute scratch
 description: Learn how to write your own Webpack configuration from absolute scratch quickly
 date: 2018-12-31
-categories: ['Webpack']
-tags: ['webpack', 'javascript', 'babel', 'webpack-intro-series']
+categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 ---
 

@@ -4,7 +4,6 @@ title: TypeScript beginners guide
 description: New to TypeScript, have a small about of web development experience? Need to get started NOW?! This is the ultimate TypeScript beginners guide.
 date: 2015-10-02
 categories: ["TypeScript"]
-tags: ["TypeScript","typescript"]
 ---
 
 TypeScript is a tool that enables you to write better JavaScript. You may have heard that TypeScript is a superset of JavaScript, but what does that mean? TypeScript is JavaScript. If you know JavaScript already, then you already know JavaScript. You can convert an existing JavaScript file to TypeScript simply by changing the file extension. TypeScript has a very low barrier to entry (you can easily write it using Notepad) and has a small learning curve.

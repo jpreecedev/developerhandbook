@@ -33,8 +33,8 @@ function BlogPostTemplate(props) {
     title: frontmatter.title
   }
 
-  const isSeries = (tags => tags.filter(tag => tag.indexOf('-series') > -1).length > 0)(
-    frontmatter.tags
+  const isSeries = (categories => categories.filter(tag => tag.indexOf('-series') > -1).length > 0)(
+    frontmatter.categories
   )
 
   const { seriesTitle } = frontmatter
@@ -101,7 +101,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         categories
-        tags
         title
         description
         date(formatString: "MMM DD, YYYY")

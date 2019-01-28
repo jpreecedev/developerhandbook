@@ -4,7 +4,6 @@ title: .NET developers, utilize Git better using the command prompt
 description: Git is a complex tool and can be difficult for .NET developers who are not used to using the command line. This post looks at how start putting that right.
 date: 2014-09-14
 categories: ['Git']
-tags: ['git', 'Git', 'tfs']
 ---
 
 I've been using Git in Visual Studio for quite some time now (since not long after it was released) and I've really grown to like it. I particularly like the speed and general ease of use. I find TFS/TFVC (weather that be a local instance or TFS online) to be slow and unreliable and it really has poor command line support (sorry guys!). It's fair to say that I've been a little bit intimidated by Git and have rarely (OK never!) strayed away from the UI available through Visual Studio. Until now. Visual Studio barely scratches the surface when it comes to the wealth of additional functionality available via the command prompt.
