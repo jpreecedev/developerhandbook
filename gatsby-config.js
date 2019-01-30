@@ -65,7 +65,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', disallow: '/tags', allow: '*' }]
+        policy: [
+          { userAgent: '*', disallow: '/tags', allow: '*' },
+          { userAgent: '*', disallow: '/wp-content', allow: '*' }
+        ]
       }
     },
     {
