@@ -5,11 +5,12 @@ const { createFilePath } = require('gatsby-source-filesystem')
 const blogPosts = require('./setup/blogPosts')
 const stubs = require('./setup/stub')
 const pages = require('./setup/pages')
+const getRedirects = require('./setup/redirects')
 
 const pipe = (...functions) => args => functions.reduce((arg, fn) => fn(arg), args)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -58,6 +59,8 @@ exports.createPages = ({ graphql, actions }) => {
         stubs,
         pages
       )(args)
+
+      getRedirects().forEach(redirect => createRedirect(redirect))
 
       resolve()
     })
