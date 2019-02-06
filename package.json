@@ -41,6 +41,7 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "classnames": "^2.2.6",
+    "core-js": "^2.6.3",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.0.111",
     "gatsby-plugin-feed": "^2.0.13",
