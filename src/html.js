@@ -6,6 +6,7 @@ const sentry = (
   <script
     src="https://browser.sentry-cdn.com/4.5.3/bundle.min.js"
     crossOrigin="anonymous"
+    defer
   />
 )
 const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer />
