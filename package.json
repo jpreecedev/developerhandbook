@@ -39,11 +39,11 @@
     "version-bump-prompt": "^4.2.2"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "core-js": "^2.6.4",
     "disqus-react": "^1.0.5",
-    "gatsby": "^2.0.118",
+    "gatsby": "^2.1.0",
     "gatsby-plugin-feed": "^2.0.13",
     "gatsby-plugin-google-analytics": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.17",
@@ -59,7 +59,7 @@
     "gatsby-remark-responsive-iframe": "^2.0.9",
     "gatsby-remark-smartypants": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.20",
-    "gatsby-transformer-remark": "^2.2.3",
+    "gatsby-transformer-remark": "^2.2.5",
     "gatsby-transformer-sharp": "^2.1.13",
     "github-slugger": "^1.2.1",
     "lodash": "^4.17.11",
