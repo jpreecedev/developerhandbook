@@ -14,6 +14,14 @@ const Redirects = [
   {
     from: '/wpf-mvvm/',
     to: '/category/wpf-mvvm/'
+  },
+  {
+    from: '/wcf/',
+    to: '/category/wcf/'
+  },
+  {
+    from: '/c-sharp/',
+    to: '/category/c-sharp/'
   }
 ]
 
