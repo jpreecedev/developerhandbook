@@ -37,7 +37,7 @@ function HTML(props) {
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
         <script
-          src="https://browser.sentry-cdn.com/4.5.3/bundle.min.js"
+          src="https://browser.sentry-cdn.com/4.6.1/bundle.min.js"
           crossOrigin="anonymous"
         />
         <script
