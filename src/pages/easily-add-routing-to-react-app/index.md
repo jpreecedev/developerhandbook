@@ -21,13 +21,13 @@ Take [Microsoft.com](https://www.microsoft.com).
 
 The website is well optimised for the web, its assets are compressed, its JavaScript minified, etc.
 
-![Microsoft.com is not a Single Page Application](slow-loading-web-page.gif)
+<img src="slow-loading-web-page.gif" alt="Microsoft.com is not a Single Page Application" class="img-fluid mb-3">
 
 When I click a link to a different section of the website, the page entirely changes.
 
 Compare that experience to this experience (navigating around the React.js documentation).
 
-![React.js is a Single Page Application](fast-loading-web-page.gif)
+<img src="fast-loading-web-page.gif" alt="React.js is a Single Page Application" class="img-fluid mb-3">
 
 It feels fast, because it is fast. No waiting around for things to render.
 
