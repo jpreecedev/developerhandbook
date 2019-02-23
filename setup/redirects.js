@@ -1,29 +1,4 @@
-const Redirects = [
-  {
-    from: '/career/devs-this-is-how-i-got-fit/null',
-    to: '/career/devs-this-is-how-i-got-fit/'
-  },
-  {
-    from: '/c-sharp/create-restful-api-authentication-using-web-api-jwt/null',
-    to: '/c-sharp/create-restful-api-authentication-using-web-api-jwt/'
-  },
-  {
-    from: '/entity-framework/',
-    to: '/category/entity-framework/'
-  },
-  {
-    from: '/wpf-mvvm/',
-    to: '/category/wpf-mvvm/'
-  },
-  {
-    from: '/wcf/',
-    to: '/category/wcf/'
-  },
-  {
-    from: '/c-sharp/',
-    to: '/category/c-sharp/'
-  }
-]
+const Redirects = require('./redirect-urls.json')
 
 function getRedirects() {
   return Redirects.map(({ from, to }) => ({
