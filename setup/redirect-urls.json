@@ -36,8 +36,8 @@
     "to": "/unit-testing/writing-unit-tests-with-nunit-and-moq/"
   },
   {
-    "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-1-of-3/",
-    "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-1-of-3/"
+    "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-1-of-3/",
+    "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-1-of-3/"
   },
   {
     "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-2-of-3/",
@@ -45,7 +45,7 @@
   },
   {
     "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-3-of-3/",
-    "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-3-of-3/"
+    "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-3/"
   },
   {
     "from": "/wpf-mvvm/wpf-mvvm-ioc-containers-1of-2/",
