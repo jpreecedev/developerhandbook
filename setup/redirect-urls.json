@@ -54,5 +54,9 @@
   {
     "from": "/wpf-mvvm/wpf-mvvm-ioc-containers-2of-2/",
     "to": "/wpf-mvvm/wpf-mvvm-ioc-containers-2-of-2/"
+  },
+  {
+    "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-2/",
+    "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-3/"
   }
 ]
