@@ -30,7 +30,7 @@ Alas, however, theory and real world do not always work out.
 
 ![Invoice your clients](invoices.png)
 
-## Typical Reasons for Non-Payment
+## Typical reasons for non-payment
 
 Once you contact your client, you need to establish why payment has not been made. Some common reasons include;
 
