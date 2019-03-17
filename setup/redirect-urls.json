@@ -1,15 +1,19 @@
 [
   {
-    "from": "/career/devs-this-is-how-i-got-fit/null",
+    "from": "/career/devs-this-is-how-i-got-fit/null/",
     "to": "/career/devs-this-is-how-i-got-fit/"
   },
   {
-    "from": "/c-sharp/create-restful-api-authentication-using-web-api-jwt/null",
+    "from": "/c-sharp/create-restful-api-authentication-using-web-api-jwt/null/",
     "to": "/c-sharp/create-restful-api-authentication-using-web-api-jwt/"
   },
   {
     "from": "/entity-framework/",
     "to": "/category/entity-framework/"
+  },
+  {
+    "from": "/tag/typescript/",
+    "to": "/category/typescript/"
   },
   {
     "from": "/wpf-mvvm/",
@@ -18,6 +22,10 @@
   {
     "from": "/wcf/",
     "to": "/category/wcf/"
+  },
+  {
+    "from": "/unittesting/",
+    "to": "/category/unit-testing/"
   },
   {
     "from": "/unit-testing/",
