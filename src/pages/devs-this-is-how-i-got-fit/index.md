@@ -3,7 +3,7 @@ layout: post
 title: Devs, this is how I got fit
 description: Right now, I'm in pretty good shape. I have the confidence to say this because I've worked very hard over the last 18 months to get to this point.
 date: 2015-09-04
-categories: ["Career"]
+categories: ['Career']
 ---
 
 Right now, I'm in pretty good shape. I have the confidence to say this because I've worked very hard over the last 18 months to get to this point. I'm not a muscular person, like what you might see in a designer underwear advert...and this was never my personal goal, but I certainly don't feel embarrassed anymore when I take my shirt off. I've discovered a few very simple patterns for losing weight, gaining muscle (at a slow rate) and generally feeling better about myself. This has been such a big success for me, that I felt it only right to share with you.
@@ -39,8 +39,6 @@ One day, I switched on the TV and one of those sucky TV shopping channels was on
 ### Insanity
 
 [Insanity is an exercise program for regular people](http://www.amazon.co.uk/gp/product/B002QZ1RS6/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002QZ1RS6&linkCode=as2&tag=jprecom-21), thin people, fat people, tall people, short people, men, women, fit people, people looking to lose weight or gain muscle or all of the above. This was a training programme for me that would get me on the road to good health and fitness. Insanity is a 9 week (60 day) workout program that requires no equipment, and can be done at home.
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=GB&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=jprecom-21&marketplace=amazon&region=GB&placement=B002QZ1RS6&asins=B002QZ1RS6&linkId=&show_border=false&link_opens_in_new_window=true"></iframe>
 
 You work out 6 days a week, for a varying amount of time between 38 minutes and 60 minutes. The first week hurts like hell. After that, you get used to it but it never gets easier. In fact, the harder you push yourself, the more rewarding it becomes. Insanity is great for toning your body, improving your general health and fitness, and it gets you active.
 
@@ -78,9 +76,9 @@ Sit down and research all your meals, list all the ingredients on a Microsoft Wo
 
 Here are 3 different shopping lists I have put together that you can use as an example. Note that these lists are catered to my personal needs and tastes, and you may need to adjust accordingly. They're also not 100% accurate.
 
-* [Current shopping list](https://www.dropbox.com/s/55186lafc5ok0yf/Current%20Shopping%20List.doc?dl=0). This is the list I'm using right now (I'm doing daily fasting at the minute, which is why there are no breakfasts or snacks)
-* [Insanity shopping list](https://www.dropbox.com/s/sid5f4s68qthqcv/Insanity%20Shopping%20List.doc?dl=0). Based on the Insanity healthy eating plan, with several customizations for my own tastes.
-* [Focus T25 shopping list](https://www.dropbox.com/s/ucpqhr81ftrl1jf/Focus%20T25%20Shopping%20list.doc?dl=0). Based on the Focus T25 healthy eating plan, again with my own twists and customizations.
+- [Current shopping list](https://www.dropbox.com/s/55186lafc5ok0yf/Current%20Shopping%20List.doc?dl=0). This is the list I'm using right now (I'm doing daily fasting at the minute, which is why there are no breakfasts or snacks)
+- [Insanity shopping list](https://www.dropbox.com/s/sid5f4s68qthqcv/Insanity%20Shopping%20List.doc?dl=0). Based on the Insanity healthy eating plan, with several customizations for my own tastes.
+- [Focus T25 shopping list](https://www.dropbox.com/s/ucpqhr81ftrl1jf/Focus%20T25%20Shopping%20list.doc?dl=0). Based on the Focus T25 healthy eating plan, again with my own twists and customizations.
 
 As a very important note, you need some self discipline here. Whatever eating plan you use, you should stick to it 100% with no slip ups, snacks, nipples, nothing. Losing weight is a serious commitment and can easily be derailed by the odd treat.
 
@@ -96,9 +94,9 @@ I mentioned earlier that you will save a lot of time not going to the supermarke
 
 I highly recommend that you cook all your meals fresh and just-in-time. This can be time consuming, but here are some tips to make it work;
 
-* Cook several meals at once. If you can, cook breakfast, lunch and dinner at the same time. I typically do this when cooking the dinner each evening. Stick breakfast and lunch in the fridge, and tuck in to dinner straight away.
-* Recruit a significant other to chip in with the dishes. Ask your other half, girlfriend, wife, (mother?), to give you a hand with the dishes. Have one person washing and one person drying. This will speed up the task dramatically.
-* Memorize each dish. You'll get the cooking done much quicker if you know the timings, quantities and everything else without having to look at your chart/recipe list. However, be sure to have it on hand if needed.
+- Cook several meals at once. If you can, cook breakfast, lunch and dinner at the same time. I typically do this when cooking the dinner each evening. Stick breakfast and lunch in the fridge, and tuck in to dinner straight away.
+- Recruit a significant other to chip in with the dishes. Ask your other half, girlfriend, wife, (mother?), to give you a hand with the dishes. Have one person washing and one person drying. This will speed up the task dramatically.
+- Memorize each dish. You'll get the cooking done much quicker if you know the timings, quantities and everything else without having to look at your chart/recipe list. However, be sure to have it on hand if needed.
 
 ### Pro tip 3 - Eat or starve
 
@@ -120,24 +118,24 @@ Signing up for the gym is a huge commitment. Not only is it potentially expensiv
 
 If you go to the gym, you have to;
 
-* Drive or walk to the gym
-* Say "Hi!" to the receptionist
-* Negotiate several layers of security, using various levels of security cards or keys
-* Find a safe corner in the locker room where you feel comfortable enough to change
-* Pluck up the courage to work out in front of other people, and occasionally have to _speak_ to people (!) when you cross their paths
-* Negotiate the showers and the soap
-* Get dressed
-* Drive home, and sob about the whole experience.
+- Drive or walk to the gym
+- Say "Hi!" to the receptionist
+- Negotiate several layers of security, using various levels of security cards or keys
+- Find a safe corner in the locker room where you feel comfortable enough to change
+- Pluck up the courage to work out in front of other people, and occasionally have to _speak_ to people (!) when you cross their paths
+- Negotiate the showers and the soap
+- Get dressed
+- Drive home, and sob about the whole experience.
 
 As a beginner, this indeed can be a very trying and stressful process. And ideally, you would repeat this 3-4 or perhaps 5 times a week depending on your programme.
 
 There is an alternative, my friend, workout at home;
 
-* Drive home (you were going there anyway)
-* Get changed in comfort of your own house
-* Work out in total privacy
-* Get showered, and dressed in private.
-* You're already home! Time to relax.
+- Drive home (you were going there anyway)
+- Get changed in comfort of your own house
+- Work out in total privacy
+- Get showered, and dressed in private.
+- You're already home! Time to relax.
 
 There are many home based workout programmes out there. My favourite's are [Insanity: The Ultimate Cardio Workout and Fitness DVD Programme](http://www.amazon.co.uk/gp/product/B002QZ1RS6/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002QZ1RS6&linkCode=as2&tag=jprecom-21) and [Shaun T's FOCUS T25 DVD Workout Programme](http://www.amazon.co.uk/gp/product/B00DW6FZTK/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00DW6FZTK&linkCode=as2&tag=jprecom-21), both are very popular. If you don't like the look at either of these programmes, have a browse around the web and find something similar that will work for you. Start with Amazon, I'm sure there are hundreds!
 
@@ -147,17 +145,17 @@ If you are going to embark upon an exercise and workout programme, I highly reco
 
 So as a ritual, when you wake up in the morning, do the following;
 
-* Go to the toilet, do all your business.
-* Weigh yourself, write it down.
-* Measure your chest, arms, belly, and thighs. Write it down.
+- Go to the toilet, do all your business.
+- Weigh yourself, write it down.
+- Measure your chest, arms, belly, and thighs. Write it down.
 
 This might seem obsessive at first, and perhaps it is a little, but measure your performance on a daily basis will help you maintain your focus (and actually becomes a little exciting after a while!).
 
 ## Protein supplements
 
-* Buy [Optimum Nutrition Gold Standard 100% Whey Double Rich Chocolate Protein Powder 2.27kg](http://www.amazon.co.uk/gp/product/B000QSNYGI/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B000QSNYGI&linkCode=as2&tag=jprecom-21), and drink it directly after your workout. This will help your muscles recover directly after a workout by giving you a protein "hit" that is quickly absorbed by the body.
-* Buy [Optimum Nutrition Gold Standard 100% Casein Protein Powder Drink Mix Creamy Vanilla 1.82 kg](http://www.amazon.co.uk/gp/product/B002DYJ0N4/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002DYJ0N4&linkCode=as2&tag=jprecom-21), and drink it before you go to bed. This slow release protein will help your muscles recover whilst you sleep.
-* Buy [Optimum Nutrition 634 g Micronised Creatine Powder](http://www.amazon.co.uk/gp/product/B00T7L20EC/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00T7L20EC&linkCode=as2&tag=jprecom-21). This powder, typically used by weight lifters, helps your body retain more water. This increases the amount you sweat and also helps with muscular recovery.
+- Buy [Optimum Nutrition Gold Standard 100% Whey Double Rich Chocolate Protein Powder 2.27kg](http://www.amazon.co.uk/gp/product/B000QSNYGI/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B000QSNYGI&linkCode=as2&tag=jprecom-21), and drink it directly after your workout. This will help your muscles recover directly after a workout by giving you a protein "hit" that is quickly absorbed by the body.
+- Buy [Optimum Nutrition Gold Standard 100% Casein Protein Powder Drink Mix Creamy Vanilla 1.82 kg](http://www.amazon.co.uk/gp/product/B002DYJ0N4/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002DYJ0N4&linkCode=as2&tag=jprecom-21), and drink it before you go to bed. This slow release protein will help your muscles recover whilst you sleep.
+- Buy [Optimum Nutrition 634 g Micronised Creatine Powder](http://www.amazon.co.uk/gp/product/B00T7L20EC/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00T7L20EC&linkCode=as2&tag=jprecom-21). This powder, typically used by weight lifters, helps your body retain more water. This increases the amount you sweat and also helps with muscular recovery.
 
 ## To finish the story
 
