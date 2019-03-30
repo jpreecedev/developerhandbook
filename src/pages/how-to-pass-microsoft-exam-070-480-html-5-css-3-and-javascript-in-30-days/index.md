@@ -18,6 +18,8 @@ Books aren't for everybody, some people find it hard to sit down and read a book
 
 ![Programming in HTML 5 with JavaScript and CSS 3](trainingguide1.png)
 
+[Training Guide: Programming in HTML5 with JavaScript and CSS3](http://www.amazon.co.uk/gp/product/0735674388/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0735674388&linkCode=as2&tag=jprecom-21)
+
 This book was authored by Glenn Johnson and was written specifically to help you pass the exam by giving hands on, practical examples, specifically target at the exam objectives. Each chapter is divided into manageable sections, complete with hands on exercises (usually one or more per chapter). This book very much helps you learn by doing, which in my opinion, is the best way to learn. I believe that if I hadn't read this book, I genuinely believe I wouldn't have passed the exam.
 
 ### Microsoft Virtual Academy (MVA) JumpStart
