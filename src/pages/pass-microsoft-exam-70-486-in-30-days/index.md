@@ -14,7 +14,7 @@ Probably the most important thing you should do before starting studying for any
 
 ### Books
 
-Books aren't for everybody, some people find it hard to sit down and read a book ... I get that, but you should at least _try_. Have a look at [Exam Ref 70-486: Developing ASP.NET MVC 4 Web Applications](http://www.amazon.co.uk/gp/product/0735677220/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0735677220&linkCode=as2&tag=jprecom-21)
+Books aren't for everybody, some people find it hard to sit down and read a book ... I get that, but you should at least _try_. Have a look at *Exam Ref 70-486: Developing ASP.NET MVC 4 Web Applications*
 
 ![Developing ASP .NET MVC 4 Web Applications](0029c928_medium1.jpeg)
 
@@ -22,7 +22,7 @@ This book was written by William Penberthy. And its <del>terrible</del> not the 
 
 **Pros;** Each objective on the exam receives equal coverage. There are some good insights into the various technologies at a high level, and the author is clearly very experienced in this field.
 
-**Cons;** This is the official book from Microsoft from the 70-486 exam, and it is somewhat off the mark. The objectives/sections/chapters are disjointed and only covered at a very high level. The book is severely lacking in detail and code samples/walkthroughs. If you really want to read a book, I **highly** recommend reading [Professional ASP.NET MVC 4](http://www.amazon.co.uk/gp/product/B009F09SRM/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B009F09SRM&linkCode=as2&tag=jprecom-21), which was written by Jon Galloway, Phil Haack, Brad Wilson, Scott Allen and Scott Hanselman. Five people who are leading experts in this field. I learnt a lot from this book, it flows well, there are sufficient code samples and the book is very engaging.
+**Cons;** This is the official book from Microsoft from the 70-486 exam, and it is somewhat off the mark. The objectives/sections/chapters are disjointed and only covered at a very high level. The book is severely lacking in detail and code samples/walkthroughs. If you really want to read a book, I **highly** recommend reading *Professional ASP.NET MVC 4*, which was written by Jon Galloway, Phil Haack, Brad Wilson, Scott Allen and Scott Hanselman. Five people who are leading experts in this field. I learnt a lot from this book, it flows well, there are sufficient code samples and the book is very engaging.
 
 ### Microsoft Virtual Academy (MVA) JumpStart
 

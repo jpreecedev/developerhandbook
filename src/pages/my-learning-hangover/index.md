@@ -34,4 +34,4 @@ I haven't yet discovered a magic formula for curing my learning hangover, it jus
 
 ## My final advice
 
-Really want to give your career a boost? Read [How to Win Friends and Influence People](http://www.amazon.co.uk/gp/product/0091906814/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0091906814&linkCode=as2&tag=jprecom-21) by Dale Carnegie. It will give you lots of help and advice when it comes to interacting with your colleagues and superiors to ensure that you get exactly what you want!
+Really want to give your career a boost? Read *How to Win Friends and Influence People* by Dale Carnegie. It will give you lots of help and advice when it comes to interacting with your colleagues and superiors to ensure that you get exactly what you want!

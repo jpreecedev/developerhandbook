@@ -38,9 +38,7 @@ One day, I switched on the TV and one of those sucky TV shopping channels was on
 
 ### Insanity
 
-[Insanity is an exercise program for regular people](http://www.amazon.co.uk/gp/product/B002QZ1RS6/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002QZ1RS6&linkCode=as2&tag=jprecom-21), thin people, fat people, tall people, short people, men, women, fit people, people looking to lose weight or gain muscle or all of the above. This was a training programme for me that would get me on the road to good health and fitness. Insanity is a 9 week (60 day) workout program that requires no equipment, and can be done at home.
-
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=GB&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=jprecom-21&marketplace=amazon&region=GB&placement=B002QZ1RS6&asins=B002QZ1RS6&linkId=&show_border=false&link_opens_in_new_window=true"></iframe>
+Insanity is an exercise program for regular people, thin people, fat people, tall people, short people, men, women, fit people, people looking to lose weight or gain muscle or all of the above. This was a training programme for me that would get me on the road to good health and fitness. Insanity is a 9 week (60 day) workout program that requires no equipment, and can be done at home.
 
 You work out 6 days a week, for a varying amount of time between 38 minutes and 60 minutes. The first week hurts like hell. After that, you get used to it but it never gets easier. In fact, the harder you push yourself, the more rewarding it becomes. Insanity is great for toning your body, improving your general health and fitness, and it gets you active.
 
@@ -139,7 +137,7 @@ There is an alternative, my friend, workout at home;
 * Get showered, and dressed in private.
 * You're already home! Time to relax.
 
-There are many home based workout programmes out there. My favourite's are [Insanity: The Ultimate Cardio Workout and Fitness DVD Programme](http://www.amazon.co.uk/gp/product/B002QZ1RS6/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002QZ1RS6&linkCode=as2&tag=jprecom-21) and [Shaun T's FOCUS T25 DVD Workout Programme](http://www.amazon.co.uk/gp/product/B00DW6FZTK/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00DW6FZTK&linkCode=as2&tag=jprecom-21), both are very popular. If you don't like the look at either of these programmes, have a browse around the web and find something similar that will work for you. Start with Amazon, I'm sure there are hundreds!
+There are many home based workout programmes out there. My favourite's are Insanity: The Ultimate Cardio Workout and Fitness DVD Programme, and Shaun T's FOCUS T25 DVD Workout Programme, both are very popular. If you don't like the look at either of these programmes, have a browse around the web and find something similar that will work for you. Start with Amazon, I'm sure there are hundreds!
 
 ## Measure, measure, measure.
 
@@ -155,9 +153,9 @@ This might seem obsessive at first, and perhaps it is a little, but measure your
 
 ## Protein supplements
 
-* Buy [Optimum Nutrition Gold Standard 100% Whey Double Rich Chocolate Protein Powder 2.27kg](http://www.amazon.co.uk/gp/product/B000QSNYGI/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B000QSNYGI&linkCode=as2&tag=jprecom-21), and drink it directly after your workout. This will help your muscles recover directly after a workout by giving you a protein "hit" that is quickly absorbed by the body.
-* Buy [Optimum Nutrition Gold Standard 100% Casein Protein Powder Drink Mix Creamy Vanilla 1.82 kg](http://www.amazon.co.uk/gp/product/B002DYJ0N4/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B002DYJ0N4&linkCode=as2&tag=jprecom-21), and drink it before you go to bed. This slow release protein will help your muscles recover whilst you sleep.
-* Buy [Optimum Nutrition 634 g Micronised Creatine Powder](http://www.amazon.co.uk/gp/product/B00T7L20EC/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=B00T7L20EC&linkCode=as2&tag=jprecom-21). This powder, typically used by weight lifters, helps your body retain more water. This increases the amount you sweat and also helps with muscular recovery.
+* Optimum Nutrition Gold Standard 100% Whey Double Rich Chocolate Protein Powder 2.27kg, and drink it directly after your workout. This will help your muscles recover directly after a workout by giving you a protein "hit" that is quickly absorbed by the body.
+* Optimum Nutrition Gold Standard 100% Casein Protein Powder Drink Mix Creamy Vanilla 1.82 kg, and drink it before you go to bed. This slow release protein will help your muscles recover whilst you sleep.
+* Optimum Nutrition 634 g Micronised Creatine Powder. This powder, typically used by weight lifters, helps your body retain more water. This increases the amount you sweat and also helps with muscular recovery.
 
 ## To finish the story
 
