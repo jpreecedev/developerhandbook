@@ -1,13 +1,5 @@
 [
   {
-    "from": "/career/devs-this-is-how-i-got-fit/null/",
-    "to": "/career/devs-this-is-how-i-got-fit/"
-  },
-  {
-    "from": "/c-sharp/create-restful-api-authentication-using-web-api-jwt/null/",
-    "to": "/c-sharp/create-restful-api-authentication-using-web-api-jwt/"
-  },
-  {
     "from": "/entity-framework/",
     "to": "/category/entity-framework/"
   },
@@ -36,10 +28,6 @@
     "to": "/category/c-sharp/"
   },
   {
-    "from": "/null/",
-    "to": "/"
-  },
-  {
     "from": "/unittesting/writing-unit-tests-with-nunit-and-moq/",
     "to": "/unit-testing/writing-unit-tests-with-nunit-and-moq/"
   },
@@ -66,9 +54,5 @@
   {
     "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-2/",
     "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-3/"
-  },
-  {
-    "from": "/react/react-redux-babel-jest-webpack-starter-template/null",
-    "to": "/react/react-redux-babel-jest-webpack-starter-template/"
   }
 ]
