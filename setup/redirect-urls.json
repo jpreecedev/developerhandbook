@@ -66,5 +66,9 @@
   {
     "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-2/",
     "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-3/"
+  },
+  {
+    "from": "/react/react-redux-babel-jest-webpack-starter-template/null",
+    "to": "/react/react-redux-babel-jest-webpack-starter-template/"
   }
 ]
