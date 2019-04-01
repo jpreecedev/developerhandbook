@@ -4,6 +4,7 @@ title: TypeScript Tips and Tricks
 description: The TypeScript compiler is flexible and configurable and has a wealth of flags that can be passed to it to change the transpiled output.
 date: 2015-08-28
 categories: ["TypeScript"]
+featuredImage: ''
 ---
 
 ## Automatically compile TypeScript files when using VS Code

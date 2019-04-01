@@ -4,6 +4,7 @@ title: How to connect to MongoDB Atlas using Mongoose and Node
 description: MongoDB Atlas is a fully managed service that has a fantastic free tier available for developers learning how to build document databases
 date: 2019-02-24
 categories: ['MongoDB', 'Node']
+featuredImage: './mongodbatlas.png'
 ---
 
 MongoDB Atlas is a fully managed service that has a fantastic free tier available for developers learning how to build document databases. MongoDB has a long-established history, is battle hardened, and is often used as part of the M.E.A.N (Mongo, Express, Angular, Node) stack (as well as other variants). There is no better time than now to learn and start using MongoDB in production environments to improve the performance of your web applications.

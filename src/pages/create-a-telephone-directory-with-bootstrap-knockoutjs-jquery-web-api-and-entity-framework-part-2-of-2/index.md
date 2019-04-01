@@ -4,6 +4,7 @@ title: Create a telephone directory with Bootstrap, KnockoutJS, jQuery, Web API 
 description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. 
 date: 2014-03-12
 categories: ['.NET', 'Entity Framework', 'Web API']
+featuredImage: ''
 ---
 
 I find that the best way to learn any new technology, or technology that are unfamiliar with, is to sit down and practice. The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. By following this tutorial you will learn;

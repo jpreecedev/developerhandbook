@@ -5,6 +5,7 @@ description: Webpack Dev Server is fantastic for quickly running and debugging W
 date: 2018-12-31
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
+featuredImage: ''
 ---
 
 So far, our application writes out to the console, which is not terribly helpful. Let's get something up and running in the browser before we configure our React code.

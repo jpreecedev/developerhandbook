@@ -4,6 +4,7 @@ title: How to set up your development environment for success
 description: How to set up your front-end development environment, specifically for developing React-based websites
 date: 2019-01-22
 categories: ['React', 'JavaScript']
+featuredImage: ''
 ---
 
 How you set up your development environment can be a very contentious topic, a _religious_ argument in which there may not be one single unified answer, but rather many correct answers.

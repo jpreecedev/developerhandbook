@@ -5,7 +5,10 @@ import { getCategoryUrlFriendly } from '../utils/categories'
 import icon from '../../static/icon.png'
 
 function PostSEO({ post, baseUrl, fullUrl }) {
-  const { description, title, image = icon, categories } = post.frontmatter
+  const { description, title, categories } = post.frontmatter
+  const image = post.frontmatter.featuredImage
+    ? post.frontmatter.featuredImage.childImageSharp.fluid.src
+    : icon
   const { twitter, siteTitleAlt } = config
 
   const category = categories[0]

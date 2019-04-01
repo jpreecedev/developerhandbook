@@ -4,6 +4,7 @@ title: Create a RESTful API with authentication using Web API and Jwt
 description: The purpose of this tutorial is to develop the beginnings of a Book Store API, using Microsoft Web API with (C#), and JWT.
 date: 2016-03-15
 categories: ['.NET', 'C#', 'Entity Framework', 'Web API']
+featuredImage: ''
 ---
 
 Web API is a feature of the ASP .NET framework that dramatically simplifies building RESTful (REST like) HTTP services that are cross platform and device and browser agnostic. With Web API, you can create endpoints that can be accessed using a combination of descriptive URLs and HTTP verbs. Those endpoints can serve data back to the caller as either JSON or XML that is standards compliant. With JSON Web Tokens (Jwt), which are typically stateless, you can add an authentication and authorization layer enabling you to restrict access to some or all of your API.

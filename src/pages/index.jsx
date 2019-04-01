@@ -31,20 +31,16 @@ function BlogIndex({ data, location }) {
           <div className="row mb-2">
             {posts.map(post => (
               <div className="col-md-6" key={post.fields.slug}>
-                <div className="card flex-md-row mb-4 shadow-sm h-md-250">
-                  <div className="card-body d-flex flex-column align-items-start">
-                    <PostOverview
-                      post={post}
-                      key={post.fields.slug}
-                      title={post.frontmatter.title}
-                      slug={post.fields.slug}
-                      mappedCategory={`${getCategoryUrlFriendly(
-                        post.frontmatter.categories[0]
-                      )}`}
-                      excerpt={post.excerpt}
-                    />
-                  </div>
-                </div>
+                <PostOverview
+                  post={post}
+                  key={post.fields.slug}
+                  title={post.frontmatter.title}
+                  slug={post.fields.slug}
+                  mappedCategory={`${getCategoryUrlFriendly(
+                    post.frontmatter.categories[0]
+                  )}`}
+                  excerpt={post.excerpt}
+                />
               </div>
             ))}
           </div>
@@ -83,6 +79,13 @@ export const pageQuery = graphql`
             description
             categories
             seriesTitle
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

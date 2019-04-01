@@ -4,6 +4,7 @@ title: My learning hangover
 description: Its rare for me to write posts about anything that isn't a language, framework, but my experience has affected my life in so many ways it got me thinking
 date: 2014-06-29
 categories: ['Career']
+featuredImage: ''
 ---
 
 Its virtually unheard of for me to write blog posts about anything that isn't a language, framework, or technology but my experience recently has affected my life in so many ways it got me thinking...there must be lots of other people who have experienced this, or are heading towards it. It's too important to not share with the community. I am of course talking about my learning hangover. Note that this is an honest and frank post, and that, to some extent, I am still experiencing a learning hangover. Despite this, I am starting to see glints of light and the end of a long dark tunnel.

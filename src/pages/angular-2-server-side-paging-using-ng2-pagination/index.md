@@ -4,6 +4,7 @@ title: Angular 2 server side paging using ng2-pagination
 description: Learn how to implement server side paging in Angular 2 using ng2-pagination
 date: 2016-03-31
 categories: ['.NET', 'TypeScript', 'Web API', 'C#']
+featuredImage: ''
 ---
 
 Angular 2 is not quite out of beta yet (Beta 12 at the time of writing) but I'm in the full flow of developing with it for production use. A common feature, for good or bad, is to have lists/tables of data that the user can navigate through page by page, or even filter, to help find something useful. Angular 2 doesn't come with any out of the box functionality to support this, so we have to implement it ourselves. And of course what the means today is to use a third party package! To make this happen, we will utilise [n2-pagination](https://github.com/michaelbromley/ng2-pagination), a great plugin, and Web API. I've chosen Web API because that is what I'm using in my production app, but you could easily use ExpressJS or (insert your favourite RESTful framework here).

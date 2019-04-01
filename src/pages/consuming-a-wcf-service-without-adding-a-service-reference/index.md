@@ -4,6 +4,7 @@ title: Consuming a WCF service without adding a Service Reference
 description: A problem I have had with WCF since I first discovered it a few years ago is related to Service References.  A good solution would be for me to be able to write code myself to take this pain away.
 date: 2013-07-29
 categories: ['WCF', 'C#', '.NET']
+featuredImage: ''
 ---
 
 A problem I have had with WCF since I first discovered it a few years ago is related to Service References. The fact that I have to rely on the ServiceModel Metadata Utility Tool (Svcutil.exe) to generate a proxy class on my behalf left a sour taste in my mouth. A good solution would be for me to be able to write code myself to take this pain away.

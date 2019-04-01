@@ -4,6 +4,7 @@ title: Why I don't want to be a front-end web developer
 description: I high level look at what makes somebody a front-end web developer and why I feel this can limit your career and earnings potential
 date: 2015-06-25
 categories: ['Career']
+featuredImage: ''
 ---
 
 ## The job title isn't representative of my skill set

@@ -4,6 +4,7 @@ title: ASP .NET 5 (vNext), first thoughts
 description: Microsoft ASP .NET 5 is a major shift from traditional .NET methodologies, this is a high level post about the great and no so great things on the horizon
 date: 2015-08-21
 categories: ['C#', '.NET', 'Career']
+featuredImage: ''
 ---
 
 Microsoft ASP .NET 5 is a major shift from traditional ASP .NET methodologies. Whilst I am not actively developing ASP .NET 5 applications at the minute, .NET has always been my bread and butter technology. When I look at industry trends here in the UK, all I see is .NET .NET .NET, therefore it is important to have one eye on the future. I've watched all the [introduction videos on the ASP .NET website](http://www.asp.net/vnext/overview/aspnet-vnext), but I also wanted to take a look at what ASP .NET 5 means to _me_.

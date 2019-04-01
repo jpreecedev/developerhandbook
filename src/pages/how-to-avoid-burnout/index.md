@@ -4,6 +4,7 @@ title: How to avoid burnout
 description: Learn the ultimate techniques to break the endless burnout cycle and find a more maintainable work-life balance.  Here are my 5 tips to avoid burnout.
 date: 2015-11-19
 categories: ["Career"]
+featuredImage: ''
 ---
 
 You work hard 7 days a week, and you do your best to stay up to date with the latest industry trends. Inevitably you will become demoralized and demotivated and eventually suffer a partial or full-on collapse where all your progress comes to a grinding halt. After a period of time (days, weeks or months!) you get back on track and pick up where you left off, eventually leading to the inevitable burnout cycle where you end up back where you were. I've been through this cycle several times, [and I've even blogged about it before](/career/my-learning-hangover/), but now I have learnt the ultimate techniques to break the endless cycle and find a more maintainable work-life balance. Here are my 5 ultimate tips to avoid burnout.

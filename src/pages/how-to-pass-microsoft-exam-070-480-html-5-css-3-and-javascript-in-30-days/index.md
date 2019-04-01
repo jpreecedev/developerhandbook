@@ -4,6 +4,7 @@ title: How to pass Microsoft Exam 70-480 (HTML 5, CSS3 and JavaScript) in 30 day
 description: The purpose of this post is to link to all the resources that I used when revising for the exam myself.  So why 30 days? Well its important to set yourself a target.
 date: 2013-09-20
 categories: ['Career']
+featuredImage: ''
 ---
 
 Before you continue reading this blog, you need to be aware of the following; This is not a "quick fix" or an "easy solution". I have not discovered some secret formula to guarantee you pass with 100% marks every time. I am not trying to sell you anything. The exam is genuinely challenging and the only way you are going to pass is by working hard! You will not find any brain dumps here! If you're afraid of working hard to achieve your goals, you best leave now ... Still Here? Congratulations, you are taking your first steps towards passing the exam. The purpose of this post is to link to all the resources that I used when revising for the exam myself. So why 30 days? Well its important to set yourself a target. Setting yourself a target motivates you. If you are paying for this exam yourself (like I did), you'll really want to make sure you give the exam your best shot (after all, £99 is a hefty amount of money!)

@@ -4,6 +4,7 @@ title: Every developer must be proficient at these 7 things...
 description: Give yourself a boost and make yourself stand out by ensuring that you've got these developer fundamentals covered.
 date: 2015-02-21
 categories: ["Career"]
+featuredImage: ''
 ---
 
 In 2015, it is as important as ever for developers of all levels of expertise and experience to re-train and update their skills. In the fast moving world of technology, failure to do so can result in career stagnation and ultimately not reaching your full earnings potential. This post is an update to the popular post [10 things every software developer should do in 2014](/career/10-things-every-software-developer-should-do-in-2014/). All of the points made in that post are still relevant and valid so I recommend you take a look.

@@ -4,6 +4,7 @@ title: How to use AWS Cognito with .NET Core
 description: Amazon Web Services (AWS) offers Cognito for easy authentication and authorization complete with managed UI, this tutorial shows how to utilise it with .NET Core 2.2
 date: 2018-12-09
 categories: ['AWS']
+featuredImage: ''
 ---
 
 I never would have believed just a couple of years ago that I would be typing these words. With just a few lines of code you can add authentication and authorisation to your cross platform .NET web application in a secure way using Amazon Web Services (AWS) Cognito API. You can either call the API directly with `POST` requests, or take advantage of the built in user interface. As an added bonus, Cognito supports federated identities, allowing you to use external identity providers such as Google and Facebook to enable users to log in to your application quickly without having to enter a username or password.

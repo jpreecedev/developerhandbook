@@ -5,6 +5,7 @@ description: We can use React to build interactive web pages. React encourages b
 date: 2019-01-21
 categories: ['React', 'JavaScript', 'practical-react-series']
 seriesTitle: Practical React Developer
+featuredImage: ''
 ---
 
 React is a tool for building dynamic and interactive user interfaces.

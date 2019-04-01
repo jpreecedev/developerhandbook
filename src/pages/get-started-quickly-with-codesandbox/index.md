@@ -5,6 +5,7 @@ description: In the interest of getting going quickly, you can develop your Reac
 date: 2019-01-23
 categories: ['React', 'JavaScript', 'practical-react-series']
 seriesTitle: Practical React Developer
+featuredImage: ''
 ---
 
 To get up and running quickly developing a React web application, you can use [CodeSandbox](https://codesandbox.io/), a fantastic browser-based development environment.

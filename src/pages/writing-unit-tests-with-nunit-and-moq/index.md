@@ -4,6 +4,7 @@ title: C# Writing unit tests with NUnit and Moq
 description: Learn how to effectively write unit tests with NUnit and Moq. This tutorial covers getting started, naming conventions, best practices and more.
 date: 2013-08-30
 categories: ['Unit Testing', 'C#', '.NET']
+featuredImage: ''
 ---
 
 I'm assuming that you have seen the light, and that you are sold on the benefits (and indeed the drawbacks) of unit testing. I have read literally dozens of blog posts, watched many videos, and read several books about unit testing and the various approaches and frameworks. I have worked with several of these frameworks in both small and enterprise level applications, and I have found that (in my opinion at least) NUnit and Moq are great for helping to get simple tests written quickly and to a decent standard. The purpose of this blog post is to get you up and running writing your first unit tests with NUnit and Moq quickly. If you want to go further and learn unit testing in depth using mocking frameworks such as Moq, FakeItEasy and Typemock Isolator, I highly recommend checking out [The Art of Unit Testing: with examples in C#](http://www.amazon.co.uk/gp/product/1617290890/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1617290890&linkCode=as2&tag=jprecom-21) by Roy Osherove. [About Moq](https://code.google.com/p/moq/ 'Moq')
