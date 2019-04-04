@@ -15,7 +15,9 @@ const webpackPosts = {
     'How to add Hot Module Reloading (HMR) to a React app',
   '/webpack/how-to-configure-scss-modules-for-webpack/':
     'How to configure SCSS modules for Webpack',
-  '/webpack/how-to-process-images-with-webpack/': 'How to process images with Webpack'
+  '/webpack/how-to-process-images-with-webpack/': 'How to process images with Webpack',
+  '/webpack/configure-webpack-4-hmr-scratch/':
+    'How to configure Webpack Hot Module Reloading using Node.js API'
 }
 
 const reactSeriesTitle = 'Practical React Developer'

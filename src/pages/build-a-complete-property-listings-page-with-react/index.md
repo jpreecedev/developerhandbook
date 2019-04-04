@@ -5,7 +5,6 @@ description: Learn how to build a complete React.js application, including Conte
 date: 2019-01-26
 categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
-featuredImage: ''
 ---
 
 As promised, we will now get down to business and really start fleshing out our home page. This post is all about getting our hands dirty by spending time building components, getting our business logic in place, and generally getting some hands-on experience. The approach taken to building out a React application is the same approach you may take when building a real-world production ready application.

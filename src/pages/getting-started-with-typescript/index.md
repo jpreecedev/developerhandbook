@@ -4,7 +4,6 @@ title: Getting started with TypeScript
 description: TypeScript, a superset of JavaScript, enables you to build large robust JavaScript applications through optional static typing and more. Start learning now.
 date: 2015-09-11
 categories: ['TypeScript']
-featuredImage: ''
 ---
 
 This is the 101 tutorial which describes getting started with TypeScript using either the [TypeScript Playground](http://www.typescriptlang.org/Playground), [Node.js](https://nodejs.org/) or [VS Code](https://code.visualstudio.com). At its simplest, TypeScript is a programming language that provides optional static typing for JavaScript. TypeScript is JavaScript. Any valid JavaScript is valid TypeScript. The beauty of TypeScript is that you can define types for your JavaScript variables and functions, and get compile time error checking and error reporting. This tutorial focuses on getting started with TypeScript and demostrates the basics to get up and running quickly.

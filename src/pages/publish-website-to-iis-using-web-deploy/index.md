@@ -4,7 +4,6 @@ title: Publish your website to an IIS staging environment using Microsoft Web De
 description: One of the simplest and quickest ways to publish your website to a staging environment is, at least in my opinion, using Microsoft Web Deploy.
 date: 2014-02-08
 categories: ["Visual Studio"]
-featuredImage: ''
 ---
 
 One of the simplest and quickest ways to publish your website to a staging environment is, at least in my opinion, using [Microsoft Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy). This post is about how you approach this, a future article will discuss _why you probably shouldn't do this_. Key points;

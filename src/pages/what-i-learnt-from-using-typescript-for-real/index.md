@@ -4,7 +4,6 @@ title: What I learnt from using TypeScript "for real"
 description: I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.
 date: 2015-05-25
 categories: ["TypeScript"]
-featuredImage: ''
 ---
 
 I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.

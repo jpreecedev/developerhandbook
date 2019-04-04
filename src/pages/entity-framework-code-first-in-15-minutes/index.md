@@ -4,7 +4,6 @@ title: Entity Framework Code First In 15 Minutes
 description: Want to learn Entity Framework in 15 minutes? Theres a tutorial for that... you're welcome!
 date: 2013-07-12
 categories: ['Entity Framework', 'C#', '.NET', 'Entity Framework', 'WPF']
-featuredImage: ''
 ---
 
 Entity Framework is an [Object Relational Mapper](http://en.wikipedia.org/wiki/Object-relational_mapping 'Object Relational Mapper') (ORM), created by Microsoft and built on top of the popular ADO.NET framework. Entity framework was first released in the second half of 2008. In 2011, with the release of version 4.1, a new feature was introduced... known as "Code First". Code first allows us to write code without having to care (to a certain extent) about the make-up of the database, its tables and their relationships. The idea is that Entity Framework figures all this out for us, and it does a pretty good job! Entity Framework code first is designed around the "convention over configuration" principal, meaning as long as things are named in a consistent way your code should "just work" with very little effort. If its not possible to write your code in a way that Entity Framework understands, it is possible to tell Entity Framework about your model using attributes, the Fluent API, or a combination of both.

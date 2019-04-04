@@ -4,7 +4,6 @@ title: Create custom C# attributes
 description: Attributes allow you to provide meta data to the consuming code, but have you ever created and consumed your own attributes?
 date: 2014-02-22
 categories: ['C#', '.NET']
-featuredImage: ''
 ---
 
 You have probably added various attributes to your ASP .NET MVC applications, desktop applications, or basically any software you have developed using C# recently. Attributes allow you to provide meta data to the consuming code, but have you ever created and consumed your own attributes? This very quick tutorial shows how to create your own attribute, apply it to your classes, and then read out its value.

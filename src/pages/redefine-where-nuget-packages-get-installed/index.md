@@ -4,7 +4,6 @@ title: Redefine where NuGet packages get installed
 description: If you are working on multiple projects that reference the same packages (StructureMap is a great example) you may have noticed that each project has its own version of each package.
 date: 2013-07-31
 categories: ['Visual Studio']
-featuredImage: ''
 ---
 
 If, like me, you are working on multiple projects that reference the same packages (StructureMap is a great example) you may have noticed that each project has its own version of each package. In this bite sized post, we will look at how to redefine where your packages get installed.

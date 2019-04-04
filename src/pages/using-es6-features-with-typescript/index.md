@@ -4,7 +4,6 @@ title: Using ES6 features with TypeScript
 description: TypeScript is a transpiler, this allows you to utilize ES6 features today and have them transpiled into ES5, which is fully compatible with legacy browsers
 date: 2015-09-18
 categories: ['TypeScript']
-featuredImage: ''
 ---
 
 ## TypeScript is a transpiler

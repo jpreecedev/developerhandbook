@@ -5,7 +5,6 @@ description: This post focuses on adding the final touches to our 'Property Find
 date: 2019-01-27
 categories: ['React', 'practical-react-series']
 seriesTitle: Practical React Developer
-featuredImage: ''
 ---
 
 At the beginning of this project, we created two components. Those components were designed to display key information about a single property and its location. These components were `<Map />` and `<KeyFeatures />`.

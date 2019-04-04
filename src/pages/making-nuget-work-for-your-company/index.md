@@ -4,7 +4,6 @@ title: Making NuGet work for your company
 description: NuGet is a package manager tool for the .NET Framework.  NuGet is free, open source, and is supported by Microsoft Visual Studio, as well as several other environments.
 date: 2013-07-19
 categories: ['Visual Studio']
-featuredImage: ''
 ---
 
 NuGet is a package manager tool for the .NET Framework. NuGet is free, open source, and is supported by Microsoft Visual Studio, as well as several other environments. NuGet allows you to add packages to your projects, either from the [public package gallery](http://nuget.org/ 'NuGet Package Gallery') or from your own private package gallery. The latter is, in my opinion at least, somewhat under-utilised and misunderstood in the business world. This post aims to try to shed some light on how NuGet can work for your company.

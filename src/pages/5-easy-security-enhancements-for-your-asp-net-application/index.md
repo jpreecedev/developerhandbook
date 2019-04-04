@@ -4,7 +4,6 @@ title: 5 easy security enhancements for your ASP .NET application
 description: Here I outline 5 ways to protect your website from malicious attacks, with explanations of each vulnerability and how to resolve it
 date: 2014-01-26
 categories: ['.NET']
-featuredImage: ''
 ---
 
 Protecting web applications against unauthorised access is somewhat of a dark art, but there are simple steps you can take to ensure that you are protected against the most common security risks.

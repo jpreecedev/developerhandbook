@@ -4,7 +4,6 @@ title: How I use ESLint and Prettier for a consistent coding environment
 description: ESLint and Prettier are tools that can help your team write better quality code that is consistent with your teams/company's code style.
 date: 2019-01-03
 categories: ['JavaScript']
-featuredImage: ''
 ---
 
 I work independently, as part of small teams, and as part of teams that consist of hundreds of individuals. Many developers will have a different idea of how they want to format their code, and what standards they would like to adhere to. Some teams might not have any guidelines in place at all, which will often lead to preventable problems further down the road.

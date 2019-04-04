@@ -4,7 +4,6 @@ title: Using Gulp-SASS with VS Code task runner
 description: With the task runner built in to VS Code, you can set up Gulp to automatically compile your SASS files to CSS with a simple key press.
 date: 2015-08-07
 categories: ['VS Code']
-featuredImage: ''
 ---
 
 With the task runner built in to VS Code, you can set up Gulp to automatically compile your SASS files to CSS with a simple key press.

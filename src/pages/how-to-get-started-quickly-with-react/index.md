@@ -4,7 +4,6 @@ title: How to get started quickly with React
 description: Thankfully there are several ways, with varying degrees of difficultly, to get started with React quickly.
 date: 2019-01-02
 categories: ['React', 'JavaScript']
-featuredImage: ''
 ---
 
 This post explores 3 separate ways to get a React application up and running quickly.

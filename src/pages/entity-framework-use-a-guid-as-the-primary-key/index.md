@@ -4,7 +4,6 @@ title: Entity Framework - Use a Guid as the primary key
 description: Using a Guid as your tables primary key, when using Entity Framework, requires a little more effort than when using a integer.
 date: 2014-07-13
 categories: ['Entity Framework', 'C#', '.NET']
-featuredImage: ''
 ---
 
 Using a Guid as your tables primary key, when using Entity Framework, requires a little more effort than when using a integer. The setup process is straightforward, after you've read/been shown how to do it. The process is slightly different for the Code First and Database First approaches. This post discusses both techniques.

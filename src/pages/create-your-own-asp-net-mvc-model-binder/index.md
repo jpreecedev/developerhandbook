@@ -4,7 +4,6 @@ title: How to create your own ASP .NET MVC model binder
 description: You can easily tidy up your ASP .NET MVC controller classes by creating a custom model binder. This simple tutorial shows you how.
 date: 2014-08-11
 categories: ['C#', '.NET']
-featuredImage: ''
 ---
 
 Model binding is the process of converting POST data or data present in the Url into a .NET object(s). ASP .NET MVC makes this very simple by providing the [DefaultModelBinder](<http://msdn.microsoft.com/en-us/library/system.web.mvc.defaultmodelbinder(v=vs.118).aspx>). You've probably seen this in action many times (even if you didn't realise it!), but did you know you can easily write your own?

@@ -4,7 +4,6 @@ title: WPF Entity Framework Code First migrations
 description: Recently I wrote a WPF application using Entity Framework Code First and released it into the wild.  Shortly after, the business requirements changed and I had to make changes to the model.  Thus, I was introduced to Code First migrations.
 date: 2013-08-16
 categories: ['Entity Framework', 'C#', '.NET', 'WPF MVVM']
-featuredImage: ''
 ---
 
 Recently I wrote a WPF application using Entity Framework Code First and released it into the wild. Shortly after, the business requirements changed and I had to make changes to the model. Thus, I was introduced to Code First migrations. I did a lot of research on Code First migrations and could only really find the most simple of examples, and almost [robotic documentation on MSDN](http://msdn.microsoft.com/en-us/data/jj591621.aspx 'Code First Migrations') that provided minimal help. This post aims to provide a clearer view on migrations, and how to properly create them. Before we can start with migrations, we need to create our normal C# code and then add in Entity Framework using NuGet. Once done, we can create our first migration and then explore a second migration.

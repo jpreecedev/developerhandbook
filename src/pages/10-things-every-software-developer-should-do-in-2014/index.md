@@ -4,7 +4,6 @@ title: 10 things every software developer should do in 2014
 description: It is important in the world of software development that every developer re-train and update their skills regularly.  Here's what to learn in 2014.
 date: 2014-01-18
 categories: ["Career"]
-featuredImage: ''
 ---
 
 It is important in the world of software development that every developer re-train and update their skills regularly. Failure to do so will probably result in stagnation and loss of earnings over an extended period.There has been a massive shift over the last few years from development of traditional desktop applications being written in Windows Forms (WinForms) and Windows Presentation Foundation (WPF) to the web and mobile. Open standards, including HTML 5 and CSS 3, have been driving a new era in user experience and a large array of new devices are shifting users away from the desktop.

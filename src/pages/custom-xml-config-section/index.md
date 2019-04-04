@@ -4,7 +4,6 @@ title: C# Create a custom XML configuration section
 description: This post looks at how you can create a configuration settings section to help simplify configuration management.
 date: 2013-12-21
 categories: ['C#', '.NET']
-featuredImage: ''
 ---
 
 It is common when developing either Desktop or Web based applications to need to persist settings in an easily updateable location. Developers often choose to add normal application settings in the form of key value pairs, as shown below, and this is a great approach when you only have a small number of settings. However, as your applications configuration becomes more complicated, this approach soon becomes hard for the developer and end user alike. This blog post looks at how you can create a configuration settings section to help ease this problem.

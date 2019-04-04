@@ -4,7 +4,6 @@ title: A bare bones React boilerplate, featuring Webpack 4, React, Redux, Jest, 
 description: Boilerplate and template projects are awesome, however, sometimes they can be quite bloated.  This is a barebones starter template.
 date: 2018-09-22
 categories: ['React', 'Webpack', 'JavaScript']
-featuredImage: ''
 ---
 
 I love template projects.
