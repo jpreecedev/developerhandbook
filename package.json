@@ -92,6 +92,7 @@
   "homepage": "https://github.com/jpreecedev/developerhandbook#readme",
   "browserslist": [
     "defaults",
+    "IE >= 11",
     "firefox >= 43"
   ]
 }
