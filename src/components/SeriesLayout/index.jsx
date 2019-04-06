@@ -17,7 +17,7 @@ const webpackPosts = {
     'How to configure SCSS modules for Webpack',
   '/webpack/how-to-process-images-with-webpack/': 'How to process images with Webpack',
   '/webpack/configure-webpack-4-hmr-scratch/':
-    'How to configure Webpack Hot Module Reloading using Node.js API'
+    'How to configure Webpack Hot Module Reloading (HMR) using Node.js API'
 }
 
 const reactSeriesTitle = 'Practical React Developer'

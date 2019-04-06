@@ -1,13 +1,11 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import Jumbotron from '../components/Jumbotron'
 import PostOverview from '../components/PostOverview'
 import Pagination from '../components/Pagination'
 import Layout from '../components/Layout'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import SocialProfile from '../components/StructuredData/SocialProfile'
-import MiniProfile from '../components/MiniProfile'
 
 function BlogIndex({ data, location }) {
   const { siteTitle, description } = data.site.siteMetadata
@@ -20,17 +18,11 @@ function BlogIndex({ data, location }) {
         <meta name="description" content={description} />
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
-      <Jumbotron />
-      <main id="content" role="main" className="mb-5">
+      <main id="content" role="main" className="mb-5 mt-4">
         <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <MiniProfile />
-            </div>
-          </div>
           <div className="row mb-2">
             {posts.map(post => (
-              <div className="col-md-6" key={post.fields.slug}>
+              <div className="col-12 col-md-6 col-lg-4" key={post.fields.slug}>
                 <PostOverview
                   post={post}
                   key={post.fields.slug}
@@ -62,14 +54,14 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 10
+      limit: 9
       skip: 0
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
           timeToRead
-          excerpt(pruneLength: 500)
+          excerpt(pruneLength: 250)
           fields {
             slug
           }

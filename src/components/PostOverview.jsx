@@ -9,12 +9,14 @@ function PostOverview({ post, slug, title, mappedCategory, excerpt }) {
   return (
     <div className="card mb-4" key={slug}>
       {post.frontmatter.featuredImage ? (
-        <Img
-          className="card-img-top"
-          fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
-          alt={title}
-          title={title}
-        />
+        <Link to={`/${mappedCategory}${slug}`}>
+          <Img
+            className="card-img-top"
+            fluid={post.frontmatter.featuredImage.childImageSharp.fluid}
+            alt={title}
+            title={title}
+          />
+        </Link>
       ) : null}
       <div className="card-body">
         <h2 className="card-title card-title-small mt-0">
@@ -22,10 +24,7 @@ function PostOverview({ post, slug, title, mappedCategory, excerpt }) {
         </h2>
         <Published post={post} />
         <p className="card-text">
-          <small className="text-muted">
-            Last updated
-            {` ${post.frontmatter.date}.`}
-          </small>
+          <small className="text-muted">{`${post.frontmatter.date}.`}</small>
         </p>
         <p dangerouslySetInnerHTML={{ __html: excerpt }} />
         <Link className="btn btn-primary" to={`/${mappedCategory}${slug}`}>

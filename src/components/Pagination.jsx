@@ -6,7 +6,7 @@ function getCurrentPage({ pathname }) {
     return 1
   }
 
-  return Number.parseInt(pathname.substring(pathname.lastIndexOf('/') + 1), 10)
+  return Number.parseInt(window.location.pathname.match(/\d+/g)[0], 10)
 }
 
 function getPages(currentPage) {

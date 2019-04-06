@@ -18,8 +18,8 @@ function MiniProfile() {
           <a href="https://jpreecedev.com" rel="noreferrer noopener" target="_blank">
             Jon Preece
           </a>
-          , an experienced full stack website and software developer from Warrington (UK)
-          currently working in and around Manchester (UK).
+          , an experienced website and software developer from the United Kingdom, based
+          in Manchester.
         </p>
         <p>
           Throughout my 10+ year professional career I have worked in many sectors,

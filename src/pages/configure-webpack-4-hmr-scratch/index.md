@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to configure Webpack Hot Module Reloading using Node.js API
+title: How to configure Webpack Hot Module Reloading (HMR) using Node.js API
 description: Ever needed to configure Webpack Hot Module Reloading (HMR) from scratch using the Node.js API? It's a pain.
 date: 2019-04-04
 categories: ['Webpack', 'webpack-intro-series']
