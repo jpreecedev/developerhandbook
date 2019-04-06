@@ -6,6 +6,10 @@ function getCurrentPage({ pathname }) {
     return 1
   }
 
+  if (typeof window === 'undefined') {
+    return null
+  }
+
   return Number.parseInt(window.location.pathname.match(/\d+/g)[0], 10)
 }
 
