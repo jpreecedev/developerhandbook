@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Jon Preece
-title: How I decide which FTSE 100 stocks to invest in
+title: How to invest in the FTSE 100
 description: Deciding which FTSE 100 stocks to invest in is a contentious topic. Many investors think short-term, and have unrealistic expectations of what level of return to expect
 date: 2019-04-06
 categories: ['Investing']
@@ -10,7 +10,9 @@ featuredImage: './stocks.jpeg'
 
 ---
 
-**Please note**, this post is heavily UK weighted, as I invest in UK stocks and shares and focus primarily on that market. Many of the concepts discussed in this post will also apply to international markets.
+<aside>
+<p><strong>Please note</strong>, this post is heavily UK weighted, as I invest in UK stocks and shares and focus primarily on that market. Many of the concepts discussed in this post will also apply to international markets.</p>
+</aside>
 
 ---
 
@@ -108,14 +110,14 @@ All that is left now is to go through each company, check their latest stats/ann
 To determine if a company is ideal for investment, you require the following information;
 
 <div class="container"><div class="row"><div class="col-12 col-lg-6 order-1"><share-price-evaluator></share-price-evaluator></div><div class="col-12 col-lg-6 order-0">
-<ol>
+<ul>
 <li>The current cost (Bid Price) of a single share</li>
 <li>The bid price of a share from 12 months ago</li>
 <li>The current market capitalisation</li>
 <li>The annual dividend amount</li>
 <li>Current levels of net debt</li>
 <li>Full year pre-tax profit.</li>
-</ol>
+</ul>
 <p>All this information for each PLC is available online, from the company's own website, and their latest annual report.</p>
 <p>Once you have established these figures, you can drop them into the <strong>Share Price Evaluator</strong> which will crunch the numbers and identify the quality of the company. Of course, an Excel spreadsheet is also a reasonable alternative.</p>
 <p>
