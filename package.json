@@ -33,6 +33,7 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sitemap": "^2.0.11",
     "prettier": "^1.16.3",
+    "rehype-react": "^3.1.0",
     "rimraf": "^2.6.3",
     "s3-deploy": "^1.3.0",
     "stylelint": "^9.10.1",

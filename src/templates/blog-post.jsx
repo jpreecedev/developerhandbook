@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import RehypeReact from 'rehype-react'
 import config from '../../site-config'
 
 import Jumbotron from '../components/Jumbotron'
@@ -14,6 +15,15 @@ import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import StandardLayout from '../components/StandardLayout'
 import SeriesLayout from '../components/SeriesLayout'
+
+import SharePriceEvaluator from '../components/SharePriceEvaluator'
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: {
+    'share-price-evaluator': SharePriceEvaluator
+  }
+}).Compiler
 
 function BlogPostTemplate(props) {
   const { data, location, pageContext } = props
@@ -33,7 +43,8 @@ function BlogPostTemplate(props) {
     title: frontmatter.title
   }
 
-  const isSeries = (categories => categories.filter(tag => tag.indexOf('-series') > -1).length > 0)(
+  const isSeries = (categories =>
+    categories.filter(tag => tag.indexOf('-series') > -1).length > 0)(
     frontmatter.categories
   )
 
@@ -46,7 +57,7 @@ function BlogPostTemplate(props) {
   const postContent = (
     <>
       <Published post={post} {...disqusConfig} showProfile />
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div>{renderAst(post.htmlAst)}</div>
       <Categories post={post} />
       <PullRequest slug={slug} />
       <MiniProfile />
@@ -93,7 +104,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      html
+      htmlAst
       timeToRead
       headings {
         value
