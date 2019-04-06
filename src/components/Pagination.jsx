@@ -10,7 +10,12 @@ function getCurrentPage({ pathname }) {
     return null
   }
 
-  return Number.parseInt(window.location.pathname.match(/\d+/g)[0], 10)
+  const matches = window.location.pathname.match(/\d+/g)
+  if (matches && matches.length) {
+    return Number.parseInt(window.location.pathname.match(/\d+/g)[0], 10)
+  }
+
+  return null
 }
 
 function getPages(currentPage) {
