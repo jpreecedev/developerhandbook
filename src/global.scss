@@ -189,3 +189,13 @@ cite {
 .text-smaller {
   font-size: smaller;
 }
+
+.gatsby-highlight-code-line {
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  background-color: rgba(255, 132, 0, 0.3);
+  border-left: 0.25em solid #ff8300;
+}

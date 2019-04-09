@@ -34,7 +34,8 @@ const reactPosts = {
   '/react/advanced-filtering-using-react-context-api/':
     'Add advanced filtering to a React app using React Context API',
   '/react/adding-finishing-touches-property-finder/':
-    "Adding the finishing touches to 'Property Finder'"
+    "Adding the finishing touches to 'Property Finder'",
+  '/react/10-react-interview-questions/': '10 React.js interview questions'
 }
 
 function SeriesLayout({ title, postTitle, children, pathname }) {
