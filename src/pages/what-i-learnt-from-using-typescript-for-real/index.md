@@ -3,16 +3,17 @@ layout: post
 title: What I learnt from using TypeScript "for real"
 description: I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.
 date: 2015-05-25
-categories: ["TypeScript"]
+categories: ['TypeScript']
+group: 'Software Development'
 ---
 
 I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.
 
 ## TL;DR
 
-* TypeScript is awesome, for sure, but there needs to be improvements to tooling to streamline the experience.
-* TypeScript is strongly typed of course, but it doesn't force you to code in this manner, which can result in shoddy code.
-* Tweaking is required to make bundling work properly.
+- TypeScript is awesome, for sure, but there needs to be improvements to tooling to streamline the experience.
+- TypeScript is strongly typed of course, but it doesn't force you to code in this manner, which can result in shoddy code.
+- Tweaking is required to make bundling work properly.
 
 ## Tooling Frustrations
 

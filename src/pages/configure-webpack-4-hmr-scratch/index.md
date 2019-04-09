@@ -6,6 +6,7 @@ date: 2019-04-04
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 featuredImage: './webpack.png'
+group: 'Software Development'
 ---
 
 You recently had some reason, probably work related, to configure Webpack from scratch using the Node API. This is because of _reasons_ (for example, you are moving your Webpack configuration into an NPM package), and you found the documentation somewhat lacking!!

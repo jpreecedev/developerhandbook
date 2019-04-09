@@ -3,6 +3,7 @@ layout: post
 title: WPF MVVM For WinForms Devs - Part 5/5
 date: 2013-07-06
 categories: ['WPF MVVM', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 The purpose of this series of tutorials is to introduce the Model-View-ViewModel (MVVM) design pattern, and look at how to quickly and simply implement it in a Windows Presentation Foundation (WPF) application. This series is targeted at developers of all levels, but especially at developers who are looking to make the transition from Windows Forms to WPF. This final part of the series assumes you have at least read the previous parts, or have a good working knowledge of WPF and the MVVM design pattern.
@@ -15,9 +16,9 @@ User controls are controls that you have created for use throughout your applica
 
 To make this possible, we will need to create the following;
 
-* Resource dictionary to store all our styles/layout behaviour (called CustomControls.xaml)
-* A class for the control behavioural logic itself (called CustomDateTimePicker.cs)
-* A view and a view model for displaying and binding (called MainWindow.xaml and MainWindowViewModel.cs)
+- Resource dictionary to store all our styles/layout behaviour (called CustomControls.xaml)
+- A class for the control behavioural logic itself (called CustomDateTimePicker.cs)
+- A view and a view model for displaying and binding (called MainWindow.xaml and MainWindowViewModel.cs)
 
 Go ahead and add the above files into your project. If you followed on from earlier parts of this post, simply stick with your existing project.
 

@@ -5,6 +5,7 @@ description: Learn how to add advanced filtering to a React application using Co
 date: 2019-01-27
 categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
+group: 'Software Development'
 ---
 
 In the previous tutorial, we started building out our home page. We looked at React Context API, where we added some code to fetch data from our static web server, and then we used that data to build (and display) a list of properties that are currently available for sale.

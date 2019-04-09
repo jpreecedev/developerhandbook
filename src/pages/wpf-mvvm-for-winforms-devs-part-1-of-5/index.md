@@ -4,19 +4,20 @@ title: WPF MVVM For WinForms Devs - Part 1/5
 description: WPF MVVM - A series of posts describing how to get started with C# WPF. Learn what MVVM is and why you should care.
 date: 2013-06-08
 categories: ['WPF MVVM', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 The purpose of this series of tutorials is to introduce the WPF MVVM (Model-View-ViewModel) design pattern, and look at how to quickly and simply implement it in a Windows Presentation Foundation (WPF) application. This series is targeted at developers of all levels, but especially at developers who are looking to make the transition from Windows Forms to WPF. The first part of this series will focus on;
 
-* What exactly is MVVM, and why should I care?
-* What problem does the MVVM design pattern attempt to solve?
+- What exactly is MVVM, and why should I care?
+- What problem does the MVVM design pattern attempt to solve?
 
 Subsequent posts will attempt to;
 
-* Demonstrate how to quickly implement the MVVM pattern in a new WPF application.
-* Discuss data binding, change notifications, events and commands.
-* Discuss some techniques for converting older WinForms applications to WPF.
-* Discuss and see how to create user controls/custom controls without breaking the MVVM pattern.
+- Demonstrate how to quickly implement the MVVM pattern in a new WPF application.
+- Discuss data binding, change notifications, events and commands.
+- Discuss some techniques for converting older WinForms applications to WPF.
+- Discuss and see how to create user controls/custom controls without breaking the MVVM pattern.
 
 ### So what is Model-View-ViewModel (MVVM)?
 

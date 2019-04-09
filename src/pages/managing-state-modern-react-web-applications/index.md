@@ -4,6 +4,7 @@ title: Managing state in modern React web applications
 description: A high level look local state vs Context API vs Redux, and best practices around when to use what
 date: 2018-10-16
 categories: ['React']
+group: 'Software Development'
 ---
 
 ## Overview

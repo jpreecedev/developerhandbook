@@ -3,7 +3,8 @@ layout: post
 title: A high level look at Angular 2
 description: From Google, Angular 2 is the newest version of the popular Single Page Application framework, this post covers everything you need to know at a high level.
 date: 2016-09-03
-categories: ['Angular','TypeScript']
+categories: ['Angular', 'TypeScript']
+group: 'Software Development'
 ---
 
 Developed by Google, Angular 2 is the newest version of the popular Single Page Application (SPA) framework. Angular 2 is a step in a new direction compared to previous versions, but has keep all the best characteristics and "lessons learnt" to deliver a fast, fully featured and rich ecosystem.
@@ -71,10 +72,10 @@ This is ES6/TypeScript code. We create a class, called `AppComponent` using the 
 
 The `@Component` directive takes an object that describes the component.
 
-* Selector: This is used in your markup. The selector is how you refer to the component in HTML. In this example, the code would be; `<my-app></my-app>`
-* Directives: These are other components that you want to utilise in the components markup
-* TemplateUrl: The path on the file-system to the markup
-* StyleUrls: A string array of all the CSS files used to style the component
+- Selector: This is used in your markup. The selector is how you refer to the component in HTML. In this example, the code would be; `<my-app></my-app>`
+- Directives: These are other components that you want to utilise in the components markup
+- TemplateUrl: The path on the file-system to the markup
+- StyleUrls: A string array of all the CSS files used to style the component
 
 There are many values that can be passed in here, the main values are displayed.
 
@@ -84,13 +85,13 @@ Why does Angular load the styles in this manner? Take the following markup (I've
 
 ```html
 <tr>
-    <td>...</td>
-    <td>{{asDate(calibrationDue.date) ' date}}</td>
-    <td>{{asDate(calibrationDue.expiration) ' date}}</td>
-    <td>{{calibrationDue.registration}}</td>
-    <td>{{calibrationDue.technician}}</td>
-    <td>{{calibrationDue.customer}}</td>
-    <td>{{calibrationDue.vehicleManufacturer}}</td>
+  <td>...</td>
+  <td>{{asDate(calibrationDue.date) ' date}}</td>
+  <td>{{asDate(calibrationDue.expiration) ' date}}</td>
+  <td>{{calibrationDue.registration}}</td>
+  <td>{{calibrationDue.technician}}</td>
+  <td>{{calibrationDue.customer}}</td>
+  <td>{{calibrationDue.vehicleManufacturer}}</td>
 </tr>
 ```
 
@@ -98,13 +99,13 @@ This is pre-compiled markup. The compiled, rendered markup looks something like 
 
 ```html
 <tr _ngcontent-dqf-10="" class="pointer">
-    <td _ngcontent-dqf-10=""></td>
-    <td _ngcontent-dqf-10="">Sep 29, 2014</td>
-    <td _ngcontent-dqf-10="">Sep 29, 2016</td>
-    <td _ngcontent-dqf-10="">AA11AA</td>
-    <td _ngcontent-dqf-10="">John Smith</td>
-    <td _ngcontent-dqf-10="">John Smith Transport</td>
-    <td _ngcontent-dqf-10="">Ford</td>
+  <td _ngcontent-dqf-10=""></td>
+  <td _ngcontent-dqf-10="">Sep 29, 2014</td>
+  <td _ngcontent-dqf-10="">Sep 29, 2016</td>
+  <td _ngcontent-dqf-10="">AA11AA</td>
+  <td _ngcontent-dqf-10="">John Smith</td>
+  <td _ngcontent-dqf-10="">John Smith Transport</td>
+  <td _ngcontent-dqf-10="">Ford</td>
 </tr>
 ```
 
@@ -155,7 +156,12 @@ Take the following example;
 
 ```html
 <div class="view">
-  <input class="toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+  <input
+    class="toggle"
+    type="checkbox"
+    (click)="toggleCompletion(todo)"
+    [checked]="todo.completed"
+  />
   <label (dblclick)="editTodo(todo)">{{todo.title}}</label>
   <button class="destroy" (click)="remove(todo)"></button>
 </div>
@@ -183,7 +189,7 @@ For example;
 
 ```html
 <div>
-    {{todoStore.todos | json}}
+  {{todoStore.todos | json}}
 </div>
 ```
 
@@ -191,11 +197,11 @@ The above code takes the array of `todos`, and converts it to a string and displ
 
 The following are pipes built in to Angular;
 
-* `Async` - Automatically subscribe to observables, which are used extensive in Angular (Angular has a dependency on [RxJS](https://github.com/Reactive-Extensions/RxJS)).
-* `Date` - Used to format a date object. For example; _Sunday 21st August 2016_.
-* `Percent` - Used to display a number as a percentage, can pass in the number of decimal places to show.
-* `JSON` - Used to "toString" JavaScript objects
-* `Currency` - Format numbers as currencies ($10.99 or £10.99)
+- `Async` - Automatically subscribe to observables, which are used extensive in Angular (Angular has a dependency on [RxJS](https://github.com/Reactive-Extensions/RxJS)).
+- `Date` - Used to format a date object. For example; _Sunday 21st August 2016_.
+- `Percent` - Used to display a number as a percentage, can pass in the number of decimal places to show.
+- `JSON` - Used to "toString" JavaScript objects
+- `Currency` - Format numbers as currencies (\$10.99 or £10.99)
 
 Notice there is no OrderBy pipe in the list, like there was in Angular 1\. That is because ordering was a particular pain point in Angular 1\. Because of the way that Angular 1 detected changes, the ordering would often occur multiple times, which when working with large data sets killed performance. The Angular team have excluded the OrderBy pipe in favour of ordering being done by your code, within the component or service.
 
@@ -207,8 +213,8 @@ Structural directives directly affect the structure, or the elements within, the
 
 The most commonly used structural directives are;
 
-* `ngFor`, which is used to loop through items in an array
-* `ngIf`, which adds/removes an element to/from the DOM depending on the result of an expression
+- `ngFor`, which is used to loop through items in an array
+- `ngIf`, which adds/removes an element to/from the DOM depending on the result of an expression
 
 The syntax for structural directives is different from the norm. Structural directives are prefixed with an asterisk (\*). Take the following code;
 
@@ -218,7 +224,11 @@ The syntax for structural directives is different from the norm. Structural dire
     <strong>{{todoStore.getRemaining().length}}</strong>
     {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left
   </span>
-  <button class="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">
+  <button
+    class="clear-completed"
+    *ngIf="todoStore.getCompleted().length > 0"
+    (click)="removeCompleted()"
+  >
     Clear completed
   </button>
 </footer>
@@ -230,9 +240,9 @@ Below is an example of `ngFor`;
 
 ```html
 <ul class="todo-list">
-    <li *ngFor="let todo of todoStore.todos">
-        <app-todo [todo]="todo"></app-todo>
-    </li>
+  <li *ngFor="let todo of todoStore.todos">
+    <app-todo [todo]="todo"></app-todo>
+  </li>
 </ul>
 ```
 
@@ -248,7 +258,7 @@ Consider the following code sample;
 
 ```html
 <div>
-    <p [style.background]="backgroundColor">Hello, AO.com!</p>
+  <p [style.background]="backgroundColor">Hello, AO.com!</p>
 </div>
 ```
 
@@ -263,8 +273,12 @@ You are not limited to manipulating the style of the element, you can change jus
 Take another example;
 
 ```html
-<li *ngFor="let todo of todoStore.todos" [class.completed]="todo.completed" [class.editing]="todo.editing">
-    <app-todo [todo]="todo"></app-todo>
+<li
+  *ngFor="let todo of todoStore.todos"
+  [class.completed]="todo.completed"
+  [class.editing]="todo.editing"
+>
+  <app-todo [todo]="todo"></app-todo>
 </li>
 ```
 
@@ -273,7 +287,12 @@ In this example, we are adding the CSS classes _completed_ and _editing_ to the 
 Again, we could control the `checked` state of a Check Box (`input` field with a type of `checkbox`).
 
 ```html
-<input class="toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+<input
+  class="toggle"
+  type="checkbox"
+  (click)="toggleCompletion(todo)"
+  [checked]="todo.completed"
+/>
 ```
 
 When `todo.completed` is true, the Check Box is checked, otherwise, it is not checked.
@@ -297,8 +316,14 @@ When the user double clicks on the label, the `editTodo` function is invoked. In
 Another example;
 
 ```html
-<input class="edit" *ngIf="todo.editing" [(ngModel)]="todo.title" (blur)="stopEditing(todo, todo.title)" (keyup.enter)="updateEditingTodo(todo, todo.title)"
-  (keyup.escape)="cancelEditingTodo(todo)">
+<input
+  class="edit"
+  *ngIf="todo.editing"
+  [(ngModel)]="todo.title"
+  (blur)="stopEditing(todo, todo.title)"
+  (keyup.enter)="updateEditingTodo(todo, todo.title)"
+  (keyup.escape)="cancelEditingTodo(todo)"
+/>
 ```
 
 In this example, we are responding to the `blur` event (when the control loses focus) and key-presses (enter, escape) so we can perform an appropriate action when the user presses these keys on their keyboard.
@@ -314,7 +339,13 @@ In reality, the banana in a box syntax is an amalgamation of and attribute direc
 Take the following example;
 
 ```html
-<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
+<input
+  class="new-todo"
+  placeholder="What needs to be done?"
+  autofocus=""
+  [(ngModel)]="newTodoText"
+  (keyup.enter)="addTodo()"
+/>
 ```
 
 When the value entered into the input field changes, the property `newTodoText` is automatically updated.
@@ -322,7 +353,14 @@ When the value entered into the input field changes, the property `newTodoText` 
 Now consider the long hand version of the same code;
 
 ```html
-<input class="new-todo" placeholder="What needs to be done?" autofocus="" [ngModel]="newTodoText" (ngModelChange)="newTodoText=$event" (keyup.enter)="addTodo()">
+<input
+  class="new-todo"
+  placeholder="What needs to be done?"
+  autofocus=""
+  [ngModel]="newTodoText"
+  (ngModelChange)="newTodoText=$event"
+  (keyup.enter)="addTodo()"
+/>
 ```
 
 A separate event is needed to assign the new value to the property on the component (`$event`).
@@ -396,10 +434,10 @@ export const routes: RouterConfig = [
 
 Here we have four routes defined;
 
-* Default route: No `path` is defined, so when the user hits the page with no route parameters, they are redirected to 'home' (defined next).
-* Home route: Displays the `HomeComponent`.
-* About route: Displays the `AboutComponent`.
-* Wildcard route (\*\*): When the route is not recognised, the user is redirected to the 'home' route. This is a catch-all.
+- Default route: No `path` is defined, so when the user hits the page with no route parameters, they are redirected to 'home' (defined next).
+- Home route: Displays the `HomeComponent`.
+- About route: Displays the `AboutComponent`.
+- Wildcard route (\*\*): When the route is not recognised, the user is redirected to the 'home' route. This is a catch-all.
 
 The `RouterConfig` object is then referred to in the applications bootstrapper (loads the application and its component parts, called `bootstrap`).
 
@@ -423,9 +461,9 @@ The `provideRouter` function is exposed by the Angular router, and takes the `Ro
 
 Angular also helps control navigation with several additional directives.
 
-* `routerOutlet`: Tells Angular where to put the view/component (used within the application shell, typically the `AppComponent`).
-* `CanActivate`: Allows navigation to be cancelled (useful for restricting access to certain pages under certain circumstances, like trying to access a page when the user is not logged in).
-* `CanDeactivate`: Runs before the route is changed, and can also cancel navigation (useful when, for example, prompting the user to save changes they have made to a `form`).
+- `routerOutlet`: Tells Angular where to put the view/component (used within the application shell, typically the `AppComponent`).
+- `CanActivate`: Allows navigation to be cancelled (useful for restricting access to certain pages under certain circumstances, like trying to access a page when the user is not logged in).
+- `CanDeactivate`: Runs before the route is changed, and can also cancel navigation (useful when, for example, prompting the user to save changes they have made to a `form`).
 
 Angular does not "just know" about these directives, as everything router related lives within its own module. You must `import` the directives into your `AppComponent`'s `directives` array;
 

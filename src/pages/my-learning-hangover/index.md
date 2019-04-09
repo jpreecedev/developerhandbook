@@ -4,6 +4,7 @@ title: My learning hangover
 description: Its rare for me to write posts about anything that isn't a language, framework, but my experience has affected my life in so many ways it got me thinking
 date: 2014-06-29
 categories: ['Career']
+group: 'Personal Growth'
 ---
 
 Its virtually unheard of for me to write blog posts about anything that isn't a language, framework, or technology but my experience recently has affected my life in so many ways it got me thinking...there must be lots of other people who have experienced this, or are heading towards it. It's too important to not share with the community. I am of course talking about my learning hangover. Note that this is an honest and frank post, and that, to some extent, I am still experiencing a learning hangover. Despite this, I am starting to see glints of light and the end of a long dark tunnel.
@@ -24,13 +25,13 @@ Frankly, the job I signed up to has not been what I hoped for. I was promised th
 
 I haven't yet discovered a magic formula for curing my learning hangover, it just seems to be getting better over time. I eventually realised that I needed to do something to turn things around, or my passion might disappear forever. I have been actively developing software as a hobbyist for over 15 years and doing it professionally for 5/6 years. I love software development and I really don't know how to do anything else. The steps towards a cure are roughly as follows;
 
-* Follow. I follow lots of industry "celebrities" on twitter whom are constantly posting about new and interesting topics. I try to keep up to date with this as much as possible. My beloved **[feedly](http://feedly.com)** helped a lot here, by delivering new material straight to a single location. Just reading blog posts and interacting with the community helps you feel like you're still involved.
+- Follow. I follow lots of industry "celebrities" on twitter whom are constantly posting about new and interesting topics. I try to keep up to date with this as much as possible. My beloved **[feedly](http://feedly.com)** helped a lot here, by delivering new material straight to a single location. Just reading blog posts and interacting with the community helps you feel like you're still involved.
 
-* Specialise. I hear this a lot, and I continue to ignore it, to my peril. I have studied such a wide range of topics since my learning journey started that I have become somewhat of a generalist. This is generally OK but it's important to focus on one very specific topic from time to time and create and finish developing a project that covers that topic in detail. This helps focus the mind and give a sense of accomplishment. I'm not 100% convinced that it's a good idea to completely specialise, as you could back yourself into a corner, but there's no harm in getting really _really_ strong at one particular topic.
+- Specialise. I hear this a lot, and I continue to ignore it, to my peril. I have studied such a wide range of topics since my learning journey started that I have become somewhat of a generalist. This is generally OK but it's important to focus on one very specific topic from time to time and create and finish developing a project that covers that topic in detail. This helps focus the mind and give a sense of accomplishment. I'm not 100% convinced that it's a good idea to completely specialise, as you could back yourself into a corner, but there's no harm in getting really _really_ strong at one particular topic.
 
-* Take a break. It will help to take a step back and step away from outside projects for a short time. This will help you refresh. As they say, absence makes the heart grow fonder. Be sure to spend some time with friends and family, and go outdoors, it is summer after all.
+- Take a break. It will help to take a step back and step away from outside projects for a short time. This will help you refresh. As they say, absence makes the heart grow fonder. Be sure to spend some time with friends and family, and go outdoors, it is summer after all.
 
-* Use your new skills. Set aside an hour or two each day to really put your new skills into action, so that you stay sharp. Develop a new website, desktop application, or mobile application just for fun. Even if it doesn't even see the light of day and it ends up in the recycle bin, it'll help you to rekindle your passion.
+- Use your new skills. Set aside an hour or two each day to really put your new skills into action, so that you stay sharp. Develop a new website, desktop application, or mobile application just for fun. Even if it doesn't even see the light of day and it ends up in the recycle bin, it'll help you to rekindle your passion.
 
 ## My final advice
 

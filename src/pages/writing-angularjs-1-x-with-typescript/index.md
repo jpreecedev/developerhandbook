@@ -4,6 +4,7 @@ title: Writing AngularJS 1.x with TypeScript
 description: AngularJS is a front end JavaScript framework that has gained huge traction and popularity in the development community. TypeScript and AngularJS tutorial.
 date: 2015-09-24
 categories: ['TypeScript', 'Angular']
+group: 'Software Development'
 ---
 
 AngularJS 1.x is a front end JavaScript framework that has gained huge traction and popularity in the development community. AngularJS greatly simplifies previously hard tasks like two-way data binding, templating, the MVC design pattern, despendency injection and more. Using TypeScript, we can create more robust and scalable AngularJS code to deliver the ultimate user experience whilst avoiding the traditional spaghetti code nightmare that JavaScript applications can often descend into. AngularJS version 1.x is written in JavaScript. Its successor, Angular 2.x, is written using TypeScript. It was originally going to be written in Google's propriety language AtScript, but the teams have merged the projects and are now working together on TypeScript. All the code for this project is available to view on [GitHub](https://github.com/jpreecedev/TypeScriptAngularJSDemo). There is also a demo project on [GitHub pages](http://jpreecedev.github.io/TypeScriptAngularJSDemo/#/search).
@@ -209,11 +210,11 @@ You can configure IIS to host the site for you. To do so, follow these steps;
 
 In order to demonstrate the concepts thoroughly, we are going to develop a simple project that utilizes the [HaveIBeenPwned API](https://haveibeenpwned.com/API/v2). If you are not familiar with this service, [HaveIBeenPwned](https://haveibeenpwned.com/) is developed and maintained by [developer security expert Troy Hunt](http://www.troyhunt.com/). HaveIBeenPwned checks to see if your email address or username has been compromised in a data breach. The HaveIBeenPwned API is a way to access this wealth of information programmatically via a Restful endpoint. The project shows how to write the following AngularJS concepts in TypeScript;
 
-* Controllers
-* Directives
-* Filters
-* Services
-* Routing
+- Controllers
+- Directives
+- Filters
+- Services
+- Routing
 
 The sample project is certainly not feature complete. In fact, all the samples are about as simplistic as they can possibly be... but that's intentional.
 
@@ -764,29 +765,47 @@ Add a new file to the **views** folder called **\_search.html**. Add the followi
 
 ```html
 <form ng-submit="vm.submit(vm.emailAddress)">
-    <div>
-  <label>Enter your email address:
-      <input type="email" id="emailAddress" name="emailAddress" ng-model="vm.emailAddress" placeholder="you@yourdomain.com" ng-enter="vm.submit(vm.emailAddress)">
-  </label>
-    </div>
-    <button type="submit">Check Now</button>
+  <div>
+    <label
+      >Enter your email address:
+      <input
+        type="email"
+        id="emailAddress"
+        name="emailAddress"
+        ng-model="vm.emailAddress"
+        placeholder="you@yourdomain.com"
+        ng-enter="vm.submit(vm.emailAddress)"
+      />
+    </label>
+  </div>
+  <button type="submit">Check Now</button>
 </form>
 <table>
-    <thead>
-  <tr></tr>
-    </thead>
-    <tbody>
-  <tr ng-repeat="breachedAccount in vm.breachedAccounts">
-      <td>{{breachedAccount.Title}}. <div ng-bind-html="breachedAccount.Description ' asHtml"></div></td>
-  </tr>
-    </tbody>
+  <thead>
+    <tr></tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="breachedAccount in vm.breachedAccounts">
+      <td>
+        {{breachedAccount.Title}}.
+        <div ng-bind-html="breachedAccount.Description ' asHtml"></div>
+      </td>
+    </tr>
+  </tbody>
 </table>
 ```
 
 There are two things of particular interest here, the use of a custom AngularJS directive called **ngEnter**, and a custom filter called **asHtml**. ngEnter directive usage;
 
 ```html
-<input type="email" id="emailAddress" name="emailAddress" ng-model="vm.emailAddress" placeholder="you@yourdomain.com" ng-enter="vm.submit(vm.emailAddress)">
+<input
+  type="email"
+  id="emailAddress"
+  name="emailAddress"
+  ng-model="vm.emailAddress"
+  placeholder="you@yourdomain.com"
+  ng-enter="vm.submit(vm.emailAddress)"
+/>
 ```
 
 asHtml filter usage;
@@ -919,27 +938,29 @@ Add a new file to the root folder called **index.html**. Also add a CSS file to 
 
 ```html
 <html>
-    <head>
-  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link href="content/css/site.css" rel="stylesheet"/>
-    </head>
-    <body ng-app="HaveIBeenPwned">
-  <h1>Have I Been Pwned?</h1>
+  <head>
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="content/css/site.css" rel="stylesheet" />
+  </head>
+  <body ng-app="HaveIBeenPwned">
+    <h1>Have I Been Pwned?</h1>
 
-  <div class="container" ng-view>
+    <div class="container" ng-view></div>
 
-  </div>
-
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="client/HaveIBeenPwned/app.module.js"></script>
-  <script src="client/HaveIBeenPwned/app.route.js"></script>
-  <script src="client/HaveIBeenPwned/services/pwnedservice.js"></script>
-  <script src="client/HaveIBeenPwned/controllers/search.js"></script>
-  <script src="client/HaveIBeenPwned/models/breachedaccount.js"></script>
-  <script src="client/HaveIBeenPwned/filters/asHtml.filter.js"></script>
-  <script src="client/HaveIBeenPwned/directives/search.directive.js"></script>
-    </body>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="client/HaveIBeenPwned/app.module.js"></script>
+    <script src="client/HaveIBeenPwned/app.route.js"></script>
+    <script src="client/HaveIBeenPwned/services/pwnedservice.js"></script>
+    <script src="client/HaveIBeenPwned/controllers/search.js"></script>
+    <script src="client/HaveIBeenPwned/models/breachedaccount.js"></script>
+    <script src="client/HaveIBeenPwned/filters/asHtml.filter.js"></script>
+    <script src="client/HaveIBeenPwned/directives/search.directive.js"></script>
+  </body>
 </html>
 ```
 

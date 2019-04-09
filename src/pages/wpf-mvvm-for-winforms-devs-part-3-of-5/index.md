@@ -4,6 +4,7 @@ title: WPF MVVM For WinForms Devs - Part 3/5
 description: The purpose of this series of tutorials is to introduce the Model-View-ViewModel (MVVM) design pattern, and look at how to correctly implement it in a Windows Presentation Foundation (WPF) application.
 date: 2013-06-22
 categories: ['WPF MVVM', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 The purpose of this series of tutorials is to introduce the Model-View-ViewModel (MVVM) design pattern, and look at how to correctly implement it in a Windows Presentation Foundation (WPF) application. This series is targeted at developers of all levels, but especially at developers who are looking to make the transition from Windows Forms to WPF.
@@ -75,8 +76,8 @@ protected override void AfterDelayElapsed() {
 
 The above method (which is located in our MainWindowViewModel class) runs after a period of time (in this case 10 seconds) has elapsed. Its reasonable to assume that because we have a TwoWay binding to the property on our view, the view should just be updated automatically. This is not the case. When making changes to your model classes, you have to inform the runtime that said property has changed. This practice is known as **raising change notifications** in WPF. (and is arguably the vein of every WPF developers life). There are several approaches you can take for raising change notifications, and they all start in the same way.
 
-* Your class must implement the `INotifyPropertyChanged` interface ([System.ComponentModel.INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx 'INotifyPropertyChanged')). This can be either on the individual class itself, or on a base class (the recommended approach)
-* The above interface provides an event that must be called, passing in the name of the property that has changed.
+- Your class must implement the `INotifyPropertyChanged` interface ([System.ComponentModel.INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx 'INotifyPropertyChanged')). This can be either on the individual class itself, or on a base class (the recommended approach)
+- The above interface provides an event that must be called, passing in the name of the property that has changed.
 
 **Base Classes Are Your Friend** I highly recommend that instead of implementing `INotifyPropertyChanged` directly on all of your model and view-model classes, you create a base class (called for example; BaseNotification or BaseViewModel or BaseModel) and implement the interface on there instead. Then it is customary to have a protected method that actually takes care of raising the event. First example implementation:
 

@@ -5,6 +5,7 @@ description: Learn how to write your own Webpack configuration from absolute scr
 date: 2018-12-31
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
+group: 'Software Development'
 ---
 
 Writing your own Webpack 4 configuration from absolute scratch is not strictly necessary. You could go online, find a basic Webpack configuration file and fork it/copy it to your project and use that as your starting point.

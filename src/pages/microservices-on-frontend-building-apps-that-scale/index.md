@@ -4,6 +4,7 @@ title: Microservices on the front-end - Building front-end apps that scale
 description: This is a discussion around how to build a front-end microservice website and what the potential benefits and drawbacks are
 date: 2018-11-21
 categories: ['Front-end', 'Architecture']
+group: 'Software Development'
 ---
 
 ## Overview

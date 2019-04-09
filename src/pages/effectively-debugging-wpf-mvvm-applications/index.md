@@ -4,6 +4,7 @@ title: Effectively debugging WPF MVVM applications
 description: WPF applications can be particularly hard to debug, if you are not using the correct tools.  This post attempts to help you utilise various free tools to help simplify the debugging process.
 date: 2013-09-13
 categories: ['WPF MVVM', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 Being able to effectively debug any application is key to the success of an application. Every developer, no matter how good they are or how long they have been writing code, introduces bugs. Debugging is the process of identifying bugs and removing them. WPF applications can be particularly hard to debug, if you are not using the correct tools. This post attempts to help you utilise various free tools to help simplify the debugging process.
@@ -48,17 +49,17 @@ An alternative approach would be to make use of [BindingSource.UpdateSourceExcep
 
 A tool I have found very helpful over the years is called [WPF Inspector](http://wpfinspector.codeplex.com/ 'WPF Inspector'). I commonly refer to this tool as being the _best_ and _worst tool ever made_, for lots of reasons ... including;
 
-* Its unstable ... it has a bad habit of crashing exactly when you find what you're after
-* Its slow (sorry, but it just is)
-* The user interface is messy ... the treeview on the left hand side is a hinderance
-* It allows other developers (malicious or not) to snoop at my code
+- Its unstable ... it has a bad habit of crashing exactly when you find what you're after
+- Its slow (sorry, but it just is)
+- The user interface is messy ... the treeview on the left hand side is a hinderance
+- It allows other developers (malicious or not) to snoop at my code
 
 However, there are also a lot of reasons in favour of using this tool;
 
-* It effectively visualises the Visual tree (the hierarchical structure of your XAML code)
-* It allows for on-the-fly tweaking of property values
-* It makes suggestions and recommendations on how your code can be improved and optimized
-* It allows me to snoop on other developers code!
+- It effectively visualises the Visual tree (the hierarchical structure of your XAML code)
+- It allows for on-the-fly tweaking of property values
+- It makes suggestions and recommendations on how your code can be improved and optimized
+- It allows me to snoop on other developers code!
 
 To use WPF Inspector is straight forward. Run your application, and then run WPF Inspector. <strike>After what will feel like hours (but will actually more likely be just a few seconds)</strike> WPF Inspector will discover your application and you can click "Attach" to hook WPF Inspector onto your application. You can then start expanding out the nodes on the left hand side until you discover the elements that you are interested in. You can then tweak and change properties to your hearts content; WPF inspector with some properties changed;
 

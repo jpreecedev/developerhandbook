@@ -4,6 +4,7 @@ title: Using ES6 features with TypeScript
 description: TypeScript is a transpiler, this allows you to utilize ES6 features today and have them transpiled into ES5, which is fully compatible with legacy browsers
 date: 2015-09-18
 categories: ['TypeScript']
+group: 'Software Development'
 ---
 
 ## TypeScript is a transpiler
@@ -168,9 +169,9 @@ var hello = new Hello()
 
 You can use the following access modifiers to state the accessibility of your methods and variables;
 
-* public
-* protected
-* private
+- public
+- protected
+- private
 
 Note that these access modifiers are only used at compile time, and don't affect the transpiled JavaScript.
 

@@ -4,6 +4,7 @@ title: WCF custom authentication using ServiceCredentials
 description: WCF custom authentication using ServiceCredentials is no trivial matter... used when the bog standard UserNamePasswordValidator just doesn't cut it
 date: 2015-04-03
 categories: ['WCF', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 The generally accepted way of authenticating a user with WCF is with a User Name and Password with the [UserNamePasswordValidator](https://msdn.microsoft.com/en-us/library/system.identitymodel.selectors.usernamepasswordvalidator%28v=vs.110%29.aspx) class. So common that [even MSDN has a tutorial](https://msdn.microsoft.com/en-us/library/aa702565%28v=vs.110%29.aspx), and the MSDN documentation for WCF is seriously lacking at best. The username/password approach does what it says on the tin, you pass along a username and password credential from the client to the server, do your authentication, and only if there is a problem then you throw an exception. It's a primitive approach, but it works. But what about when you want to do something a little bit less trivial than that? `ServiceCredentials` is probably what you need. Source code for this post [is available on GitHub](https://github.com/jpreecedev/WCFCustomServiceCredentials 'WCF custom authentication using ServiceCredentials').
@@ -647,9 +648,9 @@ Console.WriteLine(service.Echo(10));
 
 Throughout this tutorial I have used HTTP bindings and told you explicitly not to use HTTPS, and there is a very good reason for that. If you have a simple hosting environment, i.e. an environment that is NOT load balanced, then you can go ahead and make the following changes;
 
-* Change your service URL to HTTPS
-* Change `HttpTransportBindingElement` (on the server, inside the `BindingHelper`) to `HttpsTransportBindingElement`.
-* Add a HTTPS binding in IIS
+- Change your service URL to HTTPS
+- Change `HttpTransportBindingElement` (on the server, inside the `BindingHelper`) to `HttpsTransportBindingElement`.
+- Add a HTTPS binding in IIS
 
 Re-launch the client and all should be good. If you get the following error message, you're in big trouble.
 

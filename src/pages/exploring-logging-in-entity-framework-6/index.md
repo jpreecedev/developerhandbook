@@ -4,6 +4,7 @@ title: Exploring logging in Entity Framework 6
 description: One of the most compelling features of Entity framework is the new logging (SQL Interception) functionality that ships out of the box.
 date: 2013-11-13
 categories: ['Entity Framework', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 A project I am working on at the minute was recently upgraded to use Entity Framework 6.0.1\. There were many reasons why we wanted to do this, but one of the most compelling reasons was the [new logging (SQL Interception) functionality](http://entityframework.codeplex.com/wikipage?title=Interception 'Entity Framework 6 SQL Interception') that ships out of the box. A colleague demonstrated this new functionality and I immediately noticed a problem (limitation if you will) that I foresaw becoming a bigger issue when the time comes to performance tune the application.

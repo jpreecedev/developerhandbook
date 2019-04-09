@@ -4,15 +4,16 @@ title: Easy WCF Security and authorization of users
 description: WCF security and authorization in general is easy, there are just a few steps involved in making your WCF service secure
 date: 2014-07-19
 categories: ['WCF', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 There are several steps involved in making your WCF service secure, and ensure that clients consuming your service are properly authenticated. WCF uses [BasicHttpBinding](<http://msdn.microsoft.com/en-us/library/system.servicemodel.basichttpbinding(v=vs.110).aspx> 'BasicHttpBinding') out-of-the-box, which generates SOAP envelopes (messages) for each request. `BasicHttpBinding` works over standard HTTP, which is great for completely open general purpose services, but not good if you are sending sensitive data over the internet (as HTTP traffic can easily be intercepted). This post discusses how to take a basic WCF service, which uses `BasicHttpBinding`, and upgrade it to use [WsHttpBinding](<http://msdn.microsoft.com/en-us/library/system.servicemodel.wshttpbinding(v=vs.110).aspx> 'WsHttpBinding') over SSL (with username/password validation). If you want to become a better WCF developer, you may want to check out [Learning WCF: A Hands-on Guide](http://www.amazon.co.uk/gp/product/0596101627/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0596101627&linkCode=as2&tag=jprecom-21) by Michele Lerouz Bustamante. This is a very thorough and insightful WCF book with detailed and practical samples and tips. Here is the basic sequence of steps needed;
 
-* Generate a self-signed SSL certificate (you would use a real SSL certificate for live) and add this to the **TrustedPeople** certificate store.
-* Add a [UserNamePasswordValidator](<http://msdn.microsoft.com/en-us/library/system.identitymodel.selectors.usernamepasswordvalidator(v=vs.110).aspx> 'UserNamePasswordValidator').
-* Switch our `BasicHttpBinding` to `WsHttpBinding`.
-* Change our MEX (**M**etadata **Ex**change) endpoint to support SSL.
-* Specify how the client will authenticate, using the [ServiceCredentials](<http://msdn.microsoft.com/en-us/library/system.servicemodel.description.servicecredentials(v=vs.110).aspx> 'ServiceCredentials') class.
+- Generate a self-signed SSL certificate (you would use a real SSL certificate for live) and add this to the **TrustedPeople** certificate store.
+- Add a [UserNamePasswordValidator](<http://msdn.microsoft.com/en-us/library/system.identitymodel.selectors.usernamepasswordvalidator(v=vs.110).aspx> 'UserNamePasswordValidator').
+- Switch our `BasicHttpBinding` to `WsHttpBinding`.
+- Change our MEX (**M**etadata **Ex**change) endpoint to support SSL.
+- Specify how the client will authenticate, using the [ServiceCredentials](<http://msdn.microsoft.com/en-us/library/system.servicemodel.description.servicecredentials(v=vs.110).aspx> 'ServiceCredentials') class.
 
 You may notice that _most_ of the changes are configuration changes. You can make the same changes in code if you so desire, but I find the process easier and cleaner when done in XML.
 
@@ -20,10 +21,10 @@ You may notice that _most_ of the changes are configuration changes. You can mak
 
 Before we kick things off, i found myself asking this question (like so many others before me). What is the difference between `BasicHttpBinding` and `WsHttpBinding`? If you want a very thorough explanation, there is a [very detailed explanation written by Shivprasad Koirala on CodeProject.com](http://www.codeproject.com/Articles/36396/Difference-between-BasicHttpBinding-and-WsHttpBind 'Different between BasicHttpBinding as WsHttpBinding'). I highly recommend that you check this out. The TL:DR version is simply this;
 
-* `BasicHttpBinding` supports SOAP v1.1 (`WsHttpBinding` supports SOAP v1.2)
-* `BasicHttpBinding` does not support Reliable messaging
-* `BasicHttpBinding` is insecure, `WsHttpBinding` supports WS-\* specifications.
-* `WsHttpBinding` supports transporting messages with credentials, `BasicHttpBinding` supports only Windows/Basic/Certificate authentication.
+- `BasicHttpBinding` supports SOAP v1.1 (`WsHttpBinding` supports SOAP v1.2)
+- `BasicHttpBinding` does not support Reliable messaging
+- `BasicHttpBinding` is insecure, `WsHttpBinding` supports WS-\* specifications.
+- `WsHttpBinding` supports transporting messages with credentials, `BasicHttpBinding` supports only Windows/Basic/Certificate authentication.
 
 ## The project structure
 

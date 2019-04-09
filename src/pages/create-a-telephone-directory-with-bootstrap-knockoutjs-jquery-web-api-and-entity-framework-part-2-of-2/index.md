@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Create a telephone directory with Bootstrap, KnockoutJS, jQuery, Web API and Entity Framework (Part 2 of 2)
-description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. 
+description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers.
 date: 2014-03-12
 categories: ['.NET', 'Entity Framework', 'Web API']
+group: 'Software Development'
 ---
 
 I find that the best way to learn any new technology, or technology that are unfamiliar with, is to sit down and practice. The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. By following this tutorial you will learn;
@@ -20,61 +21,77 @@ This is part 2 of 2. You can read the first part here.
 
 Our user interface has several jobs to do;
 
-* It must look good (Bootstrap to the rescue here)
-* It must allow the user to enter their name and number
-* It must allow the user to submit their details to the server
-* It must allow the user to reset the data
-* It must allow the user to edit and delete existing entries
+- It must look good (Bootstrap to the rescue here)
+- It must allow the user to enter their name and number
+- It must allow the user to submit their details to the server
+- It must allow the user to reset the data
+- It must allow the user to edit and delete existing entries
 
 What we don't want is we don't want to see the page refresh. This is going to be such a simple page that the act of refreshing the entire page will feel clunky (not to mention the additional overhead of contacting the server to retrieve our entities again). To aid this, we will use KnockoutJS, which provides JavaScript bindings out of the box. You have already created the basic structure of your web page, add the following code to the body to create the basic design;
 
 ```html
 <div class="container-narrow">
-    <div class="row">
-        <h1>Telephone Directory</h1>
+  <div class="row">
+    <h1>Telephone Directory</h1>
+  </div>
+  <div class="row shaded padded">
+    <div class="col-sm-3">
+      <label for="firstName">First Name</label>
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        class="form-control"
+        required="required"
+      />
     </div>
-    <div class="row shaded padded">
-        <div class="col-sm-3">
-            <label for="firstName">First Name</label>
-            <input id="firstName" name="firstName" type="text" class="form-control" required="required" />
-        </div>
-        <div class="col-sm-3">
-            <label for="lastName">Last Name</label>
-            <input id="lastName" name="lastName" type="text" class="form-control" required="required" />
-        </div>
-        <div class="col-sm-3">
-            <label for="phoneNumber">Phone Number</label>
-            <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" required="required" />
-        </div>
-        <div class="col-sm-12">
-            <button id="add" name="add" type="submit">Add</button>
-            <button id="reset" name="reset" type="reset">Reset</button>
-        </div>
+    <div class="col-sm-3">
+      <label for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        class="form-control"
+        required="required"
+      />
     </div>
+    <div class="col-sm-3">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        id="phoneNumber"
+        name="phoneNumber"
+        type="text"
+        class="form-control"
+        required="required"
+      />
+    </div>
+    <div class="col-sm-12">
+      <button id="add" name="add" type="submit">Add</button>
+      <button id="reset" name="reset" type="reset">Reset</button>
+    </div>
+  </div>
 </div>
 <div class="container-narrow">
-    <div class="row">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Phone Number</th>
-                    <th>&nbsp;</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td><span></span></td>
-                    <td>
-                        <a href="#">Edit</a>&nbsp;<a href="#">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone Number</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><span></span></td>
+          <td><a href="#">Edit</a>&nbsp;<a href="#">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 ```
 
@@ -190,14 +207,35 @@ Switch back to the view. We can now use Knockout bindings to bind the properties
 Locate the **firstName** input field and add the **data-bind** attribute, as shown;
 
 ```html
-<input id="firstName" name="firstName" type="text" class="form-control" data-bind="value: firstName" required="required" />
+<input
+  id="firstName"
+  name="firstName"
+  type="text"
+  class="form-control"
+  data-bind="value: firstName"
+  required="required"
+/>
 ```
 
 We have used a **value** binding here with the property **firstName**. This means that we want to bind the **value** property of the input field to the **firstName** property on our view model. Go ahead and update the other input fields, as shown;
 
 ```html
-<input id="lastName" name="lastName" type="text" class="form-control" data-bind="value: lastName" required="required" />
-<input id="phoneNumber" name="phoneNumber" type="text" class="form-control" data-bind="value: number" required="required" />
+<input
+  id="lastName"
+  name="lastName"
+  type="text"
+  class="form-control"
+  data-bind="value: lastName"
+  required="required"
+/>
+<input
+  id="phoneNumber"
+  name="phoneNumber"
+  type="text"
+  class="form-control"
+  data-bind="value: number"
+  required="required"
+/>
 ```
 
 Next, we want to bind the **click** event of our **Add** button to the **add** method on our view model. Can you guess how this might work? See the code below to see if you were correct!
@@ -211,7 +249,7 @@ KnockoutJS is very powerful, flexible and pretty easy to use, wouldn't you agree
 We're almost there, but first we need to update our table to show a row for each entity in our **telephoneEntries** observable array that we created earlier. For this we need a new binding, the **foreach** binding. Update the **tbody** element, as shown below;
 
 ```html
-<tbody data-bind="foreach: telephoneEntries">
+<tbody data-bind="foreach: telephoneEntries"></tbody>
 ```
 
 Basically what is going to happen here is that for each entity in our **telephoneEntries** observable array, a **tr** is going to be output. Each **tr** will be bound to its corresponding entity in the array. Use the **text** binding to see the text property for each span placeholder, as shown below;
@@ -219,23 +257,27 @@ Basically what is going to happen here is that for each entity in our **telephon
 ```html
 <tbody data-bind="foreach: telephoneEntries">
   <tr>
-      <td>
-          <span data-bind="text: firstName"></span>
-      </td>
-      <td>
-          <span data-bind="text: lastName"></span>
-      </td>
-      <td>
-          <span data-bind="text: number"></span>
-      </td>
-      <td>
-          <a href="#" data-bind="click: $parent.edit">Edit</a>&nbsp;<a href="#" data-bind="click: $parent.delete">Delete</a>
-      </td>
+    <td>
+      <span data-bind="text: firstName"></span>
+    </td>
+    <td>
+      <span data-bind="text: lastName"></span>
+    </td>
+    <td>
+      <span data-bind="text: number"></span>
+    </td>
+    <td>
+      <a href="#" data-bind="click: $parent.edit">Edit</a>&nbsp;<a
+        href="#"
+        data-bind="click: $parent.delete"
+        >Delete</a
+      >
+    </td>
   </tr>
 </tbody>
 ```
 
-I've also added a link for editing and deleting entities, which we'll flesh out later. To access properties/methods on the view model (rather than whatever is in the current context) we use the **$parent** object.
+I've also added a link for editing and deleting entities, which we'll flesh out later. To access properties/methods on the view model (rather than whatever is in the current context) we use the **\$parent** object.
 
 If you run the application now, you should be able to enter a first name, last name and number, click the **Add** button and see a new row added to the table underneath. Lets now wire up the rest of the functionality.
 
@@ -306,8 +348,12 @@ self.reset = function() {
 You will need to update the Add/Reset buttons on your view to include the **addText** and **resetText** properties, so that we can perform the appropriate actions when editing/adding;
 
 ```html
-<button id="add" name="add" type="submit" data-bind="click: add, text: addText">Add</button>
-<button id="reset" name="reset" type="reset" data-bind="click: reset, text: resetText">Reset</button>
+<button id="add" name="add" type="submit" data-bind="click: add, text: addText">
+  Add
+</button>
+<button id="reset" name="reset" type="reset" data-bind="click: reset, text: resetText">
+  Reset
+</button>
 ```
 
 ## Communication with the Web API using jQuery

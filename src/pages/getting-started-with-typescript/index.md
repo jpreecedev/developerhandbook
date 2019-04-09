@@ -4,6 +4,7 @@ title: Getting started with TypeScript
 description: TypeScript, a superset of JavaScript, enables you to build large robust JavaScript applications through optional static typing and more. Start learning now.
 date: 2015-09-11
 categories: ['TypeScript']
+group: 'Software Development'
 ---
 
 This is the 101 tutorial which describes getting started with TypeScript using either the [TypeScript Playground](http://www.typescriptlang.org/Playground), [Node.js](https://nodejs.org/) or [VS Code](https://code.visualstudio.com). At its simplest, TypeScript is a programming language that provides optional static typing for JavaScript. TypeScript is JavaScript. Any valid JavaScript is valid TypeScript. The beauty of TypeScript is that you can define types for your JavaScript variables and functions, and get compile time error checking and error reporting. This tutorial focuses on getting started with TypeScript and demostrates the basics to get up and running quickly.
@@ -55,13 +56,13 @@ Three very interesting things have happened here, and this is the perfect demons
 
 You might be surprised to see Node mentioned on this page. TypeScript is a Microsoft product right? Traditionally tools like this might have been constrained to Microsoft IDE's or operating systems, but today's modern Microsoft is moving away from that traditional stance and moving towards being more open. TypeScript is not only completely free, open source, cross browser, cross operating system, but it is also community driven and [actively accepts pull requests directly from community members](https://github.com/Microsoft/TypeScript). In fact, the tooling is so good that its becoming widely adopted in many IDE's including (but not limited to);
 
-* [PhpStorm](https://www.jetbrains.com/phpstorm/help/typescript-support.html), [WebStorm](https://www.jetbrains.com/webstorm/help/typescript-support.html)
-* [Atom](https://atom.io/packages/atom-typescript)
-* [Cloud9 IDE](https://c9.io/lorantd/cloud9-typescript)
-* [Eclipse](https://github.com/palantir/eclipse-typescript)
-* [Sublime Text](https://github.com/Microsoft/TypeScript-Sublime-Plugin)
-* Visual Studio 2012/13/15
-* [VS Code](https://code.visualstudio.com/)
+- [PhpStorm](https://www.jetbrains.com/phpstorm/help/typescript-support.html), [WebStorm](https://www.jetbrains.com/webstorm/help/typescript-support.html)
+- [Atom](https://atom.io/packages/atom-typescript)
+- [Cloud9 IDE](https://c9.io/lorantd/cloud9-typescript)
+- [Eclipse](https://github.com/palantir/eclipse-typescript)
+- [Sublime Text](https://github.com/Microsoft/TypeScript-Sublime-Plugin)
+- Visual Studio 2012/13/15
+- [VS Code](https://code.visualstudio.com/)
 
 If you already have Node and Node Package Manager (npm) installed, open a **Node.js command prompt** and enter the following command to globally install TypeScript;
 
@@ -89,10 +90,10 @@ The **watch** flag (denoted by the -w) tells the TypeScript compiler to watch yo
 
 VS Code, at the time of writing at least (they may or may not streamline this process in the future), requires a little more leg work to get TS files to compile (almost) automatically. You can find a more [comprehensive tutorial over on MSDN](http://blogs.msdn.com/b/typescript/archive/2015/04/30/using-typescript-in-visual-studio-code.aspx), but this is how you get up and running quickly;
 
-* Create a new folder on your desktop and create a new file called helloworld.ts (or use the one you created for the Node.js part of this tutorial).
-* Add the code shown above, named **Log function with string type definition.**
-* Open VS Code, click **File > Open Folder...** and point to the new folder you just created.
-* Add a new file called **tsconfig.json**, and add the following;
+- Create a new folder on your desktop and create a new file called helloworld.ts (or use the one you created for the Node.js part of this tutorial).
+- Add the code shown above, named **Log function with string type definition.**
+- Open VS Code, click **File > Open Folder...** and point to the new folder you just created.
+- Add a new file called **tsconfig.json**, and add the following;
 
 ```json
 {

@@ -4,6 +4,7 @@ title: Quick tip - Avoid 'async void'
 description: Git is a complex tool and can be difficult for .NET developers who are not used to using the command line. This post looks at how start putting that right.
 date: 2014-08-30
 categories: ['C#', 'Web API', '.NET']
+group: 'Software Development'
 ---
 
 When developing a Web API application recently with an AngularJS front end, I made a basic mistake and then lost 2 hours of my life trying to figure out what was causing the problem ... _async void_. Its pretty common nowadays to use tasks to improve performance/scalability when writing a Web API controller. Take the following code:

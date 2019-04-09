@@ -4,6 +4,7 @@ title: Should I get certified?
 description: The value of Microsoft certifications has split opinion for years, and both camps feel very passionate about their side of the argument. Lets find out...
 date: 2014-07-28
 categories: ['Career']
+group: 'Personal Growth'
 ---
 
 The value of Microsoft certifications has split opinion for years, and both camps feel very passionate about their side of the argument. In this post I'll try and look constructively at the value of Microsoft certifications, so you can make the decision for yourself. I'm specifically talking about Microsoft developer certifications here, but the concepts/points could likely be applied to any certifying body.
@@ -14,15 +15,15 @@ There is a route for just about every job role in the industry, I have to narrow
 
 ### So many paths
 
-The fact that there are so many paths available targeting all developers from novice to seasoned professional forms the basis of the first argument against getting certified. The facts are quite simple. Each exam costs around £99 to sit, and there may be up to 4 exams in any certificate route (usually no less than 2). This price does not include between £20-£40 for an official Microsoft training guide and subscriptions to third party training providers, such as [PluralSight](https://pluralsight.com/), which will set you back another $29 a month. If you opt for classroom training, you could easily be looking at £5000 for a 5 day intensive course with no guarantee that you'll pass at the end. Microsoft would probably argue that they are trying to provide useful training to developers of all skill levels, and that £99 is cheap compared to something like CISCO CCNA, [costing between $150-$295](http://www.gocertify.com/certifications/cisco/ccna.html). **Conclusion:** Microsoft offer exams to make money plain and simple. Whilst not the most expensive, Microsoft and their partners make money from the exam itself, and supporting training material such as books.
+The fact that there are so many paths available targeting all developers from novice to seasoned professional forms the basis of the first argument against getting certified. The facts are quite simple. Each exam costs around £99 to sit, and there may be up to 4 exams in any certificate route (usually no less than 2). This price does not include between £20-£40 for an official Microsoft training guide and subscriptions to third party training providers, such as [PluralSight](https://pluralsight.com/), which will set you back another $29 a month. If you opt for classroom training, you could easily be looking at £5000 for a 5 day intensive course with no guarantee that you'll pass at the end. Microsoft would probably argue that they are trying to provide useful training to developers of all skill levels, and that £99 is cheap compared to something like CISCO CCNA, [costing between $150-\$295](http://www.gocertify.com/certifications/cisco/ccna.html). **Conclusion:** Microsoft offer exams to make money plain and simple. Whilst not the most expensive, Microsoft and their partners make money from the exam itself, and supporting training material such as books.
 
 ## 2. Will getting certified help me get a job/earn more money?
 
 The answer is not simple, "Yes with an _if_, no with a _but_". [According to Mutually Human](http://www.mutuallyhuman.com/blog/2012/04/26/hiring-a-developer-you-re-doing-it-wrong/), employers hire developers based on the following criteria;
 
-* Experience
-* Skills
-* Education
+- Experience
+- Skills
+- Education
 
 When a company is looking to match a candidate to a role, they favour experience and skills over education. Don't be fooled, Microsoft certifications fall under the education banner, and aren't necessarily "proof" that you are highly skilled. This is true for all but the most junior positions. **Yes, if you are at the very beginning of your career.** Having a decent Microsoft certification will give you a good edge over your competition. At worst, it shows that you know how to study training material and that you had the drive and determination to do so. It's also a couple of extra lines on your CV and a little "something extra" to chat about when you get invited to interview. **No, but exams like the ones offered by Microsoft will highlight areas that you are most passionate about.** If you can identify where your skills are strongest, you may become a specialist. If your specialist skill is in high demand (a good SQL developer is always a good example) you will certainly be able to demand higher rates if you are a contractor/freelancer/consultant.
 

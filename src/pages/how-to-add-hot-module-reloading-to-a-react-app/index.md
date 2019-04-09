@@ -5,6 +5,7 @@ description: When using Webpack Dev Server, we can easily add support for Hot Mo
 date: 2018-12-31
 categories: ['Webpack', 'React', 'JavaScript', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
+group: 'Software Development'
 ---
 
 Before we can add Hot Module Reloading to our React project, we need some React code! Let's do that first.

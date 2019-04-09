@@ -4,6 +4,7 @@ title: Resilient Connection for Entity Framework 6
 description: You can have resilient connections in Entity Framework, I mean a connection that could retry a certain number of times automatically before giving up.
 date: 2014-02-05
 categories: ['Entity Framework', 'C#', '.NET']
+group: 'Software Development'
 ---
 
 > **Disclaimer**: I cannot take a shred of credit for the code you are about to see. I simply went over to the [Entity Framework source code repository on CodePlex](http://entityframework.codeplex.com/SourceControl/latest 'Entity Framework'), copied some code, butchered it, hammered it, and rolled it until it fitted nicely into the slot that was my requirements. Please direct your thanks to the [Entity Framework team](http://entityframework.codeplex.com/team/view 'Entity Framework Team').

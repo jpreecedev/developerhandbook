@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 15 reasons why I can’t work without JetBrains ReSharper
-description: If you know me personally, you’ll know how much I love JetBrains ReSharper, I use it every day and I swear by it.  People often ask me what I like most about it, and here I often stutter. 
+description: If you know me personally, you’ll know how much I love JetBrains ReSharper, I use it every day and I swear by it.  People often ask me what I like most about it, and here I often stutter.
 date: 2013-12-28
-categories: ["Career"]
+categories: ['Career']
+group: 'Personal Growth'
 ---
 
 If you know me personally, you'll know how much I love [JetBrains ReSharper](http://www.jetbrains.com/resharper/ 'JetBrains ReSharper'), I use it every day and I swear by it. People often ask me what I like most about it, and here I often stutter. The truth is, there is no one killer reason _why_ I love ReSharper... it's a combination of many small features that make it a tool I literally cannot work without. I'm going to explain my 15 favourite features, and urge you to give it a try. If you're still not sold by the end of this, you're never going to be converted. Note that the reasons are in no particular order, other than the order in which they came to mind. This post was written using Visual Studio 2013 and ReSharper 8.1 (EAP at the time of writing).
@@ -190,10 +191,10 @@ public class Environment {
 
 I want to do the following;
 
-* Implement the `IEquatable<T>` interface so that I can have strongly typed equality checking
-* Override the standard `Equals` method to check for equality
-* Implement the equality operators (!= and ==)
-* Override `GetHashCode` (which is practically mandatory when overriding `Equals`)
+- Implement the `IEquatable<T>` interface so that I can have strongly typed equality checking
+- Override the standard `Equals` method to check for equality
+- Implement the equality operators (!= and ==)
+- Override `GetHashCode` (which is practically mandatory when overriding `Equals`)
 
 To use, override `Equals`, set the cursor on the method name, and click **Generate Equality Members**.
 

@@ -3,7 +3,8 @@ layout: post
 title: Publish your website to an IIS staging environment using Microsoft Web Deploy
 description: One of the simplest and quickest ways to publish your website to a staging environment is, at least in my opinion, using Microsoft Web Deploy.
 date: 2014-02-08
-categories: ["Visual Studio"]
+categories: ['Visual Studio']
+group: 'Software Development'
 ---
 
 One of the simplest and quickest ways to publish your website to a staging environment is, at least in my opinion, using [Microsoft Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy). This post is about how you approach this, a future article will discuss _why you probably shouldn't do this_. Key points;
@@ -16,19 +17,19 @@ One of the simplest and quickest ways to publish your website to a staging envir
 
 On my local machine, for testing purposes, I have a Windows Server 2012 R2 virtual machine which is bare bones configured. The first thing you need to do is install IIS. You can do this using the Server Manager; Open the **Server Manager** > click **Add roles and features** > select **Role-based or feature-based installation** > select the target server > and finally, select **Web Server (IIS)** and **Windows Deployment Services**. Feel free to drill into each item and ensure you have the following selected (as well as whatever the defaults are);
 
-* Basic Authentication (very important)
-* ASP .NET 3.5 / 4.5
-* .NET Extensibility 3.5 / 4.5
-* IIS Management Console and Management Service (very important)
+- Basic Authentication (very important)
+- ASP .NET 3.5 / 4.5
+- .NET Extensibility 3.5 / 4.5
+- IIS Management Console and Management Service (very important)
 
 Once installed, you should be able to open IIS Manager by opening the Start menu, type **inetmgr** and press enter. When IIS Manager opens (referred to herein as IIS), you should be prompted to download Microsoft Web Platform installer. Ensure you do this. Use the Web Platform installer to ensure you have all the following installed;
 
-* IIS 7 Recommended Configuration
-* IIS Management Service (should already be installed)
-* IIS Basic Authentication (should already be installed)
-* Web Deployment Tool (The current version is 3.5 at the time of writing, I also like to install Web Deploy for Hosting Servers as well)
-* Current version of the Microsoft .NET Framework
-* ASP .NET MVC 3 (as we will be publishing an ASP .NET MVC website)
+- IIS 7 Recommended Configuration
+- IIS Management Service (should already be installed)
+- IIS Basic Authentication (should already be installed)
+- Web Deployment Tool (The current version is 3.5 at the time of writing, I also like to install Web Deploy for Hosting Servers as well)
+- Current version of the Microsoft .NET Framework
+- ASP .NET MVC 3 (as we will be publishing an ASP .NET MVC website)
 
 I like to do a restart at this point, just to ensure that everything is tidied up (although I don't think its 100% necessary, just ensure you restart IIS at the very least).
 

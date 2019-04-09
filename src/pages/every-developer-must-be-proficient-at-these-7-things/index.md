@@ -3,7 +3,8 @@ layout: post
 title: Every developer must be proficient at these 7 things...
 description: Give yourself a boost and make yourself stand out by ensuring that you've got these developer fundamentals covered.
 date: 2015-02-21
-categories: ["Career"]
+categories: ['Career']
+group: 'Personal Growth'
 ---
 
 In 2015, it is as important as ever for developers of all levels of expertise and experience to re-train and update their skills. In the fast moving world of technology, failure to do so can result in career stagnation and ultimately not reaching your full earnings potential. This post is an update to the popular post [10 things every software developer should do in 2014](/career/10-things-every-software-developer-should-do-in-2014/). All of the points made in that post are still relevant and valid so I recommend you take a look.
@@ -45,10 +46,10 @@ This (might) be a slight generalisation, but most people feel most comfortable w
 
 This one is so obvious, I almost didn't include it. You would be amazed at how many developers submit CVs to potential employers littered with spelling mistakes, incomplete or untrue information, and just plain messy by design. I don't claim to be an expert in this field. I have been for a lot of interviews and I have sent my CV to many, many employers. I have also had a lot of feedback from friends, family, recruiters and indeed interviewers too. Here are my top tips for a solid CV;
 
-* Get the basics right. Ensure you CV is 100% free of spelling and grammatical errors. Even the smallest mistakes will guarantee your CV is relegated to the bottom of the pile.
-* Keep the design simple. Personally I use only a single font face, with 2-3 different sizes and minimal formatting. If you are more design oriented, you might want to do something a little more creative, and that's fine too...but don't be **too** creative.
-* Don't tell lies. You will be found out.
-* If you are including links to your portfolio, make sure those links are appropriate to the job your interviewing for. No potential employers want to see your Geocities website from the late 1990's. (Yes I've seen somebody actually do this! Needless to say, they didn't get hired)
+- Get the basics right. Ensure you CV is 100% free of spelling and grammatical errors. Even the smallest mistakes will guarantee your CV is relegated to the bottom of the pile.
+- Keep the design simple. Personally I use only a single font face, with 2-3 different sizes and minimal formatting. If you are more design oriented, you might want to do something a little more creative, and that's fine too...but don't be **too** creative.
+- Don't tell lies. You will be found out.
+- If you are including links to your portfolio, make sure those links are appropriate to the job your interviewing for. No potential employers want to see your Geocities website from the late 1990's. (Yes I've seen somebody actually do this! Needless to say, they didn't get hired)
 
 As for interviewing, again its all in the basics. Make sure you prepare well before the interview, read the job description thoroughly and think about what skills/experience you have that the company are specifically looking for. And as you are a developer, you'll probably want to brush up on your technical skills too, and read some common interview questions so that you aren't caught by surprise. For more information on how to boost your career, I highly recommend checking out an awesome book by [John Sonmez](http://simpleprogrammer.com), [Soft Skills: The software developer's life manual](http://www.amazon.co.uk/gp/product/1617292397/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1617292397&linkCode=as2&tag=jprecom-21&linkId=KAKXXF5Y5DXRMOLQ).
 
@@ -56,11 +57,11 @@ As for interviewing, again its all in the basics. Make sure you prepare well bef
 
 I've touched on this previously in a related post, [8 things every .NET developer must understand](/career/8-things-every-net-developer-must-understand/). However, I cannot emphasise the point enough. Relational databases are not the be-all-and-end-all. Its not sufficient in todays world to only having an understanding of Microsoft SQL Server or MySQL databases and how they work. More and more companies are relying on No-SQL databases to improve performance of persisting and retrieving highly volatile data. No-SQL databases typically lack any formal structure and typically consist of some sort of list of key-value pairs. At first this may seem a bit bizarre, but there are many benefits to structuring data like this;
 
-* Easy to develop with. Either no or few joins. No complex new language to learn.
-* Horizontal scaling
-* Schema-less
-* Supports large objects
-* Low or no licensing costs.
+- Easy to develop with. Either no or few joins. No complex new language to learn.
+- Horizontal scaling
+- Schema-less
+- Supports large objects
+- Low or no licensing costs.
 
 For a more comprehensive look at the benefits of No-SQL databases, take a look at [Adam Fowlers blog post on the subject](https://adamfowlerml.wordpress.com/2013/01/04/why-use-a-nosql-database-and-why-not/). RavenDB, MongoDB, and Windows Azure Blob Storage are the big players at the minute. Each has a relatively low learning curve and are becoming widely adopted by companies. I would suggest you take a look at each.
 

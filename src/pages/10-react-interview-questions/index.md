@@ -6,6 +6,7 @@ date: 2019-04-10
 categories: ['React', 'practical-react-series']
 seriesTitle: Practical React Developer
 featuredImage: './interview.jpg'
+group: 'Personal Growth'
 ---
 
 Interviewing for a developer role does not have to be a stressful experience. Interviewing can be fun. Interviewing can be an opportunity to geek out about the tools and technologies you use every day.

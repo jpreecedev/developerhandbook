@@ -4,6 +4,7 @@ title: Check TFS Online service status using C#
 description:  I have written a little screen scraping tool based on the HTML Agility Pack that will scrape the service status page and report back the current status.
 date: 2014-01-10
 categories: ['C#', '.NET']
+group: 'Software Development'
 ---
 
 If you use TFS Online you may have experienced some unexpected downtime over the last few months. Whilst the service is getting better and better all the time, downtime is still an issue. I have written a little screen scraping tool based on the [HTML Agility Pack](http://htmlagilitypack.codeplex.com/ 'HTML Agility Pack') that will scrape the service status page and report back the current status. Add the following class to your project;

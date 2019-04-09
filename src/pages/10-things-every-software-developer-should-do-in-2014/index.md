@@ -3,7 +3,8 @@ layout: post
 title: 10 things every software developer should do in 2014
 description: It is important in the world of software development that every developer re-train and update their skills regularly.  Here's what to learn in 2014.
 date: 2014-01-18
-categories: ["Career"]
+categories: ['Career']
+group: 'Personal Growth'
 ---
 
 It is important in the world of software development that every developer re-train and update their skills regularly. Failure to do so will probably result in stagnation and loss of earnings over an extended period.There has been a massive shift over the last few years from development of traditional desktop applications being written in Windows Forms (WinForms) and Windows Presentation Foundation (WPF) to the web and mobile. Open standards, including HTML 5 and CSS 3, have been driving a new era in user experience and a large array of new devices are shifting users away from the desktop.
@@ -28,10 +29,10 @@ The World Wide Web has never been as popular as it is today, and the growth is s
 
 ASP .NET MVC is a mature Microsoft .NET platform technology for developing web applications rapidly. Other technologies you will need to know include;
 
-* [HTML 5](http://www.w3schools.com/html/html5_intro.asp) / [CSS 3](http://www.htmlgoodies.com/html5/tutorials/learn-css3-from-a-z-getting-started-with-layouts-.html)
-* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Getting_Started)
-* [jQuery](http://www.w3schools.com/jquery/default.asp?utm_source=twitterfeed&utm_medium=twitter)
-* [Knockout](http://knockoutjs.com/documentation/introduction.html) / [AngularJS](https://geekli.st/zmilan/links/20659)
+- [HTML 5](http://www.w3schools.com/html/html5_intro.asp) / [CSS 3](http://www.htmlgoodies.com/html5/tutorials/learn-css3-from-a-z-getting-started-with-layouts-.html)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Getting_Started)
+- [jQuery](http://www.w3schools.com/jquery/default.asp?utm_source=twitterfeed&utm_medium=twitter)
+- [Knockout](http://knockoutjs.com/documentation/introduction.html) / [AngularJS](https://geekli.st/zmilan/links/20659)
 
 Alternatives to ASP .NET MVC include ASP .NET WebForms (WinForms for the web), [PHP](http://www.php.net/manual/en/getting-started.php) and [MonoRail](http://www.castleproject.org/projects/monorail/).
 
@@ -61,9 +62,9 @@ When you decide on the route you want to take, each route will consist of multip
 
 You should start a blog not for fame or fortune, but for you. A blog is a really good way of getting what you've learnt/experienced out of your head and at the same time you'll giving something back to the development community/your peers. Writing a blog will;
 
-* Improve your writing and documentation skills, which are essential for a well-rounded software developer.
-* Improve your thought process. If you're writing for the world, you need to think hard about what you write and help you write at a high standard, in a way that is accessible to all developers.
-* It'll improve your confidence. Writing on a blog helps improve your self-confidence and self-belief.
+- Improve your writing and documentation skills, which are essential for a well-rounded software developer.
+- Improve your thought process. If you're writing for the world, you need to think hard about what you write and help you write at a high standard, in a way that is accessible to all developers.
+- It'll improve your confidence. Writing on a blog helps improve your self-confidence and self-belief.
 
 Don't worry about traffic to your blog at first, this will come naturally over time. Focus more on writing high quality content that people actually need/are interested in, and traffic will come to you. Most importantly, write regularly, and write for humans and not robots.
 

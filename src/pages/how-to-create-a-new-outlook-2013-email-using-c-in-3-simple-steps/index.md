@@ -3,7 +3,8 @@ layout: post
 title: How to create a new Outlook 2013 Email using C# in 3 simple steps
 description: Working with any part of the Microsoft Office product family from a C# application is hard, but thanks to dynamics and optional parameters the process has dramatically simpler.
 date: 2013-12-14
-categories: ["C#", '.NET']
+categories: ['C#', '.NET']
+group: 'Software Development'
 ---
 
 It has traditionally been quite painful to interact with any part of the Microsoft Office product family from a C# application, but thanks to the introduction of [dynamics](http://msdn.microsoft.com/en-us/library/dd264736.aspx 'Dynamic Keyword in C#') and [optional parameters](http://msdn.microsoft.com/en-us/library/dd264739.aspx 'Optional Parameters') over recent years, the process has dramatically improved.

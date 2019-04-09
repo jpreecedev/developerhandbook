@@ -2,7 +2,8 @@
 layout: post
 title: How to debug websites on your mobile device using Google Chrome
 date: 2016-01-31
-categories: ["Other"]
+categories: ['Other']
+group: 'Software Development'
 ---
 
 I can't believe I have survived this long as a web developer without knowing you can debug websites (JavaScript, CSS, HTML, TypeScript etc.) directly on your mobile device using Google Chrome developer tools. If you are currently using emulators/simulators or testing solutions such as Browser Stack, you will love this easy and free solution. Be warned, however, you will be expected to download 6+ gigabytes of _stuff_ before the magic begins. I've only tested this on my Samsung Galaxy S6 Edge (running Android 5.1.1) but I believe it also works on an iPhone.
@@ -11,10 +12,10 @@ I can't believe I have survived this long as a web developer without knowing you
 
 Before connecting your phone to your computer, please ensure you have all of the following software installed;
 
-* A recent version of the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Android Software Development Kit (SDK)](http://developer.android.com/sdk/index.html)
-* Android SDK Platform Tools
-* If you have a Samsung mobile device, ensure you have the [Samsung Android USB Driver for Windows](http://developer.samsung.com/android/tools-sdks/Samsung-Andorid-USB-Driver-for-Windows) installed. If you don't please download a suitable driver for your device. Google maintains a helpful (although not comprehensive) [list of drivers](https://developer.android.com/tools/extras/oem-usb.html#Drivers) to help you out.
+- A recent version of the [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Android Software Development Kit (SDK)](http://developer.android.com/sdk/index.html)
+- Android SDK Platform Tools
+- If you have a Samsung mobile device, ensure you have the [Samsung Android USB Driver for Windows](http://developer.samsung.com/android/tools-sdks/Samsung-Andorid-USB-Driver-for-Windows) installed. If you don't please download a suitable driver for your device. Google maintains a helpful (although not comprehensive) [list of drivers](https://developer.android.com/tools/extras/oem-usb.html#Drivers) to help you out.
 
 ## Set up your device
 

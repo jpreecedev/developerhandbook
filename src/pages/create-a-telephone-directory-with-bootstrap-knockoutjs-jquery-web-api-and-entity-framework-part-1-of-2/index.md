@@ -1,9 +1,10 @@
 ---
 layout: post
 title: Create a telephone directory with Bootstrap, KnockoutJS, jQuery, Web API and Entity Framework (Part 1 of 2)
-description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. 
+description: The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers.
 date: 2014-03-08
 categories: ['.NET', 'JavaScript', 'Web API', 'Entity Framework']
+group: 'Software Development'
 ---
 
 I find that the best way to learn any new technology, or technology that are unfamiliar with, is to sit down and practice. The purpose of this very simple tutorial is to learn the basics of creating a single page website that can be used to capture peoples names and telephone numbers. By following this tutorial you will learn;
@@ -30,41 +31,41 @@ We're using this template to avoid a lot of the bulk that comes with the other d
 
 Next, use the Package Manager Console to add our third party dependencies;
 
-* Bootstrap (`Install-Package bootstrap` (this will also bring down jQuery, which is a dependency)) >> Used to give us a super pretty user interface.
-* Entity Framework (`Install-Package entityframework`) >> Used for data persistence
-* KnockoutJS (`install-package knockoutjs` (which surprisingly, has no dependencies itself)) >> Used for model binding our form/displaying our data
-* WebAPI (`Install-Package Microsoft.AspNet.WebApi`) >> Used as the back end data service
-* Newtonsoft.Json (`install-package Newtonsoft.Json`) >> Used to JSON-ify our data servers responses
+- Bootstrap (`Install-Package bootstrap` (this will also bring down jQuery, which is a dependency)) >> Used to give us a super pretty user interface.
+- Entity Framework (`Install-Package entityframework`) >> Used for data persistence
+- KnockoutJS (`install-package knockoutjs` (which surprisingly, has no dependencies itself)) >> Used for model binding our form/displaying our data
+- WebAPI (`Install-Package Microsoft.AspNet.WebApi`) >> Used as the back end data service
+- Newtonsoft.Json (`install-package Newtonsoft.Json`) >> Used to JSON-ify our data servers responses
 
 ### Other files
 
 Add the following files in their respective folders;
 
-* Scriptsindex.js
-* Contentsite.css
-* index.html
-* Global.asax (Add New Item > Global Application Class)
+- Scriptsindex.js
+- Contentsite.css
+- index.html
+- Global.asax (Add New Item > Global Application Class)
 
 Open up **index.html** and update the markup as follows; (be sure to substitute the version numbers for the current version number)
 
-* Add **bootstrap.min.css** and **site.css** to the header
-* Add **jquery-1.9.0.min.js**, **bootstrap.min.js, knockout-3.1.0.js** and **index.js** to the body (just above the closing body tag)
+- Add **bootstrap.min.css** and **site.css** to the header
+- Add **jquery-1.9.0.min.js**, **bootstrap.min.js, knockout-3.1.0.js** and **index.js** to the body (just above the closing body tag)
 
 Remember that order matters. You markup should look as follows;
 
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+  <head>
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
-</head>
-<body>
+  </head>
+  <body>
     <script src="jquery-1.9.0.min.js"></script>
     <script src="knockout-3.1.0.js"></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
 ```
 
