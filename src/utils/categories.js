@@ -4,26 +4,41 @@ const CATEGORIES_MAP = {
   'VS Code': 'vs-code'
 }
 
-const DEFAULT_CATEGORIES = ['C#', 'JavaScript', 'Webpack', 'React', 'AWS']
+const DEFAULT_GROUPS = {
+  'Software Development': [
+    'C#',
+    '.NET',
+    'React',
+    'Parcel.js',
+    'TypeScript',
+    'Web API',
+    'JavaScript',
+    'Webpack',
+    'MongoDB',
+    'Node',
+    'WCF',
+    'Entity Framework',
+    'WPF MVVM',
+    'WPF',
+    'Git',
+    'VS Code',
+    'Angular',
+    'Azure',
+    'AWS',
+    'Visual Studio',
+    'Front-end',
+    'Architecture',
+    'Unit Testing',
+    'Other'
+  ],
+  'Personal Growth': ['Career'],
+  'Your Finances': ['Investing']
+}
 
 function getCategoryUrlFriendly(category) {
   return category in CATEGORIES_MAP
     ? CATEGORIES_MAP[category]
     : category.toLowerCase().replace(' ', '-')
-}
-
-function getDistinctCategories(edges) {
-  return edges.reduce((acc, current) => {
-    const data = current.node.frontmatter.categories
-    if (data) {
-      data.forEach(item => {
-        if (item && !acc.includes(item)) {
-          acc.push(item)
-        }
-      })
-    }
-    return acc
-  }, [])
 }
 
 function getLink(category) {
@@ -32,8 +47,7 @@ function getLink(category) {
 
 module.exports = {
   CATEGORIES_MAP,
-  DEFAULT_CATEGORIES,
+  DEFAULT_GROUPS,
   getLink,
-  getDistinctCategories,
   getCategoryUrlFriendly
 }
