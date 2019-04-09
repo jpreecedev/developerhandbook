@@ -1,13 +1,13 @@
 /* eslint-disable no-param-reassign */
 
 const path = require('path')
-const { getCategoryUrlFriendly } = require('../src/utils/categories')
+const { getCategoryUrlFriendly, getDefaultGroups } = require('../src/utils/categories')
 
 function getPostsForCategory(posts, category) {
   return posts.reduce((acc, current) => {
-    const { categories } = current.node.frontmatter
+    const { categories, group } = current.node.frontmatter
     if (categories) {
-      const hasCategory = categories.includes(category)
+      const hasCategory = categories.includes(category) || group === category
       if (hasCategory) {
         acc.push(current.node)
       }
@@ -39,6 +39,21 @@ function Stub(props) {
           description
         }
       })
+    })
+  })
+
+  getDefaultGroups().forEach(group => {
+    const categoryPath = `${getCategoryUrlFriendly(group)}`
+    createPage({
+      path: `/category/${categoryPath}`,
+      component: stub,
+      context: {
+        posts: getPostsForCategory(posts, group),
+        group,
+        mappedCategory: categoryPath,
+        siteTitle,
+        description
+      }
     })
   })
 

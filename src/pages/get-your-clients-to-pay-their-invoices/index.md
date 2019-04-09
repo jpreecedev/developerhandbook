@@ -5,7 +5,7 @@ description: In the interest of getting going quickly, you can develop your Reac
 date: 2019-03-12
 categories: ['Career']
 featuredImage: './invoices.png'
-group: 'Money'
+group: 'Your Finances'
 ---
 
 Software developers today are utilising their free time to earn extra income on the side, commonly referred to as a _side hustle_. Also, especially here in the UK, developers are setting themselves up as Limited companies and billing their clients through invoicing, instead of working as a permanent employee. Either way, essentially, you and your business become a third party. Third parties provide services in the same way a plumber, builder or any other trade would provide services to businesses.

@@ -6,7 +6,7 @@ description: Deciding which FTSE 100 stocks to invest in is a contentious topic.
 date: 2019-04-06
 categories: ['Investing']
 featuredImage: './stocks.jpeg'
-group: 'Money'
+group: 'Your Finances'
 ---
 
 ---

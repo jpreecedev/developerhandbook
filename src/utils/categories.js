@@ -41,6 +41,10 @@ function getCategoryUrlFriendly(category) {
     : category.toLowerCase().replace(' ', '-')
 }
 
+function getDefaultGroups() {
+  return Object.keys(DEFAULT_GROUPS)
+}
+
 function getLink(category) {
   return `/category/${getCategoryUrlFriendly(category)}`
 }
@@ -49,5 +53,6 @@ module.exports = {
   CATEGORIES_MAP,
   DEFAULT_GROUPS,
   getLink,
-  getCategoryUrlFriendly
+  getCategoryUrlFriendly,
+  getDefaultGroups
 }
