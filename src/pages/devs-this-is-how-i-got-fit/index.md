@@ -5,6 +5,7 @@ description: Right now, I'm in pretty good shape. I have the confidence to say t
 date: 2015-09-04
 categories: ['Career']
 group: 'Personal Growth'
+featuredImage: './bodybuilding.jpg'
 ---
 
 Right now, I'm in pretty good shape. I have the confidence to say this because I've worked very hard over the last 18 months to get to this point. I'm not a muscular person, like what you might see in a designer underwear advert...and this was never my personal goal, but I certainly don't feel embarrassed anymore when I take my shirt off. I've discovered a few very simple patterns for losing weight, gaining muscle (at a slow rate) and generally feeling better about myself. This has been such a big success for me, that I felt it only right to share with you.
