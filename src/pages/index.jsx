@@ -1,15 +1,30 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import PostOverview from '../components/PostOverview'
-import Pagination from '../components/Pagination'
 import Layout from '../components/Layout'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import SocialProfile from '../components/StructuredData/SocialProfile'
 
-function BlogIndex({ data, location }) {
+function BlogIndex({ data }) {
   const { siteTitle, description } = data.site.siteMetadata
   const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
+
+  const developmentPosts = posts
+    .filter(post => post.frontmatter.group === 'Software Development')
+    .slice(0, 3)
+  const growthPosts = posts
+    .filter(post => post.frontmatter.group === 'Personal Growth')
+    .slice(0, 3)
+  const financesPosts = posts
+    .filter(post => post.frontmatter.group === 'Your Finances')
+    .slice(0, 3)
+
+  const groupedPosts = [
+    { title: 'Software Development', posts: developmentPosts },
+    { title: 'Personal Growth', posts: growthPosts },
+    { title: 'Your Finances', posts: financesPosts }
+  ]
 
   return (
     <Layout>
@@ -20,24 +35,40 @@ function BlogIndex({ data, location }) {
       </Helmet>
       <main id="content" role="main" className="mb-5 mt-4">
         <div className="container">
-          <div className="row mb-2">
-            {posts.map(post => (
-              <div className="col-12 col-md-6 col-lg-4" key={post.fields.slug}>
-                <PostOverview
-                  post={post}
-                  key={post.fields.slug}
-                  title={post.frontmatter.title}
-                  slug={post.fields.slug}
-                  mappedCategory={`${getCategoryUrlFriendly(
-                    post.frontmatter.categories[0]
-                  )}`}
-                  excerpt={post.excerpt}
-                />
+          {groupedPosts.map(groupedPost => (
+            <>
+              <div className="row mb-2">
+                <div className="col-12">
+                  <h5 className="mt-1">{`Latest posts in "${groupedPost.title}"`}</h5>
+                </div>
               </div>
-            ))}
-          </div>
+              <div className="row mb-2">
+                {groupedPost.posts.map(post => (
+                  <div className="col-12 col-md-6 col-lg-4" key={post.fields.slug}>
+                    <PostOverview
+                      post={post}
+                      key={post.fields.slug}
+                      title={post.frontmatter.title}
+                      slug={post.fields.slug}
+                      mappedCategory={`${getCategoryUrlFriendly(
+                        post.frontmatter.categories[0]
+                      )}`}
+                      excerpt={post.excerpt}
+                    />
+                  </div>
+                ))}
+                <div className="col-12 d-block d-mb-none">
+                  <Link
+                    to={`/category/${getCategoryUrlFriendly(groupedPost.title)}`}
+                    className="d-block mb-3"
+                  >
+                    {`Continue reading posts on "${groupedPost.title}"...`}
+                  </Link>
+                </div>
+              </div>
+            </>
+          ))}
         </div>
-        <Pagination location={location} />
       </main>
     </Layout>
   )
@@ -53,11 +84,7 @@ export const pageQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(
-      limit: 9
-      skip: 0
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           timeToRead
@@ -71,6 +98,7 @@ export const pageQuery = graphql`
             description
             categories
             seriesTitle
+            group
             featuredImage {
               childImageSharp {
                 fluid {
