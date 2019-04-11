@@ -10,7 +10,7 @@ function StandardLayout({ children, title }) {
     >
       <div className="row">
         <article className="col-12">
-          <h1 className="mt-0 mb-4">{title}</h1>
+          <h1 className="mt-0 mb-3">{title}</h1>
           {children}
         </article>
       </div>

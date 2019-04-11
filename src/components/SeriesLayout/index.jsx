@@ -51,7 +51,7 @@ function SeriesLayout({ title, postTitle, children, pathname }) {
     >
       <div className="row">
         <article className="col col-md-9">
-          <h1 className="mt-0 mb-4">{postTitle}</h1>
+          <h1 className="mt-0 mb-3">{postTitle}</h1>
           {children}
         </article>
         <SeriesNavigation
