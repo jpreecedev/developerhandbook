@@ -207,7 +207,7 @@ Cognito has fantastic built in support for federated identity providers, aka soc
 
 To add support for logging in via your existing Google account, for example, do the following;
 
-- Create a Google App and obtain a **Google app Id** and **App secret**. Follow [this tutorial from the offical AWS docs](./https://docs.aws.amazon.com/cognito/latest/developerguide/google.html).
+- Create a Google App and obtain a **Google app Id** and **App secret**. Follow [this tutorial from the offical AWS docs](https://docs.aws.amazon.com/cognito/latest/developerguide/google.html).
 - Go to **Identity providers** under **Federation** in the Cognito dashboard and select **Google**.
 - Enter your **Google app Id** and **App secret**.
 - Enter `profile email openid` as the **Authorize scope**.
