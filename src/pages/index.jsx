@@ -36,7 +36,7 @@ function BlogIndex({ data }) {
       <main id="content" role="main" className="mb-5 mt-4">
         <div className="container">
           {groupedPosts.map(groupedPost => (
-            <>
+            <React.Fragment key={groupedPost.title}>
               <div className="row mb-2">
                 <div className="col-12">
                   <h5 className="mt-1">{`Latest posts in "${groupedPost.title}"`}</h5>
@@ -66,7 +66,7 @@ function BlogIndex({ data }) {
                   </Link>
                 </div>
               </div>
-            </>
+            </React.Fragment>
           ))}
         </div>
       </main>
