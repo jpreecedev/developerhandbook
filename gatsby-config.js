@@ -197,7 +197,7 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-polyfill-io`
+    `gatsby-plugin-polyfill-io`,
+    `gatsby-plugin-offline`
   ]
 }
