@@ -127,6 +127,14 @@ pre[class*='language-javascript'] > code {
   box-shadow: 0px 0px 1px #aaa;
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.7);
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+
 .jumbotron h1 {
   margin-top: 0;
   margin-bottom: 0;
@@ -234,5 +242,40 @@ a {
 
   &:hover {
     color: darken(#1b6ec2, 20);
+  }
+}
+
+.title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    max-width: 90%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+    background-color: #fff;
+    border-bottom: 8px solid #ff8300;
+    border-radius: 4px;
+    box-shadow: 10px 10px 40px -10px rgba(0, 0, 0, 0.75);
+
+    @include media-breakpoint-up(md) {
+      max-width: 90%;
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: 70%;
+      padding: 2rem 4rem;
+      font-size: 2rem;
+    }
   }
 }

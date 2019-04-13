@@ -27,19 +27,24 @@ function BlogIndex({ data }) {
   ]
 
   return (
-    <Layout>
+    <>
       <Helmet>
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
+      <Layout>
+        Welcome to Developer Handbook
+        <br />
+        <small>Your practical web development resource.</small>
+      </Layout>
       <main id="content" role="main" className="mb-5 mt-4">
         <div className="container">
           {groupedPosts.map(groupedPost => (
             <React.Fragment key={groupedPost.title}>
               <div className="row mb-2">
                 <div className="col-12">
-                  <h5 className="mt-1">{`Latest posts in "${groupedPost.title}"`}</h5>
+                  <h2 className="mt-0">{`Latest posts in "${groupedPost.title}"`}</h2>
                 </div>
               </div>
               <div className="row mb-2">
@@ -70,7 +75,7 @@ function BlogIndex({ data }) {
           ))}
         </div>
       </main>
-    </Layout>
+    </>
   )
 }
 

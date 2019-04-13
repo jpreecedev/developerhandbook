@@ -10,14 +10,15 @@ import SocialProfile from '../components/StructuredData/SocialProfile'
 
 function StubTemplate(props) {
   const { location, pageContext } = props
-  const { posts, siteTitle, description } = pageContext
+  const { posts, siteTitle, description, group } = pageContext
 
   if (!posts) {
     return null
   }
 
   return (
-    <Layout>
+    <>
+      <Layout>{group}</Layout>
       <Helmet>
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
@@ -44,7 +45,7 @@ function StubTemplate(props) {
         </div>
         <Pagination location={location} />
       </main>
-    </Layout>
+    </>
   )
 }
 

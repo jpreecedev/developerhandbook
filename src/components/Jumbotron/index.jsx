@@ -4,7 +4,7 @@ import codeWebp from '../../images/code.webp'
 
 import styles from './styles.module.scss'
 
-function Jumbotron() {
+function Jumbotron({ children }) {
   return (
     <div className={`jumbotron jumbotron-fluid ${styles.jumbotron}`}>
       <picture className={styles.hero}>
@@ -12,6 +12,7 @@ function Jumbotron() {
         <source srcSet={code} type="image/jpeg" />
         <img src={code} alt="DeveloperHandbook.com" />
       </picture>
+      {children}
     </div>
   )
 }

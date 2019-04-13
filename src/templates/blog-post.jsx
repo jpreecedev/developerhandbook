@@ -66,7 +66,8 @@ function BlogPostTemplate(props) {
   )
 
   return (
-    <Layout>
+    <>
+      <Layout>{frontmatter.title}</Layout>
       <PostSEO
         post={post}
         siteTitle={siteTitle}
@@ -74,10 +75,7 @@ function BlogPostTemplate(props) {
         baseUrl={url}
         fullUrl={fullUrl}
       />
-      <Jumbotron />
-      {!isSeries && (
-        <StandardLayout title={frontmatter.title}>{postContent}</StandardLayout>
-      )}
+      {!isSeries && <StandardLayout>{postContent}</StandardLayout>}
       {isSeries && (
         <SeriesLayout
           headings={headings}
@@ -88,7 +86,7 @@ function BlogPostTemplate(props) {
           {postContent}
         </SeriesLayout>
       )}
-    </Layout>
+    </>
   )
 }
 

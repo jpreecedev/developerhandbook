@@ -30,6 +30,7 @@ function HTML(props) {
         </noscript>
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
         <script
           src="https://browser.sentry-cdn.com/4.6.1/bundle.min.js"
           crossOrigin="anonymous"

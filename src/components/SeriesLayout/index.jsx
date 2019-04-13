@@ -38,29 +38,23 @@ const reactPosts = {
   '/react/10-react-interview-questions/': '10 React.js interview questions'
 }
 
-function SeriesLayout({ title, postTitle, children, pathname }) {
+function SeriesLayout({ title, children, pathname }) {
   const seriesNavigationTitle =
     title === webpackSeriesTitle ? webpackSeriesTitle : reactSeriesTitle
   const posts = title === webpackSeriesTitle ? webpackPosts : reactPosts
   return (
-    <main
-
-      role="main"
-      className={classnames('container', styles.container)}
-      style={{ marginBottom: '10rem' }}
-    >
+    <div className="container">
       <div className="row">
-        <article id="content" className="col col-md-9">
-          <h1 className="mt-0 mb-3">{postTitle}</h1>
-          {children}
-        </article>
+        <main role="main" className="col-12 col-md-9" style={{ marginBottom: '10rem' }}>
+          <article id="content">{children}</article>
+        </main>
         <SeriesNavigation
           title={seriesNavigationTitle}
           posts={posts}
           currentUrl={pathname}
         />
       </div>
-    </main>
+    </div>
   )
 }
 
