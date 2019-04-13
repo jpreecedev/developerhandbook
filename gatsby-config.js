@@ -148,7 +148,54 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#ff8300`,
         display: `minimal-ui`,
-        icon: `src/images/jonpreece-square.png` // This path is relative to the root of the site.
+        icon: 'src/images/jonpreece-square.jpg',
+        icons: [
+          {
+            src: `icons/jonpreece-48.jpg`,
+            sizes: `48x48`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-72.jpg`,
+            sizes: `72x72`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-96.jpg`,
+            sizes: `96x96`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-128.jpg`,
+            sizes: `128x128`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-144.jpg`,
+            sizes: `144x144`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-192.jpg`,
+            sizes: `192x192`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-256.jpg`,
+            sizes: `256x256`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-384.jpg`,
+            sizes: `384x384`,
+            type: `image/jpg`
+          },
+          {
+            src: `icons/jonpreece-512.jpg`,
+            sizes: `512x512`,
+            type: `image/jpg`
+          }
+        ]
       }
     },
     `gatsby-plugin-offline`,

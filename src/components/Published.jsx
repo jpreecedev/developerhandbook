@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import profilePic from '../images/jonpreece-square.png'
+import profilePic from '../images/jonpreece-square.jpg'
 import twitter from '../images/twitter.png'
 
 function Published({ post, showProfile }) {

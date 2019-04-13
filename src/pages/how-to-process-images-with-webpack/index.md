@@ -73,7 +73,7 @@ The loader can process the following file extensions; `.gif, .png, .jpg, .jpeg, 
 
 To simplify our imports, we can add those file extensions to `resolve` > `extensions`.
 
-Now let's test this out. Grab an image and drop it into a new folder under `src` called `images`. (I have one called `jonpreece-square.png`)
+Now let's test this out. Grab an image and drop it into a new folder under `src` called `images`. (I have one called `jonpreece-square.jpg`)
 
 Open `app.js`, and import the image as follows;
 
