@@ -1,5 +1,5 @@
 import * as React from 'react'
-import jonpreece from '../images/jonpreece-square.jpg'
+import jonpreece from '../images/jonpreece-96.png'
 
 function MiniProfile() {
   return (
