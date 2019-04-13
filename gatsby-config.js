@@ -148,12 +148,51 @@ module.exports = {
         background_color: `#f7f0eb`,
         theme_color: `#ff8300`,
         display: `minimal-ui`,
-        icon: 'src/images/jonpreece-square.jpg',
         icons: [
           {
-            src: `icons/jonpreece-512.jpg`,
+            src: `icons/jonpreece-48.png`,
+            sizes: `48x48`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-72.png`,
+            sizes: `72x72`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-96.png`,
+            sizes: `96x96`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-128.png`,
+            sizes: `128x128`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-144.png`,
+            sizes: `144x144`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-192.png`,
+            sizes: `192x192`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-256.png`,
+            sizes: `256x256`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-384.png`,
+            sizes: `384x384`,
+            type: `image/png`
+          },
+          {
+            src: `icons/jonpreece-512.png`,
             sizes: `512x512`,
-            type: `image/jpg`
+            type: `image/png`
           }
         ]
       }
