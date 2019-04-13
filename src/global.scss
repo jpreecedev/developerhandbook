@@ -27,6 +27,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 76px;
+  font-display: swap;
 }
 
 :root {
@@ -218,4 +219,20 @@ cite {
 
 .pointer {
   cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #1b6ec2;
+
+  &:hover {
+    background-color: darken(#1b6ec2, 20);
+  }
+}
+
+a {
+  color: #1b6ec2;
+
+  &:hover {
+    color: darken(#1b6ec2, 20);
+  }
 }

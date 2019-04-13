@@ -44,13 +44,13 @@ function SeriesLayout({ title, postTitle, children, pathname }) {
   const posts = title === webpackSeriesTitle ? webpackPosts : reactPosts
   return (
     <main
-      id="content"
+
       role="main"
       className={classnames('container', styles.container)}
       style={{ marginBottom: '10rem' }}
     >
       <div className="row">
-        <article className="col col-md-9">
+        <article id="content" className="col col-md-9">
           <h1 className="mt-0 mb-3">{postTitle}</h1>
           {children}
         </article>
