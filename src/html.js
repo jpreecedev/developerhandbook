@@ -2,15 +2,6 @@
 
 import * as React from 'react'
 
-const jquery = <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" defer />
-const popper = <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js" defer />
-const bootstrap = (
-  <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    defer
-  />
-)
-
 function HTML(props) {
   const {
     htmlAttributes,
@@ -45,9 +36,6 @@ function HTML(props) {
             __html: `Sentry.init({ dsn: 'https://594c4a6c1a7a4773b4cc091391baa124@sentry.io/1380152' });`
           }}
         />
-        {jquery}
-        {popper}
-        {bootstrap}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         <script
           dangerouslySetInnerHTML={{
