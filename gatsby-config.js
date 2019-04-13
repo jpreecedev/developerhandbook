@@ -151,7 +151,7 @@ module.exports = {
         icon: `src/images/jonpreece-square.png` // This path is relative to the root of the site.
       }
     },
-    'gatsby-plugin-remove-serviceworker',
+    `gatsby-plugin-offline`,
     `gatsby-plugin-polyfill-io`
   ]
 }
