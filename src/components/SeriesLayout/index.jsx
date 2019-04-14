@@ -1,7 +1,5 @@
 import React from 'react'
-import classnames from 'classnames'
 
-import styles from './styles.module.scss'
 import SeriesNavigation from '../SeriesNavigation'
 
 const webpackSeriesTitle = 'Intro to Webpack mini series'

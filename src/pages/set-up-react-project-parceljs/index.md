@@ -73,7 +73,7 @@ Finally, add the following NPM script to your `package.json` file;
 
 Run `npm start` in your terminal and you are up and running.
 
-![Parcel.js, React "Hello, World!"](parceljs-hello-world.png)
+![Parcel.js, React Hello, World!](parceljs-hello-world.png)
 
 Go to `http://localhost:1234` in your browser and you should see "Hello, World" as shown in the above screenshot. This is not React code, this is just static HTML. We will add the React code next.
 
