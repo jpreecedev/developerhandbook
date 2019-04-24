@@ -11,7 +11,9 @@ Web API is a feature of the ASP .NET framework that dramatically simplifies buil
 
 The purpose of this tutorial is to develop the beginnings of a Book Store API, using [Microsoft Web API](http://www.asp.net/web-api) with (C#), which authenticates and authorizes each requests, exposes OAuth2 endpoints, and returns data about books and reviews for consumption by the caller. The caller in this case will be [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en), a useful utility for querying API's.
 
-In a follow up to this post we will write a front end to interact with the API directly.
+In a follow-up to this post we will write a front end to interact with the API directly.
+
+If you are looking to <u><strong>level up</strong></u> your ASP .NET Web API knowledge to <u><strong>become a true expert</strong></u>, I highly recommend checking out [Expert ASP.NET Web API 2 for MVC Developers](https://www.amazon.co.uk/gp/product/1484200861/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1484200861&linkCode=as2&tag=jprecom-21&linkId=679b808baefe4e6fa945f8bc5617aabd). This book will teach you everything you need to know about building real world Web API programs, and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
 
 ## Set up
 
@@ -25,7 +27,7 @@ Next, packages.
 
 ## Packages
 
-Open up the **packages.config** file. Some packages should have already been added to enable Web API itself. Please add the the following additional packages;
+Open up the **packages.config** file. Some packages should have already been added to enable Web API itself. Please add the following additional packages;
 
 ```powershell
 install-package EntityFramework
@@ -209,7 +211,7 @@ See Mozilla Developer Network (MDN) for a more comprehensive write-up on [Cross-
 
 ## Data Model
 
-With Entity Framework configured, lets create our data structure. The API will expose books, and books will have reviews.
+With Entity Framework configured, let's create our data structure. The API will expose books, and books will have reviews.
 
 Under the **Models** folder add a new class called `Book`. Add the following code;
 
@@ -294,7 +296,7 @@ I'm not sure what the default value is, all I know is it doesn't seem to corresp
 
 ## API Controller
 
-We need to expose some data to our client (when we write it). Lets take advantage of Entity Frameworks `Seed` method. The `Seed` method will pre-populate some books and reviews automatically for us.
+We need to expose some data to our client (when we write it). let's take advantage of Entity Frameworks `Seed` method. The `Seed` method will pre-populate some books and reviews automatically for us.
 
 Instead of dropping the code in directly for this class (it is very long), please refer to the [**Configuration.cs** file on GitHub.](https://github.com/jpreecedev/BookStoreAPI/blob/master/Core/Configuration.cs)
 
@@ -426,11 +428,11 @@ The `Delete` method is trivial. We accept the **Id** of the review we want to de
 
 ## Meaningful response codes
 
-We want to return useful information back to the client as much as possible. Notice that the `Post` method returns `NotFound()`, which translates to a 404 HTTP status code, if the corresponding `Book` for the given review cannot be found. This is useful for client side error handling. Returning `Ok()` will return 200 (HTTP 'Ok' status code), which informs the client that the operation was successful.
+We want to return useful information back to the client as much as possible. Notice that the `Post` method returns `NotFound()`, which translates to a 404 HTTP status code, if the corresponding `Book` for the given review cannot be found. This is useful for client-side error handling. Returning `Ok()` will return 200 (HTTP 'Ok' status code), which informs the client that the operation was successful.
 
 ## Authentication and Authorization Using OAuth and JSON Web Tokens (JWT)
 
-My preferred approach for dealing with authentication and authorization is to use JSON Web Tokens (JWT). We will open up an OAuth endpoint to client credentials and return a token which describes the users claims. For each of the users roles we will add a claim (which could be used to control which views the user has access to on the client side).
+My preferred approach for dealing with authentication and authorization is to use JSON Web Tokens (JWT). We will open up an OAuth endpoint to client credentials and return a token which describes the users claims. For each of the users roles we will add a claim (which could be used to control which views the user has access to on the client-side).
 
 We use OWIN to add our OAuth configuration into the pipeline. Add a new class to the project called **Startup.cs** and add the following code;
 
@@ -481,7 +483,7 @@ namespace BooksAPI
 }
 ```
 
-**Note**. When I wrote this code originally I encountered a quirk. After spending hours pulling out my hair trying to figure out why something was not working, I eventually discovered that the ordering of the code in this class is very important. If you don't copy the code in the **exact** same order, you may encounter unexpected behaviour. Please add the code in the same order as described below.
+**Note**. When I wrote this code originally, I encountered a quirk. After spending hours pulling out my hair trying to figure out why something was not working, I eventually discovered that the ordering of the code in this class is very important. If you don't copy the code in the **exact** same order, you may encounter unexpected behaviour. Please add the code in the same order as described below.
 
 ## OAuth secrets
 
@@ -527,6 +529,12 @@ app.CreatePerOwinContext(() => new BookUserManager());
 The first time we request an instance of `BooksContext` for example, the lambda expression will execute and a new `BooksContext` will be created and returned to us. Subsequent requests will return the same instance.
 
 **Important note**: The life-cycle of object instance is _per-request_. As soon as the request is complete, the instance is cleaned up.
+
+<div class="alert alert-warning pb-0 mt-5">
+
+Enjoying the post so far? To <u><strong>level up</strong></u> your ASP .NET Web API knowledge to <u><strong>become a true expert</strong></u>, I highly recommend checking out [Expert ASP.NET Web API 2 for MVC Developers](https://www.amazon.co.uk/gp/product/1484200861/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1484200861&linkCode=as2&tag=jprecom-21&linkId=679b808baefe4e6fa945f8bc5617aabd). This book will teach you everything you need to know about building real world Web API programs, and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
+
+</div>
 
 ## Enabling Bearer Authentication/Authorization
 
@@ -623,7 +631,7 @@ namespace BooksAPI.Identity
 }
 ```
 
-This is a complicated looking class, but its pretty straightforward. We are just fetching all the information needed to generate the token, including the claims, issued date, expiration date, key and then we're generating the token and returning it back.
+This is a complicated looking class, but it is pretty straightforward. We are just fetching all the information needed to generate the token, including the claims, issued date, expiration date, key and then we're generating the token and returning it back.
 
 **Please note**: Some of the code we are writing today was influenced by [JSON Web Token in ASP.NET Web API 2 using OWIN](http://bitoftech.net/2014/10/27/json-web-token-asp-net-web-api-2-jwt-owin-authorization-server/) by Taiseer Joudeh. I highly recommend checking it out.
 
@@ -763,7 +771,7 @@ You should get the following response;
 }
 ```
 
-Great its working. Now let's fix that problem.
+Great it is working. Now let's fix that problem.
 
 Make a **POST** request to the OAuth endpoint, and include the following;
 
@@ -825,4 +833,7 @@ Success! We have data from our secure endpoint.
 
 In this introduction we looked at creating a project using Web API to issue and authenticate Jwt (JSON Web Tokens). We created a simple endpoint to retrieve a list of books, and also added the ability to get a specific book/review and delete reviews in a RESTful way.
 
-This project is the foundation for subsequent posts that will explore creating a rich client side application, using modern JavaScript frameworks, which will enable authentication and authorization.
+This project is the foundation for subsequent posts that will explore creating a rich client-side application, using modern JavaScript frameworks, which will enable authentication and authorization.
+
+Would you like to learn more about writing more efficient code? Check out my post "[How to write more efficient and maintainable C# code](/c-sharp/how-to-write-more-efficient-and-maintainable-csharp-code/)".
+

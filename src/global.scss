@@ -20,6 +20,7 @@
 @import '~bootstrap/scss/media';
 @import '~bootstrap/scss/badge';
 @import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/alert';
 @import '~bootstrap/scss/pagination';
 @import '~bootstrap/scss/utilities';
 
@@ -141,6 +142,18 @@ pre[class*='language-javascript'] > code {
   font-weight: 300;
 }
 
+.gatsby-resp-image-figcaption {
+  display: block;
+  margin: 16px 0 0 0;
+  padding-bottom: 16px;
+  font-size: small;
+  text-align: center;
+}
+
+.gatsby-resp-image-image {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset !important;
+}
+
 main {
   h1,
   h2,
@@ -253,8 +266,8 @@ a {
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   h1 {
     max-width: 90%;

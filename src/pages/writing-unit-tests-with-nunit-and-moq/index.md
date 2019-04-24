@@ -7,7 +7,11 @@ categories: ['Unit Testing', 'C#', '.NET']
 group: 'Software Development'
 ---
 
-I'm assuming that you have seen the light, and that you are sold on the benefits (and indeed the drawbacks) of unit testing. I have read literally dozens of blog posts, watched many videos, and read several books about unit testing and the various approaches and frameworks. I have worked with several of these frameworks in both small and enterprise level applications, and I have found that (in my opinion at least) NUnit and Moq are great for helping to get simple tests written quickly and to a decent standard. The purpose of this blog post is to get you up and running writing your first unit tests with NUnit and Moq quickly. If you want to go further and learn unit testing in depth using mocking frameworks such as Moq, FakeItEasy and Typemock Isolator, I highly recommend checking out [The Art of Unit Testing: with examples in C#](http://www.amazon.co.uk/gp/product/1617290890/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1617290890&linkCode=as2&tag=jprecom-21) by Roy Osherove. [About Moq](https://code.google.com/p/moq/ 'Moq')
+I'm assuming that you have seen the light, and that you are sold on the benefits (and indeed the drawbacks) of unit testing. I have read literally dozens of blog posts, watched many videos, and read several books about unit testing and the various approaches and frameworks. I have worked with several of these frameworks in both small and enterprise level applications, and I have found that (in my opinion at least) NUnit and Moq are great for helping to get simple tests written quickly and to a decent standard. The purpose of this blog post is to get you up and running writing your first unit tests with NUnit and Moq quickly.
+
+**If you want to learn unit testing in depth** using mocking frameworks such as Moq, FakeItEasy and Typemock Isolator, I highly recommend checking out [The Art of Unit Testing: with examples in C#](http://www.amazon.co.uk/gp/product/1617290890/ref=as_li_tf_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1617290890&linkCode=as2&tag=jprecom-21) by Roy Osherove.
+
+[About Moq](https://code.google.com/p/moq/ 'Moq');
 
 > Moq (pronounced "Mock-you" or just "Mock") is the only mocking library for .NET developed from scratch to take full advantage of .NET 3.5 (i.e. Linq expression trees) and C# 3.0 features (i.e. lambda expressions) that make it the most productive, type-safe and refactoring-friendly mocking library available. And it supports mocking interfaces as well as classes. Its API is extremely simple and straightforward, and doesn't require any prior knowledge or experience with mocking concepts.
 
@@ -62,7 +66,7 @@ Personally, I prefer the latter two approaches. And which one I use largely depe
 
 A great definition of Mocking from [Wikipedia](http://en.wikipedia.org/wiki/Mock_object 'Mock Object');
 
-> In object-oriented programming, mock objects are simulated objects that mimic the behavior of real objects in controlled ways. A programmer typically creates a mock object to test the behavior of some other object, in much the same way that a car designer uses a crash test dummy to simulate the dynamic behavior of a human in vehicle impacts.
+> In object-oriented programming, mock objects are simulated objects that mimic the behaviour of real objects in controlled ways. A programmer typically creates a mock object to test the behaviour of some other object, in much the same way that a car designer uses a crash test dummy to simulate the dynamic behaviour of a human in vehicle impacts.
 
 Moq provides us with an easy way of creating mock objects;
 
@@ -193,3 +197,5 @@ You can declare the behaviour of each `MockObject` created by the `MockRepositor
 ### Summary
 
 Moq is a powerful, extremely flexible mocking framework. When used in conjunction with NUnit, you have all the tools you need to write fast, useful unit tests that can improve the reliability of your code.
+
+Would you like to learn more about writing more efficient code? Check out my post "[How to write more efficient and maintainable C# code](/c-sharp/how-to-write-more-efficient-and-maintainable-csharp-code/)".
