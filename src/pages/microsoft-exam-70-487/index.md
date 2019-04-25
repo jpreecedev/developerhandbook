@@ -40,7 +40,7 @@ Back in January, Microsoft put on an event in celebration of the awesomeness tha
 
 ## My Honest Opinion
 
-Brace yourselves, the truth is coming. Don't <span style="text-decoration: line-through;">waste</span> spend too much time studying Microsoft Azure. But wait, isn't this a Microsoft Azure exam? Well yes it is, but the questions I was asked about Microsoft Azure were pretty straightforward, and any competent developer could have used their powers of deduction to figure out the answers. Instead, you should focus more of your efforts on getting hands on with WCF. [I wrote a few blog posts](/wcf/) about various WCF topics, I recommend you check them out.
+Brace yourselves, the truth is coming. Don't <span style="text-decoration: line-through;">waste</span> spend too much time studying Microsoft Azure. But wait, isn't this a Microsoft Azure exam? Well yes it is, but the questions I was asked about Microsoft Azure were pretty straightforward, and any competent developer could have used their powers of deduction to figure out the answers. Instead, you should focus more of your efforts on getting hands on with WCF. [I wrote a few blog posts](/category/wcf/) about various WCF topics, I recommend you check them out.
 
 ## Summary
 
