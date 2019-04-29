@@ -48,12 +48,6 @@ function HTML(props) {
      })`
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `function amazonAffiliate() { window.document.querySelectorAll('a[href*="jprecom-21"]').forEach(function (d) {
-            return d.setAttribute('target', '_blank'); }); }; window.onload = amazonAffiliate;`
-          }}
-        />
       </body>
     </html>
   )
