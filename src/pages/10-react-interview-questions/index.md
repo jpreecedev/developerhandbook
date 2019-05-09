@@ -214,12 +214,6 @@ This is JavaScript code that can now be read and executed by the runtime (browse
 **Difficulty**: Intermediate.<br/>
 **Reasoning**: Demonstrates that the interviewee has a deeper understanding of the development ecosystem, Babel, transpilation/compilation.
 
-<div class="alert alert-warning mt-5 pb-0 mb-5">
-
-**Really want to SMAAAASSSH your next interview??**. I learnt how to NAIL every interview I have ever been to by reading one book (a timeless classic that has been revised 6 times!), [Cracking the Coding Interview](https://www.amazon.co.uk/gp/product/0984782850/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=0984782850&linkCode=as2&tag=jprecom-21&linkId=7d42244353119e99236313f056b131d3). This book has no fewer than <strong>189</strong> interview questions (from basic to advanced), a walkthrough of each solution, strategies to solve even the most complex algorithmic problems, Big O, data structures, soft skills and EVERYTHING else you need to land that dream job at a top company...and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
-
-</div>
-
 ## What is React Context API?
 
 React Context provides a mechanism for sharing state between components without needing to directly pass props down the component tree.

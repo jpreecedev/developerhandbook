@@ -81,12 +81,6 @@ Hello, bob
 
 We're all set to wire up Mongoose and connect to our MongoDB Atlas database.
 
-<div class="alert alert-warning mt-5 pb-0 mb-5">
-
-**Become a MongoDB expert** by reading one of my favourite books from Packt Publishing, [Mastering MongoDB 3.x: An expert's guide to building fault-tolerant MongoDB applications](https://www.amazon.co.uk/gp/product/1783982608/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1783982608&linkCode=as2&tag=jprecom-21&linkId=e15d667e078d4717c8ab107e9e7310f2).  This book will teach you everything you need to know to become a <strong><u>true expert</u></strong> of everything MongoDB, and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
-
-</div>
-
 ## Use Mongoose to add and retrieve data from MongoDB Atlas database
 
 To work with MongoDB, we need to define the shape of our data (the Schema), connect to the database, run our query and then close the connection, so let's get started.

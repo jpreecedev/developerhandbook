@@ -530,12 +530,6 @@ The first time we request an instance of `BooksContext` for example, the lambda 
 
 **Important note**: The life-cycle of object instance is _per-request_. As soon as the request is complete, the instance is cleaned up.
 
-<div class="alert alert-warning pb-0 mt-5">
-
-Enjoying the post so far? To <u><strong>level up</strong></u> your ASP .NET Web API knowledge to <u><strong>become a true expert</strong></u>, I highly recommend checking out [Expert ASP.NET Web API 2 for MVC Developers](https://www.amazon.co.uk/gp/product/1484200861/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=1484200861&linkCode=as2&tag=jprecom-21&linkId=679b808baefe4e6fa945f8bc5617aabd). This book will teach you everything you need to know about building real world Web API programs, and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
-
-</div>
-
 ## Enabling Bearer Authentication/Authorization
 
 To enable bearer authentication, add the following code;
@@ -836,4 +830,3 @@ In this introduction we looked at creating a project using Web API to issue and 
 This project is the foundation for subsequent posts that will explore creating a rich client-side application, using modern JavaScript frameworks, which will enable authentication and authorization.
 
 Would you like to learn more about writing more efficient code? Check out my post "[How to write more efficient and maintainable C# code](/c-sharp/how-to-write-more-efficient-and-maintainable-csharp-code/)".
-

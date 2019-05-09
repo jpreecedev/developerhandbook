@@ -106,12 +106,6 @@ module.exports = {
 }
 ```
 
-<div class="alert alert-warning mt-5 pb-0 mb-5">
-
-**Webpack is hard**.  I mean *seriously*.  Webpack is hard.  Do you want to <strong><u>level up</u></strong> and become a true Webpack expert?  I highly recommend checking out [SurviveJS - Webpack: From apprentice to master](https://www.amazon.co.uk/gp/product/9526868803/ref=as_li_tl?ie=UTF8&camp=1634&creative=6738&creativeASIN=9526868803&linkCode=as2&tag=jprecom-21&linkId=224c79b4e39e68f97b585177e9a8440d).  This book will teach you everything you need to know to become a true Webpack master, and by purchasing the book you will help us keep this resource freely available for everybody (this is an Amazon affiliate link).
-
-</div>
-
 **Note** to simplify our imports in our JavaScript file, we should add the `.scss` file extension to `resolve` > `extensions` as shown above.
 
 The first rule only applies to files with the `.module.scss` or `.module.sass` file extensions. First, SCSS is converted to CSS (`sass-loader`), then run through `css-loader` to process `@import()`, `url()` etc, then `style-loader` (to be appended to the DOM) or Mini CSS Extract Plugin to externalise the CSS when doing a production build.
