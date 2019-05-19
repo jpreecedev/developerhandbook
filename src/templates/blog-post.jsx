@@ -5,12 +5,10 @@ import { graphql } from 'gatsby'
 import RehypeReact from 'rehype-react'
 import config from '../../site-config'
 
-import Jumbotron from '../components/Jumbotron'
 import Published from '../components/Published'
 import PostSEO from '../components/PostSEO'
 import Comments from '../components/Comments'
 import Categories from '../components/Categories'
-import PullRequest from '../components/PullRequest'
 import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import StandardLayout from '../components/StandardLayout'
@@ -26,13 +24,12 @@ const renderAst = new RehypeReact({
 }).Compiler
 
 function BlogPostTemplate(props) {
-  const { data, location, pageContext } = props
+  const { data, location } = props
   const post = data.markdownRemark
   const { headings } = post
   const { frontmatter } = post
   const { siteTitle } = data.site.siteMetadata
   const { pathname } = location
-  const { slug } = pageContext
 
   const { url } = config
   const fullUrl = url + pathname
@@ -59,7 +56,6 @@ function BlogPostTemplate(props) {
       <Published post={post} {...disqusConfig} showProfile />
       <div>{renderAst(post.htmlAst)}</div>
       <Categories post={post} />
-      <PullRequest slug={slug} />
       <MiniProfile />
       <Comments {...disqusConfig} />
     </>
