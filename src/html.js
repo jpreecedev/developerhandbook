@@ -48,6 +48,10 @@ function HTML(props) {
      })`
           }}
         />
+        <link
+          href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap"
+          rel="stylesheet"
+        />
       </body>
     </html>
   )
