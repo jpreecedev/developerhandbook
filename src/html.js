@@ -30,15 +30,6 @@ function HTML(props) {
         </noscript>
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
-        <script
-          src="https://browser.sentry-cdn.com/4.6.1/bundle.min.js"
-          crossOrigin="anonymous"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `Sentry.init({ dsn: 'https://594c4a6c1a7a4773b4cc091391baa124@sentry.io/1380152' });`
-          }}
-        />
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         <script
           dangerouslySetInnerHTML={{

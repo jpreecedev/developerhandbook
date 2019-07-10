@@ -15,8 +15,7 @@
     "graphql": false,
     " __PREFIX_PATHS__": false,
     "__PREFIX_PATHS__": false,
-    "__PATH_PREFIX__": false,
-    "Sentry": false
+    "__PATH_PREFIX__": false
   },
   "plugins": ["react"],
   "extends": ["airbnb", "prettier"],

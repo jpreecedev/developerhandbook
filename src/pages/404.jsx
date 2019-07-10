@@ -3,14 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-function NotFoundPage({ data, location }) {
-  React.useEffect(() => {
-    const { pathname, hostname } = location
-    if (hostname !== 'localhost') {
-      Sentry.captureMessage(`404! ${pathname}`)
-    }
-  }, [])
-
+function NotFoundPage({ data }) {
   const { siteTitle, description } = data.site.siteMetadata
 
   return (
