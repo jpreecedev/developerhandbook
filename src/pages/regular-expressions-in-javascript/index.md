@@ -16,7 +16,7 @@ Please remember the following;
 
 - You are not a regex expert. Not now, not ever, and you will never will be. Period.
 - There are probably a million better ways of writing every regex on this page.
-- Remember the age old golden rule; _If you use a regex to fix a problem, you now have two problems_. Are you sure it is a regex you need?
+- Remember the age-old golden rule; _If you use a regex to fix a problem, you now have two problems_. Are you sure it is a regex you need?
 - (P.s. all this totally made sense when you wrote it)
 
 ## How to use a regex in JavaScript
@@ -65,7 +65,7 @@ Typically, in the real world, you will use regexes for the following reasons;
 - Validate user input, like; email addresses, phone numbers etc.
 - Replace old values in strings with new values.
 - Insert characters. I.e. format the following number, `100000000`, as `10,000,000`.
-- That is about it. Every other usecase is probably wrong.
+- That is about it. Every other use case is probably wrong.
 
 ## JavaScript Regex Metacharacters
 
@@ -96,7 +96,7 @@ Explanation;
 - Define a capture group using parenthesis `( )` so we can use the logical OR operator `|` to allow either `0` or `+44`. A forward slash is required before the `+`, because we mean the literal character `+` and not the regex metacharacter. Also include `?:` because we do not want this capture group to be included in the matches when we execute the regex later.
 - Match the literal number `7`
 - Use `\d` metacharacter as a shortcut for `[0-9]` range.
-- Only match when exactly `9` of the preceeding expression (`\d`) are found. `{9}` I guess is an abbreviation for `{9,9}`, meaning a minimum of `9` and a maximum of `9` in length.
+- Only match when exactly `9` of the preceding expression (`\d`) are found. `{9}` I guess is an abbreviation for `{9,9}`, meaning a minimum of `9` and a maximum of `9` in length.
 
 ### Find a URL(s)
 
@@ -113,7 +113,7 @@ Resulting expression; `https?:\/\/(?:www\.)?(?:[a-z]+)\.co(?:m|\.uk)`
 Explanation;
 
 - Literally match `http`.
-- `s` (SSL) is marked as optional using `?`, which marks the preceeding character as optional.
+- `s` (SSL) is marked as optional using `?`, which marks the preceding character as optional.
 - Literally match `//`. Note the forward slashes are escaped using a backwards slash `\\` to clearly denote that these are not metacharacters.
 - Exactly match `www.` (again, use a backward slash `\\` to escape the period `.`). Wrap the statement in parenthesis `( )` so that we can use the optional metacharacter `?` to mark the whole group as optional. We have also used `?:` to exclude the capture group from the resulting matches.
 - Next, allow lowercase alphabet characters within the range of `a-z`. The `+` denotes that at least 1 (or more) is required. Again, we have used `?:` to exclude the capture group from the resulting matches.
