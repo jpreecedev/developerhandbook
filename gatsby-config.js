@@ -115,6 +115,7 @@ module.exports = {
                       frontmatter {
                         title
                         date
+                        updated
                         categories
                         seriesTitle
                       }

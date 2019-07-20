@@ -28,11 +28,11 @@ function Published({ post, showProfile }) {
               Jon Preece
             </a>
             <br />
+            {`Published on `}
             {post.frontmatter.date}
             {' · '}
-            {post.timeToRead}
-            {' '}
-minute read
+            {post.frontmatter.updated && `Updated on ${post.frontmatter.updated} · `}
+            {post.timeToRead} minute read.
           </p>
         </div>
       )}

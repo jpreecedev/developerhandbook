@@ -37,6 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 description
                 date(formatString: "DD MMMM, YYYY")
+                updated(formatString: "DD MMMM, YYYY")
                 seriesTitle
                 group
               }

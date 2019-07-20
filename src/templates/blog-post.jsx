@@ -109,6 +109,7 @@ export const pageQuery = graphql`
         title
         description
         date(formatString: "MMM DD, YYYY")
+        updated(formatString: "MMM DD, YYYY")
         seriesTitle
       }
     }
