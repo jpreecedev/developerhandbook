@@ -10,6 +10,16 @@ group: 'Software Development'
 
 Your website will look pretty plain without some styles. SCSS is a popular choice for styling and is fairly straightforward to configure.
 
+Please note, this post assumes that you already have an existing project built using React, and that you want to add support for SCSS modules. If you need help getting started, check out my post; [Webpack 4 from absolute scratch](/webpack/webpack-4-from-absolute-scratch/).
+
+If you do not already have this line in your Webpack configuration file, go ahead and add it;
+
+```javascript
+const isDevelopment = process.env.NODE_ENV === 'development'
+```
+
+This is used to optimize your bundles only when building for production, which should result in better development time performance.
+
 We will focus on SCSS modules and global SCSS, so let's get started.
 
 Run the following command in your terminal to install Sass and related tooling;
