@@ -92,7 +92,7 @@ npm install --save-dev clean-webpack-plugin
 Open `webpack.config.js` and import the plugin;
 
 ```javascript
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 ```
 
 And add it to the `plugins` section as follows;
@@ -100,12 +100,12 @@ And add it to the `plugins` section as follows;
 ```javascript
 module.exports = {
   ///...
-  plugins: [new CleanWebpackPlugin(['dist'])]
+  plugins: [new CleanWebpackPlugin()]
   ///...
 }
 ```
 
-We are essentially saying; "Before each build, delete the folder in the current directory called `dist`".
+We are essentially saying; "Before each build, delete the folder in the current directory called `dist` (`dist` is the default, which you could override)".
 
 Run the following command;
 
