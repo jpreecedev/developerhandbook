@@ -187,12 +187,12 @@ First rename `src/index.js` to `src/index.ts`. TypeScript is opt in, and JavaScr
 
 Open `src/index.ts`, delete all existing code, and add the following;
 
-```javascript
+```typescript
 interface User {
-  id: number;
-  username: string;
-  firstName: string;
-  lastName: string;
+  id: number
+  username: string
+  firstName: string
+  lastName: string
 }
 
 const newUser: User = {
@@ -219,9 +219,10 @@ npm install --save-dev @babel/preset-typescript
 
 Next, open `.babelrc` and all `@babel/preset-typescript` as shown;
 
-```json
+```diff
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"]
+-  "presets": ["@babel/preset-env", "@babel/preset-react"]
++  "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"]
 }
 ```
 

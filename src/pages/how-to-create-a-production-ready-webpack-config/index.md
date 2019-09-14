@@ -3,16 +3,15 @@ layout: post
 title: How to create a production ready Webpack config
 description: Webpack is a fantastic automated build tool and with a few settings we can easily make it create production ready bundles for us
 date: 2018-12-31
+updated: 2019-09-14
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 group: 'Software Development'
 ---
 
-We have seen the basics of a Webpack config, but let's take a few steps to make the config more production ready and useful for development.
+You have a Webpack configuration file that you have been using for a while whilst developing your website, and now your ready to deploy your website to production.
 
-First, we need to set a Webpack `mode`. We have touched on this a couple of times so far as part of this tutorial. The `mode` will determine if Webpack minifies/compresses our code, or not. This is important to get right because it makes a huge difference to the resulting bundle.
-
-Set the wrong `mode`, and you will not be able to debug your code in the browser, or worse, deploy your code to production that is up to 10 times bigger than it should be.
+First, we need to set a Webpack `mode`. The `mode` will determine if Webpack minifies/compresses our code, or not. This is important to get right because it makes a huge difference to the resulting bundle.
 
 The best place to set the mode is part of the your NPM script. We will use environment variables to make this work correctly.
 
@@ -43,7 +42,7 @@ module.exports = {
 }
 ```
 
-We will use `isDevelopment` to configure various plugins as we go along, that is why we have extracted it as a `const`.
+Extracting the environment out into a variable called `isDevelopment` is useful because we will likely want to use this for other rules/plugins etc to change there behaviour depending on which mode we are in.
 
 Add a new NPM script as follows for production builds;
 
@@ -55,7 +54,7 @@ When we run `npm run build:prod` (probably as part of our CI/CD environment) our
 
 ## Cache busting bundled files
 
-To make our website as performant as possible in production, you should be aggressively caching your bundled files. The problem with aggressive caching is how to invalidate the cached file and tell the users browser to use the new version?
+To make your website as performant as possible in production, you should be aggressively caching your bundled files. The problem with aggressive caching is how to invalidate the cached file and tell the users browser to use the new version?
 
 Webpack gives us a very simple solution to this problem. Webpack can automatically append a hashed value to our bundle file name, so rather that creating a file every time called `main.js`, we can output a file called `main.xxx1.js` whereby `xxx1` changes for every build.
 
