@@ -3,7 +3,7 @@ layout: post
 title: How to configure SCSS modules for Webpack
 description: SCSS modules are a fantastic way of writing clean, self contained styles, that are usually consumed by components
 date: 2018-12-31
-updated: 2019-07-20
+updated: 2019-09-14
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 group: 'Software Development'
@@ -11,9 +11,16 @@ group: 'Software Development'
 
 Your website will look pretty plain without some styles. SCSS is a popular choice for styling and is fairly straightforward to configure.
 
-Please note, this post assumes that you already have an existing project built using React, and that you want to add support for SCSS modules. If you need help getting started, check out my post; [Webpack 4 from absolute scratch](/webpack/webpack-4-from-absolute-scratch/).
+<div class="alert alert-warning" role="alert">
+  Please note, this tutorial assumes that you already have at least a <a href="/webpack/webpack-4-from-absolute-scratch/">basic Webpack configuration file</a>, and that you have already installed <a href="/webpack/getting-started-with-webpack-dev-server/">Webpack Dev Server</a>.  If you have not, please check out our tutorials on how to do so.
+<br/><br/>
+<strong>Really important</strong>. This tutorial also assumes that you have already configured a plugin called <strong>html-webpack-plugin</strong>, which is used to inject JavaScript and CSS into your HTML files.
+<br/><br/>
+If you do not know how to do this, we have a handy tutorial. <a href="/webpack/getting-started-with-webpack-dev-server/">Getting started with Webpack Dev Server</a>.
 
-If you do not already have this line in your Webpack configuration file, go ahead and add it;
+</div>
+
+If you do not already have the following line in your Webpack configuration file, go ahead and add it;
 
 ```javascript
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -62,9 +69,9 @@ module.exports = {
 }
 ```
 
-We discussed cache busting earlier in this post when discussing our bundled JavaScript. Same applies here so when we are running a production build we want to add a hash to the filename.
+We add a hash to the filename of our bundles for easy and efficient cache busting.
 
-Now we need to add our two new loaders, as follows;
+Next, add our two new loaders, as follows;
 
 ```javascript
 module.exports = {
@@ -80,8 +87,6 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
-              camelCase: true,
               sourceMap: isDevelopment
             }
           },
@@ -121,7 +126,7 @@ module.exports = {
 
 The first rule only applies to files with the `.module.scss` or `.module.sass` file extensions. First, SCSS is converted to CSS (`sass-loader`), then run through `css-loader` to process `@import()`, `url()` etc, then `style-loader` (to be appended to the DOM) or Mini CSS Extract Plugin to externalise the CSS when doing a production build.
 
-The CSS loader is important here because it is also responsible for transforming our SCSS class names into a CSS modules convention. We are essentially breaking the cascade here to prevent our styles effecting other elements on the page and vice-versa. The generated class names are comparable to those described by the [BEM approach to naming](http://getbem.com/introduction/).
+The CSS loader is important here because it is also responsible for transforming our SCSS class names into a CSS modules convention. We are essentially breaking the cascade here to prevent our styles effecting other elements on the page and vice-versa.
 
 The second rule is very similar to the first, except we do not transform the class names.
 
@@ -153,7 +158,7 @@ function App() {
 }
 ```
 
-Pretty straightforward huh? No matter how `css-loader` transforms our class name (it probably gets renamed to something like `app-module__red___1S0lD`), we can reference the style using the same name we gave it in the `app.module.scss`.
+Pretty straightforward huh? No matter how `css-loader` transforms our class name (it probably gets renamed to something random like `_1S0lDPmyPNEJpMz0dtrm3F`), we can reference the style using the same name we gave it in the `app.module.scss`.
 
 Next, we need some global styles.
 
