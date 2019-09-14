@@ -5,7 +5,7 @@ import { getLink } from '../utils/categories'
 
 function Categories({ post }) {
   return (
-    <p className="mb-3">
+    <p className="mb-5 mt-5">
       {post.frontmatter.categories.map(category => (
         <Link
           key={category}
