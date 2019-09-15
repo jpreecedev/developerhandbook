@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-filename-extension, react/no-danger  */
+/* eslint-disable react/jsx-filename-extension, react/no-danger, react/jsx-props-no-spreading  */
 
 import * as React from 'react'
 
@@ -39,9 +39,21 @@ function HTML(props) {
      })`
           }}
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=Raleway&amp;display=swap"
-          rel="stylesheet"
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `WebFontConfig = {
+            google: { families: [ 'Raleway:300' ] }
+          };
+          (function() {
+            var wf = document.createElement('script');
+            wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+          })();`
+          }}
         />
       </body>
     </html>
