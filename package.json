@@ -11,8 +11,7 @@
     "bump": "bump --tag --push --all",
     "build": "rimraf .cache public && gatsby build",
     "build:noclean": "gatsby build",
-    "deploy": "npm run bump && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip && npm run clear",
-    "clear": "aws-cloudfront-invalidate EI5Q6NGOHKSZ4",
+    "deploy": "npm run bump && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip",
     "prettier": "prettier \"./src/**/*.{js,json,yaml,yml}\" --write"
   },
   "repository": {
@@ -20,7 +19,6 @@
     "url": "git+https://github.com/jpreecedev/developerhandbook.git"
   },
   "devDependencies": {
-    "aws-cloudfront-invalidate": "^0.1.3",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
