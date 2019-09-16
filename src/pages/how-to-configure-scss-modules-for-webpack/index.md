@@ -9,16 +9,13 @@ seriesTitle: Intro to Webpack mini series
 group: 'Software Development'
 ---
 
-Your website will look pretty plain without some styles. SCSS is a popular choice for styling and is fairly straightforward to configure.
+SCSS is a popular choice for styling websites, thanks to features such as; mixins, variables and functions, which CSS historically never had native support for. One of the most challenging aspects of styling using CSS is the **C**ascade, meaning that elements can inherit style properties from many other CSS selectors. This can be problematic, and SCSS can be a solution to make this problem more managable.
 
-<div class="alert alert-warning" role="alert">
-  Please note, this tutorial assumes that you already have at least a <a href="/webpack/webpack-4-from-absolute-scratch/">basic Webpack configuration file</a>, and that you have already installed <a href="/webpack/getting-started-with-webpack-dev-server/">Webpack Dev Server</a>.  If you have not, please check out our tutorials on how to do so.
-<br/><br/>
-<strong>Really important</strong>. This tutorial also assumes that you have already configured a plugin called <strong>html-webpack-plugin</strong>, which is used to inject JavaScript and CSS into your HTML files.
-<br/><br/>
-If you do not know how to do this, we have a handy tutorial. <a href="/webpack/getting-started-with-webpack-dev-server/">Getting started with Webpack Dev Server</a>.
+SCSS modules are usually directly tied to one specific component/element, and are not typically re-used.
 
-</div>
+This post explores how to configure Webpack to support standard SCSS (`your-styles.scss`) and SCSS modules (`your-component.module.scss`).
+
+**We assume that you already have a Webpack configuration file**. If you need help getting started, please check out our post [Webpack 4 from absolute scratch](/webpack/webpack-4-from-absolute-scratch/).
 
 If you do not already have the following line in your Webpack configuration file, go ahead and add it;
 
@@ -26,7 +23,9 @@ If you do not already have the following line in your Webpack configuration file
 const isDevelopment = process.env.NODE_ENV === 'development'
 ```
 
-This is used to optimize your bundles only when building for production, which should result in better development time performance.
+This is used to optimize your bundles only when building for production, which should result in faster development builds.
+
+## How to add support for SCSS and SCSS modules in Webpack
 
 We will focus on SCSS modules and global SCSS, so let's get started.
 
@@ -56,15 +55,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 Then add it as a plugin;
 
-```javascript
+```diff
 module.exports = {
   ///...
   plugins: [
     ///...
-    new MiniCssExtractPlugin({
-      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
-    })
++    new MiniCssExtractPlugin({
++      filename: isDevelopment ? '[name].css' : '[name].[hash].css',
++      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
++    })
   ]
 }
 ```
@@ -73,50 +72,51 @@ We add a hash to the filename of our bundles for easy and efficient cache bustin
 
 Next, add our two new loaders, as follows;
 
-```javascript
+```diff
 module.exports = {
   ///...
   module: {
     rules: [
       ///...
-      {
-        test: /\.module\.s(a|c)ss$/,
-        loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: isDevelopment
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
-      },
-      {
-        test: /\.s(a|c)ss$/,
-        exclude: /\.module.(s(a|c)ss)$/,
-        loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment
-            }
-          }
-        ]
-      }
++      {
++        test: /\.module\.s(a|c)ss$/,
++        loader: [
++          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
++          {
++            loader: 'css-loader',
++            options: {
++              modules: true,
++              sourceMap: isDevelopment
++            }
++          },
++          {
++            loader: 'sass-loader',
++            options: {
++              sourceMap: isDevelopment
++            }
++          }
++        ]
++      },
++      {
++        test: /\.s(a|c)ss$/,
++        exclude: /\.module.(s(a|c)ss)$/,
++        loader: [
++          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
++          'css-loader',
++          {
++            loader: 'sass-loader',
++            options: {
++              sourceMap: isDevelopment
++            }
++          }
++        ]
++      }
       ///...
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+-    extensions: ['.js', '.jsx']
++    extensions: ['.js', '.jsx', '.scss']
   }
   ///...
 }
