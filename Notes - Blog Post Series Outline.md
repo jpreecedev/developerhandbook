@@ -1,25 +1,25 @@
 # Getting started with Next.js
 
-1. Get started fast with `create-next-app`. Really stripped down and basic, very simple compared to Create React App
-2. Has built in support for dynamic imports
-3. Built in support for TypeScript
-4. Uses styled-jsx for css-in-js styling, css modules, global css supported as well (using global attribute)
-5. Supports importing CSS files, and proper CSS modules
-6. Automatic code splitting, each page gets its own bundle
-7. Has dynamic routing
-8. Built in pre-rendering for static pages
-9. Static HTML export (think Gatsby competitor)
-
-- Styles are inlined, which might be problematic for caching
+- Why Next.js
+- Getting started
+- How to use Express.js with Next.js
+  - How to use Nodemon
+- Next.js convention based routing
+- Next.js dynamic routing
+- Fetch data server-side using Next.js getInitialProps
+- Next.js automatic code splitting and lazy loading
+- Styling in Next
+  - CSS, CSS Modules, CSS-in-Js
+- Next.js static site generator
 
 # How to configure VS Code for success, weather you're a team of one or many
 
-- Add NPM scripts for linting CSS and JS
-- Pre-commit, pre-push hooks using Husky
-- Jest, React Testing Library
-- For back-end, use TS Node, Nodemon
-- Prettier, Stylelint, ESLint, EditorConfig
-- Storybook
+- Prettier, ESLint, Stylelint, format on save, NPM scripts, EditorConfig
+- iTerm, split terminals, split code windows
+- Best extensions (Snippets, custom snippets, Jest, GitLens, Emmet)
+- Keyboard shortcut cheatsheet
+- Pre-commit, pre-push hooks
+- Semantic versioning + Github pages
 
 # An introduction to Test Driven Development (TDD) (React Testing Library, Mongo Memory Server)
 
