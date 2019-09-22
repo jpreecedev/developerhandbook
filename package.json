@@ -68,6 +68,8 @@
     "gatsby-plugin-no-sourcemaps": "^2.1.1",
     "gatsby-plugin-sass": "^2.1.15",
     "gatsby-plugin-sitemap": "^2.2.14",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.3.0",
     "prettier": "^1.18.2",
     "s3-deploy": "^1.4.0",
     "stylelint": "^11.0.0",
@@ -87,5 +89,24 @@
     "defaults",
     "IE >= 11",
     "firefox >= 43"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
 }
