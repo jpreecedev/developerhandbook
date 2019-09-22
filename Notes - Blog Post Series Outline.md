@@ -14,18 +14,20 @@
 
 # How to configure VS Code for success, weather you're a team of one or many
 
-- Prettier, ESLint, Stylelint, format on save, NPM scripts, EditorConfig
-- iTerm, split terminals, split code windows
-- Best extensions (Snippets, custom snippets, Jest, GitLens, Emmet)
-- Keyboard shortcut cheatsheet
-- Pre-commit, pre-push hooks
-- Semantic versioning + Github pages
+- Linting/formatting
+- Terminal
+- Extensions
+- Keyboard shortcuts
+- Pre-commit/pre-push hooks
 
-# An introduction to Test Driven Development (TDD) (React Testing Library, Mongo Memory Server)
+# An introduction to Test Driven Development (TDD) on the front-end
 
-- Lots of examples of writing tests
-  - Front-end tests using Jest/React Testing Library
-  - Back-end tests using Jest/Mongo Memory Server
+- What is TDD, how does this compare to writing tests retrospectively?
+  - Pros and cons (slower, more confidence going forward)
+- Install Jest, VS Code extension, NPM script, watch, basic "Hello, World!" examples
+- Testing using React Testing Library (integration testing)
+- Simulating clicks and other events, mocking
+- Accessibility tests with Storybook and various plugins
 
 # How to implement Passport.js, with Local Strategy, Google OAuth and Facebook Login
 
