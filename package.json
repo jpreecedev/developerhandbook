@@ -2,7 +2,7 @@
   "name": "developerhandbook",
   "author": "Jon Preece",
   "license": "MIT",
-  "version": "3.11.0",
+  "version": "3.11.1",
   "description": "Source code for DeveloperHandbook.com blog",
   "main": "index.js",
   "scripts": {
