@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import CookieConsent from 'react-cookie-consent'
 import Nav from './Nav'
 import Jumbotron from './Jumbotron'
 
@@ -20,9 +19,6 @@ function Layout({ children }) {
             <h1 className="text-center mt-0">{children}</h1>
           </div>
         </Jumbotron>
-        <CookieConsent>
-          This website uses cookies to enhance the user experience.
-        </CookieConsent>
       </header>
     </>
   )
