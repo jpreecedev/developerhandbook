@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import profilePic from '../images/jonpreece-96.png'
-import twitter from '../images/twitter.png'
+import linkedin from '../images/linkedin.png'
 
 function Published({ post, showProfile }) {
   return (
@@ -15,18 +15,16 @@ function Published({ post, showProfile }) {
             style={{ maxWidth: '75px', maxHeight: '75px' }}
           />
           <p style={{ alignSelf: 'center', marginBottom: 0 }} className="text-muted">
-            <img
-              src={twitter}
-              className="mr-1"
-              alt="Follow DeveloperHandbook.com on Twitter"
-            />
+            <img src={linkedin} className="mr-1" alt="Follow Jon Preece on LinkedIn" />
+            Follow{' '}
             <a
-              href="https://twitter.com/jpreecedev"
+              href="https://www.linkedin.com/in/jonpreecedev/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Jon Preece
+              Jon Preece on LinkedIn
             </a>
+            .
             <br />
             {`Published on `}
             {post.frontmatter.date}
