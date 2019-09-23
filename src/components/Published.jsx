@@ -14,9 +14,13 @@ function Published({ post, showProfile }) {
             alt="Jon Preece"
             style={{ maxWidth: '75px', maxHeight: '75px' }}
           />
-          <p style={{ alignSelf: 'center', marginBottom: 0 }} className="text-muted">
-            <img src={linkedin} className="mr-1" alt="Follow Jon Preece on LinkedIn" />
-            Follow{' '}
+          <p style={{ alignSelf: 'center' }} className="text-muted mb-0">
+            <img
+              src={linkedin}
+              className="mr-2 mb-1"
+              alt="Follow Jon Preece on LinkedIn"
+            />
+            Connect with{' '}
             <a
               href="https://www.linkedin.com/in/jonpreecedev/"
               rel="noopener noreferrer"
