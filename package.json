@@ -60,6 +60,9 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@semantic-release/commit-analyzer": "^6.3.0",
+    "@semantic-release/exec": "^3.3.6",
+    "@semantic-release/release-notes-generator": "^7.3.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.4.0",
