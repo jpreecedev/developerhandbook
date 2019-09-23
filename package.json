@@ -9,7 +9,7 @@
     "prettier": "prettier \"./src/**/*.{js,json,yaml,yml,md}\" --write",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "start": "gatsby develop",
-    "release": "semantic-release",
+    "release": "semantic-release -d false",
     "build": "rm -rf .cache public && gatsby build",
     "deploy:s3": "s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip"
   },
