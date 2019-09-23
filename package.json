@@ -2,7 +2,7 @@
   "name": "developerhandbook",
   "author": "Jon Preece",
   "license": "MIT",
-  "version": "3.12.0",
+  "version": "0.0.0-development",
   "description": "Source code for DeveloperHandbook.com blog",
   "main": "index.js",
   "scripts": {
@@ -125,7 +125,6 @@
         "@semantic-release/exec",
         {
           "verifyConditionsCmd": "npm run build",
-          "prepareCmd": "set-version ${nextRelease.version}",
           "publishCmd": "npm run deploy:s3"
         }
       ]
