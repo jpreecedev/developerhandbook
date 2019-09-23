@@ -8,12 +8,12 @@ group: 'Software Development'
 featuredImage: './vscode-react.png'
 ---
 
-On a day-to-day basis, both inside and outside of work, I spend most of my time writing front-end code (specifically, React.js) using VS Code. Productivity is very important, as I am usually under pressure to get work done quickly and to the highest possible standard. Having the right editor setup goes a long way to ensuring that I am not wasting time and instead focusing on the problem at hand.
+On a day-to-day basis, both inside and outside of work, I spend most of my time writing front-end code (specifically, React.js) using VS Code. Productivity is very important, as I am usually under pressure to get work done quickly and to the highest standards. Having the right editor set-up goes a long way to ensuring that I am not wasting time on menial tasks like code formatting and instead spend that time focusing on the problem at hand.
 
-When starting a new project, my editor should be configured and ready to go so that I can focus on solving the problem at hand.
+My editor and project should be correctly configured and ready for the problem at hand.
 
-1. **Linting/formatting**. Linting/formatting should always work out-of-the-box and should be largely based on some open source/community agreed upon standard. Compliance should be verified on save and commit and should be automatic.
-2. **Terminal**. The terminal should be pre-configured and set up with the right fonts, colours, and plugins.
+1. **Linting and formatting** should be largely based on some open source/community agreed upon standard. Compliance should be verified on save and commit and should be automatic. Almost no time should be spent manually linting any file I touch.
+2. The **terminal** should be pre-configured and set up with the right fonts, colours, and plugins. I expect to have multiple terminals working concurrently, so split/tab view is essential.
 3. **Extensions**. VS Code has a lot of great functionality out-of-the-box, but there are some key extensions that take that functionality to the next level (and fill the gaps).
 4. **Keyboard shortcuts**. It is very much worth taking the time to learn some of the most important shortcuts in VS Code so you do not have to waste valuable seconds searching through menus with the mouse.
 5. **Pre-commit/push hooks**. Linting should run automatically on pre-commit, and tests should run on pre-push, so that I do not accidentally push broken code to the repo.
@@ -24,15 +24,15 @@ Prettier, ESLint and Stylelint are essential tools for helping you and your team
 
 Prettier is an opinionated code formatter. Prettier takes your code, and moves it around and "tidies" it up in a standard way. Prettier works in conjunction with ESLint. Stylelint essentially is ESLint and Prettier for CSS and SCSS.
 
-I highly recommend installing in VS Code the official extension for each tool, so that you can configure VS Code to run them automatically instead of having to rely solely on NPM scripts.
+EditorConfig attempts to override user settings (tabs vs spaces, indent size etc) on a per project basis to ensure consistency between machines and developers.
 
-The EditorConfig extension attempts to override user settings (tabs vs spaces, indent size etc) on a per project basis to ensure consistency between machines and developers.
+I highly recommend installing in VS Code the official extension for each tool, so that you can configure VS Code to run them automatically instead of having to rely solely on NPM scripts.
 
 <div class="alert alert-primary">
 <strong>VS Code Extensions Gallery</strong><br/><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a>, <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint for VSCode</a>, <a href="https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint">stylelint</a> and <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a>.
 </div>
 
-With all the extensions installed, we need to configure our project with various dot files and NPM scripts.
+With all the extensions installed, you can configure your project with various dot files and NPM scripts.
 
 ### How to set up and configure ESLint
 
@@ -98,7 +98,7 @@ For a full explanation of what exactly each of these options means, [have a look
 
 ### How to set up and configure Stylelint
 
-Stylelint helps with consistency and to avoid errors. Stylelint uses rules to decide how to organise and format code. Stylelint can be configured manually or using a pre-existing ruleset.
+Stylelint helps with consistency and to avoid common CSS errors. Stylelint uses rules to decide how to organise and format code. Stylelint can be configured manually or using a pre-existing ruleset.
 
 Personally I use [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) for all my projects and I never override it. If you want to choose a different ruleset, [have a look at the documentation](https://github.com/stylelint/stylelint#extend-a-shared-configuration).
 
@@ -117,6 +117,16 @@ npm install --save-dev stylelint stylelint-config-standard
 ```
 
 Next time you work on a CSS or SCSS file and save changes, your code should be automatically tidied and organised.
+
+### Format on save
+
+You can turn on **Format On Save**, so that Prettier/ESLint and Stylelint run automatically on every save, as follows;
+
+- In VS Code, click `Main Menu > Preferences > Settings`.
+- In **Search settings**, type **Format On Save**
+- Ensure option is selected as shown
+
+Now each time you press save, or the file you are working on auto saves, Prettier will run automatically and tidy your code. This is great because it completely eliminates the _need to care about formatting ever again_. 👍
 
 ### How to set up and configure EditorConfig for VS Code
 
@@ -138,26 +148,18 @@ max_line_length = null
 
 I prefer 2 spaces, no trailing whitespace, and a new empty line at the end of each file. If you want to understand what each of these options does, [have a look at the documentation](https://editorconfig.org/).
 
-### Format on save
-
-Turn on **Format On Save**, as follows;
-
-- In VS Code, click `Main Menu > Preferences > Settings`.
-- In **Search settings**, type **Format On Save**
-- Ensure option is selected as shown
-
-Now each time you press save, or the file you are working on auto saves, Prettier will run automatically and tidy your code. This is great because it completely eliminates the _need to care about formatting ever again_.
-
 ### NPM Scripts
 
-You can run Prettier and ESLint directly from NPM scripts, if you prefer. Add the following scripts to your `package.json` file.
+You can run Prettier and ESLint directly from NPM scripts (if you prefer not to use the extensions). Add the following scripts to your `package.json` file.
 
 ```diff
 "scripts": {
 +  "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-+  "prettier": "prettier \"./src/**/*.{js,json,yaml,yml,md}\" --write",
++  "prettier": "prettier \"./src/**/*.{js,jsx,json,yaml,yml,md}\" --write",
 }
 ```
+
+The added benefit is that you _could_ call these scripts directly from your pre-commit hooks, which we will look at shortly.
 
 ## Font ligatures in VS Code
 
@@ -165,7 +167,7 @@ You might not exactly _need_ font ligatures, but they are cool and they certainl
 
 ![VS Code - Fira Code Ligatures](fira-code-vscode-ligatures.jpg)
 
-The graphic shows code on the left with ligatures, and code on the right without. ([Borrowed from Fira Code GitHub repo](https://github.com/tonsky/FiraCode)).
+The graphic shows code on the left with ligatures, and code on the right without. ([Borrowed from Fira Code GitHub repo](https://github.com/tonsky/FiraCode)). Ligatures are purely visual and do not impact the code you write/commit.
 
 To set up, do the following;
 
@@ -177,7 +179,7 @@ You may need to restart VS Code to see the change.
 
 ## How to configure VS Code to use iTerm2 and Oh-my-zsh
 
-You will spend a lot of time in the terminal so I highly recommend taking some time to add some power-tools to it.
+You will spend a lot of time in the terminal so I highly recommend taking some time to add a decent terminal. The terminal built in to Mac and Windows are decent enough, but iTerm and Oh-my-zsh have many power-tools and are easy to extend with community built plugins.
 
 ![VS Code - iTerm2 - Oh-My-Zsh](vs-code-terminal-ohmyzsh-iterm2.png)
 
@@ -197,7 +199,7 @@ When starting out, I recommend these extensions to boost your productivity.
 
 Not strictly an extension. VS Code has built in support for Emmet, which I highly recommend learning to a good level. [Emmet is a text expander](https://code.visualstudio.com/docs/editor/emmet), so you can save time on typing long repetitive code.
 
-Finally, if you find yourself typing out the same repetitive code over and over, consider making a custom snippet (like what Emmet provides). There is an [excellent official user guide](https://code.visualstudio.com/docs/editor/userdefinedsnippets) that explains how to do this.
+Finally, if you find yourself typing out the same repetitive code over and over, consider making a custom snippet. There is an [excellent official user guide](https://code.visualstudio.com/docs/editor/userdefinedsnippets) that explains how to do this.
 
 ## VS Code best shortcuts cheat sheet
 
@@ -223,7 +225,7 @@ Then install Husky, and Lint-Staged using the following command;
 npx mrm lint-staged
 ```
 
-The necessary packages will be added to your `package.json` and a new section will be added. Exactly what gets added will depend on the files that live in your repo. You will probably end up with something as follows;
+The necessary packages will be added to your `package.json` and a new section will be added. Exactly what gets added will depend on the code in repo. You will probably end up with something as follows;
 
 ```diff
 {
@@ -277,8 +279,8 @@ You can modify this config as you see fit. I like to add the `pre-push` hook to 
 }
 ```
 
-Now any file you work on, stage, and commit will be automatically linted, and your tests will run automatically so no more accidental commits!
+Now any file you work on, stage, and commit will be automatically linted, and your tests will run automatically so no more accidental broken commits!
 
 ## Summary
 
-We covered a lot of ground in this post. We looked at how to set up and configure Prettier, ESLint, Stylelint in VS Code. We also discussed how to run Prettier and ESLint automatically, via NPM scripts, and via pre-commit hooks using Husky and Lint-Staged. We also discussed how to install the popular open source coding font Fira Code, and turn on font ligatures. We briefly touched on how to configure VS Code to use iTerm2 and Oh-my-zsh (with plugins), and how to boost your productivity by installing several third-party extensions. Finally, I highlight some of the most common keyboard shortcuts to speed up repetitive tasks that are slow when using a mouse.
+We covered a lot of ground in this post. We looked at how to set up and configure Prettier, ESLint, and Stylelint in VS Code. We also discussed how to run Prettier and ESLint automatically, via NPM scripts, and via pre-commit hooks using Husky and Lint-Staged. We also discussed how to install the popular open source coding font Fira Code, and turn on font ligatures. We briefly touched on how to configure VS Code to use iTerm2 and Oh-my-zsh (with plugins), and how to boost your productivity by installing several third-party extensions. Finally, I highlight some of the most common keyboard shortcuts to speed up repetitive tasks that are slow when using a mouse.
