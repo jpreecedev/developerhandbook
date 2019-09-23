@@ -6,14 +6,14 @@
   "description": "Source code for DeveloperHandbook.com blog",
   "main": "index.js",
   "scripts": {
-    "start": "gatsby develop",
     "prettier": "prettier \"./src/**/*.{js,json,yaml,yml,md}\" --write",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "bump": "bump --tag --push --all",
+    "start": "gatsby develop",
+    "release": "semantic-release",
     "build": "rm -rf .cache public && gatsby build",
-    "deploy": "npm run bump && npm run build && s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip"
+    "deploy:s3": "s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip"
   },
-  "homepage": "https://github.com/jpreecedev/developerhandbook#readme",
+  "homepage": "https://developerhandbook.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jpreecedev/developerhandbook.git"
@@ -58,6 +58,10 @@
     "rehype-react": "^3.1.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -72,9 +76,9 @@
     "lint-staged": "^9.3.0",
     "prettier": "^1.18.2",
     "s3-deploy": "^1.4.0",
+    "semantic-release": "^15.13.24",
     "stylelint": "^11.0.0",
-    "stylelint-config-rational-order": "^0.1.2",
-    "version-bump-prompt": "^5.0.5"
+    "stylelint-config-rational-order": "^0.1.2"
   },
   "keywords": [
     "blog",
@@ -92,7 +96,8 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -108,5 +113,24 @@
       "stylelint --fix",
       "git add"
     ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/exec",
+        {
+          "verifyConditionsCmd": "npm run build",
+          "prepareCmd": "set-version ${nextRelease.version}",
+          "publishCmd": "npm run deploy:s3"
+        }
+      ]
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
