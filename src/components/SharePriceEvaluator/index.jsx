@@ -1,9 +1,9 @@
 import * as React from 'react'
 
 import initialState from './initialState'
-import reducer from './reducer'
 import Summary from './summary'
 import Help from './help'
+import { reducer } from './reducer'
 import { formatNumber } from './utils'
 
 function SharePriceEvaluator() {
@@ -44,9 +44,8 @@ function SharePriceEvaluator() {
                   dispatch({
                     type: 'update',
                     field: 'companyName',
-                    value: formatNumber(e.target.value)
-                  })
-                }
+                    value: e.target.value
+                  })}
               />
             </div>
           </div>
@@ -64,8 +63,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'bidPrice',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
             <div className="form-group col-12 col-sm-6">
@@ -81,8 +79,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'bidPricePrevious',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
           </div>
@@ -100,8 +97,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'marketCap',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
             <div className="form-group col-12 col-sm-6">
@@ -117,8 +113,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'annualDividend',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
           </div>
@@ -136,8 +131,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'netDebt',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
             <div className="form-group col-12 col-sm-6">
@@ -153,8 +147,7 @@ function SharePriceEvaluator() {
                     type: 'update',
                     field: 'preTaxProfit',
                     value: formatNumber(e.target.value)
-                  })
-                }
+                  })}
               />
             </div>
           </div>

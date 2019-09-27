@@ -1,13 +1,12 @@
-function reducer(state, action) {
+/* eslint-disable */
+
+const reducer = (state, action) => {
   switch (action.type) {
     case 'update':
-      return {
-        ...state,
-        [action.field]: action.value
-      }
+      return Object.assign({}, state, { [action.field]: action.value })
     default:
       throw new Error()
   }
 }
 
-export default reducer
+export { reducer }
