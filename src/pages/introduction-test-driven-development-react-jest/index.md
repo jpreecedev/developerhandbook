@@ -423,13 +423,13 @@ I love Storybook and use it every day for the following reasons;
 5.  Automatic documentation
 6.  **Arguably most important**, Storybook is completely static HTML / JavaScript / CSS, which means I can very quickly and cheaply deploy it to a server and pass the URL to the product owners/managers/marketers/ux/everybody else and let them see everything that has been built and is available to use. This helps them visualise the product better, helps them sell the product, helps with designing experiments, and helps with designing newer, better components. Often it helps with buy-in from the business as well because they have something tangible they can interact with (and they can see it being delivered over time).
 
-Setting up Storybook in your project is as easy as running one command;
+Setting up Storybook in your project quite straightforward. Run the following automatic set-up script;
 
 ```shell
 npx -p @storybook/cli sb init --type react
 ```
 
-Then just tweak `.storybook/config.js` as follows;
+Then change `.storybook/config.js` as follows;
 
 ```javascript
 import { configure } from '@storybook/react'
@@ -446,7 +446,38 @@ configure(loadStories, module)
 
 All that has really changed here is the path to our stories, as well as importing of our global styles.
 
-Ok, I hope you're sold on Storybook now, so let's create a story for our button.
+Now, create a new file in `.storybook` called `webpack.config.js` and add the following code;
+
+```javascript
+module.exports = ({ config }) => {
+  config.module.rules.push({
+    test: /\.(ts|tsx)$/,
+    use: [
+      {
+        loader: require.resolve('awesome-typescript-loader')
+      },
+      // Optional
+      {
+        loader: require.resolve('react-docgen-typescript-loader')
+      }
+    ]
+  })
+  config.resolve.extensions.push('.ts', '.tsx')
+  return config
+}
+```
+
+If you have any issues getting set up with TypeScript, have a [quick look at the official guide](https://storybook.js.org/docs/configurations/typescript-config/), which is very helpful and very detailed.
+
+To enable knobs, make the following change to `.storybook/addons.js`
+
+```diff
+import '@storybook/addon-actions/register';
+import '@storybook/addon-links/register';
++import '@storybook/addon-knobs/register';
+```
+
+We can now go ahead and write our story.
 
 Create a new file called `Button.stories.jsx` and add the following;
 
