@@ -89,7 +89,7 @@ It's quicker and easier to reason about, especially when we get more complex tes
 
 I don't want to spend any time in this post discussing how to set up your project for Jest and related tooling, perhaps there will be a dedicated post for that.
 
-If you need a test project that is already configured for React, React Testing Library, and Jest, you can [check out my seed project on GitHub](https://github.com/jpreecedev/webpack-4-scratch). Delete out the Button component that already exists there and follow along with me.
+If you need a test project that is already configured for React, React Testing Library, and Jest, you can [check out my seed project on GitHub](https://github.com/jpreecedev/tdd-from-scratch). Follow along with me.
 
 ## How to get started with Test Driven Development (TDD) using React, React Testing Library, and Jest
 
