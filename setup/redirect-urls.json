@@ -57,10 +57,10 @@
   },
   {
     "from": "/react/setup-react-project-for-success/",
-    "to": "/react/how-to-configure-vs-code-react-development/"
+    "to": "/react/how-to-setup-vs-code-productivity/"
   },
   {
     "from": "/javascript/use-eslint-prettier-for-consistent-coding-environment/",
-    "to": "/react/how-to-configure-vs-code-react-development/"
+    "to": "/react/how-to-setup-vs-code-productivity/"
   }
 ]
