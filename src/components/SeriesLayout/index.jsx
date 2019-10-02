@@ -37,21 +37,35 @@ const reactPosts = {
   '/react/10-react-interview-questions/': '10 React.js interview questions'
 }
 
+const passportSeriesTitle = 'Comprehensive Passport.js Mini Series'
+const passportPosts = {
+  '/passport.js/node-express-passport-authentication-mini-series/':
+    'Build an authentication system using Node.js, Express, and Passport.js'
+}
+
+const getSeries = title => {
+  switch (title) {
+    case webpackSeriesTitle:
+      return { title: webpackSeriesTitle, posts: webpackPosts }
+    case reactSeriesTitle:
+      return { title: reactSeriesTitle, posts: reactPosts }
+    case passportSeriesTitle:
+      return { title: passportSeriesTitle, posts: passportPosts }
+    default:
+      return undefined
+  }
+}
+
 function SeriesLayout({ title, children, pathname }) {
-  const seriesNavigationTitle =
-    title === webpackSeriesTitle ? webpackSeriesTitle : reactSeriesTitle
-  const posts = title === webpackSeriesTitle ? webpackPosts : reactPosts
+  const { title: seriesTitle, posts } = getSeries(title)
+
   return (
     <div className="container">
       <div className="row">
         <main role="main" className="col-12 col-md-9" style={{ marginBottom: '10rem' }}>
           <article id="content">{children}</article>
         </main>
-        <SeriesNavigation
-          title={seriesNavigationTitle}
-          posts={posts}
-          currentUrl={pathname}
-        />
+        <SeriesNavigation title={seriesTitle} posts={posts} currentUrl={pathname} />
       </div>
     </div>
   )
