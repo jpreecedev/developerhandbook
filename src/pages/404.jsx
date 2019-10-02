@@ -1,9 +1,13 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import { graphql, Link } from 'gatsby'
 
-function NotFoundPage({ data, location }) {
+import Nav from '../components/Nav'
+import PostOverview from '../components/PostOverview'
+import jonpreece from '../images/jonpreece-96.png'
+import { getCategoryUrlFriendly } from '../utils/categories'
+
+const NotFoundPage = ({ data, location }) => {
   React.useEffect(() => {
     const { pathname, hostname } = location
     if (hostname !== 'localhost') {
@@ -13,15 +17,84 @@ function NotFoundPage({ data, location }) {
 
   const { siteTitle, description } = data.site.siteMetadata
 
+  const posts = data.allMarkdownRemark.edges.map(edge => edge.node)
+
+  const developmentPosts = posts
+    .filter(post => post.frontmatter.group === 'Software Development')
+    .slice(0, 3)
+  const growthPosts = posts
+    .filter(post => post.frontmatter.group === 'Personal Growth')
+    .slice(0, 3)
+
+  const groupedPosts = [
+    { title: 'Software Development', posts: developmentPosts },
+    { title: 'Personal Growth', posts: growthPosts }
+  ]
+
   return (
     <>
-      <Layout>404 - Page Not Found!</Layout>
       <Helmet>
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <main id="content" role="main" className="container">
-        <p>Sorry, we are not sure what to do with that request.</p>
+      <a className="sr-only sr-only-focusable" href="#content">
+        Skip to main content
+      </a>
+      <header>
+        <Nav />
+      </header>
+      <main id="content" role="main" className="container mb-5">
+        <div className="text-center bg-light p-5">
+          <img
+            src={jonpreece}
+            className="align-self-center rounded-circle mr-auto ml-auto d-block mt-3 mb-3"
+            alt="Jon Preece"
+          />
+          <h1>This content either was not found, or has been removed</h1>
+          <hr />
+          <p>
+            I have been hard at work re-structuring the website recently, and that means
+            that some old posts have been removed. I&apos;m really sorry about that, but
+            content gets old and out of date, so rather than giving you false or incorrect
+            information, I have opted to remove it.
+          </p>
+          <p className="d-block">Please ensure your bookmarks are up to date.</p>
+        </div>
+        <div className="container mt-5">
+          {groupedPosts.map(groupedPost => (
+            <React.Fragment key={groupedPost.title}>
+              <div className="row mb-2">
+                <div className="col-12">
+                  <h2 className="mt-0">{`Latest posts in "${groupedPost.title}"`}</h2>
+                </div>
+              </div>
+              <div className="row mb-2">
+                {groupedPost.posts.map(post => (
+                  <div className="col-12 col-md-6 col-lg-4" key={post.fields.slug}>
+                    <PostOverview
+                      post={post}
+                      key={post.fields.slug}
+                      title={post.frontmatter.title}
+                      slug={post.fields.slug}
+                      mappedCategory={`${getCategoryUrlFriendly(
+                        post.frontmatter.categories[0]
+                      )}`}
+                      excerpt={post.excerpt}
+                    />
+                  </div>
+                ))}
+                <div className="col-12 d-block d-mb-none">
+                  <Link
+                    to={`/category/${getCategoryUrlFriendly(groupedPost.title)}`}
+                    className="d-block mb-3"
+                  >
+                    {`Continue reading posts on "${groupedPost.title}"...`}
+                  </Link>
+                </div>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
       </main>
     </>
   )
@@ -35,6 +108,33 @@ export const pageQuery = graphql`
       siteMetadata {
         siteTitle
         description
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          timeToRead
+          excerpt(pruneLength: 250)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "DD MMMM, YYYY")
+            updated(formatString: "DD MMMM, YYYY")
+            title
+            description
+            categories
+            seriesTitle
+            group
+            featuredImage {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
