@@ -40,7 +40,9 @@ const reactPosts = {
 const passportSeriesTitle = 'Comprehensive Passport.js Mini Series'
 const passportPosts = {
   '/passport.js/node-express-passport-authentication-mini-series/':
-    'Build an authentication system using Node.js, Express, and Passport.js'
+    'Build an authentication system using Node.js, Express, and Passport.js',
+  '/passport.js/passportjs-with-jwt-mongo-mongoose/':
+    'How to set-up protect your website using Passport.js, JWT, and MongoDB'
 }
 
 const getSeries = title => {

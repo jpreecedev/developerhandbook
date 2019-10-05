@@ -202,6 +202,12 @@ const useStyles = makeStyles(theme => ({
 
 const Register = () => {
   const classes = useStyles({})
+  const [formData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  })
   const [submitting, setSubmitting] = React.useState(false)
 
   return (
@@ -227,6 +233,8 @@ const Register = () => {
             name="firstName"
             autoComplete="fname"
             autoFocus
+            defaultValue={formData.firstName}
+            onChange={e => setFormData({ ...formData, firstName: e.target.value })}
           />
           <TextField
             margin="normal"
@@ -236,6 +244,8 @@ const Register = () => {
             label="Last Name"
             name="lastName"
             autoComplete="lname"
+            defaultValue={formData.lastName}
+            onChange={e => setFormData({ ...formData, lastName: e.target.value })}
           />
           <TextField
             margin="normal"
@@ -245,6 +255,8 @@ const Register = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
+            defaultValue={formData.email}
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
           />
           <TextField
             margin="normal"
@@ -255,6 +267,8 @@ const Register = () => {
             type="password"
             id="password"
             autoComplete="new-password"
+            defaultValue={formData.password}
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
           />
           <Box mb={6}>
             <Button
@@ -422,6 +436,7 @@ const useStyles = makeStyles(theme => ({
 
 const LoginForm = () => {
   const classes = useStyles({})
+  const [formData, setFormData] = React.useState({ email: '', password: '' })
   const [submitting, setSubmitting] = React.useState(false)
 
   return (
@@ -450,6 +465,8 @@ const LoginForm = () => {
             name="email"
             autoComplete="email"
             autoFocus
+            defaultValue={formData.email}
+            onChange={e => setFormData({ ...formData, email: e.target.value })}
           />
           <TextField
             margin="normal"
@@ -460,8 +477,9 @@ const LoginForm = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            defaultValue={formData.password}
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
           />
-
           <Box mb={6}>
             <Button
               disabled={submitting}
