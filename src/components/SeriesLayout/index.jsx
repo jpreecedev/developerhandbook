@@ -42,7 +42,7 @@ const passportPosts = {
   '/passport.js/node-express-passport-authentication-mini-series/':
     'Build an authentication system using Node.js, Express, and Passport.js',
   '/passport.js/passportjs-with-jwt-mongo-mongoose/':
-    'How to set-up protect your website using Passport.js, JWT, and MongoDB'
+    'How to protect your website using Passport.js and JWT'
 }
 
 const getSeries = title => {

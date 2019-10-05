@@ -17,7 +17,7 @@ You will learn;
 - How to build a login and registration page, using Material UI
 - How to set-up Passport.js with JSON Web Tokens (JWT)
 - How to make your application flexible and configurable using _dotenv_
-- How to set-up MongoDb using Docker. We will also use Mongoose to simplify database calls, and Mongo Memory Server for effective unit testing
+- How to set-up MongoDB using Docker. We will also use Mongoose to simplify database calls, and MongoDB Memory Server for effective unit testing
 - How to extend the login/registration options with both **Google** and **Facebook** Passport strategies
 - How to introduce role-based authorisation, so you can restrict access to certain sections of the website.
 
@@ -49,7 +49,7 @@ First the easy bit, creating a Next project. Open your terminal to an appropriat
 npx create-next-app
 ```
 
-Enter a name for your project. For the purposes of this tutorial I went with `passportjs-next-auth-tutorial`. Next will do a bunch of setup and install all required dependencies.
+Enter a name for your project. For the purposes of this tutorial I went with `passportjs-next-auth-tutorial`. Next will set itself up and install all required dependencies.
 
 Run the following;
 
@@ -148,7 +148,7 @@ The set-up was straightforward. Let's move on to the good stuff.
 
 ## How to build a registration page with Material UI
 
-This application will support two means of registering an account, either using a traditional username and password, or via a social identity provider like Google or Facebook. We will tackle the traditional method first in this series, which is arguably the hardest, and move on the social identity providers later in this series. Both approaches utilise Json Web Tokens (JWT), which simplifies session management and will ensure consistency regardless of what providers we implement now or further down the line.
+This application will support two means of registering an account, either using a traditional username and password, or via a social identity provider like Google or Facebook. We will tackle the traditional method first in this series, which is arguably the hardest, and move on the social identity providers later in this series. Both approaches utilise JSON Web Tokens (JWT), which simplifies session management and will ensure consistency regardless of what providers we implement now or further down the line.
 
 Before we can do anything though, we will need some forms for the user to complete. Not just any old forms, specifically, a registration form and a login form. Let's do registration first. There is a bit of leg-work involved in getting this right, because of server-side rendering. I think it is worth putting a bit of extra effort in at this stage because we will end up with a half decent working website at the end, which you can put live, and develop further.
 

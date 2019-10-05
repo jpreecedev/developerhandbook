@@ -1,10 +1,10 @@
 ---
 layout: post
-title: How to set-up protect your website using Passport.js, JWT, and MongoDB
-description: In the second post in this Passport.js mini series, we discuss how to set-up Passport.js, JWT, and MongoDB allowing users to register and log in
+title: How to protect your website using Passport.js and JWT
+description: In the second post in this Passport.js mini-series, we discuss how to set-up Passport.js, JWT, and MongoDB allowing users to register and log in
 date: 2019-10-04
 categories: ['Passport.js', 'passport-authentication-series']
-seriesTitle: Comprehensive Passport.js Mini Series
+seriesTitle: Comprehensive Passport.js Mini-Series
 group: 'Software Development'
 featuredImage: './passportjs-jwt-jsonwebtoken.png'
 ---
@@ -25,7 +25,7 @@ Once this tutorial is finished, users will be able to login and register with yo
 
 Let's get started. This is a long one.
 
-## How to set up Passport.js with Json Web Tokens (JWT)
+## How to set up Passport.js with JSON Web Tokens (JWT)
 
 Start by installing the necessary dependencies;
 
@@ -38,9 +38,9 @@ We have several different libraries here for various reasons, so let's discuss.
 1. **passport**. The core authentication library.
 2. **passport-jwt**. The JWT specific implementation of Passport.
 3. **jsonwebtoken**. The library used to sign and verify tokens.
-4. **bcrypt**. We will store the users passport in our _database_, so we need to ensure that the passwords are salted and hashed, for proper security should the database ever got compromised.
+4. **bcrypt**. We will store the user's password in our _database_, so we need to ensure that the passwords are salted and hashed, for proper security should the database ever got compromised.
 5. **await-to-js**. Not strictly required, but this is a nice little library that simplifies the use of `Promise` (which we will use heavily). We use `await-to-js` to call a `Promise`, and it gives us the error (if any) and the result of the call in an array which we can then destructure and assign names as we require. We will see many examples of this in action.
-6. **cookie-parser**. An Express middleware that simplifies setting and reading cookies from the request. We will use cookies to store the users JWT. The cookie will be sent along with every request, and we will use it to verify the users identity and access level within the system.
+6. **cookie-parser**. An Express middleware that simplifies setting and reading cookies from the request. We will use cookies to store the users JWT. The cookie will be sent along with every request, and we will use it to verify the user's identity and access level within the system.
 7. **body-parser**. Useful for transforming the incoming request into various shapes, primarily in URL Encoded and JSON formats.
 8. **dotenv**. Another library that is not strictly required. We will need to store some _secret_ config somewhere, and by secret, I mean, strings that I don't necessarily want to end up in the GIT commit history (like database connection strings and passwords). Dotenv makes this easy, and exposes the resulting values on `process.env`.
 
@@ -93,7 +93,7 @@ nextApp.prepare().then(() => {
 })
 ```
 
-Here we have plumbed in the middlewares we already installed, and two new middlewares (which we will create). One called `router` will add our own custom routes, and the other called `initialiseAuthentication`, which will add our Passport.js strategies into the pipeline.
+Here we have plumbed in the middleware we already installed, and two new middlewares (which we will create). One called `router` will add our own custom routes, and the other called `initialiseAuthentication`, which will add our Passport.js strategies into the pipeline.
 
 Inside `server`, add a new directory called `router`, and a new file called `index.js`. Add the following code;
 
@@ -107,7 +107,7 @@ function Router(app) {
 export default Router
 ```
 
-In this code sample we encounter our first usage of `process.env`. We need an easily sharable and easily updatable base url for our API. We will use `dotenv` for this purpose.
+In this code sample we encounter our first usage of `process.env`. We need an easily sharable and easily updatable base URL for our API. We will use `dotenv` for this purpose.
 
 In the very root of the project, create a new file called `.env` and add the following;
 
@@ -127,7 +127,7 @@ import { urlencoded, json } from "body-parser";
 // Code omitted for brevity
 ```
 
-With `dotenv` configured, we know going forward that the value of `process.env.BASE_API_URL` will be `/api`. So our base route is `/api/auth`. Will will add more routes to this base route next.
+With `dotenv` configured, we know going forward that the value of `process.env.BASE_API_URL` will be `/api`, meaning our base route is `/api/auth`. We will add more routes to this base route next.
 
 Inside the `router` directory, add a new file called `auth.routes.js`. Add the following code;
 
@@ -173,7 +173,7 @@ npm install --save mongoose
 
 In the previous step we imported an object called `UserModel` from `../database/schema`, but we never defined it. Let's do that now.
 
-Create a new directory in the `server` directory called `database`, and within there create another new directory called `schema`.
+Create a new directory in the `server` directory called `database`, and then create another new directory called `schema`.
 
 Create a new file called `index.js` and add the following code;
 
@@ -258,7 +258,8 @@ import { initialiseAuthentication, utils } from "./auth"
 
 // Code omitted for brevity
 
-nextApp.prepare().then(async () => {
+-nextApp.prepare().then(() => {
++nextApp.prepare().then(async () => {
 
   // Code omitted for brevity
 
@@ -278,7 +279,7 @@ nextApp.prepare().then(async () => {
 })
 ```
 
-We have add an asynchronous call to connect to our database. Let us add that code and understand what it does.
+We have added an asynchronous call to connect to our database. Let us add that code and understand what it does.
 
 In the `server/database` directory, create a new file called `connection.js` and add the following code;
 
@@ -417,7 +418,7 @@ const verifyCallback = async (req, jwtPayload, cb) => {
 }
 ```
 
-First, we call `getUserById`, which is a function we wrote earlier to fetch a user from the database, based on a given `id`. We use the `_id` that was provided to us as part of the `jwtPayload` by `passport-jwt`. We wrapped the function call in `to`, which is a function from `await-to-js`. Normally I am very relucant to pull in utility functions like this, but for this library I make an exception. The utility is extremely simple, it calls the given `Promise` and attaches an error handler. If the error handler is called, the error object is passed back to us along with `null` for the result of the call. If the promise is successful, the error is `null` and the data object is populated. All this library essentially does is remove the need for us to have `try...catch...finally` statements in our code, which makes it read easier and flow better in my opinion.
+First, we call `getUserById`, which is a function we wrote earlier to fetch a user from the database, based on a given `id`. We use the `_id` that was provided to us as part of the `jwtPayload` by `passport-jwt`. We wrapped the function call in `to`, which is a function from `await-to-js`. Normally I am very reluctant to pull in utility functions like this, but for this library I make an exception. The utility is extremely simple, it calls the given `Promise` and attaches an error handler. If the error handler is called, the error object is passed back to us along with `null` for the result of the call. If the promise is successful, the error is `null` and the data object is populated. All this library essentially does is remove the need for us to have `try...catch...finally` statements in our code, which makes it read easier and flow better in my opinion.
 
 Once we have the `user` object from the database, we attach it to the request and pass it back to the callback (`cb`) function.
 
@@ -461,7 +462,7 @@ import express from 'express'
 +import { createUser, getUserByEmail } from '../database/user'
 ```
 
-Not all of these pieces are in place, so we will starting adding them now.
+Not all of these pieces are in place, so we will start adding them now.
 
 ```diff
 // Code omitted for brevity
@@ -474,7 +475,7 @@ router.post('/register', async (req, res) => {
 +  } else if (password.length < 5 || password.length > 20) {
 +    return res.status(500).json({
 +      success: false,
-+      data: 'Password must be between 5 and a 20 characters.'
++      data: 'Password must be between 5 and 20 characters.'
 +    })
 +  }
 +
@@ -521,7 +522,7 @@ The register route has various responsibilities.
 
 We have two functions here that are not currently fleshed out (`login` and `hashPassword`), so we will do that now.
 
-Open `auth/strategies/jwt.js` and note that we have a `login` function that does notthing currently.
+Open `auth/strategies/jwt.js` and note that we have a `login` function that does nothing currently.
 
 Make the following changes;
 
@@ -565,7 +566,7 @@ import { UserModel } from '../database/schema'
 
 This will issue a token that will expire in 7 days. With the login function in place, we can take care of the `hashPassword` function. We will create another utility for this.
 
-In order to safely and securely hash the users password, we will use a third-party library, rather than attempt to do this ourselves. We will use [bcrypt](https://www.npmjs.com/package/bcrypt), a battle tested library specifically for this purpose.
+In order to safely and securely hash the user's password, we will use a third-party library, rather than attempt to do this ourselves. We will use [bcrypt](https://www.npmjs.com/package/bcrypt), a battle tested library specifically for this purpose.
 
 Install **bcrypt** as follows;
 
@@ -593,7 +594,7 @@ Now, open `auth/utils.js` and make the following changes;
 +export { setup, signToken, hashPassword }
 ```
 
-First we generate a salt, then pass the salt to the `hash` function, along with the `password`, to generate the hashed password. Our hashed and salted password is what is stored in the database.
+First, we generate a salt, then pass the salt to the `hash` function, along with the `password`, to generate the hashed password. Our hashed and salted password is what is stored in the database.
 
 With the user data ready, we need to write a `createUser` function so that the new user can be saved to the database.
 
@@ -651,7 +652,7 @@ This ensures that our newly created `createUser` function is accessible.
 
 With the user created, we can go ahead and log the user in, so that we don't have to redirect them to the login page. As we already wrote the `login` function, we just have to make use of it here, passing in the request and user objects.
 
-Assuming there are no errors, we can go ahead and set a `jwt` cookie on the request. This cookie will be set in the users browser and will be passed back-and-forth with each request. We have marked the cookie as `httpOnly`, meaning it cannot be access via JavaScript. If your server has full end-to-end encryption, you could also set this cookie as secure.
+Assuming there are no errors, we can go ahead and set a `jwt` cookie on the request. This cookie will be set in the user's browser and will be passed back-and-forth with each request. We have marked the cookie as `httpOnly`, meaning it cannot be access via JavaScript. If your server has full end-to-end encryption, you could also set this cookie as secure.
 
 The code for that might look something like this;
 
@@ -842,7 +843,7 @@ const Register = () => {
 }
 ```
 
-When our form get submitted, it will be `POST`ed to the `/auth/register` endpoint. To do this, we need a little utility called `server`, which exposes a `postAsync` function. Let's add that code now and then discuss it.
+When our form gets submitted, it will be `POST`ed to the `/auth/register` endpoint. To do this, we need a little utility called `server`, which exposes a `postAsync` function. Let's add that code now and then discuss it.
 
 In the root of your project, create a new directory called `utils` and add a new file called `server.js`. Add the following code;
 
@@ -887,7 +888,7 @@ const postAsync = (url, body) => {
 export { postAsync }
 ```
 
-When making requests to the server, we want to abstract away all the fuss of adding headers, setting the content-type, stringifying the body, and setting credentials. We can also take this opportunity to ensure that when things go wrong and calls to the server fail, that we still return a nice object back to the caller, so as to try and avoid unnecessary errors that stop all execution of JavaScript on the page. We can also fetch the server url from environment variables so that we don't have to hardcode it.
+When making requests to the server, we want to abstract away all the fuss of adding headers, setting the content-type, stringifying the body, and setting credentials. We can also take this opportunity to ensure that when things go wrong and calls to the server fail, that we still return a nice object back to the caller, so as to try and avoid unnecessary errors that stop all execution of JavaScript on the page. We can also fetch the server URL from environment variables so that we don't have to hardcode it.
 
 In the same `utils` directory, create a new file called `index.js`, and add the following code;
 
@@ -989,8 +990,8 @@ const LoginForm = () => {
           />
 ```
 
-Enter you username and password that you used to register earlier, and click "Sign In". Again, you should be redirected to the home page and a `jwt` cookie should have been set in your browser.
+Enter your username and password that you used to register earlier, and click "Sign In". Again, you should be redirected to the home page and a `jwt` cookie should have been set in your browser.
 
 ## Summary
 
-We have covered a lot of ground in this post. We discussed how to set up Passport.js and JWT, how to issue tokens, verify tokens, and set them in the users browser as HTTP only cookies. We also took the time to wire up our login and registration forms, extract our secrets into a `.env` file (for security) and we even set up and connected to MongoDB so that we could save details about our registered users.
+We have covered a lot of ground in this post. We discussed how to set up Passport.js and JWT, how to issue tokens, verify tokens, and set them in the user's browser as HTTP only cookies. We also took the time to wire up our login and registration forms, extract our secrets into a `.env` file (for security) and we even set up and connected to MongoDB so that we could save details about our registered users.
