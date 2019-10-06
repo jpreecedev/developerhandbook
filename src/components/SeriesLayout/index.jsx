@@ -42,7 +42,9 @@ const passportPosts = {
   '/passport.js/node-express-passport-authentication-mini-series/':
     'Build an authentication system using Node.js, Express, and Passport.js',
   '/passport.js/protect-website-using-passportjs-jwt/':
-    'How to protect your website using Passport.js and JWT'
+    'How to protect your website using Passport.js and JWT',
+  '/passport.js/how-to-add-passportjs-google-oauth-strategy/':
+    'How to add Passport.js Google OAuth Strategy to your website'
 }
 
 const getSeries = title => {
