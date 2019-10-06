@@ -37,11 +37,11 @@ const reactPosts = {
   '/react/10-react-interview-questions/': '10 React.js interview questions'
 }
 
-const passportSeriesTitle = 'Comprehensive Passport.js Mini Series'
+const passportSeriesTitle = 'Comprehensive Passport.js Mini-Series'
 const passportPosts = {
   '/passport.js/node-express-passport-authentication-mini-series/':
     'Build an authentication system using Node.js, Express, and Passport.js',
-  '/passport.js/passportjs-with-jwt-mongo-mongoose/':
+  '/passport.js/protect-website-using-passportjs-jwt/':
     'How to protect your website using Passport.js and JWT'
 }
 

@@ -4,7 +4,7 @@ title: Build an authentication system using Node.js, Express, and Passport.js
 description: We take a deep-dive look at how to use Node, Express, Passport and JWT to secure your website with using login and registration pages, including role based authorisation
 date: 2019-10-03
 categories: ['Passport.js', 'passport-authentication-series']
-seriesTitle: Comprehensive Passport.js Mini Series
+seriesTitle: Comprehensive Passport.js Mini-Series
 group: 'Software Development'
 featuredImage: './passportjs-authentication-authorisation.png'
 ---

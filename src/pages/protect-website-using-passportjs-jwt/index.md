@@ -16,10 +16,10 @@ In the previous post in this mini-series, we started our conversation about [bui
 **You will learn** the following;
 
 - How to install and set up Passport.js
-- How to set up Passport.js JWT strategy, which can issue and verify tokens read from cookies from each request, and populate `req.user`.
+- How to set up Passport.js JWT strategy, which can issue and verify tokens, read cookies from each request, and populate `req.user`
 - How to create your own custom login and registration routes
 - How to use _dotenv_ to keep secrets out of your codebase
-- **Bonus**, we will also take the time to set up MongoDB and Mongoose and save the user and their credentials to the NoSQL database provider.
+- **Bonus**, we will set up and use MongoDB and Mongoose to persist user credentials
 
 Once this tutorial is finished, users will be able to login and register with your site. Role-based authorisation will be covered in a subsequent post in this series.
 
@@ -36,13 +36,13 @@ npm install --save await-to-js bcrypt cookie-parser body-parser dotenv jsonwebto
 We have several different libraries here for various reasons, so let's discuss.
 
 1. **passport**. The core authentication library.
-2. **passport-jwt**. The JWT specific implementation of Passport.
+2. **passport-jwt**. The JWT extension for Passport.
 3. **jsonwebtoken**. The library used to sign and verify tokens.
-4. **bcrypt**. We will store the user's password in our _database_, so we need to ensure that the passwords are salted and hashed, for proper security should the database ever got compromised.
-5. **await-to-js**. Not strictly required, but this is a nice little library that simplifies the use of `Promise` (which we will use heavily). We use `await-to-js` to call a `Promise`, and it gives us the error (if any) and the result of the call in an array which we can then destructure and assign names as we require. We will see many examples of this in action.
-6. **cookie-parser**. An Express middleware that simplifies setting and reading cookies from the request. We will use cookies to store the users JWT. The cookie will be sent along with every request, and we will use it to verify the user's identity and access level within the system.
-7. **body-parser**. Useful for transforming the incoming request into various shapes, primarily in URL Encoded and JSON formats.
-8. **dotenv**. Another library that is not strictly required. We will need to store some _secret_ config somewhere, and by secret, I mean, strings that I don't necessarily want to end up in the GIT commit history (like database connection strings and passwords). Dotenv makes this easy, and exposes the resulting values on `process.env`.
+4. **bcrypt**. Passwords are stored in our database, so we need to ensure they are protected in the event of a security breach
+5. **await-to-js**. Not strictly required, but this is a nice little library that simplifies the use of `Promise` (which we will use heavily).
+6. **cookie-parser**. An Express middleware that simplifies setting and reading cookies from the request. We will use a HTTP only cookie to store the users JWT.
+7. **body-parser**. For parsing JSON in the body of requests.
+8. **dotenv**. Used for keeping applications secrets out of the repository.
 
 With our dependencies in place, we can go ahead and put some wiring in place.
 
@@ -95,7 +95,7 @@ nextApp.prepare().then(() => {
 
 Here we have plumbed in the middleware we already installed, and two new middlewares (which we will create). One called `router` will add our own custom routes, and the other called `initialiseAuthentication`, which will add our Passport.js strategies into the pipeline.
 
-Inside `server`, add a new directory called `router`, and a new file called `index.js`. Add the following code;
+Inside `server`, create a new directory called `router`, and a new file called `index.js`. Add the following code;
 
 ```javascript
 import authRoutes from './auth.routes'
@@ -107,13 +107,15 @@ function Router(app) {
 export default Router
 ```
 
-In this code sample we encounter our first usage of `process.env`. We need an easily sharable and easily updatable base URL for our API. We will use `dotenv` for this purpose.
+In this code sample we encounter our first usage of `process.env`. We need an easily sharable and easily updatable base URL for our API. We will use [dotenv](https://www.npmjs.com/package/dotenv) for this purpose.
 
 In the very root of the project, create a new file called `.env` and add the following;
 
 ```text
 BASE_API_URL=/api
 ```
+
+<div class="alert alert-warning">Please ensure that you have an entry in your <strong>.gitignore</strong> for <strong>.env</strong> files as you do not want to commit them normally.  .env files often contain sensitive details such as login credentials.</div>
 
 To configure `dotenv`, head back to `server/index.js` and add the **following code on line 1**. The code must go on line 1 to ensure proper behaviour.
 
@@ -153,7 +155,7 @@ export default router
 
 As an important side note, it is worth discussing what we see on lines 8 and 14 (highlighted). To simplify the downstream code, and, most importantly, for consistency, no matter what the response is (a successful request, or otherwise) we will always return a JSON object with two properties; `success` and `data`. If the request was successful (to the database, third party website, etc) we return `{ success: true, data: <...> }`. In the event of an error, we return `{ success: false, data: <error details> }`. We can use the response to display an appropriate error message to the user. We will also, of course, return the appropriate `statusCode` in all cases.
 
-As these routes are child routes, the full path is now; `/api/auth/login` and `/api/auth/register`.
+As these routes are child routes, the full path to each route is now; `/api/auth/login` and `/api/auth/register`.
 
 ## How to set-up MongoDB and Mongoose
 
@@ -161,7 +163,9 @@ We need somewhere to keep track of users who have registered with the website an
 
 [MongoDB Atlas](https://www.MongoDB.com/cloud/atlas) is a fully managed service that has a fantastic free tier available for developers learning how to build document databases. MongoDB has a long-established history, is battle hardened, and is often used as part of the M.E.R.N (Mongo, Express, React, Node) stack (the stack we're using to build our web app!).
 
-**We will use MongoDB Atlas** through this tutorial mini-series. If you need help creating a Mongo database, please refer to my very quick and easy [MongoDB Atlas using Mongoose and Node](/MongoDB/connect-mongo-atlas-mongoose/) tutorial. If you already have access to an existing Mongo instance, you could use that instead.
+**We will use MongoDB Atlas** throughout this tutorial mini-series. If you need help creating a Mongo database, please refer to my very quick and easy [MongoDB Atlas using Mongoose and Node](/mongodb/connect-mongo-atlas-mongoose/) tutorial. If you already have access to an existing Mongo instance, you could use that instead.
+
+<div class="alert alert-warning">The rest of this tutorial assumes that you have access to an instance of MongoDB, and that you have the connection string ready to use (we will add it to our application shortly).</div>
 
 [Mongoose.js](https://mongoosejs.com/) is a light wrapper around Mongo's API, which makes defining a data schema and querying the database much easier, so we will use that as well.
 
@@ -171,11 +175,11 @@ To install Mongoose, run the following command;
 npm install --save mongoose
 ```
 
-In the previous step we imported an object called `UserModel` from `../database/schema`, but we never defined it. Let's do that now.
+We need to define our `UserModel`, which will be a Mongoose schema object, that will store details about our user.
 
-Create a new directory in the `server` directory called `database`, and then create another new directory called `schema`.
+In `server`, create a directory called `database`, then inside `database` create a new directory called `schema`. The folder structure should be `server > database > schema`.
 
-Create a new file called `index.js` and add the following code;
+Inside `schema`, create a new file called `index.js`, and add the following code;
 
 ```javascript
 import { UserModel } from './user'
@@ -183,7 +187,7 @@ import { UserModel } from './user'
 export { UserModel }
 ```
 
-Before we can proceed, we need to define our `UserModel`. The `UserModel` object will be a Mongoose `Schema` object that describes the shape of our `User` object.
+This file just re-exports all of our models, so as to keep the imports cleaner later.
 
 Create a new file in `schema` called `user.js`, and add the following code;
 
@@ -212,9 +216,11 @@ The model states that our `User` object has many properties, including;
 - **providerId**, which is the Id handed to us from the OAuth provider (which we will wire up later in this series)
 - **provider**, the name of the provider in which the `providerId` came from
 
-With the `Schema` in place, we can move on.
+With the schema in place, we can move on.
 
-Inside the `database` directory, create a new directory called `user` and add a new file called `index.js`. Add the following code;
+Inside the `database` directory, create a new directory called `user` and add a new file called `index.js`. This will house the code that will query/update the database for us.
+
+Add the following code;
 
 ```javascript
 import { getUserById } from './get'
@@ -249,7 +255,6 @@ import cors from "cors"
 import bodyParser from "body-parser"
 import cookieParser from "cookie-parser"
 import passport from "passport"
-import { Handlers, init } from "@sentry/node"
 import compression from "compression"
 
 import router from "./router"
@@ -269,8 +274,6 @@ import { initialiseAuthentication, utils } from "./auth"
 
 + await connectToDatabase()
 
-  app.use(Handlers.errorHandler())
-
   app.listen(port, err => {
     if (err) throw err
     console.log(`> Ready on ${process.env.SERVER_URL}`)
@@ -279,7 +282,7 @@ import { initialiseAuthentication, utils } from "./auth"
 })
 ```
 
-We have added an asynchronous call to connect to our database. Let us add that code and understand what it does.
+We have added an asynchronous call to connect to our database. Let's flesh that out.
 
 In the `server/database` directory, create a new file called `connection.js` and add the following code;
 
@@ -304,7 +307,7 @@ const connectToDatabase = async () =>
 export { connectToDatabase, connection }
 ```
 
-Basically, we call `connect` and pass it a connection string (we will define this shortly). We also pass in some sensible default options that determine how connections are managed.
+Here we call `connect` (a light wrapper around Mongo's connect function, which opens a connection with the database) and pass it a connection string (we will define this shortly). We also pass in some sensible default options that determine how connections are managed.
 
 To add the environment variable for the database connection string, open `.env` (in the root of your project) and make the following changes;
 
@@ -340,7 +343,7 @@ export { utils, initialiseAuthentication, strategies }
 
 We will define the JWT strategy next, but first let's discuss what just happened here.
 
-We have defined our middleware function (`initialiseAuthentication`) and called `utils.setup()`, which will do some Passport wiring that will be required for all strategies. Then we used a function programming function called `pipe`, and passed it our as of yet undefined `JWTStrategy`. The first argument to pipe is one or many functions (in our case, we will have multiple strategies once this tutorial series is complete, as we will be adding Google and Facebook), and second argument (`app`) is a parameter that gets passed to the first strategy. The first strategy uses `app`, modifies it, adds to it, does what it needs to do, and then at the end returns it back. `app` then gets passed to the next strategy, and so on. It might seem a little heavy handed right now, but this will make for way tidied and less repetitive code further down the line.
+We have defined our middleware function (`initialiseAuthentication`) and called `utils.setup()`, which will do some Passport wiring that will be required for all strategies. Then we used a function programming concept called `pipe`, and passed it our as of yet undefined `JWTStrategy`. The first argument to pipe is one or many functions (in our case, we will have multiple strategies once this tutorial series is complete, as we will be adding Google and Facebook), and second argument (`app`) is a parameter that gets passed to the first strategy. The first strategy uses `app`, modifies it, adds to it, does what it needs to do, and then at the end returns it back. `app` then gets passed to the next strategy, and so on. It might seem a little heavy handed right now, but this will make for way tidier and less repetitive code further down the line.
 
 Inside the `server/auth` directory, create a new directory called `strategies`, and a new file within called `index.js`. Add the following code;
 
@@ -389,9 +392,9 @@ export { strategy, login }
 
 We will split this code into two separate discussions, so we don't miss any important details.
 
-First, we import `Strategy` from `passport-jwt` and start configuring it. The strategy, as with most Passport strategies, requires two arguments; an `StrategyOptions` object that describes how to determine the JWT sent along with the request, and a `verifyCallback` function, which uses the token parsed from the request to retrieve the user from the database.
+First, we import `Strategy` from `passport-jwt` and start configuring it. The strategy, as with most Passport strategies, requires two arguments; a `StrategyOptions` object that describes how to retrieve the JWT from the request, and a `verifyCallback` function, which uses the token parsed from the request to retrieve the user from the database.
 
-Note that on line 13, we have used an environment variable for `secretOrKey`. This is used to verify the tokens signature. The JWT can be of any value. Open your `.env` file and make the following changes;
+Note that on line 13, we have used an environment variable for `secretOrKey`. This is used to verify the tokens signature. The secret can be of any value. Open your `.env` file and make the following changes;
 
 ```diff
 BASE_API_URL=/api
@@ -418,7 +421,7 @@ const verifyCallback = async (req, jwtPayload, cb) => {
 }
 ```
 
-First, we call `getUserById`, which is a function we wrote earlier to fetch a user from the database, based on a given `id`. We use the `_id` that was provided to us as part of the `jwtPayload` by `passport-jwt`. We wrapped the function call in `to`, which is a function from `await-to-js`. Normally I am very reluctant to pull in utility functions like this, but for this library I make an exception. The utility is extremely simple, it calls the given `Promise` and attaches an error handler. If the error handler is called, the error object is passed back to us along with `null` for the result of the call. If the promise is successful, the error is `null` and the data object is populated. All this library essentially does is remove the need for us to have `try...catch...finally` statements in our code, which makes it read easier and flow better in my opinion.
+First, we call `getUserById`, which is the function we wrote earlier to fetch a user from the database, based on a given `id`. We use the `_id` that was provided to us as part of the `jwtPayload` by `passport-jwt`. We wrapped the function call in `to`, which is a function from `await-to-js`. Normally I am very reluctant to pull in utility functions like this, but for this library I make an exception. The utility is extremely simple, it calls the given `Promise` and attaches an error handler. If the error handler is called, the error object is passed back to us along with `null` for the result of the call. If the promise is successful, the error is `null` and the data object is populated. All this library essentially does is remove the need for us to have `try...catch...finally` statements in our code, which makes it read easier and flow better in my opinion.
 
 Once we have the `user` object from the database, we attach it to the request and pass it back to the callback (`cb`) function.
 
@@ -448,7 +451,7 @@ export { setup }
 
 ## How to write a registration endpoint in Express
 
-We have most of the set-up in place for Passport now, so we can focus on fleshing out our Register and Login routes. We added placeholders earlier, so we will go ahead and fill those in now.
+With the main code for Passport in place, we can shift focus to fleshing out our Register and Login routes. We added placeholders earlier, so we will go ahead and fill those in now.
 
 Open `auth.routes.js` and make the following changes;
 
@@ -462,7 +465,7 @@ import express from 'express'
 +import { createUser, getUserByEmail } from '../database/user'
 ```
 
-Not all of these pieces are in place, so we will start adding them now.
+Then make the following changes to the `/register` route;
 
 ```diff
 // Code omitted for brevity
@@ -518,7 +521,7 @@ The register route has various responsibilities.
 2. Hash the given password, so that it is not stored in plain text in the database (this would be a security risk)
 3. Create the user in the database
 4. Log the user in, so they don't have to be redirected to the login screen
-5. Set a cookie on the request, which will be passed back on subsequent requests, so the user can stay logged in across requests.
+5. Set a cookie on the request, which will be passed back on subsequent requests, so the user can stay logged in
 
 We have two functions here that are not currently fleshed out (`login` and `hashPassword`), so we will do that now.
 
@@ -568,13 +571,7 @@ This will issue a token that will expire in 7 days. With the login function in p
 
 In order to safely and securely hash the user's password, we will use a third-party library, rather than attempt to do this ourselves. We will use [bcrypt](https://www.npmjs.com/package/bcrypt), a battle tested library specifically for this purpose.
 
-Install **bcrypt** as follows;
-
-```shell
-npm install --save bcrypt
-```
-
-Now, open `auth/utils.js` and make the following changes;
+Open `auth/utils.js` and make the following changes;
 
 ```diff
 +import bcrypt from "bcrypt"
@@ -636,23 +633,59 @@ export { createUser }
 
 Hopefully the code is fairly self-explanatory. We first check the database to make sure there is not an existing user with the same email address that has been provided. If there is, we throw an error.
 
-Otherwise, we create the user in the database and return the newly created user object back to the called.
+Otherwise, we create the user in the database and return the newly created user object back to the caller.
 
 Open the `index.js` file inside the `user` directory, and make the following changes;
 
 ```diff
-import { getUserById, getUserByEmail } from './get'
+import { getUserById } from './get'
 +import { createUser } from './create'
 
--export { getUserById, getUserByEmail }
-+export { getUserById, getUserByEmail, createUser }
+-export { getUserById }
++export { getUserById, createUser }
 ```
 
 This ensures that our newly created `createUser` function is accessible.
 
 With the user created, we can go ahead and log the user in, so that we don't have to redirect them to the login page. As we already wrote the `login` function, we just have to make use of it here, passing in the request and user objects.
 
-Assuming there are no errors, we can go ahead and set a `jwt` cookie on the request. This cookie will be set in the user's browser and will be passed back-and-forth with each request. We have marked the cookie as `httpOnly`, meaning it cannot be access via JavaScript. If your server has full end-to-end encryption, you could also set this cookie as secure.
+<small>Code shown here again for context, no edits needed (see the highlighted lines below);</small>
+
+```javascript{4-9,16,25-27}
+// NO EDITS REQUIRED
+
+let [err, user] = await to(
+  createUser({
+    firstName,
+    lastName,
+    email,
+    password: await hashPassword(password)
+  })
+)
+
+if (err) {
+  return res.status(500).json({ success: false, data: 'Email is already taken' })
+}
+
+const [loginErr, token] = await to(login(req, user))
+
+if (loginErr) {
+  console.error(loginErr)
+  return res.status(500).json({ success: false, data: 'Authentication error!' })
+}
+
+return res
+  .status(200)
+  .cookie('jwt', token, {
+    httpOnly: true
+  })
+  .json({
+    success: true,
+    data: '/'
+  })
+```
+
+Assuming there are no errors, we can go ahead and set a `jwt` cookie on the request. This cookie will be set in the user's browser and will be passed back-and-forth with each request automatically. We have marked the cookie as `httpOnly`, meaning it cannot be access via JavaScript. If your server has full end-to-end encryption, you could also set this cookie as secure.
 
 The code for that might look something like this;
 
@@ -671,7 +704,7 @@ return res
   })
 ```
 
-The above code has been included for reference only.
+<small>The above code has been included for reference only.</small>
 
 The registration route is complete, we can now move on to the login route.
 
@@ -680,6 +713,8 @@ The registration route is complete, we can now move on to the login route.
 With the registration route complete, we can move on to the login route.
 
 Once the user has created an account, and has logged out at some point, it is reasonable for them to want to log in again!
+
+Make the following edits to the `/login` route in `auth.routes.js`;
 
 ```diff
 // Code omitted for brevity
@@ -725,7 +760,7 @@ The login route has various responsibilities.
 1. Retrieve the user from the database, based on the supplied email address
 2. Verify that the given password matches that stored in the database against the user
 3. Log the user in
-4. Set a cookie on the request, which will be passed back on subsequent requests, so the user can stay logged in across requests.
+4. Set a cookie on the request, so the user can stay logged in.
 
 We do not have any means of fetching the user from the database using their email address (we have not fleshed out `getUserByEmail` yet), so we will need to add this.
 
@@ -746,7 +781,7 @@ async function getUserById(id) {
 +export { getUserById, getUserByEmail }
 ```
 
-The email address can only be used once in our system (you can't have multiple users with the same email address), so we can use `findOne` from Mongoose and provide the given email address.
+As an email can only belong to one user, we can use `findOne` and expect only one result.
 
 In the same directory, we have an `index.js` file that we need to update to expose the new function we just created. Open `database/user/index.js` and make the following changes;
 
@@ -760,12 +795,17 @@ In the same directory, we have an `index.js` file that we need to update to expo
 
 Next, we need to verify that the given password matches the password we have in place for the user in the database. To keep the code in `auth.routes.js` tidy, we will extract this into our `utils.js` file.
 
-Open `auth/utils.js` and add the following;
+Open `auth/utils.js` and make the following changes;
 
-```javascript
-const verifyPassword = async (candidate: string, actual: string) => {
-  return await bcrypt.compare(candidate, actual)
-}
+```diff
+// Code omitted for brevity
+
++const verifyPassword = async (candidate, actual) => {
++  return await bcrypt.compare(candidate, actual)
++}
+
+-export { setup, signToken, hashPassword }
++export { setup, signToken, hashPassword, verifyPassword }
 ```
 
 Bcrypt makes this very simple for us and simply returns a `boolean` that determines if the password matched or not.
@@ -778,11 +818,13 @@ The login route is now complete.
 
 With the hard work of writing the back-end endpoints complete, we can go ahead and connect our login and registration forms and actually see them working correctly.
 
-Start by spinning up your application, if it isn't already, by running `npm run dev`. Open your browser to `http://localhost:3000/register`.
+Start by spinning up your application by running `npm run dev`. Open your browser to `http://localhost:3000/register`.
 
 Next, open your `register.jsx` file and make the following changes;
 
 ```diff
++import { server } from '../utils'
+
 // Code omitted for brevity
 
 const Register = () => {
@@ -843,7 +885,7 @@ const Register = () => {
 }
 ```
 
-When our form gets submitted, it will be `POST`ed to the `/auth/register` endpoint. To do this, we need a little utility called `server`, which exposes a `postAsync` function. Let's add that code now and then discuss it.
+When our form gets submitted, it will be `POST`ed to the `/api/auth/register` endpoint. To do this, we need a little utility called `server`, which exposes a `postAsync` function. Let's add that code now and then discuss it.
 
 In the root of your project, create a new directory called `utils` and add a new file called `server.js`. Add the following code;
 
@@ -898,7 +940,7 @@ import * as server from './server'
 export { server }
 ```
 
-There is one final step required for everything to start functioning correctly. We are using `dotenv` for our environment variables, and extracting them from `process.env`. Normally `process.env` only exists on the server, and is empty or completely unavailable on the client. We can make these values available on the client, using Webpack and Next.js.
+There is one final step required for everything to start functioning correctly. We are using _dotenv_ for our environment variables, and referencing them from `process.env`. Normally `process.env` only exists on the server, and is empty or completely unavailable on the client. We can make these values available on the client, using Webpack and Next.js.
 
 In the root of your project, create a new file, called `next.config.js` and add the following code;
 
@@ -912,7 +954,9 @@ module.exports = {
 }
 ```
 
-This will make available only `BASE_API_URL` environment variable to the client. Each time we want to expose an environment variable to the client, we need to add it here to the list. This is intentional, because we don't want to accidentally leak all our secrets to our users! Be sure to re-run `npm run dev` for the change to take effect!
+This will make available only our `BASE_API_URL` environment variable to the client. Each time we want to expose an environment variable to the client, we need to add it here to the list. This is intentional, because we don't want to accidentally leak all our secrets to our users! Be sure to re-run `npm run dev` for the change to take effect!
+
+<div class="alert alert-warning">You could write a clever function here that automatically loads all environment variables, but I strongly recommend against it, as you risk exposing your secrets to the client.  I recommend being intentional here and only exposing exactly what you want to expose.</div>
 
 With the registration code now in place, go to your browser (`http://localhost:3000/register`), and enter some registration details (and remember these for later!).
 
@@ -985,8 +1029,8 @@ const LoginForm = () => {
             name="email"
             autoComplete="email"
             autoFocus
-            defaultValue={formData.email}
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            defaultValue={formData.password}
+            onChange={e => setFormData({ ...formData, password: e.target.value })}
           />
 ```
 
@@ -995,3 +1039,5 @@ Enter your username and password that you used to register earlier, and click "S
 ## Summary
 
 We have covered a lot of ground in this post. We discussed how to set up Passport.js and JWT, how to issue tokens, verify tokens, and set them in the user's browser as HTTP only cookies. We also took the time to wire up our login and registration forms, extract our secrets into a `.env` file (for security) and we even set up and connected to MongoDB so that we could save details about our registered users.
+
+In the next posts in this mini-series we will focus on adding third-party authentication providers, like Google and Facebook. With a lot of the major plumbing in place, doing so is much more straightforward than you might imagine.
