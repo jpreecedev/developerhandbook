@@ -22,7 +22,7 @@ So far in this series, [we have discussed at length Passport.js and JWT](/passpo
 
 Once this tutorial is finished, users will be able to login and register with your site using their existing Google account. Role-based authorisation will be covered in a subsequent post in this series.
 
-Let's get started. As we have many of the parts in place to make this work properly, you should find this post easier to implement in your project.
+Let's get started. Hopefully you will find that the Google OAuth strategy is easier to implement, compared to the JWT strategy.
 
 ## How to get credentials for Passport.js Google OAuth strategy
 
@@ -46,7 +46,7 @@ Select **Web Application**, and give a sensible name. The important part here is
 
 ![Google Developers Console - Authorised Redirect UI](./google-authorised-redirect-uri.png)
 
-It is important to set the redirect URL to `http://localhost:3000/api/auth/google/callback`. We will set the same URL in our application.
+It is important to set the authorised redirect URL to `http://localhost:3000/api/auth/google/callback`. We will set the same URL in our application later.
 
 When done, click **Create**.
 
@@ -54,9 +54,7 @@ A modal should appear containing both your Client Id and Client Secret.
 
 ![Google Developers Console - Client Id and Client Secret](./google-oauth-client-id-secret.png)
 
-We need to add these into our application.
-
-Go back to your project, and open your `.env` file.
+We need to add these into our application. Go back to your project, and open your `.env` file.
 
 Make the following changes;
 
@@ -113,7 +111,7 @@ const strategy = app => {
 export { strategy }
 ```
 
-If you are not already using [await-to-js](https://www.npmjs.com/package/await-to-js), it is a lightweight wrapper around `Promise` that makes error handling tidier, removing the need for `try...catch...finally`.
+If you are not already familiar with [await-to-js](https://www.npmjs.com/package/await-to-js), it is a lightweight wrapper around `Promise` that makes error handling tidier, removing the need for `try...catch...finally`.
 
 Let's discuss the above code.
 
@@ -141,7 +139,7 @@ You would probably set this to your domain name when deploying to production.
 
 Before fleshing out the `verifyCallback` function, we will add our Google specific authentication and callback routes.
 
-In `google.js`, add the following to function calls as shown;
+In `google.js`, add the following two routes as shown;
 
 ```diff
 // Code omitted for brevity
@@ -318,7 +316,7 @@ const initialiseAuthentication = app => {
 export { utils, initialiseAuthentication, strategies }
 ```
 
-That's it, the Google OAuth strategy has been added to our application. Now we just need to wire up the front-end so that we can call it.
+That's it. The Google OAuth strategy has been added to our application. Now we just need to wire up the front-end so that we can call it.
 
 ## How to create a Google login button for the front-end
 
@@ -489,6 +487,6 @@ Now you have been successfully registered and logged in using Passport.js Google
 
 ## Summary
 
-We went into a lot of details with this post. We discussed how to install Passport.js Google OAuth strategy, how to obtain your Client Id and Client Secret, how to create a new user, or login an existing user. Finally, we discussed how to create a Google branded login button and use it to trigger the authentication flow from the front end.
+It was significantly easier to wire up Google OAuth, compared to JWT, although primarily this was because we had several major components (like the database) in place already. We discussed how to install Passport.js Google OAuth strategy, how to obtain your Client Id and Client Secret, how to create a new user, or login an existing user. Finally, we discussed how to create a Google branded login button and use it to trigger the authentication flow from the front end.
 
 In the next post in this mini-series we will focus on adding the Facebook authentication strategy. Which, in many ways, is very similar to what we have done here for Google.
