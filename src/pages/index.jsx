@@ -12,7 +12,7 @@ function BlogIndex({ data }) {
 
   const developmentPosts = posts
     .filter(post => post.frontmatter.group === 'Software Development')
-    .slice(0, 3)
+    .slice(0, 9)
   const growthPosts = posts
     .filter(post => post.frontmatter.group === 'Personal Growth')
     .slice(0, 3)

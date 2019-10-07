@@ -21,7 +21,7 @@ const NotFoundPage = ({ data, location }) => {
 
   const developmentPosts = posts
     .filter(post => post.frontmatter.group === 'Software Development')
-    .slice(0, 6)
+    .slice(0, 9)
 
   const groupedPosts = [{ title: 'Software Development', posts: developmentPosts }]
 
