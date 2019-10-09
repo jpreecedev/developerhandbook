@@ -11,7 +11,7 @@ featuredImage: './passportjs-google-oauth-strategy.png'
 
 Welcome to our mini-series on _Authentication using Node.js, Express, and Passport.js_. This comprehensive series is designed to teach you everything you need to know, as well as give you all the code required, to add authentication and authorisation to your existing website, or for a new-build from-scratch project.
 
-So far in this series, [we have discussed at length Passport.js and JWT](/passport.js/protect-website-using-passportjs-jwt/). We created our project using Next.js, we wrote a [login page and registration page using Material UI for the layout](/passport.js/node-express-passport-authentication-mini-series/), and we added MongoDB and Mongoose for back-end data storage. Using our website, we can create an account and use it to log in.
+So far in this series, [we have discussed at length Passport.js and JWT](/passport.js/protect-website-using-passportjs-jwt/). We created our project using Next.js, we wrote a [login page and registration page using Material UI for the layout](/passport.js/node-express-passport-authentication-mini-series/), and we added MongoDB and Mongoose for back-end data storage. [Using our website, we can create an account and use it to log in](/passport.js/protect-website-using-passportjs-jwt/).
 
 **The purpose of this post** is to go in to the specifics of wiring up _Passport.js Google OAuth Authentication Strategy_. The code in this post is meant as an enhancement to code written in previous parts of this mini-series, but should still be generally applicable to existing applications.
 

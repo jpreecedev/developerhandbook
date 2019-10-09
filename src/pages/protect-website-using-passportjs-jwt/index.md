@@ -2,7 +2,7 @@
 layout: post
 title: How to protect your website using Passport.js and JWT
 description: In the second post in this Passport.js mini-series, we discuss how to set-up Passport.js, JWT, and MongoDB allowing users to register and log in
-date: 2019-10-04
+date: 2019-10-05
 categories: ['Passport.js', 'passport-authentication-series']
 seriesTitle: Comprehensive Passport.js Mini-Series
 group: 'Software Development'

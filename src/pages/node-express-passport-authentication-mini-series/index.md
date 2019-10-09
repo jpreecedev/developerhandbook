@@ -2,7 +2,7 @@
 layout: post
 title: Build an authentication system using Node.js, Express, and Passport.js
 description: We take a deep-dive look at how to use Node, Express, Passport and JWT to secure your website with using login and registration pages, including role based authorisation
-date: 2019-10-03
+date: 2019-10-04
 categories: ['Passport.js', 'passport-authentication-series']
 seriesTitle: Comprehensive Passport.js Mini-Series
 group: 'Software Development'
@@ -20,12 +20,6 @@ You will learn;
 - How to set-up MongoDB using Docker. We will also use Mongoose to simplify database calls, and MongoDB Memory Server for effective unit testing
 - How to extend the login/registration options with both **Google** and **Facebook** Passport strategies
 - How to introduce role-based authorisation, so you can restrict access to certain sections of the website.
-
-# TODO TODO TODO 🚨
-
-# ADD IMAGES OF FINISHED PRODUCT
-
-# TODO TODO TODO 🚨
 
 **Weather you're a seasoned developer or just starting out**, don't worry. We take care to explain the details that matter in a simple and straightforward language that is approachable to all.
 
