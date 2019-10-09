@@ -46,7 +46,9 @@ const passportPosts = {
   '/passport.js/how-to-add-passportjs-google-oauth-strategy/':
     'How to add Passport.js Google OAuth Strategy to your website',
   '/passport.js/how-to-add-passportjs-facebook-strategy/':
-    'How to add Passport.js Facebook Strategy to your website'
+    'How to add Passport.js Facebook Strategy to your website',
+  '/passport.js/passport-role-based-authorisation-authentication/':
+    'How to restrict access using Passport.js role-based authorisation'
 }
 
 const getSeries = title => {
