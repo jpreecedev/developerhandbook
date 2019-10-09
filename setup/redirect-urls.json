@@ -56,6 +56,10 @@
     "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-2-of-3/"
   },
   {
+    "from": "/react/how-to-configure-vs-code-react-development/",
+    "to": "/react/how-to-setup-vs-code-productivity/"
+  },
+  {
     "from": "/react/setup-react-project-for-success/",
     "to": "/react/how-to-setup-vs-code-productivity/"
   },
