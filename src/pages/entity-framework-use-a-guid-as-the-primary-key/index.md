@@ -18,7 +18,7 @@ Using a Guid as the primary key when taking the code first approach is simple. W
 public Guid Id { get; set; }
 ```
 
-Entity framework will create the column as you would expect, with a primary key and `uniqueidentifier` data type. [<figure>![codefirst-defaultvalue](codefirst-defaultvalue_thumb1.png 'codefirst-defaultvalue')
+Entity framework will create the column as you would expect, with a primary key and `uniqueidentifier` data type. [<figure>![codefirst-defaultvalue](codefirst-defaultvalue1.png 'codefirst-defaultvalue')
 
 <figcaption>Click to zoom in</figcaption>
 
@@ -26,7 +26,7 @@ Entity framework will create the column as you would expect, with a primary key 
 
 ## Database First
 
-The database first approach follows a similar line to the code first approach, but you'll have to manually edit your model to make it work. Ensure that you edit the primary key column and add the `(newsequentialid())` or `(newid())` function as the default value before doing anything. Next, open you EDMX diagram, select the appropriate property and open the properties window. Ensure that **StoreGeneratedPattern** is set to identity. [<figure>![databasefirst-model](databasefirst-model_thumb1.png 'databasefirst-model')
+The database first approach follows a similar line to the code first approach, but you'll have to manually edit your model to make it work. Ensure that you edit the primary key column and add the `(newsequentialid())` or `(newid())` function as the default value before doing anything. Next, open you EDMX diagram, select the appropriate property and open the properties window. Ensure that **StoreGeneratedPattern** is set to identity. [<figure>![databasefirst-model](databasefirst-model1.png 'databasefirst-model')
 
 <figcaption>Click the image to zoom in</figcaption>
 
