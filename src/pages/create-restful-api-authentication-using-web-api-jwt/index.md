@@ -3,7 +3,7 @@ layout: post
 title: Create a RESTful API with authentication using Web API and Jwt
 description: The purpose of this tutorial is to develop the beginnings of a Book Store API, using Microsoft Web API with (C#), and JWT.
 date: 2016-03-15
-categories: ['.NET', 'C#', 'Entity Framework', 'Web API']
+categories: ['dotnet', 'C#', 'Entity Framework', 'Web API']
 group: 'Software Development'
 ---
 

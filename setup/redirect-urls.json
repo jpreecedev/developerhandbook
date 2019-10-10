@@ -66,5 +66,25 @@
   {
     "from": "/javascript/use-eslint-prettier-for-consistent-coding-environment/",
     "to": "/react/how-to-setup-vs-code-productivity/"
+  },
+  {
+    "from": "/.net/angular-2-server-side-paging-using-ng2-pagination/",
+    "to": "/dotnet/angular-2-server-side-paging-using-ng2-pagination/"
+  },
+  {
+    "from": "/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/",
+    "to": "/dotnet/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-1-of-2/"
+  },
+  {
+    "from": "/.net/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/",
+    "to": "/dotnet/create-a-telephone-directory-with-bootstrap-knockoutjs-jquery-web-api-and-entity-framework-part-2-of-2/"
+  },
+  {
+    "from": "/.net/create-restful-api-authentication-using-web-api-jwt/",
+    "to": "/dotnet/create-restful-api-authentication-using-web-api-jwt/"
+  },
+  {
+    "from": "/.net/how-to-add-signalr-to-the-telephone-directory-sample-application/",
+    "to": "/dotnet/how-to-add-signalr-to-the-telephone-directory-sample-application/"
   }
 ]
