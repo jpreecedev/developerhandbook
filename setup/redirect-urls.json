@@ -28,6 +28,10 @@
     "to": "/category/c-sharp/"
   },
   {
+    "from": "/react/",
+    "to": "/category/react/"
+  },
+  {
     "from": "/unittesting/writing-unit-tests-with-nunit-and-moq/",
     "to": "/unit-testing/writing-unit-tests-with-nunit-and-moq/"
   },
