@@ -19,6 +19,14 @@ So far in this series, [we have discussed at length Passport.js and JWT](/passpo
 
 - How to set-up basic role-based authorisation, with two roles; **Admin** and **Customer**
 
+<div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
+  <img src="/github.png" class="mr-3" alt="GitHub">
+  <div class="media-body align-self-center">
+    <h5 class="mt-0 mb-0">Open source</h5>
+    All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
+  </div>
+</div>
+
 Let's get started.
 
 ## How to implement basic role-based authorisation with Express

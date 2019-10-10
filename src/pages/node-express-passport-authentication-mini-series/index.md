@@ -25,6 +25,14 @@ You will learn;
 
 Need help? A bit stuck? Leave us a comment and we will try and help you out as best as we can!
 
+<div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
+  <img src="/github.png" class="mr-3" alt="GitHub">
+  <div class="media-body align-self-center">
+    <h5 class="mt-0 mb-0">Open source</h5>
+    All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
+  </div>
+</div>
+
 Without further ado, let's get started.
 
 ## Set up your project quickly with Next.js
