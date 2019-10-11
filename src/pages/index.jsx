@@ -34,9 +34,11 @@ function BlogIndex({ data }) {
         <script type="application/ld+json">{SocialProfile()}</script>
       </Helmet>
       <Layout>
-        Welcome to Developer Handbook
+        <span className="text-underline">Learn to write front-end code like a pro</span>
         <br />
-        <small>Your practical web development resource.</small>
+        <small>
+          We teach you everything you need to know to become a pro front-end developer.
+        </small>
       </Layout>
       <main id="content" role="main" className="mb-5 mt-4">
         <div className="container">
@@ -44,7 +46,7 @@ function BlogIndex({ data }) {
             <React.Fragment key={groupedPost.title}>
               <div className="row mb-2">
                 <div className="col-12">
-                  <h2 className="mt-0">{`Latest posts in "${groupedPost.title}"`}</h2>
+                  <h2 className="mt-0">{`Learn more about "${groupedPost.title}"`}</h2>
                 </div>
               </div>
               <div className="row mb-2">

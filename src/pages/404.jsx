@@ -13,7 +13,7 @@ const NotFoundPage = ({ data, location }) => {
     if (hostname !== 'localhost') {
       Sentry.captureMessage(`404! ${pathname}`)
     }
-  }, [])
+  }, [location])
 
   const { siteTitle, description } = data.site.siteMetadata
 
@@ -59,7 +59,7 @@ const NotFoundPage = ({ data, location }) => {
             <React.Fragment key={groupedPost.title}>
               <div className="row mb-2">
                 <div className="col-12">
-                  <h2 className="mt-0">{`Latest posts in "${groupedPost.title}"`}</h2>
+                  <h2 className="mt-0">{`Learn "${groupedPost.title}"`}</h2>
                 </div>
               </div>
               <div className="row mb-2">

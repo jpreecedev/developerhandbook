@@ -1,9 +1,9 @@
 module.exports = {
   url: 'https://developerhandbook.com',
   description:
-    'Here to help you write cleaner code, better code through comprehensive and interesting tutorials',
+    'Want to level up your front-end skills? We teach you everything you need to know, and everything you need to do, to become a pro front-end developer.',
   twitter: 'jpreecedev',
-  siteTitleAlt: 'DeveloperHandbook.com - Cleaner code, better code.',
+  siteTitle: 'Learn to write front-end code like a pro - DeveloperHandbook',
   disqus: {
     shortname: 'jpreecedev'
   },

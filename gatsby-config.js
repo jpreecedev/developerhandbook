@@ -1,13 +1,12 @@
 const siteConfig = require('./site-config')
 
-const siteTitle = 'DeveloperHandbook.com - Cleaner code, better code.'
 const googleTrackingId = `UA-42743116-1`
 const baseUrl = siteConfig.url
 
 module.exports = {
   siteMetadata: {
-    siteTitle,
-    title: siteTitle,
+    siteTitle: siteConfig.siteTitle,
+    title: siteConfig.siteTitle,
     author: 'Jon Preece',
     description: siteConfig.description,
     siteUrl: siteConfig.url
@@ -33,7 +32,7 @@ module.exports = {
               maxWidth: 1110,
               linkImagesToOriginal: true,
               withWebp: true,
-              showCaptions: true,
+              showCaptions: true
             }
           },
           {
@@ -93,13 +92,14 @@ module.exports = {
                 }/${edge.node.frontmatter.categories[0].toLowerCase()}${
                   edge.node.fields.slug
                 }`
-                return Object.assign({}, edge.node.frontmatter, {
+                return {
+                  ...edge.node.frontmatter,
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url,
                   guid: url,
                   custom_elements: [{ 'content:encoded': edge.node.html }]
-                })
+                }
               }),
             query: `
               {
@@ -125,7 +125,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: siteTitle
+            title: siteConfig.siteTitle
           }
         ]
       }

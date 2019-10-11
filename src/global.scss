@@ -293,6 +293,10 @@ a {
     @include media-breakpoint-up(lg) {
       max-width: 70%;
       padding: 2rem 4rem;
+      font-size: 1.75rem;
+    }
+
+    @include media-breakpoint-up(xl) {
       font-size: 2rem;
     }
   }

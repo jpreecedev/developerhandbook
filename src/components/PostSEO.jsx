@@ -9,7 +9,7 @@ function PostSEO({ post, baseUrl, fullUrl }) {
   const image = post.frontmatter.featuredImage
     ? post.frontmatter.featuredImage.childImageSharp.fluid.src
     : icon
-  const { twitter, siteTitleAlt } = config
+  const { twitter, siteTitle } = config
 
   const category = categories[0]
 
@@ -19,7 +19,7 @@ function PostSEO({ post, baseUrl, fullUrl }) {
       '@type': 'WebSite',
       baseUrl,
       name: title,
-      alternateName: siteTitleAlt || ''
+      alternateName: siteTitle || ''
     },
     {
       '@context': 'http://schema.org',
