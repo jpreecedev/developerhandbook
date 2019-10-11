@@ -70,10 +70,23 @@ function SeriesLayout({ title, children, pathname }) {
   return (
     <div className="container">
       <div className="row">
-        <main role="main" className="col-12 col-md-9" style={{ marginBottom: '10rem' }}>
-          <article id="content">{children}</article>
+        <main role="main" className="col-12 col-lg-9" style={{ marginBottom: '10rem' }}>
+          <article id="content">
+            <SeriesNavigation
+              title={seriesTitle}
+              posts={posts}
+              currentUrl={pathname}
+              additionalClassNames="d-block d-lg-none"
+            />
+            {children}
+          </article>
         </main>
-        <SeriesNavigation title={seriesTitle} posts={posts} currentUrl={pathname} />
+        <SeriesNavigation
+          title={seriesTitle}
+          posts={posts}
+          currentUrl={pathname}
+          additionalClassNames="d-none d-lg-block col-lg-3"
+        />
       </div>
     </div>
   )

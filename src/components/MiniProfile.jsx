@@ -13,19 +13,14 @@ function MiniProfile() {
       <div className="align-self-center pl-3 pr-3 text-center text-md-left">
         <h3 className="mt-0">About the author</h3>
         <p>
-          I am
-          {' '}
           <a href="https://jpreecedev.com" rel="noreferrer noopener" target="_blank">
             Jon Preece
-          </a>
-          , an experienced website and software developer from the United Kingdom, based
-          in Manchester.
+          </a>{' '}
+          is a professional front-end development specialist.
         </p>
         <p>
-          Throughout my 10+ year professional career I have worked in many sectors,
-          including; e-commerce, financial services, marketing, healthcare, travel and
-          accountancy.
-          {' '}
+          For over a decade, Jon has worked for some of the biggest and best UK based
+          companies, on a wide range of products.{' '}
           <a
             href="https://twitter.com/jpreecedev"
             rel="noreferrer noopener"

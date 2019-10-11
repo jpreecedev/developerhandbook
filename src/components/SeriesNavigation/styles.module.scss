@@ -1,14 +1,21 @@
 .indented {
-  dt {
+  h4 {
+    margin-top: 0;
     padding-bottom: 8px;
     font-weight: 500;
     font-size: 0.75rem;
+    text-align: center;
   }
 
-  dd {
+  ul {
     margin-bottom: 0;
     padding: 4px 4px 4px 0;
     font-size: 0.75rem;
+    list-style-type: none;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
   }
 
   a {
@@ -35,4 +42,11 @@
 
 .underline {
   text-decoration: underline;
+}
+
+.sticky {
+  position: sticky;
+  top: 125px;
+  margin-bottom: 1rem;
+  padding: 1rem;
 }

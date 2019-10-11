@@ -1,39 +1,14 @@
 import * as React from 'react'
 
-import profilePic from '../images/jonpreece-96.png'
-import linkedin from '../images/linkedin.png'
-
 function Published({ post, showProfile }) {
   return (
     <>
       {showProfile && (
         <div style={{ display: 'flex', marginBottom: '1rem', fontSize: '0.75rem' }}>
-          <img
-            src={profilePic}
-            className="rounded mr-3 rounded-pill"
-            alt="Jon Preece"
-            style={{ maxWidth: '75px', maxHeight: '75px' }}
-          />
           <p style={{ alignSelf: 'center' }} className="text-muted mb-0">
-            <img
-              src={linkedin}
-              className="mr-2 mb-1"
-              alt="Follow Jon Preece on LinkedIn"
-            />
-            Connect with{' '}
-            <a
-              href="https://www.linkedin.com/in/jonpreecedev/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Jon Preece on LinkedIn
-            </a>
-            .
-            <br />
-            {`Published on `}
-            {post.frontmatter.date}
-            {' · '}
-            {post.frontmatter.updated && `Updated on ${post.frontmatter.updated} · `}
+            {post.frontmatter.updated
+              ? `Last updated on ${post.frontmatter.updated}.`
+              : `Published on ${post.frontmatter.date}.`}{' '}
             {post.timeToRead} minute read.
           </p>
         </div>
