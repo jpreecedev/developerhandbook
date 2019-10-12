@@ -32,6 +32,8 @@ Once this tutorial is finished, users will be able to login and register with yo
 
 Let's get started. Hopefully you will find that the Facebook strategy is easier to implement than JWT, and the steps are similar to the Google OAuth strategy.
 
+<pre class="no-shadow"><in-article-ad></in-article-ad></pre>
+
 ## How to get credentials for Passport.js Facebook strategy
 
 Before we can write any code, we need to obtain an **App Id** and **App Secret** from [Facebook for Developers](https://developers.facebook.com/).
