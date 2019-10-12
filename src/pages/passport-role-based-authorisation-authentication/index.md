@@ -322,7 +322,7 @@ There are three places where we create new users
 - Passport.js Facebook Strategy (`/server/auth/strategies/facebook`)
 - JWT Strategy (`/server/router/auth.routes`)
 
-Go ahead an update each usage of `createUser`, roughly as follows;
+Go ahead and update each usage of `createUser`, roughly as follows;
 
 ```diff
 +import { ROLES } from '../../../utils'
@@ -345,6 +345,24 @@ const [createdError, createdUser] = await to(
 ```
 
 The change should be very similar for each strategy.
+
+You will also need to update the `UserSchema` in `/server/database/schema/user` to include a `role`:
+
+```diff
+// code omitted for brevity
+
+const UserSchema = new Schema({
+  email: String,
+  password: String,
+  businessName: String,
+  firstName: String,
+  lastName: String,
+  displayName: String,
+  providerId: String,
+  provider: String,
++  role: String
+});
+```
 
 **Please** go ahead and assign a role of _Admin_ to your own user. There are two approaches to doing this;
 
