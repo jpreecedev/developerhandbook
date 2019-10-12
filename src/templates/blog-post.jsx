@@ -15,13 +15,11 @@ import StandardLayout from '../components/StandardLayout'
 import SeriesLayout from '../components/SeriesLayout'
 
 import SharePriceEvaluator from '../components/SharePriceEvaluator'
-import { InArticleAd } from '../components/InArticleAd'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
-    'share-price-evaluator': SharePriceEvaluator,
-    'in-article-ad': InArticleAd
+    'share-price-evaluator': SharePriceEvaluator
   }
 }).Compiler
 
