@@ -16,14 +16,10 @@ function BlogIndex({ data }) {
   const growthPosts = posts
     .filter(post => post.frontmatter.group === 'Personal Growth')
     .slice(0, 3)
-  const financesPosts = posts
-    .filter(post => post.frontmatter.group === 'Your Finances')
-    .slice(0, 3)
 
   const groupedPosts = [
     { title: 'Software Development', posts: developmentPosts },
-    { title: 'Personal Growth', posts: growthPosts },
-    { title: 'Your Finances', posts: financesPosts }
+    { title: 'Personal Growth', posts: growthPosts }
   ]
 
   return (

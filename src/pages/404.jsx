@@ -44,7 +44,7 @@ const NotFoundPage = ({ data, location }) => {
             className="align-self-center rounded-circle mr-auto ml-auto d-block mt-3 mb-3"
             alt="Jon Preece"
           />
-          <h1>This content either was not found, or has been removed</h1>
+          <h1>Content was either not found, or removed</h1>
           <hr />
           <p>
             I have been hard at work re-structuring the website recently, and that means
