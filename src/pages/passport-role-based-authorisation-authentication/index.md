@@ -214,6 +214,7 @@ We can write our own middleware that will run after Passport has completed its c
 Make the following changes;
 
 ```diff{12}
++ import { utils } from "./auth";
 import { ROLES } from '../utils'
 
 // Code omitted for brevity
