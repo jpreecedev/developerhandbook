@@ -44,7 +44,7 @@ For ultimate speed and simplicity, we will use Next.js with our own custom back-
 Create a new Next app, as follows;
 
 ```shell
-npx create-react-app
+npx create-next-app aws-rekognition-getting-started
 ```
 
 Give your app a name. I have chosen `aws-rekognition-getting-started`.
@@ -164,7 +164,7 @@ We should start by defining our database schema, our models, and setting up the 
 Start by installing **Mongoose** (a light wrapper around MongoDB that simplifies model creation and makes database lookups easier), and **dotenv**, which we will use to store our secrets and other config;
 
 ```shell
-npm install --save mongoose dotenv
+npm install --save mongoose dotenv express
 ```
 
 Make the following changes to `server/index.js`;
@@ -282,7 +282,7 @@ const connectToDatabase = async () =>
 +const PictureModel = model("Picture", PictureSchema);
 
 -export { connectToDatabase };
-export { connectToDatabase, PictureModel };
++export { connectToDatabase, PictureModel };
 ```
 
 With our schema and model defined, we can start thinking about adding Express routes/endpoints for the client to call.
