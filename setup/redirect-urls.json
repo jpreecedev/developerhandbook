@@ -36,6 +36,10 @@
     "to": "/unit-testing/writing-unit-tests-with-nunit-and-moq/"
   },
   {
+    "from": "/other/writing-unit-tests-with-nunit-and-moq/",
+    "to": "/unit-testing/writing-unit-tests-with-nunit-and-moq/"
+  },
+  {
     "from": "/wcf/how-to-create-a-restful-web-service-using-wcf-part-1-of-3/",
     "to": "/wcf/how-to-create-a-restful-web-service-using-wcf-1-of-3/"
   },
