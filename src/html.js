@@ -31,9 +31,10 @@ function HTML(props) {
         <div key="body" id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
         {postBodyComponents}
         <script
-          src="https://browser.sentry-cdn.com/4.6.1/bundle.min.js"
-          crossOrigin="anonymous"
-        />
+          src="https://browser.sentry-cdn.com/5.7.1/bundle.min.js"
+          integrity="sha384-KMv6bBTABABhv0NI+rVWly6PIRvdippFEgjpKyxUcpEmDWZTkDOiueL5xW+cztZZ"
+          crossorigin="anonymous"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `Sentry.init({dsn: "https://fd05314f8eca444d9196e640db1f8ec9@sentry.io/1766178"});`
