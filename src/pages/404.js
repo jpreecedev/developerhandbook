@@ -2,10 +2,10 @@ import * as React from 'react'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 
-import Nav from '../components/Nav'
 import PostOverview from '../components/PostOverview'
 import jonpreece from '../images/jonpreece-96.png'
 import { getCategoryUrlFriendly } from '../utils/categories'
+import Layout from '../components/Layout'
 
 const NotFoundPage = ({ data, location }) => {
   React.useEffect(() => {
@@ -31,12 +31,7 @@ const NotFoundPage = ({ data, location }) => {
         <title>{siteTitle}</title>
         <meta name="description" content={description} />
       </Helmet>
-      <a className="sr-only sr-only-focusable" href="#content">
-        Skip to main content
-      </a>
-      <header>
-        <Nav />
-      </header>
+      <Layout />
       <main id="content" role="main" className="container mb-5">
         <div className="text-center bg-light p-5">
           <img
@@ -59,7 +54,7 @@ const NotFoundPage = ({ data, location }) => {
             <React.Fragment key={groupedPost.title}>
               <div className="row mb-2">
                 <div className="col-12">
-                  <h2 className="mt-0">{`Learn "${groupedPost.title}"`}</h2>
+                  <h2 className="mt-0">{`Learn more about "${groupedPost.title}"`}</h2>
                 </div>
               </div>
               <div className="row mb-2">
