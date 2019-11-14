@@ -1,25 +1,13 @@
-## How to set up Passport.js with Google Strategy
+# How to send email using AWS SES
 
-### Step 1 - Install dependencies, create empty Google Strategy, explain where to get client secrets
+# How to use React Stripe Elements to accept payments on your website
 
-### Step 2 - Flesh out Google strategy
+How to accept payments on your website using Stripe, and React Stripe Elements
 
-### Step 3 - Add login with Google button on login page
-
-## How to set up Passport.js with Facebook Strategy
-
-### Step 1 - Install dependencies, create empty Facebook Strategy, explain where to get client secrets
-
-### Step 2 - Flesh out Facebook strategy
-
-### Step 3 - Add login with Facebook button on login page
-
-## How to build a simple role-based authorisation system with Passport.js
-
-### Step 1- Define some roles
-
-### Step 2- Make a secure route that requires user to be an administrator (possibly hard code in the user credentials)
-
-### Step 3- Show how user is redirected to login page if they are not in the appropriate role
-
-## Summary
+- List some products, display them on the page, use GraphQL / Apollo to add items to basket
+- When clicking "Proceed to Checkout", redirect to checkout page
+- Capture shipping details
+- Stripe CLI for testing
+- Payment Intent API
+- Webhook
+- Stripe payment button for Google Pay / Apple Pay

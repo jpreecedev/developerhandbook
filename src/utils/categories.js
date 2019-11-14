@@ -31,8 +31,7 @@ const DEFAULT_GROUPS = {
     'Unit Testing',
     'Other'
   ],
-  'Personal Growth': ['Career'],
-  'Your Finances': ['Investing']
+  'Personal Growth': ['Career']
 }
 
 function getCategoryUrlFriendly(category) {
