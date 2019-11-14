@@ -71,7 +71,6 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
-    "gatsby-plugin-canonical-urls": "^2.1.14",
     "gatsby-plugin-no-sourcemaps": "^2.1.1",
     "gatsby-plugin-sass": "^2.1.22",
     "gatsby-plugin-sitemap": "^2.2.20",

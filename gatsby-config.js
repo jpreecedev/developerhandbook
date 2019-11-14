@@ -54,12 +54,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: siteConfig.url
-      }
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [
