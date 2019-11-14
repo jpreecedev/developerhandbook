@@ -6,6 +6,9 @@ import PostOverview from '../components/PostOverview'
 import jonpreece from '../images/jonpreece-96.png'
 import { getCategoryUrlFriendly } from '../utils/categories'
 import Layout from '../components/Layout'
+import * as Sentry from '@sentry/browser'
+
+Sentry.init({ dsn: 'https://fd05314f8eca444d9196e640db1f8ec9@sentry.io/1766178' })
 
 const NotFoundPage = ({ data, location }) => {
   React.useEffect(() => {
