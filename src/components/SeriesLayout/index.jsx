@@ -51,6 +51,12 @@ const passportPosts = {
     'How to restrict access using Passport.js role-based authorisation'
 }
 
+const stripeSeriesTitle = 'Accept payments using Stripe'
+const stripePosts = {
+  '/stripe/create-shopping-basket-using-redux-toolkit/':
+    'Create a shopping basket using Redux Toolkit'
+}
+
 const getSeries = title => {
   switch (title) {
     case webpackSeriesTitle:
@@ -59,6 +65,8 @@ const getSeries = title => {
       return { title: reactSeriesTitle, posts: reactPosts }
     case passportSeriesTitle:
       return { title: passportSeriesTitle, posts: passportPosts }
+    case stripeSeriesTitle:
+      return { title: stripeSeriesTitle, posts: stripePosts }
     default:
       return undefined
   }
