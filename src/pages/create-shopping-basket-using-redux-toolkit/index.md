@@ -3,8 +3,7 @@ layout: post
 title: Create a shopping basket using React and Redux Toolkit
 description: Redux is a powerful state management tool for creating blazing fast, dynamic web pages with just a few lines of code
 date: 2019-11-14
-categories: ['Stripe', 'stripe-payments-series']
-seriesTitle: Accept payments using Stripe
+categories: ['Stripe']
 group: 'Software Development'
 featuredImage: './shopping-basket.png'
 ---
