@@ -15,7 +15,6 @@ import StandardLayout from '../components/StandardLayout'
 import SeriesLayout from '../components/SeriesLayout'
 
 import SharePriceEvaluator from '../components/SharePriceEvaluator'
-import PSA from '../components/PSA'
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
@@ -55,7 +54,6 @@ function BlogPostTemplate(props) {
   const postContent = (
     <>
       <Published post={post} {...disqusConfig} showProfile />
-      <PSA />
       <div>{renderAst(post.htmlAst)}</div>
       <Categories post={post} />
       <MiniProfile />
