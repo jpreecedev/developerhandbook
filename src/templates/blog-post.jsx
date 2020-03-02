@@ -13,6 +13,7 @@ import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import StandardLayout from '../components/StandardLayout'
 import SeriesLayout from '../components/SeriesLayout'
+import { InvoiceMyClients } from '../components/InvoiceMyClients'
 
 import SharePriceEvaluator from '../components/SharePriceEvaluator'
 
@@ -54,6 +55,7 @@ function BlogPostTemplate(props) {
   const postContent = (
     <>
       <Published post={post} {...disqusConfig} showProfile />
+      <InvoiceMyClients />
       <div>{renderAst(post.htmlAst)}</div>
       <Categories post={post} />
       <MiniProfile />
