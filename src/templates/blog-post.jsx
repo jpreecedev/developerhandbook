@@ -13,7 +13,6 @@ import Layout from '../components/Layout'
 import MiniProfile from '../components/MiniProfile'
 import StandardLayout from '../components/StandardLayout'
 import SeriesLayout from '../components/SeriesLayout'
-import { InvoiceMyClients } from '../components/InvoiceMyClients'
 
 import SharePriceEvaluator from '../components/SharePriceEvaluator'
 
