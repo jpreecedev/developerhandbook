@@ -55,7 +55,6 @@ function BlogPostTemplate(props) {
   const postContent = (
     <>
       <Published post={post} {...disqusConfig} showProfile />
-      <InvoiceMyClients />
       <div>{renderAst(post.htmlAst)}</div>
       <Categories post={post} />
       <MiniProfile />
