@@ -7,7 +7,7 @@ categories: ['TypeScript']
 group: 'Software Development'
 ---
 
-TypeScript is a tool that enables you to write better JavaScript. You may have heard that TypeScript is a superset of JavaScript, but what does that mean? TypeScript is JavaScript. If you know JavaScript already, then you already know JavaScript. You can convert an existing JavaScript file to TypeScript simply by changing the file extension. TypeScript has a very low barrier to entry (you can easily write it using Notepad) and has a small learning curve.
+TypeScript is a tool that enables you to write better JavaScript. You may have heard that TypeScript is a superset of JavaScript, but what does that mean? TypeScript is JavaScript. If you know JavaScript already, then you already know TypeScript. You can convert an existing JavaScript file to TypeScript simply by changing the file extension. TypeScript has a very low barrier to entry (you can easily write it using Notepad) and has a small learning curve.
 
 TypeScript has a transpiler, called **tsc** which transforms (compiles, if you like) your code from TypeScript to JavaScript. If you use any TypeScript paradigms, then your code cannot be understood directly by a JavaScript execution engine ([V8](https://code.google.com/p/v8/) for example). You can, however, enable source maps and debug your TypeScript code directly.
 
