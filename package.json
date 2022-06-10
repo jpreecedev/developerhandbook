@@ -78,7 +78,7 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "s3-deploy": "^1.4.0",
-    "semantic-release": "^17.4.2",
+    "semantic-release": "^19.0.3",
     "stylelint": "^13.12.0",
     "stylelint-config-rational-order": "^0.1.2"
   },
