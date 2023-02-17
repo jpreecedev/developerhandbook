@@ -1,17 +1,68 @@
-# DeveloperHandbook.com - Cleaner code, better code.
+# Astro Starter Kit: Blog
 
-## About
+```
+npm create astro@latest -- --template blog
+```
 
-This is the source code repository for my blog, [DeveloperHandbook.com](https://developerhandbook.com). My blog has been my personal space since 2013 to teach myself through teaching others. The blog was originally hosted through Wordpress, and has now been migrated to be a statically generated site using [GatsbyJS](https://www.gatsbyjs.org/).
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
 
-## Contributing
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-As is the nature of software developmenet and our industry especially, things change. At the time of writing each post, everything detailed in that post was accurate to the best of my ability. Should you encounter and mistakes or issues with a post, you now have the ability through submitting pull requests to fix those issues.
 
-All blog posts are written in markdown, and can be found in [/src/pages](https://github.com/jpreecedev/developerhandbook/tree/master/src/pages).
+![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
 
-Please create an issue to start conversation about any changes you wish to make before submitting a pull request.
+Features:
 
-## The future
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-Now that the site has had a little bit of love, care, and attention, the plan is to continue blogging and giving back to the community who has given me so much throughout my career.
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
+```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Installs dependencies                            |
+| `npm run dev`          | Starts local dev server at `localhost:3000`      |
+| `npm run build`        | Build your production site to `./dist/`          |
+| `npm run preview`      | Preview your build locally, before deploying     |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Credit
+
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).

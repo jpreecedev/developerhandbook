@@ -1,137 +1,31 @@
 {
-  "name": "developerhandbook",
-  "author": "Jon Preece",
-  "license": "MIT",
-  "version": "0.0.0-development",
-  "description": "Source code for DeveloperHandbook.com blog",
-  "main": "index.js",
+  "name": "new",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "prettier": "prettier \"./src/**/*.{js,json,yaml,yml,md}\" --write",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "start": "gatsby develop",
-    "release": "semantic-release --no-ci",
-    "build": "rm -rf .cache public && gatsby build",
-    "deploy:s3": "s3-deploy './public/**' --cwd './public/' --bucket developerhandbook.com  --deleteRemoved --gzip"
-  },
-  "homepage": "https://developerhandbook.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jpreecedev/developerhandbook.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jpreecedev/developerhandbook/issues"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.astro\"",
+    "prettier": "prettier --write src/**/*{.ts,.astro}"
   },
   "dependencies": {
-    "@sentry/browser": "^5.30.0",
-    "bootstrap": "^4.6.0",
-    "classnames": "^2.2.6",
-    "disqus-react": "^1.0.11",
-    "gatsby": "^2.32.11",
-    "gatsby-image": "^2.11.0",
-    "gatsby-plugin-feed": "^2.13.1",
-    "gatsby-plugin-google-analytics": "^2.11.0",
-    "gatsby-plugin-manifest": "^2.12.1",
-    "gatsby-plugin-offline": "^3.10.2",
-    "gatsby-plugin-polyfill-io": "^1.1.0",
-    "gatsby-plugin-postcss": "^2.3.13",
-    "gatsby-plugin-react-helmet": "^3.10.0",
-    "gatsby-plugin-robots-txt": "^1.5.5",
-    "gatsby-plugin-sharp": "^2.14.3",
-    "gatsby-remark-autolink-headers": "^2.11.0",
-    "gatsby-remark-copy-linked-files": "^2.10.0",
-    "gatsby-remark-images": "^3.11.1",
-    "gatsby-remark-prismjs": "^3.13.0",
-    "gatsby-remark-responsive-iframe": "^2.11.0",
-    "gatsby-remark-smartypants": "^2.10.0",
-    "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-remark": "^2.16.1",
-    "gatsby-transformer-sharp": "^2.12.1",
-    "node-sass": "^4.14.1",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^12.0.1",
-    "postcss-reporter": "^6.0.1",
-    "prismjs": "^1.23.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1",
-    "react-lazy-load": "^3.1.13",
-    "rehype-react": "^4.0.1"
+    "@astrojs/mdx": "^0.17.0",
+    "@astrojs/rss": "^2.1.1",
+    "@astrojs/sitemap": "^1.0.1",
+    "astro": "^2.0.13",
+    "astro-robots-txt": "^0.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/release-notes-generator": "^9.0.2",
-    "commitizen": "^4.2.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.22.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-config-react-app": "^5.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "gatsby-plugin-no-sourcemaps": "^2.9.0",
-    "gatsby-plugin-sass": "^2.8.0",
-    "gatsby-plugin-sitemap": "^2.12.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "s3-deploy": "^1.4.0",
-    "semantic-release": "^17.4.2",
-    "stylelint": "^13.12.0",
-    "stylelint-config-rational-order": "^0.1.2"
-  },
-  "keywords": [
-    "blog",
-    "development",
-    "c#",
-    ".net",
-    "code",
-    "javascript",
-    "react"
-  ],
-  "browserslist": [
-    "defaults",
-    "IE >= 11",
-    "firefox >= 43"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/exec",
-        {
-          "verifyConditionsCmd": "npm run build",
-          "publishCmd": "npm run deploy:s3"
-        }
-      ]
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "eslint": "^8.34.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "postcss-nesting": "^11.2.1",
+    "prettier": "^2.8.4",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }
