@@ -324,17 +324,17 @@ Finally, the button does not do much. When the user clicks the button, nothing h
 
 Open `Button.test.tsx` and add the following;
 
-```javascript{2}
-import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
-import { Button } from './Button'
-import '@testing-library/jest-dom/extend-expect'
+```javascript
+import React from "react"
+import { render, fireEvent } from "@testing-library/react"
+import { Button } from "./Button"
+import "@testing-library/jest-dom/extend-expect"
 
 // Code omitted for brevity
 
-it('should call the click callback handler', () => {
+it("should call the click callback handler", () => {
   // Arrange
-  const content = 'Hello, World!'
+  const content = "Hello, World!"
 
   // Act
   const { getByTestId } = render(<Button>{content}</Button>)

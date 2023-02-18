@@ -357,7 +357,7 @@ When we later come to add more strategies, we will import them into this file.
 
 For the JWT strategy, create a new file called `jwt.js` and add the following code;
 
-```javascript{8,13,21}
+```javascript
 import passport from 'passport'
 import passportJWT from 'passport-jwt'
 import { to } from 'await-to-js'
@@ -651,7 +651,7 @@ With the user created, we can go ahead and log the user in, so that we don't hav
 
 <small>Code shown here again for context, no edits needed (see the highlighted lines below);</small>
 
-```javascript{4-9,16,25-27}
+```javascript
 // NO EDITS REQUIRED
 
 let [err, user] = await to(

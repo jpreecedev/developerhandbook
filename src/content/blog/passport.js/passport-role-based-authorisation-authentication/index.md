@@ -208,7 +208,7 @@ We can write our own middleware that will run after Passport has completed its c
 
 Make the following changes;
 
-```diff{12}
+```diff
 + import { utils } from "./auth";
 import { ROLES } from '../utils'
 
@@ -518,7 +518,7 @@ We now have a route that is accessible for either administrators or customers. W
 
 Open `server/index.js` and make the following changes;
 
-```diff{24}
+```diff
 // Code omitted for brevity
 
   app.get(
