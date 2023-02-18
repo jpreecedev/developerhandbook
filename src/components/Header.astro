@@ -1,0 +1,49 @@
+---
+import HeaderLink from "./HeaderLink.astro"
+import { SITE_TITLE } from "../consts"
+---
+
+<header>
+  <h2 class="title">
+    <a href="/">
+      {SITE_TITLE}
+    </a>
+  </h2>
+  <nav>
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/about">About</HeaderLink>
+    <HeaderLink href="https://twitter.com/jpreecedev" target="_blank">
+      Twitter
+    </HeaderLink>
+    <HeaderLink href="https://github.com/jpreecedev" target="_blank">
+      GitHub
+    </HeaderLink>
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--background-body);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+
+    @media screen and (min-width: 800px) {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+  }
+
+  nav {
+    display: flex;
+    column-gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .title a {
+    color: white;
+  }
+</style>

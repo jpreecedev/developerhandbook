@@ -1,0 +1,59 @@
+---
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import BaseHead from "../components/BaseHead.astro"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <img
+        src="/assets/jonpreece-square.jpg"
+        class="avatar"
+        alt="Jon Preece :: Senior Front-end Web Developer"
+      />
+
+      <h1>Jon Preece</h1>
+      <h2>Senior/Lead Front-end Web Developer</h2>
+      <p>
+        Experienced software engineer with over 16 years of expertise in
+        designing, developing, and delivering software solutions for a wide
+        range of industries and applications. Highly proficient in many
+        front-end technologies, including React and TypeScript, as well as
+        back-end tech such as Node and AWS. Adept at working with a variety of
+        platforms and utilizing Agile software development methodologies. Strong
+        problem-solving skills and a passion for delivering high-quality
+        software.
+      </p>
+    </main>
+    <Footer />
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .avatar {
+        border-radius: 50%;
+      }
+
+      .links {
+        @media screen and (min-width: 768px) {
+          display: flex;
+        }
+      }
+
+      .skills {
+        @media screen and (min-width: 768px) {
+          display: flex;
+        }
+      }
+    </style>
+  </body>
+</html>
