@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import FormattedDate from "../components/FormattedDate.astro"
+import { SEO } from "astro-seo"
 
 type Props = CollectionEntry<"blog">["data"]
 
@@ -13,6 +14,24 @@ const { title, description, pubDate, heroImage } = Astro.props
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <SEO
+      description={description}
+      openGraph={heroImage
+        ? {
+            basic: {
+              title,
+              image: `https://www.developerhandbook.com${heroImage}`,
+              type: "website",
+            },
+            image: {
+              alt: title,
+            },
+          }
+        : undefined}
+      twitter={{
+        creator: "@jpreecedev",
+      }}
+    />
   </head>
 
   <body>
@@ -35,17 +54,6 @@ const { title, description, pubDate, heroImage } = Astro.props
     </main>
     <Footer />
     <style>
-      figure {
-        margin: 1rem 0;
-      }
-
-      figure img {
-        width: 100%;
-        border-radius: 8px;
-        max-height: 350px;
-        object-fit: cover;
-      }
-
       .published {
         font-size: 0.75rem;
       }

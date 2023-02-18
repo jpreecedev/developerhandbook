@@ -22,13 +22,9 @@ In the previous post in this mini-series, we started our conversation about [bui
 
 Once this tutorial is finished, users will be able to login and register with your site. Role-based authorisation will be covered in a subsequent post in this series.
 
-<div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/assets/github.png" class="mr-3" alt="GitHub">
-  <div class="media-body align-self-center">
-    <h5 class="mt-0 mb-0">Open source</h5>
-    All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
-  </div>
-</div>
+## Source code is available
+
+All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
 
 Let's get started. This is a long one.
 

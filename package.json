@@ -16,7 +16,8 @@
     "@astrojs/rss": "^2.1.1",
     "@astrojs/sitemap": "^1.0.1",
     "astro": "^2.0.13",
-    "astro-robots-txt": "^0.4.0"
+    "astro-robots-txt": "^0.4.0",
+    "astro-seo": "^0.7.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.52.0",
