@@ -1,8 +1,7 @@
 ---
-layout: post
 title: Build a complete property listings page with React.js
 description: Learn how to build a complete React.js application, including Context API, State, and more!
-date: 2019-01-26
+pubDate: 2019-01-26
 categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 group: 'Software Development'
@@ -18,7 +17,7 @@ Take your time, get a good cup of [Earl Grey tea](https://amzn.to/2Rl0i8d), this
 
 We need some more information about the layout. Regrettably, the UX designer is on holiday... but thankfully the CTO read an article about design 4 years ago so they have stepped in and provided a rough mock for reference;
 
-![Rough mock from CTO](mock-from-designer.png)
+![Rough mock from CTO](/assets/mock-from-designer2.png)
 
 The CTO has not mentioned styling (only layout), because they know we use [Spectre.css](https://picturepan2.github.io/spectre/) for everything are happy to proceed with the default styling (makes our life easier!).
 
@@ -73,7 +72,7 @@ export default Home
 
 Here we import the `<Hero />` component and display it on the home page. If you refresh your browser now, you should see the hero;
 
-![React.js Hero Banner](reactjs-hero-banner.png)
+![React.js Hero Banner](/assets/reactjs-hero-banner.png)
 
 We _really_ need some styling.
 
@@ -95,7 +94,7 @@ Then open your `index.html` file add add a `<link />` tag to the header;
 
 Parcel.js will take care of importing the file for us.
 
-![Hero Banner with Spectre.css](hero-banner-with-spectre-css.png)
+![Hero Banner with Spectre.css](/assets/hero-banner-with-spectre-css.png)
 
 You should notice a subtle difference, as Spectre.css changes the default font families and colours with no additional code changes needed.
 
@@ -197,7 +196,7 @@ And import it into `hero/index.js`;
 import classnames from 'classnames'
 ```
 
-![Our finished hero banner](reactjs-finished-hero-banner.png)
+![Our finished hero banner](/assets/reactjs-finished-hero-banner.png)
 
 The `<Hero />` component should now be displayed and working properly.
 
@@ -211,7 +210,7 @@ At the root level of your project (in the `premium-property-finder` folder, the 
 
 Next, [download all the listing data and images from GitHub](https://github.com/jpreecedev/premium-property-finder/tree/master/public/server), and copy those files into the `server` folder you just created.
 
-![Server folder](server-folder-contains-listings-data.png)
+![Server folder](/assets/server-folder-contains-listings-data.png)
 
 Your project should now look like the screenshot shown above, consisting of several images and a `listings.json` file.
 
@@ -250,7 +249,7 @@ You need to restart Parcel at this point for the change to take effect.
 
 Open your web browser to `http://localhost:123/server/listings.json` and peruse the data to gain a basic level of familiarity with it.
 
-![Listings data from the web server](listings-data-from-web-server.png)
+![Listings data from the web server](/assets/listings-data-from-web-server.png)
 
 We will use this information to build our listings and details pages.
 
@@ -406,7 +405,7 @@ Here is an explanation of what we are seeing;
 
 Should you try to run the code at this point, you will encounter an issue as follows;
 
-```text
+```plaintext
 Support for the experimental syntax 'classProperties' isn't currently enabled (12:9):
 ```
 
@@ -443,7 +442,7 @@ Restart Parcel.js and the problem should be resolved.
 
 You should now see some basic information for each listing displayed on the page;
 
-![Basic listings information from the server](basic-listings-data.png)
+![Basic listings information from the server](/assets/basic-listings-data.png)
 
 Let's flesh this out into a component and add some flair.
 
@@ -522,7 +521,7 @@ import Listing from '../../components/listing'
 
 You should now see the property listings in the browser;
 
-![Property Listings](property-listings.png)
+![Property Listings](/assets/property-listings.png)
 
 We have made huge progress so far. Before we finish, let's fix a couple of issues.
 
@@ -530,7 +529,7 @@ We have made huge progress so far. Before we finish, let's fix a couple of issue
 
 In your web browser, if you open your developer console you should see the following warning (that looks a lot like an error message, which it sort of is!)
 
-```text
+```plaintext
 Warning: Each child in an array or iterator should have a unique "key" prop.
 
 Check the render method of `Context.Consumer`. See https://fb.me/react-warning-keys for more information.
@@ -666,7 +665,7 @@ With Parcel, you can directly import SCSS files into the HTML. In `index.html`, 
 
 Parcel will automatically install `node-sass` and take care of transpiling your code for you (no loaders in sight!) with zero configuration.
 
-![Finished home page](finished-home-page.png)
+![Finished home page](/assets/finished-home-page.png)
 
 We may come back and make some refinements later. For example, it would be nice to format the price on the listing card, but I think we have covered enough ground for this post!
 

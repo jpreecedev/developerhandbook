@@ -1,10 +1,9 @@
 ---
-layout: post
 title: How to get started quickly with React
 description: Thankfully there are several ways, with varying degrees of difficultly, to get started with React quickly.
-date: 2019-01-02
-categories: ['React', 'JavaScript']
-group: 'Software Development'
+pubDate: 2019-01-02
+categories: ["React", "JavaScript"]
+group: "Software Development"
 ---
 
 This post explores 3 separate ways to get a React application up and running quickly.
@@ -23,7 +22,7 @@ CodeSandbox is one of the most useful tools on the web today. CodeSandbox enable
 
 You can create a new CodeSandbox by following this link; [New React CodeSandbox](https://codesandbox.io/s/new)
 
-![New React CodeSandbox](new-react-codesandbox.png)
+![New React CodeSandbox](/assets/new-react-codesandbox.png)
 
 No configuration is needed here, you can make changes to the code and see those changes immediately in the preview on the right.
 
@@ -61,7 +60,7 @@ npm start
 
 Now you can browse to `http://localhost:3000` and see the site. Open the code in your favourite editor and you will see that any changes you make are immediately displayed in the browser (it updates every time you save!).
 
-![Create React App](create-react-app.png)
+![Create React App](/assets/create-react-app.png)
 
 ### Pros of Create-React-App
 
@@ -106,19 +105,19 @@ JSX not only blurs the lines, but it straight up requires you to mix your concer
 Take the following example;
 
 ```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react"
+import ReactDOM from "react-dom"
 
 function App() {
   return (
-    <div className="App" style={{ backgroundColor: 'yellow' }}>
+    <div className="App" style={{ backgroundColor: "yellow" }}>
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
     </div>
   )
 }
 
-const rootElement = document.getElementById('root')
+const rootElement = document.getElementById("root")
 ReactDOM.render(<App />, rootElement)
 ```
 
@@ -131,22 +130,26 @@ Let's be clear, this code does not work in the browser (...without a lot of legw
 Take the following snippet (some bits have been removed for brevity).
 
 ```jsx
-'use strict'
+"use strict"
 
-var _react = require('react')
+var _react = require("react")
 var _react2 = _interopRequireDefault(_react)
-var _reactDom = require('react-dom')
+var _reactDom = require("react-dom")
 
 function App() {
   return _react2.default.createElement(
-    'div',
-    { className: 'App', style: { backgroundColor: 'yellow' } },
-    _react2.default.createElement('h1', null, 'Hello CodeSandbox'),
-    _react2.default.createElement('h2', null, 'Start editing to see some magic happen!')
+    "div",
+    { className: "App", style: { backgroundColor: "yellow" } },
+    _react2.default.createElement("h1", null, "Hello CodeSandbox"),
+    _react2.default.createElement(
+      "h2",
+      null,
+      "Start editing to see some magic happen!",
+    ),
   )
 }
 
-var rootElement = document.getElementById('root')
+var rootElement = document.getElementById("root")
 _reactDom2.default.render(_react2.default.createElement(App, null), rootElement)
 ```
 

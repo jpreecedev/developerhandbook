@@ -1,10 +1,9 @@
 ---
-layout: post
 title: Using ES6 features with TypeScript
 description: TypeScript is a transpiler, this allows you to utilize ES6 features today and have them transpiled into ES5, which is fully compatible with legacy browsers
-date: 2015-09-18
-categories: ['TypeScript']
-group: 'Software Development'
+pubDate: 2015-09-18
+categories: ["TypeScript"]
+group: "Software Development"
 ---
 
 ## TypeScript is a transpiler
@@ -41,26 +40,26 @@ And the compiled code (as seen using ILDasm.exe);
 The above code is certainly not C#. The C# has been changed into a whole new language. A transpiler takes your code and changes it. But it's still in the same language that you started out with. TypeScript is JavaScript, infact, TypeScript is a subset of JavaScript. When the TypeScript compiler runs over your code, it reads in TypeScript (which is JavaScript) and outputs JavaScript. The end resulting language is the same as what you started out with. The following TypeScript code is completely valid;
 
 ```javascript
-;(function() {
-  console.log('Hello, World!')
+;(function () {
+  console.log("Hello, World!")
 })
 ```
 
 And the resulting transpiled JavaScript code;
 
 ```javascript
-;(function() {
-  console.log('Hello, World!')
+;(function () {
+  console.log("Hello, World!")
 })
 ```
 
 Its the same! This is an oversimplification, but the point is correct. Take the following example, which uses classes (a feature of ECMAScript 6);
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    console.log('Hello, World!')
+    console.log("Hello, World!")
   }
 }
 var hello = new Hello()
@@ -69,10 +68,10 @@ var hello = new Hello()
 And the resulting JavaScript transpiled code;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    console.log('Hello, World!')
+    console.log("Hello, World!")
   }
   return Hello
 })()
@@ -90,11 +89,11 @@ There are many new features in ECMAScript 6 (ES6) as described in this [very goo
 Arguably the simplest transformation that TypeScript offers, template strings are simply a way of using variables as part of a string. Template strings use back-ticks `` to denote that a string contains variables. Usage;
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    var hello = 'Hello'
-    var world = 'World'
+    var hello = "Hello"
+    var world = "World"
 
     console.log(`${hello}, ${world}!`)
   }
@@ -105,12 +104,12 @@ var hello = new Hello()
 and the transpiled output;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var hello = 'Hello'
-    var world = 'World'
-    console.log('' + hello + ', ' + world + '!')
+    var hello = "Hello"
+    var world = "World"
+    console.log("" + hello + ", " + world + "!")
   }
   return Hello
 })()
@@ -124,7 +123,7 @@ At compile time, TypeScript replaces all template strings with simpler string co
 We've touched on classes several times already at this point, and if you have done any object oriented programming at all there's no doubt you have already stumbled across classes. Classes are simply containers, they contain information about the functionality the object (an instantiated class) such as methods, members etc. In TypeScript/JavaScript, classes are no different. Usage;
 
 ```typescript
-'use strict'
+"use strict"
 class Hello {
   public id: number
   private arbitraryValue: boolean
@@ -133,10 +132,10 @@ class Hello {
     this.id = 42
     this.arbitraryValue = true
     this.sayHello()
-    this.saySomething('Goodbye, world!')
+    this.saySomething("Goodbye, world!")
   }
   sayHello(): void {
-    console.log('Hello, World!')
+    console.log("Hello, World!")
   }
   saySomething(message: string): void {
     console.log(message)
@@ -148,18 +147,18 @@ var hello = new Hello()
 and the transpiled output;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
     this.id = 42
     this.arbitraryValue = true
     this.sayHello()
-    this.saySomething('Goodbye, world!')
+    this.saySomething("Goodbye, world!")
   }
-  Hello.prototype.sayHello = function() {
-    console.log('Hello, World!')
+  Hello.prototype.sayHello = function () {
+    console.log("Hello, World!")
   }
-  Hello.prototype.saySomething = function(message) {
+  Hello.prototype.saySomething = function (message) {
     console.log(message)
   }
   return Hello
@@ -180,14 +179,14 @@ Note that these access modifiers are only used at compile time, and don't affect
 Also known as "Fat arrow functions", because of the use of the equals operator (=>), are inline functions, similar to lambda expressions in C# and Java. Usage;
 
 ```typescript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    var sayHello = () => console.log('Hello, World!')
+    var sayHello = () => console.log("Hello, World!")
     var saySomething = (what: string) => console.log(what)
 
     sayHello()
-    saySomething('Goodbye, world!')
+    saySomething("Goodbye, world!")
   }
 }
 var hello = new Hello()
@@ -196,17 +195,17 @@ var hello = new Hello()
 and the transpiled output;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var sayHello = function() {
-      return console.log('Hello, World!')
+    var sayHello = function () {
+      return console.log("Hello, World!")
     }
-    var saySomething = function(what) {
+    var saySomething = function (what) {
       return console.log(what)
     }
     sayHello()
-    saySomething('Goodbye, world!')
+    saySomething("Goodbye, world!")
   }
   return Hello
 })()
@@ -224,10 +223,10 @@ TypeScript version 1.5 adds support for additional transformations (some of whic
 The concept of a `for...of` loop is pretty simple. You have an array of objects, and you want to iterate through each item in the array. With a `for...of` loop you can also `break` and `continue` in the same way as you could with a standard `for` loop. A `for...of` loop, putting aside [small differences in performance when dealing with large arrays](https://jsperf.com/fastest-array-loops-in-javascript/24) (and having to increment a counter to keep the position in the array), is effectively syntactical sugar. And as such, a browser has to have native support for it. TypeScript, however, transforms a `for...of` loop to a standard ES5 `for` loop; Usage;
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    var a = ['a', 'b', 'c']
+    var a = ["a", "b", "c"]
     for (var n of a) {
       console.log(n)
     }
@@ -239,10 +238,10 @@ var hello = new Hello()
 and the transpiled output;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var a = ['a', 'b', 'c']
+    var a = ["a", "b", "c"]
     for (var _i = 0; _i < a.length; _i++) {
       var n = a[_i]
       console.log(n)
@@ -258,10 +257,10 @@ var hello = new Hello()
 `let` in ES6 is a scope version of `var`. In a nutshell, `var` is function scoped and `let` scoped to the enclosing block. There are already lots of good write ups that describe the ins and outs of `let` vs `scope`, an especially good one can be found on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let]). The following code, due to the way that closures work in ES5, is valid;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var array = ['a', 'b', 'c', 'd']
+    var array = ["a", "b", "c", "d"]
     for (var index = 0; index < array.length; index++) {
       var element = array[index]
       console.log(element)
@@ -276,10 +275,10 @@ var hello = new Hello()
 The `index` variable is scoped to the function, not the block. Changing `var index` to `let index` results in the `index` variable only being accessible inside the block. The following code is invalid;
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    var array = ['a', 'b', 'c', 'd']
+    var array = ["a", "b", "c", "d"]
     for (let index = 0; index < array.length; index++) {
       var element = array[index]
       console.log(element)
@@ -293,10 +292,10 @@ var hello = new Hello()
 TypeScript allows you to use the `let` keyword and get all the compile time checking that comes with the feature, whilst maintaining support for older browsers by simply replacing all usages of `let` with `var`. The code shown above transpiles to the following;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var array = ['a', 'b', 'c', 'd']
+    var array = ["a", "b", "c", "d"]
     for (var index = 0; index < array.length; index++) {
       var element = array[index]
       console.log(element)
@@ -313,10 +312,10 @@ var hello = new Hello()
 Constants in ES6 are the same concept as in most other programming languages. Traditionally you define a variable using the `var` keyword. Its value can be read and written at any time. Also, as we're talking JavaScript (a dynamic language), the type can also be changed at runtime. For example, the following code is perfectly valid JavaScript;
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    var a = 'Hello!'
+    var a = "Hello!"
     console.log(a) //Writes 'Hello!'
     a = 123
     console.log(a) //Writes 123
@@ -328,12 +327,12 @@ var hello = new Hello()
 A constant in ES6 allows you to set a value and know that value cannot be changed. Take the following code;
 
 ```javascript
-'use strict'
+"use strict"
 class Hello {
   constructor() {
-    const a = 'Hello!'
+    const a = "Hello!"
     console.log(a) //Writes 'Hello!'
-    a = 'World!'
+    a = "World!"
     console.log(a)
   }
 }
@@ -342,17 +341,19 @@ var hello = new Hello()
 
 Running this code results in a runtime error (in Chrome and Firefox, which support the construct);
 
-<pre>Uncaught TypeError: Assignment to constant variable.</pre>
+```plaintext
+Uncaught TypeError: Assignment to constant variable.
+```
 
 As `const` is a native ES6 feature, the ES5 fallback is simply to use a var. This is the transformation TypeScript applies to your code;
 
 ```javascript
-'use strict'
-var Hello = (function() {
+"use strict"
+var Hello = (function () {
   function Hello() {
-    var a = 'Hello!'
+    var a = "Hello!"
     console.log(a) //Writes 'Hello!'
-    a = 'World!'
+    a = "World!"
     console.log(a)
   }
   return Hello
@@ -365,28 +366,28 @@ var hello = new Hello()
 More syntactic sugar in the ES6 standard, and this one is especially sweet. Instead of having to define your objects using key value pairs, you can now use a more concise syntax. Classic ES5 code;
 
 ```javascript
-var firstName = 'Jon'
-var lastName = 'Preece'
+var firstName = "Jon"
+var lastName = "Preece"
 var person = {
   firstName: firstName,
   lastName: lastName,
-  speak: function(what) {
-    console.log(firstName + ' ' + lastName + " said '" + what + "'")
-  }
+  speak: function (what) {
+    console.log(firstName + " " + lastName + " said '" + what + "'")
+  },
 }
 ```
 
 You define a couple of variables/functions etc and create an object using keys for property names and values for the value of that property. Functions were also expressed using the `function` keyword. The enhanced object literal syntax in ES6 allows you to define keys/values in a single pass;
 
 ```javascript
-var firstName = 'Jon'
-var lastName = 'Preece'
+var firstName = "Jon"
+var lastName = "Preece"
 var person = {
   firstName,
   lastName,
   speak(what) {
-    console.log(firstName + ' ' + lastName + " said '" + what + "'")
-  }
+    console.log(firstName + " " + lastName + " said '" + what + "'")
+  },
 }
 ```
 

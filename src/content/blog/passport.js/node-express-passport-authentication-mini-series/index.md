@@ -1,12 +1,11 @@
 ---
-layout: post
 title: Build an authentication system using Node.js, Express, and Passport.js
 description: We take a deep-dive look at how to use Node, Express, Passport and JWT to secure your website with using login and registration pages, including role based authorisation
-date: 2019-10-04
-categories: ['Passport.js', 'passport-authentication-series']
+pubDate: 2019-10-04
+categories: ["Passport.js", "passport-authentication-series"]
 seriesTitle: Comprehensive Passport.js Mini-Series
-group: 'Software Development'
-featuredImage: './passportjs-authentication-authorisation.png'
+group: "Software Development"
+heroImage: /assets/passportjs-authentication-authorisation.png
 ---
 
 Welcome to our mini-series on _Authentication using Node.js, Express, and Passport.js_. This comprehensive series is designed to teach you everything you need to know, as well as give you all the code required, to add authentication and authorisation to your existing website, or for a new-build from-scratch project.
@@ -26,7 +25,7 @@ You will learn;
 Need help? A bit stuck? Leave us a comment and we will try and help you out as best as we can!
 
 <div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/github.png" class="mr-3" alt="GitHub">
+  <img src="/assets/github.png" class="mr-3" alt="GitHub">
   <div class="media-body align-self-center">
     <h5 class="mt-0 mb-0">Open source</h5>
     All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
@@ -84,10 +83,10 @@ npm install --save express
 Create a new folder at the root of the project called `server` and add in a new file called `index.js`. Add the following code;
 
 ```javascript
-import express from 'express'
-import next from 'next'
+import express from "express"
+import next from "next"
 
-const dev = process.env.NODE_ENV !== 'production'
+const dev = process.env.NODE_ENV !== "production"
 const nextApp = next({ dev })
 const handle = nextApp.getRequestHandler()
 
@@ -96,15 +95,15 @@ const port = 3000
 nextApp.prepare().then(() => {
   const app = express()
 
-  app.get('/my-custom-route', (req, res) =>
-    res.status(200).json({ hello: 'Hello, from the back-end world!' })
+  app.get("/my-custom-route", (req, res) =>
+    res.status(200).json({ hello: "Hello, from the back-end world!" }),
   )
 
-  app.get('*', (req, res) => {
+  app.get("*", (req, res) => {
     return handle(req, res)
   })
 
-  app.listen(port, err => {
+  app.listen(port, (err) => {
     if (err) throw err
     console.log(`> Ready on localhost:${port}`)
   })
@@ -142,7 +141,7 @@ Finally, create a new file in the root of your project, called `nodemon.json` an
 
 You should now be able to re-run `npm run dev` and your server should start listening on `http://localhost:3000` as before.
 
-![Next.js Express Example](nextjs-express-example.png)
+![Next.js Express Example](/assets/nextjs-express-example.png)
 
 The difference this time is that now you should be able to hit `http://localhost:3000/my-custom-route` and get a response.
 
@@ -163,52 +162,52 @@ npm install --save @material-ui/core
 Now create a new file in `pages` directory (in the root of your project), called `register.jsx`, and add the following code;
 
 ```javascript
-import React from 'react'
-import Typography from '@material-ui/core/Typography'
-import Box from '@material-ui/core/Box'
-import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import React from "react"
+import Typography from "@material-ui/core/Typography"
+import Box from "@material-ui/core/Box"
+import { makeStyles } from "@material-ui/core/styles"
+import Paper from "@material-ui/core/Paper"
+import TextField from "@material-ui/core/TextField"
+import Button from "@material-ui/core/Button"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    maxWidth: '768px',
-    margin: '0 auto'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    maxWidth: "768px",
+    margin: "0 auto",
   },
   paper: {
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(8),
-      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`
-    }
+      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`,
+    },
   },
   submit: {
-    margin: theme.spacing(3, 0, 2)
+    margin: theme.spacing(3, 0, 2),
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
   },
   buttonProgress: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
     marginTop: -12,
-    marginLeft: -12
-  }
+    marginLeft: -12,
+  },
 }))
 
 const Register = () => {
   const classes = useStyles({})
   const [formData, setFormData] = React.useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
   })
   const [submitting, setSubmitting] = React.useState(false)
 
@@ -236,7 +235,9 @@ const Register = () => {
             autoComplete="fname"
             autoFocus
             defaultValue={formData.firstName}
-            onChange={e => setFormData({ ...formData, firstName: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, firstName: e.target.value })
+            }
           />
           <TextField
             margin="normal"
@@ -247,7 +248,9 @@ const Register = () => {
             name="lastName"
             autoComplete="lname"
             defaultValue={formData.lastName}
-            onChange={e => setFormData({ ...formData, lastName: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, lastName: e.target.value })
+            }
           />
           <TextField
             margin="normal"
@@ -258,7 +261,9 @@ const Register = () => {
             name="email"
             autoComplete="email"
             defaultValue={formData.email}
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
           <TextField
             margin="normal"
@@ -270,7 +275,9 @@ const Register = () => {
             id="password"
             autoComplete="new-password"
             defaultValue={formData.password}
-            onChange={e => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
           />
           <Box mb={6}>
             <Button
@@ -282,9 +289,12 @@ const Register = () => {
               className={classes.submit}
             >
               {submitting && (
-                <CircularProgress size={24} className={classes.buttonProgress} />
+                <CircularProgress
+                  size={24}
+                  className={classes.buttonProgress}
+                />
               )}
-              {submitting ? 'Registering...' : 'Register'}
+              {submitting ? "Registering..." : "Register"}
             </Button>
           </Box>
         </form>
@@ -300,7 +310,7 @@ When you add `register.jsx`, Next will pick up the change automatically and re-c
 
 If you're lucky, you will get the following registration form if you navigate your browser to `http://localhost:3000/register`.
 
-![Material UI Registration Form](material-ui-registration-form.png)
+![Material UI Registration Form](/assets/material-ui-registration-form.png)
 
 Chances are, you didn't get lucky. I didn't get lucky. If you refresh the page, you didn't get lucky a second time.
 
@@ -309,10 +319,10 @@ This is because we need to take care of _properly_ injecting Material UI styles 
 In the `pages` directory, create a new file called `_document.jsx` and add the following code;
 
 ```javascript
-import React from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheets } from '@material-ui/styles'
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import React from "react"
+import Document, { Html, Head, Main, NextScript } from "next/document"
+import { ServerStyleSheets } from "@material-ui/styles"
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles"
 
 const theme = responsiveFontSizes(createMuiTheme())
 
@@ -344,7 +354,7 @@ class MyDocument extends Document {
                 box-sizing: border-box;
               }
               body {
-                font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+                font-family: "Roboto", "Helvetica", "Arial", sans-serif;
                 font-size: 1rem;
                 margin: 0;
               }
@@ -360,14 +370,14 @@ class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async ctx => {
+MyDocument.getInitialProps = async (ctx) => {
   // Render app and page and get the context of the page with collected side effects.
   const sheets = new ServerStyleSheets()
   const originalRenderPage = ctx.renderPage
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => sheets.collect(<App {...props} />)
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
     })
 
   const initialProps = await Document.getInitialProps(ctx)
@@ -379,8 +389,8 @@ MyDocument.getInitialProps = async ctx => {
       <React.Fragment key="styles">
         {initialProps.styles}
         {sheets.getStyleElement()}
-      </React.Fragment>
-    ]
+      </React.Fragment>,
+    ],
   }
 }
 
@@ -398,47 +408,47 @@ The login page is a lot easier to build, I promise.
 Create a new file in the `pages` directory called `login.jsx` and add the following code;
 
 ```javascript
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import Box from '@material-ui/core/Box'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Button from "@material-ui/core/Button"
+import Box from "@material-ui/core/Box"
+import CircularProgress from "@material-ui/core/CircularProgress"
+import Typography from "@material-ui/core/Typography"
+import TextField from "@material-ui/core/TextField"
+import Paper from "@material-ui/core/Paper"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   paper: {
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(8),
-      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`
-    }
+      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`,
+    },
   },
   submit: {
-    margin: theme.spacing(3, 0, 3)
+    margin: theme.spacing(3, 0, 3),
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1)
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
   },
   buttonProgress: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
     marginTop: -12,
-    marginLeft: -12
-  }
+    marginLeft: -12,
+  },
 }))
 
 const LoginForm = () => {
   const classes = useStyles({})
-  const [formData, setFormData] = React.useState({ email: '', password: '' })
+  const [formData, setFormData] = React.useState({ email: "", password: "" })
   const [submitting, setSubmitting] = React.useState(false)
 
   return (
@@ -468,7 +478,9 @@ const LoginForm = () => {
             autoComplete="email"
             autoFocus
             defaultValue={formData.email}
-            onChange={e => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
           <TextField
             margin="normal"
@@ -480,7 +492,9 @@ const LoginForm = () => {
             id="password"
             autoComplete="current-password"
             defaultValue={formData.password}
-            onChange={e => setFormData({ ...formData, password: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
           />
           <Box mb={6}>
             <Button
@@ -492,9 +506,12 @@ const LoginForm = () => {
               className={classes.submit}
             >
               {submitting && (
-                <CircularProgress size={24} className={classes.buttonProgress} />
+                <CircularProgress
+                  size={24}
+                  className={classes.buttonProgress}
+                />
               )}
-              {submitting ? 'Signing in...' : 'Sign In'}
+              {submitting ? "Signing in..." : "Sign In"}
             </Button>
           </Box>
         </form>
@@ -508,7 +525,7 @@ export default LoginForm
 
 And we now have the resulting login form.
 
-![Material UI Login Form](material-ui-login-form.png)
+![Material UI Login Form](/assets/material-ui-login-form.png)
 
 As we have already discussed injecting styles into the document, the component should work as expected after when you reload the page. Be sure to navigate to `http://localhost:3000/login` to double check that everything is in order.
 

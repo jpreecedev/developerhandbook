@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to configure SCSS modules for Webpack
 description: SCSS modules are a fantastic way of writing clean, self contained styles, that are usually consumed by components
-date: 2018-12-31
+pubDate: 2018-12-31
 updated: 2019-09-16
-categories: ['Webpack', 'webpack-intro-series']
+categories: ["Webpack", "webpack-intro-series"]
 seriesTitle: Intro to Webpack mini series
-group: 'Software Development'
+group: "Software Development"
 ---
 
 SCSS is a popular choice for styling websites, thanks to features such as; mixins, variables and functions, which CSS historically never had native support for. One of the most challenging aspects of styling using CSS is the **C**ascade, meaning that elements can inherit style properties from many other CSS selectors. This can be problematic, and SCSS can be a solution to make this problem more managable.
@@ -20,7 +19,7 @@ This post explores how to configure Webpack to support standard SCSS (`your-styl
 If you do not already have the following line in your Webpack configuration file, go ahead and add it;
 
 ```javascript
-const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = process.env.NODE_ENV === "development"
 ```
 
 This is used to optimize your bundles only when building for production, which should result in faster development builds.
@@ -50,7 +49,7 @@ By default, Webpack will include our compiled CSS in our JavaScript bundle (`mai
 Start by importing Mini CSS Extract Plugin into your `webpack.config.js` file as follows;
 
 ```javascript
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 ```
 
 Then add it as a plugin;
@@ -145,7 +144,7 @@ Any element that gets the class `red` will have a red foreground colour.
 Open `app.js` and import the SCSS file as follows;
 
 ```javascript
-import styles from './app.module'
+import styles from "./app.module"
 ```
 
 We do not need to include the file extension because we have already told Webpack to look for files with `.scss` file extensions automatically.
@@ -175,12 +174,12 @@ This will give our webpage a lovely yellow background.
 Open `index.js` and import the global styles as follows;
 
 ```javascript
-import './global'
+import "./global"
 ```
 
 And the final result...
 
-![Webpack 4 CSS Modules](webpack-4-css-modules.png)
+![Webpack 4 CSS Modules](/assets/webpack-4-css-modules.png)
 
 Beautiful. I should be a designer.
 

@@ -1,8 +1,7 @@
 ---
-layout: post
 title: TypeScript Tips and Tricks
 description: The TypeScript compiler is flexible and configurable and has a wealth of flags that can be passed to it to change the transpiled output.
-date: 2015-08-28
+pubDate: 2015-08-28
 categories: ['TypeScript']
 group: 'Software Development'
 ---
@@ -39,7 +38,9 @@ Yeah that doesn't work (even though other sample configurations shown in the sam
 
 The best way to do this is via the command line. Open a **Node.js command prompt** window, and change directory (cd) to your project folder. Now run the following command;
 
-<pre>tsc -w</pre>
+```cmd
+tsc -w
+```
 
 This will listen for changes in the given directory, and all sub directories. Whenever a change is made, the file will be recompiled automatically. So now, pressing <kbd>Ctrl</kbd>+<kbd>S</kbd> on the keyboard will cause the file to be recompiled. We're almost there. If you want the file to automatically compile pretty much as you type (not quite that frequently, but almost as good), you can enable Auto Save in VS Code. Click **File** > **Auto Save** to turn it on. Success! All your TypeScript files will be automatically saved and compiled as your work on them, with no keyboard presses needed. I mentioned Sublime text at the beginning of this tip, because of course this isn't a VS Code specific feature. You can easily enable this regardless of the editor you are using.
 
@@ -71,7 +72,9 @@ files: {
 
 Generally I don't take this approach of passing in individual files, I prefer to pass in a recursive path, perhaps something like this;
 
-<pre>"**/*.ts"</pre>
+```cmd
+"**/*.ts"
+```
 
 That aside, if you prefer to include your files individually in Grunt/GulpFile, TypeScript can help you out by combining all the compiled JavaScript into a single file.
 
@@ -88,9 +91,10 @@ Typically you would use these two in conjunction with each other. You can then m
 
 The flags you need are as follows;
 
-<pre>--out FILENAME
-    --outDir DIRECTORYPATH
-</pre>
+```cmd
+--out FILENAME
+--outDir DIRECTORYPATH
+```
 
 ## Available from version 1.5
 

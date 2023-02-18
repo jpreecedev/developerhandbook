@@ -1,11 +1,10 @@
 ---
-layout: post
 title: A reference guide of basics of Regular Expressions (Regex) in JavaScript
 description: This is a guide on how to use Regular Expressions in JavaScript for those who need a refresher
-date: 2019-07-16
-categories: ['JavaScript']
-featuredImage: './facepalm.jpg'
-group: 'Software Development'
+pubDate: 2019-07-16
+categories: ["JavaScript"]
+heroImage: /assets/facepalm.jpg
+group: "Software Development"
 ---
 
 Welcome back, _future Jon_. Congratulations, you have successfully forgotten how to regex again. As a reminder to yourself, you have attempted to learn regex many times over the years, and at times you have gotten pretty good at it. Unfortunately, however, it has probably been a while since you last wrote a regex, and you have completely forgotten how to do ANYTHING and EVERYTHING, even the absolute fundamentals. Fear not, I have you covered. Once you read the following guide it will all start flooding back.
@@ -32,11 +31,11 @@ There are a couple of ways;
 Some simple examples;
 
 ```javascript
-const expression = 'https?://(?:www.)?(?:[a-z]+).co(?:m|.uk)'
+const expression = "https?://(?:www.)?(?:[a-z]+).co(?:m|.uk)"
 const exampleText =
-  'For more information, visit https://www.developerhandbook.com, or http://jpreecedev.com, alternatively visit https://www.amazon.co.uk for some reason.'
+  "For more information, visit https://www.developerhandbook.com, or http://jpreecedev.com, alternatively visit https://www.amazon.co.uk for some reason."
 
-const regexp = new RegExp(expression, 'gi')
+const regexp = new RegExp(expression, "gi")
 let res
 while ((res = regexp.exec(exampleText))) {
   console.log(res) // ["https://www.developerhandbook.com"] ["http://jpreecedev.com"] ["https://www.amazon.co.uk"]
@@ -48,8 +47,8 @@ while ((res = nativeExpression.exec(exampleText))) {
 }
 
 const replacableExpression = /foo/gi
-const replacableText = 'This is foo and foo and then some more foo'
-console.log(replacableText.replace(replacableExpression, 'bar')) // This is bar and bar and then some more bar
+const replacableText = "This is foo and foo and then some more foo"
+console.log(replacableText.replace(replacableExpression, "bar")) // This is bar and bar and then some more bar
 
 console.log(exampleText.match(regexp)) //["https://www.developerhandbook.com", "http://jpreecedev.com", "https://www.amazon.co.uk"]
 ```
@@ -137,7 +136,7 @@ Explanation;
 
 The result is best visualised with a screenshot from [Regex101.com](https://regex101.com/r/mDqNhE/1/).
 
-![Matching Numbers](matching-numbers.png)
+![Matching Numbers](/assets/matching-numbers.png)
 
 Note how the site highlights the position of each match, as an empty character. Replacing the empty character with one or more characters (i.e. a comma `,`) using `string.replace` is how you do an insert.
 

@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to protect your website using Passport.js and JWT
 description: In the second post in this Passport.js mini-series, we discuss how to set-up Passport.js, JWT, and MongoDB allowing users to register and log in
-date: 2019-10-05
+pubDate: 2019-10-05
 categories: ['Passport.js', 'passport-authentication-series']
 seriesTitle: Comprehensive Passport.js Mini-Series
 group: 'Software Development'
-featuredImage: './passportjs-jwt-jsonwebtoken.png'
+heroImage: /assets/passportjs-jwt-jsonwebtoken.png
 ---
 
 In the previous post in this mini-series, we started our conversation about [building an authentication system using Node.js, Express and Passport.js](/passport.js/node-express-passport-authentication-mini-series/). This tutorial assumes that you already have a starting point (a login/registration form, and access to an Express back-end), if you do not, please check out the aforementioned blog post. If you already have these pieces in place, then you're ready to get started.
@@ -24,7 +23,7 @@ In the previous post in this mini-series, we started our conversation about [bui
 Once this tutorial is finished, users will be able to login and register with your site. Role-based authorisation will be covered in a subsequent post in this series.
 
 <div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/github.png" class="mr-3" alt="GitHub">
+  <img src="/assets/github.png" class="mr-3" alt="GitHub">
   <div class="media-body align-self-center">
     <h5 class="mt-0 mb-0">Open source</h5>
     All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
@@ -119,7 +118,7 @@ In this code sample we encounter our first usage of `process.env`. We need an ea
 
 In the very root of the project, create a new file called `.env` and add the following;
 
-```text
+```plaintext
 BASE_API_URL=/api
 ```
 
@@ -969,11 +968,11 @@ Assuming registration is successful, you should be redirected back to the home p
 
 Open up Chrome developer tools (or equivalent for Edge, Safari, Firefox etc) and find the Application Cookies panel (shown in the screenshot below).
 
-![JWT HTTP Only Cookie has been created and set in the users browser](passport-jwt-cookie-chrome-devtools.png)
+![JWT HTTP Only Cookie has been created and set in the users browser](/assets/passport-jwt-cookie-chrome-devtools.png)
 
 You can easily view what the cookie contains by heading over to [https://jwt.io](https://jwt.io) and pasting the contents of the `jwt` cookie into the debugger.
 
-![JWT decoded using debugger](jwt-cookie-decoded.png)
+![JWT decoded using debugger](/assets/jwt-cookie-decoded.png)
 
 ## How to connect the login form to our Express endpoint
 

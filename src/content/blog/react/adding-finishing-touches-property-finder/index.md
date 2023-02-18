@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Adding the finishing touches to 'Property Finder'
 description: This post focuses on adding the final touches to our 'Property Finder' React.js website
-date: 2019-01-27
-categories: ['React', 'practical-react-series']
+pubDate: 2019-01-27
+categories: ["React", "practical-react-series"]
 seriesTitle: Practical React Developer
-group: 'Software Development'
+group: "Software Development"
 ---
 
 At the beginning of this project, we created two components. Those components were designed to display key information about a single property and its location. These components were `<Map />` and `<KeyFeatures />`.
@@ -16,11 +15,11 @@ The single best way to learn anything is repeated exposure. For this post we wil
 
 When done, our property details page will go from this;
 
-<img src="what-we-have-currently.png" alt="Property Details App - Incomplete" class="glow" />
+<img src="/assets/what-we-have-currently.png" alt="Property Details App - Incomplete" class="glow" />
 
 To this;
 
-![Property Details App - Completed](finished-property-details.png)
+![Property Details App - Completed](/assets/finished-property-details.png)
 
 Believe it or not, we are 3/4 of the way there, so let's get cracking!
 
@@ -35,11 +34,11 @@ The `Details` page/component should not care about any specific state/data. Inst
 Create a new presentation component called `propertyDetails` inside the `components` folder and create a new file called `index.js`. Add the following logic;
 
 ```jsx
-import * as React from 'react'
-import classnames from 'classnames'
+import * as React from "react"
+import classnames from "classnames"
 
-import KeyFeatures from '../keyFeatures'
-import Map from '../map'
+import KeyFeatures from "../keyFeatures"
+import Map from "../map"
 
 function PropertyDetails({ listing }) {
   if (!listing) {
@@ -47,7 +46,7 @@ function PropertyDetails({ listing }) {
   }
 
   const { title, address, description, price, features, details } = listing
-  const priceClasses = classnames('text-success', 'text-right')
+  const priceClasses = classnames("text-success", "text-right")
 
   return (
     <div>
@@ -72,7 +71,7 @@ function PropertyDetails({ listing }) {
         </div>
       </div>
       <p className="text-bold mt-3">Full Details</p>
-      {details.map(detail => (
+      {details.map((detail) => (
         <p key={detail}>{detail}</p>
       ))}
       <p className="text-bold mt-3">Map</p>
@@ -106,9 +105,9 @@ Our `PropertyListingsProvider` already knows how to fetch data from our 'server'
 Open `PropertyListingsProvider.js` and add the following function to `PropertyListingsProvider`;
 
 ```javascript
-getListingByPropertyId = propertyId => {
+getListingByPropertyId = (propertyId) => {
   const { propertyListings } = this.state
-  return propertyListings.find(listing => listing.id === Number(propertyId))
+  return propertyListings.find((listing) => listing.id === Number(propertyId))
 }
 ```
 
@@ -122,7 +121,7 @@ Now we just need to update the `PropertyListingsContext.Provider` to make this f
     allListings: propertyListings,
     propertyListings: filteredListings,
     updateFilter: this.updateFilter,
-    getListingByPropertyId: this.getListingByPropertyId
+    getListingByPropertyId: this.getListingByPropertyId,
   }}
 >
   {children}
@@ -132,14 +131,14 @@ Now we just need to update the `PropertyListingsContext.Provider` to make this f
 Now we can go ahead and update our `Details` page (`Details/index.js`) to call the `getListingsByPropertyId` function with the `propertyId` we get from `@reach/router`, as follows;
 
 ```jsx
-import * as React from 'react'
+import * as React from "react"
 
 import {
   PropertyListingsProvider,
-  PropertyListingsConsumer
-} from '../../context/PropertyListingsProvider'
+  PropertyListingsConsumer,
+} from "../../context/PropertyListingsProvider"
 
-import PropertyDetails from '../../components/propertyDetails'
+import PropertyDetails from "../../components/propertyDetails"
 
 function Details({ propertyId }) {
   return (
@@ -160,7 +159,7 @@ export default Details
 
 Open the `Details` page in your browser and you should see that we have made tremendous progress.
 
-![Details Page Coming Together](details-page-coming-together.png)
+![Details Page Coming Together](/assets/details-page-coming-together.png)
 
 We have two missing features, the image for the listing and the rest of the layout, as we see on the home page.
 
@@ -173,13 +172,15 @@ Create a new folder in `components` called `gallery`, and a new file called `ind
 Add the following code;
 
 ```jsx
-import * as React from 'react'
+import * as React from "react"
 
 function Gallery({ image, title }) {
   return (
     <figure className="figure">
       <img className="img-responsive" src={`/server/${image}`} alt={title} />
-      <figcaption className="figure-caption text-center text-small">{title}</figcaption>
+      <figcaption className="figure-caption text-center text-small">
+        {title}
+      </figcaption>
     </figure>
   )
 }
@@ -212,7 +213,7 @@ const { title, address, description, price, features, details, image } = listing
 And remember to add an `import` for `<Gallery />` as follows;
 
 ```javascript
-import Gallery from '../gallery'
+import Gallery from "../gallery"
 ```
 
 The image for the property should now be visible.
@@ -222,7 +223,7 @@ The image for the property should now be visible.
 Our page is missing the `<Hero />` banner, so let's correct that. Open `Details/index.js` and import the `<Hero />` component;
 
 ```javascript
-import Hero from '../../components/hero'
+import Hero from "../../components/hero"
 ```
 
 Then place the `<Hero />` component directly above our container `div`;
@@ -249,23 +250,25 @@ Feel free to skip this part, as the layout for the page is now basically complet
 Open `<Hero />` and update as follows;
 
 ```jsx
-import * as React from 'react'
-import classnames from 'classnames'
+import * as React from "react"
+import classnames from "classnames"
 
-import styles from './styles.module.css'
+import styles from "./styles.module.css"
 
 function Hero({ miniHero }) {
-  const classes = classnames(styles.hero, 'hero', 'mb-3', {
-    'hero-sm': miniHero,
+  const classes = classnames(styles.hero, "hero", "mb-3", {
+    "hero-sm": miniHero,
     [styles.miniHero]: miniHero,
-    'hero-lg': !miniHero
+    "hero-lg": !miniHero,
   })
 
   return (
     <div className={classes}>
       <div className="hero-body text-center text-light">
         <h1>Premium Property Finder</h1>
-        <p className="mb-0">Bringing premium property right to your fingertips</p>
+        <p className="mb-0">
+          Bringing premium property right to your fingertips
+        </p>
       </div>
     </div>
   )
@@ -280,7 +283,7 @@ Create a new file in the same directory called `styles.module.css` and add the f
 
 ```css
 .hero {
-  background-image: url('../../images/hero.jpg');
+  background-image: url("../../images/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;

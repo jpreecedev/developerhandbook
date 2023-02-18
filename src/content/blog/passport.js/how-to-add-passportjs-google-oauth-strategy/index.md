@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to add Passport.js Google OAuth Strategy to your website
 description: As part of this mini-series on Passport.js, we look at how to add Google OAuth to an existing Node Express website
-date: 2019-10-06
-categories: ['Passport.js', 'passport-authentication-series']
+pubDate: 2019-10-06
+categories: ["Passport.js", "passport-authentication-series"]
 seriesTitle: Comprehensive Passport.js Mini-Series
-group: 'Software Development'
-featuredImage: './passportjs-google-oauth-strategy.png'
+group: "Software Development"
+heroImage: /assets/passportjs-google-oauth-strategy.png
 ---
 
 Welcome to our mini-series on _Authentication using Node.js, Express, and Passport.js_. This comprehensive series is designed to teach you everything you need to know, as well as give you all the code required, to add authentication and authorisation to your existing website, or for a new-build from-scratch project.
@@ -23,7 +22,7 @@ So far in this series, [we have discussed at length Passport.js and JWT](/passpo
 Once this tutorial is finished, users will be able to login and register with your site using their existing Google account. Role-based authorisation will be covered in a subsequent post in this series.
 
 <div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/github.png" class="mr-3" alt="GitHub">
+  <img src="/assets/github.png" class="mr-3" alt="GitHub">
   <div class="media-body align-self-center">
     <h5 class="mt-0 mb-0">Open source</h5>
     All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
@@ -38,13 +37,13 @@ Before we can write any code, we need to obtain a **Client Id** and **Client Sec
 
 Assuming you already have a Google account, and that you are logged in, open the Google Developers Console and click **Select a project**. From here you can create a new project using the **New Project** button.
 
-![Google Developers Console - New Project](./google-developers-console-new-project.png)
+![Google Developers Console - New Project](/assets/google-developers-console-new-project.png)
 
 Give your project a sensible name, and click **Create**. After a few seconds, your project should be created.
 
 Click on your project, and from the menu on the left-hand side, select **APIs & Services > Credentials**. Click **Create Credentials > OAuth Client Id**. Now click **Configure consent screen**.
 
-![Google Developers Console - OAuth Consent Screen](./google-oauth-consent-screen.png)
+![Google Developers Console - OAuth Consent Screen](/assets/google-oauth-consent-screen.png)
 
 Again, give your application a sensible name, and click **Save** at the bottom.
 
@@ -52,7 +51,7 @@ On the next screen you can now start creating your OAuth Client Id.
 
 Select **Web Application**, and give a sensible name. The important part here is that we set an **authorised redirect URI**;
 
-![Google Developers Console - Authorised Redirect UI](./google-authorised-redirect-uri.png)
+![Google Developers Console - Authorised Redirect UI](/assets/google-authorised-redirect-uri.png)
 
 It is important to set the authorised redirect URL to `http://localhost:3000/api/auth/google/callback`. We will set the same URL in our application later.
 
@@ -60,7 +59,7 @@ When done, click **Create**.
 
 A modal should appear containing both your Client Id and Client Secret.
 
-![Google Developers Console - Client Id and Client Secret](./google-oauth-client-id-secret.png)
+![Google Developers Console - Client Id and Client Secret](/assets/google-oauth-client-id-secret.png)
 
 We need to add these into our application. Go back to your project, and open your `.env` file.
 
@@ -91,20 +90,20 @@ npm install --save passport-google-oauth
 Next, create a new file inside `server/auth/strategies`, called `google.js`, and add the following code;
 
 ```javascript
-import passport from 'passport'
-import passportGoogle from 'passport-google-oauth'
-import { to } from 'await-to-js'
+import passport from "passport"
+import passportGoogle from "passport-google-oauth"
+import { to } from "await-to-js"
 
-import { getUserByProviderId, createUser } from '../../database/user'
-import { signToken } from '../utils'
+import { getUserByProviderId, createUser } from "../../database/user"
+import { signToken } from "../utils"
 
 const GoogleStrategy = passportGoogle.OAuth2Strategy
 
-const strategy = app => {
+const strategy = (app) => {
   const strategyOptions = {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: `${process.env.SERVER_API_URL}/auth/google/callback`
+    callbackURL: `${process.env.SERVER_API_URL}/auth/google/callback`,
   }
 
   const verifyCallback = async (accessToken, refreshToken, profile, done) => {
@@ -343,60 +342,63 @@ However, as this is a more complete tutorial, we need a more complete solution.
 In the root of your project, add a new directory called `components`, and add a new file called `GoogleLoginButton.jsx`. Add the following code;
 
 ```javascript
-import React from 'react'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import React from "react"
+import { makeStyles, createStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     button: {
       margin: theme.spacing(0, 0, 1),
-      display: 'flex',
-      backgroundColor: '#DD4B39',
+      display: "flex",
+      backgroundColor: "#DD4B39",
       borderRadius: theme.shape.borderRadius,
       boxShadow: theme.shadows[1],
-      height: '36px',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      '&:hover': {
-        backgroundColor: '#E74B37'
+      height: "36px",
+      cursor: "pointer",
+      textDecoration: "none",
+      "&:hover": {
+        backgroundColor: "#E74B37",
       },
-      '&:active': {
-        boxShadow: 'inset 0 0 0 32px rgba(0,0,0,0.1)'
-      }
+      "&:active": {
+        boxShadow: "inset 0 0 0 32px rgba(0,0,0,0.1)",
+      },
     },
     wrapper: {
-      marginTop: '1px',
-      marginLeft: '1px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '34px',
-      height: '34px',
-      borderRadius: '2px',
-      backgroundColor: '#fff'
+      marginTop: "1px",
+      marginLeft: "1px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "34px",
+      height: "34px",
+      borderRadius: "2px",
+      backgroundColor: "#fff",
     },
     icon: {
-      width: '18px',
-      height: '18px'
+      width: "18px",
+      height: "18px",
     },
     text: {
-      margin: '0 34px 0 0',
-      color: '#fff',
-      fontSize: '14px',
-      fontWeight: 'bold',
-      textTransform: 'uppercase',
+      margin: "0 34px 0 0",
+      color: "#fff",
+      fontSize: "14px",
+      fontWeight: "bold",
+      textTransform: "uppercase",
       flexGrow: 1,
-      textAlign: 'center',
-      alignSelf: 'center'
-    }
-  })
+      textAlign: "center",
+      alignSelf: "center",
+    },
+  }),
 )
 
 const GoogleLoginButton = () => {
   const classes = useStyles({})
 
   return (
-    <a href={`${process.env.BASE_API_URL}/auth/google`} className={classes.button}>
+    <a
+      href={`${process.env.BASE_API_URL}/auth/google`}
+      className={classes.button}
+    >
       <div className={classes.wrapper}>
         <svg
           className={classes.icon}
@@ -479,17 +481,17 @@ export default LoginForm
 
 The page should automatically refresh, and the login button should appear.
 
-![Google OAuth Login Button](./google-oauth-login-button.png)
+![Google OAuth Login Button](/assets/google-oauth-login-button.png)
 
 Click the **Login with Google** button. You should be redirected to Google and prompted to select an account to use. Click the appropriate account and you should be redirected back to the home page.
 
 You can verify that you are logged in by looking at the `jwt` cookie in using Chrome dev tools;
 
-![Google OAuth JWT Cookie](./passport-jwt-cookie-chrome-devtools.png)
+![Google OAuth JWT Cookie](/assets/passport-jwt-cookie-chrome-devtools.png)
 
 Drop the JWT into the debugger over on [https://jwt.io](https://jwt.io) so you can see its contents.
 
-![Debug JWT using JWT.io](./google-oauth-jwt-cookie.png)
+![Debug JWT using JWT.io](/assets/google-oauth-jwt-cookie.png)
 
 Now you have been successfully registered and logged in using Passport.js Google OAuth strategy.
 

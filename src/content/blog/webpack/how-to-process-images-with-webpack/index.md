@@ -1,11 +1,10 @@
 ---
-layout: post
 title: How to process images with Webpack
 description: Webpack, with various plugins, is fantastic for processing assets, including images.  We can configure Webpack to automatically compress and cache-bust our images at build time.
-date: 2018-12-31
-categories: ['Webpack', 'webpack-intro-series']
+pubDate: 2018-12-31
+categories: ["Webpack", "webpack-intro-series"]
 seriesTitle: Intro to Webpack mini series
-group: 'Software Development'
+group: "Software Development"
 ---
 
 With a couple of small Webpack plugins we can add the ability to be able to import images directly in our JavaScript files, and also process those images (compress them).
@@ -34,37 +33,46 @@ module.exports = {
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
-          'file-loader',
+          "file-loader",
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 65,
               },
               optipng: {
-                enabled: !isDevelopment
+                enabled: !isDevelopment,
               },
               pngquant: {
-                quality: '65-90',
-                speed: 4
+                quality: "65-90",
+                speed: 4,
               },
               gifsicle: {
-                interlaced: false
+                interlaced: false,
               },
               webp: {
-                quality: 75
-              }
-            }
-          }
-        ]
-      }
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
       ///...
-    ]
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.gif', '.png', '.jpg', '.jpeg', '.svg']
-  }
+    extensions: [
+      ".js",
+      ".jsx",
+      ".scss",
+      ".gif",
+      ".png",
+      ".jpg",
+      ".jpeg",
+      ".svg",
+    ],
+  },
   ///...
 }
 ```
@@ -78,7 +86,7 @@ Now let's test this out. Grab an image and drop it into a new folder under `src`
 Open `app.js`, and import the image as follows;
 
 ```javascript
-import jonpreece from './images/jonpreece-square'
+import jonpreece from "./images/jonpreece-square"
 ```
 
 Now update the `App` component as follows;
@@ -96,7 +104,7 @@ function App() {
 
 To use the image, we simply set the `src` attribute of an `img` tag and the rest is taken care of for us.
 
-![Webpack 4 with Image Webpack Plugin](webpack-4-image-plugin.png)
+![Webpack 4 with Image Webpack Plugin](/assets/webpack-4-image-plugin.png)
 
 ## Summary
 

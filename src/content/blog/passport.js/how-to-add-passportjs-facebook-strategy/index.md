@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to add Passport.js Facebook Strategy to your website
 description: As part of this mini-series on Passport.js, we look at how to add Facebook strategy to an existing Node Express website
-date: 2019-10-07
-categories: ['Passport.js', 'passport-authentication-series']
+pubDate: 2019-10-07
+categories: ["Passport.js", "passport-authentication-series"]
 seriesTitle: Comprehensive Passport.js Mini-Series
-group: 'Software Development'
-featuredImage: './passportjs-facebook-strategy.png'
+group: "Software Development"
+heroImage: /assets/passportjs-facebook-strategy.png
 ---
 
 Welcome to our mini-series on _Authentication using Node.js, Express, and Passport.js_. This comprehensive series is designed to teach you everything you need to know, as well as give you all the code required, to add authentication and authorisation to your existing website, or for a new-build from-scratch project.
@@ -23,7 +22,7 @@ So far in this series, [we have discussed at length Passport.js and JWT](/passpo
 Once this tutorial is finished, users will be able to login and register with your site using their existing Facebook account. Role-based authorisation will be covered in a subsequent post in this series.
 
 <div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/github.png" class="mr-3" alt="GitHub">
+  <img src="/assets/github.png" class="mr-3" alt="GitHub">
   <div class="media-body align-self-center">
     <h5 class="mt-0 mb-0">Open source</h5>
     All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
@@ -38,11 +37,11 @@ Before we can write any code, we need to obtain an **App Id** and **App Secret**
 
 Assuming you already have a Facebook account, and that you are logged in, click **My Apps** in the upper-right hand corner of the page and click **Create App**.
 
-![Facebook Developers - Create a new App ID](./facebook-developers-new-app-id.png)
+![Facebook Developers - Create a new App ID](/assets/facebook-developers-new-app-id.png)
 
 Give your app a sensible name, and click **Create App ID**. You may have to complete a security check. Once done, your app should be created and you should be redirected to a dashboard. One of the items on the dashboard should be **Facebook Login**. Click that, and then on the subsequent screen, click **Web** (WWW).
 
-![Facebook Login - Getting set up](./facebook-login-getting-set-up.png)
+![Facebook Login - Getting set up](/assets/facebook-login-getting-set-up.png)
 
 Enter a URL for your website, click **Save**, and then **Continue**.
 
@@ -50,7 +49,7 @@ Completely ignore all the rest of the screens (they're not applicable to our use
 
 On the right-hand side should be a menu bar. A menu option should be **Settings**. Click **Settings**, then **Basic**.
 
-![Facebook Login App Id and App Secret](./facebook-app-id-secret-settings.png)
+![Facebook Login App Id and App Secret](/assets/facebook-app-id-secret-settings.png)
 
 Your **App Id** and **App Secret** should be displayed on screen (you need to click **Show** to see the secret).
 
@@ -83,21 +82,21 @@ npm install --save passport-facebook
 Next, create a new file inside `server/auth/strategies`, called `facebook.js`, and add the following code;
 
 ```javascript
-import passport from 'passport'
-import passportFacebook from 'passport-facebook'
-import { to } from 'await-to-js'
+import passport from "passport"
+import passportFacebook from "passport-facebook"
+import { to } from "await-to-js"
 
-import { getUserByProviderId, createUser } from '../../database/user'
-import { signToken } from '../utils'
+import { getUserByProviderId, createUser } from "../../database/user"
+import { signToken } from "../utils"
 
 const FacebookStrategy = passportFacebook.Strategy
 
-const strategy = app => {
+const strategy = (app) => {
   const strategyOptions = {
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     callbackURL: `${process.env.SERVER_API_URL}/auth/facebook/callback`,
-    profileFields: ['id', 'displayName', 'name', 'emails']
+    profileFields: ["id", "displayName", "name", "emails"],
   }
 
   const verifyCallback = async (accessToken, refreshToken, profile, done) => {
@@ -323,61 +322,64 @@ However, as this is a more complete tutorial, we need a more complete solution.
 In the root of your project, add a new directory called `components`, and add a new file called `FacebookLoginButton.jsx`. Add the following code;
 
 ```javascript
-import React, { FunctionComponent } from 'react'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import React, { FunctionComponent } from "react"
+import { makeStyles, createStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     button: {
-      display: 'flex',
-      backgroundColor: '#4C69BA',
-      backgroundImage: 'linear-gradient(#4C69BA, #3B55A0)',
+      display: "flex",
+      backgroundColor: "#4C69BA",
+      backgroundImage: "linear-gradient(#4C69BA, #3B55A0)",
       borderRadius: theme.shape.borderRadius,
       boxShadow: theme.shadows[1],
-      height: '36px',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      '&:hover': {
-        backgroundColor: '#5B7BD5',
-        backgroundImage: 'linear-gradient(#5b7bd50a, #4864B1)'
+      height: "36px",
+      cursor: "pointer",
+      textDecoration: "none",
+      "&:hover": {
+        backgroundColor: "#5B7BD5",
+        backgroundImage: "linear-gradient(#5b7bd50a, #4864B1)",
       },
-      '&:active': {
-        boxShadow: 'inset 0 0 0 32px rgba(0,0,0,0.1)'
-      }
+      "&:active": {
+        boxShadow: "inset 0 0 0 32px rgba(0,0,0,0.1)",
+      },
     },
     wrapper: {
-      marginTop: '1px',
-      marginLeft: '1px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '34px',
-      height: '34px',
-      borderRadius: '2px',
-      backgroundColor: '#fff'
+      marginTop: "1px",
+      marginLeft: "1px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "34px",
+      height: "34px",
+      borderRadius: "2px",
+      backgroundColor: "#fff",
     },
     icon: {
-      width: '18px',
-      height: '18px'
+      width: "18px",
+      height: "18px",
     },
     text: {
-      margin: '0 34px 0 0',
-      color: '#fff',
-      fontSize: '14px',
-      fontWeight: 'bold',
-      textTransform: 'uppercase',
+      margin: "0 34px 0 0",
+      color: "#fff",
+      fontSize: "14px",
+      fontWeight: "bold",
+      textTransform: "uppercase",
       flexGrow: 1,
-      textAlign: 'center',
-      alignSelf: 'center'
-    }
-  })
+      textAlign: "center",
+      alignSelf: "center",
+    },
+  }),
 )
 
 const FacebookLoginButton = () => {
   const classes = useStyles({})
 
   return (
-    <a href={`${process.env.BASE_API_URL}/auth/facebook`} className={classes.button}>
+    <a
+      href={`${process.env.BASE_API_URL}/auth/facebook`}
+      className={classes.button}
+    >
       <div className={classes.wrapper}>
         <svg
           fill="#3b5998"
@@ -447,17 +449,17 @@ export default LoginForm
 
 The page should automatically refresh, and the login button should appear.
 
-![Facebook Auth Login Button](./facebook-auth-login-button.png)
+![Facebook Auth Login Button](/assets/facebook-auth-login-button.png)
 
 Click the **Login with Facebook** button. You should be redirected to Facebook and prompted to select an account to use. Click the appropriate account and you should be redirected back to the home page.
 
 You can verify that you are logged in by looking at the `jwt` cookie in using Chrome dev tools;
 
-![Facebook JWT Cookie](./passport-jwt-cookie-chrome-devtools.png)
+![Facebook JWT Cookie](/assets/passport-jwt-cookie-chrome-devtools.png)
 
 Drop the JWT into the debugger over on [https://jwt.io](https://jwt.io) so you can see its contents.
 
-![Debug JWT using JWT.io](./passport-facebook-jwt-decoded.png)
+![Debug JWT using JWT.io](/assets/passport-facebook-jwt-decoded.png)
 
 Now you have been successfully registered and logged in using Passport.js Facebook strategy.
 

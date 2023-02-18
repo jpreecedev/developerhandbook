@@ -1,8 +1,7 @@
 ---
-layout: post
 title: Webpack 4 from absolute scratch
 description: Learn how to write your own Webpack configuration from absolute scratch quickly
-date: 2018-12-31
+pubDate: 2018-12-31
 updated: 2019-09-14
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
@@ -32,7 +31,7 @@ npm install --save-dev webpack webpack-cli webpack-dev-server
 
 Add a `.gitignore` file with the following lines;
 
-```text
+```plaintext
 dist
 node_modules
 ```
@@ -69,7 +68,7 @@ Assuming all is working well, you should notice that a new directory is created 
 
 This is our project so far;
 
-![Webpack 4 initial setup](webpack-4-initial-config.png)
+![Webpack 4 initial setup](/assets/webpack-4-initial-config.png)
 
 Feel free to ignore the yellow warning in the console. Webpack says that it has defaulted to production mode, which is fine for now. We will fix this later.
 

@@ -1,8 +1,7 @@
 ---
-layout: post
 title: Add advanced filtering to a React app using React Context API
 description: Learn how to add advanced filtering to a React application using Context API, and local state, to dynamically update a list of data
-date: 2019-01-27
+pubDate: 2019-01-27
 categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 group: 'Software Development'
@@ -16,7 +15,7 @@ We will utilise React Context API and local state to achieve our objectives.
 
 First, let's have another look at our mock.
 
-![Rough mock from CTO](mock-from-designer.png)
+![Rough mock from CTO](/assets/mock-from-designer.png)
 
 The mock shows the following;
 
@@ -142,7 +141,7 @@ To use the filter, go to `pages/Home/index.js` and use the `<Filter />` componen
 
 Your filters should now be displayed on screen.
 
-![Advanced filtering in React.js with no libraries](reactjs-form-no-libraries.png)
+![Advanced filtering in React.js with no libraries](/assets/reactjs-form-no-libraries.png)
 
 Our filter form consists of;
 
@@ -257,7 +256,7 @@ Update the 'price from' field as follows;
 
 We are accessing `priceFrom` from state. If you run the code above you should get the following waring;
 
-```text
+```plaintext
 react-dom.development.js:506 Warning: A component is changing an uncontrolled input of type number to be controlled. Input elements should not switch from uncontrolled to controlled (or vice versa). Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://fb.me/react-controlled-components
     in input (created by Filter)
     in div (created by Filter)
@@ -581,7 +580,7 @@ render() {
 
 Your 'price from' and 'sort order' filters should now be working. We need some extra logic to get postcodes working.
 
-<img src="react-js-form-filters.gif" alt="React JS working form filters" style="width: 100%; margin-bottom: 20px;">
+<img src="/assets/react-js-form-filters.gif" alt="React JS working form filters" style="width: 100%; margin-bottom: 20px;">
 
 A UK postcode consists of two parts, the first part is a general area identifier consisting of usually 2, 3 or 4 characters (letters and numbers), the second part is a more specific area identifier. The postcode list should only display the first part of the postcode, and should only be populated with postcodes that have at least one listing associated with it.
 
@@ -658,7 +657,7 @@ You should now be able to filter by postcode.
 
 It would be nice to show the number of properties that are currently being displayed to the user, for clarity. The number of listings should be displayed directly above the listings grid as shown on the screenshot below.
 
-![React JS working form filters](properties-count.png)
+![React JS working form filters](/assets/properties-count.png)
 
 If you get a bit stuck, the solution is available for you on GitHub. Checkout out [this link to the Premium Property Finder repo](https://github.com/jpreecedev/premium-property-finder/blob/master/src/components/filter/index.js#L43) which will get you on track.
 

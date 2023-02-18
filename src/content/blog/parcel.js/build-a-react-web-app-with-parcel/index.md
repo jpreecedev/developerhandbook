@@ -1,8 +1,7 @@
 ---
-layout: post
 title: Build a React web app with Parcel.js lightning fast
 description: Learn how to get a React app off the ground quickly with Parcel.js
-date: 2019-01-01
+pubDate: 2019-01-01
 categories: ['Parcel.js', 'React', 'JavaScript']
 group: 'Software Development'
 ---
@@ -44,7 +43,7 @@ To do this, create a new file called `.babelrc` and add the following;
 
 Add a `.gitignore` file and add the following (to keep our repository nice and clean);
 
-```text
+```plaintext
 node_modules
 .cache
 dist
@@ -188,7 +187,7 @@ if (module.hot) {
 
 That's it, you now have Hot Module Reloading. It is 8:05am, I had that estimated as 1 day...what now?!
 
-![Parcel.js and React, "Hello, World!"](parceljs-react-hello-world.png)
+![Parcel.js and React, "Hello, World!"](/assets/parceljs-react-hello-world.png)
 
 ## Summary
 

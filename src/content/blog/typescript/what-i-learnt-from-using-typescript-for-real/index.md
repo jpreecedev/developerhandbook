@@ -1,10 +1,9 @@
 ---
-layout: post
 title: What I learnt from using TypeScript "for real"
 description: I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.
-date: 2015-05-25
-categories: ['TypeScript']
-group: 'Software Development'
+pubDate: 2015-05-25
+categories: ["TypeScript"]
+group: "Software Development"
 ---
 
 I completed my first commercial Greenfield project using TypeScript over plain old JavaScript throughout, and there were some frustrations along the way.
@@ -39,7 +38,7 @@ I can only speak from my own experiences here. I don't claim to be a TypeScript 
 This is either a good thing, or a bad thing. I can't decide. To be honest, I wish TypeScript did force you to use its own paradigm. You can easily write pure JavaScript inside a TypeScript file and it will all compile and "just work". This is a bit of a downfall for me because I've always found JavaScript to be frustrating at best (can you think of an application you've written in JavaScript that hasn't eventually descended into mayhem?). What I mean is this, I can create a local variable and assign it a type of Element;
 
 ```typescript
-var element: Element = angular.element('.myelement')
+var element: Element = angular.element(".myelement")
 ```
 
 The type constraint is redundant, and ReSharper makes a song and dance about the fact and basically forces you to get rid of it (yeah, I know I could turn this off but at the end of the day ReSharper is right). I can assign function parameters type declarations, but I don't have to. (I did eventually go back in fill these in where I could). I know that I _should_ use type declarations and to be honest I wish I did use this feature more, but I'm lazy. Next time I'll be sure to do this from the start as I think it adds further structure to the code.
@@ -50,19 +49,16 @@ The project I was developing was built in conjunction with AngularJS. I've had a
 
 ```javascript
 var scope = angular
-  .element('.myselector')
+  .element(".myselector")
   .first()
-  .children('.mychildren')
+  .children(".mychildren")
   .scope()
 ```
 
 That's perfectly valid code. Even though I have already added the appropriate type definition files and referenced appropriate at the top of the file, TypeScript still insists that scope() is not valid in this context and I get a compilation error. So I'd have to exploit the dynamic functionality of JavaScript to get around this;
 
 ```javascript
-var children = angular
-  .element('.myselector')
-  .first()
-  .children('.mychildren')
+var children = angular.element(".myselector").first().children(".mychildren")
 var scope = children.scope()
 ```
 

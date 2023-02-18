@@ -1,8 +1,7 @@
 ---
-layout: post
 title: How to export your React project from CodeSandbox to your desktop with Parcel.js
 description: Learn how to quickly take your React project from CodeSandbox to your local with Parcel.js for building your assets
-date: 2019-01-24
+pubDate: 2019-01-24
 categories: ['React', 'Parcel.js', 'practical-react-series']
 seriesTitle: Practical React Developer
 group: 'Software Development'
@@ -39,7 +38,7 @@ The commands initialise our project, source control, install React and some basi
 
 Add a `.gitignore` file and add the following (to keep our repository nice and clean);
 
-```text
+```plaintext
 node_modules
 .cache
 dist
@@ -73,7 +72,7 @@ Finally, add the following NPM script to your `package.json` file;
 
 Run `npm start` in your terminal and you are up and running.
 
-![Parcel.js, React Hello, World!](parceljs-hello-world.png)
+![Parcel.js, React Hello, World!](/assets/parceljs-hello-world.png)
 
 Go to `http://localhost:1234` in your browser and you should see "Hello, World" as shown in the above screenshot. This is not React code, this is just static HTML. We will add the React code next.
 
@@ -141,7 +140,7 @@ When you are working with a small number of files, the quickest way is to simply
 
 CodeSandbox has a super handy download button on the menu bar in the top left-hand corner.
 
-![Download files from CodeSandbox](codesandbox-download-button.png)
+![Download files from CodeSandbox](/assets/codesandbox-download-button.png)
 
 Click this button to download all the files and folders from CodeSandbox to a ZIP file. Extract the ZIP file and copy the files into your project.
 
@@ -149,7 +148,7 @@ Click this button to download all the files and folders from CodeSandbox to a ZI
 
 Click the GitHub icon on the left hand menu bar, and sign in with your GitHub account.
 
-![Save CodeSandbox to GitHub](save-codesandbox-to-github.png)
+![Save CodeSandbox to GitHub](/assets/save-codesandbox-to-github.png)
 
 Give the project a name and click **Create Repository**. You could now download the repo from GitHub in the normal way.
 
@@ -166,7 +165,7 @@ import KeyFeatures from './components/keyFeatures/'
 
 Assuming all is well, the app should now be running in the browser, almost the same as when we were using CodeSandbox.
 
-![Code migrated from CodeSandbox](premium-property-finder.png)
+![Code migrated from CodeSandbox](/assets/premium-property-finder2.png)
 
 You may notice that the font does not match what we had before. This is because CodeSandbox sets the default font to `sans-serif`. We will be using a CSS framework, called [Spectre](https://picturepan2.github.io/spectre/) which will help us out with fonts later so we do not need to worry about this now.
 

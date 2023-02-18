@@ -1,10 +1,9 @@
 ---
-layout: post
 title: A bare bones React boilerplate, featuring Webpack 4, React, Redux, Jest, and Babel 7
 description: Boilerplate and template projects are awesome, however, sometimes they can be quite bloated.  This is a barebones starter template.
-date: 2018-09-22
-categories: ['React', 'Webpack', 'JavaScript']
-group: 'Software Development'
+pubDate: 2018-09-22
+categories: ["React", "Webpack", "JavaScript"]
+group: "Software Development"
 ---
 
 I love template projects.
@@ -45,7 +44,7 @@ npm start
 
 Now open your browser to `http://localhost:8080` to see the welcome page.
 
-![Webpack 4 Starter Project](starter-project-in-chrome.png)
+![Webpack 4 Starter Project](/assets/starter-project-in-chrome.png)
 
 You should notice in Chrome developer tools that Hot Module Replacement (HMR) is enabled and active. The site is minimal with a few components. Try clicking the links at the bottom to navigate between pages. Clicking the green button will display an `alert`. If you check the code, you will see that a JavaScript decorator is used to change the message dynamically. Pretty sweet huh!
 

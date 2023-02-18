@@ -1,8 +1,7 @@
 ---
-layout: post
 title: Writing AngularJS 1.x with TypeScript
 description: AngularJS is a front end JavaScript framework that has gained huge traction and popularity in the development community. TypeScript and AngularJS tutorial.
-date: 2015-09-24
+pubDate: 2015-09-24
 categories: ['TypeScript', 'Angular']
 group: 'Software Development'
 ---
@@ -70,7 +69,9 @@ If you have Node.JS tools installed, and you don't want the hassle of pressing <
 1.  Open a Node.js command prompt and change directory to the root folder for your project
 2.  Type the following command;
 
-<pre>tsc -w app.ts</pre>
+```cmd
+tsc -w app.ts
+```
 
 TypeScript will listen for changes to your file, and transpile it automatically every time you make a change (and save). In addition, VS Code has an Auto-Save feature. To enable it, click **File > Auto Save**. If you have the TypeScript file and JavaScript files open side by side, the JavaScript file will periodically update without the need to manually save changes.
 
@@ -82,7 +83,9 @@ Next, we need to add AngularJS to our project. You can do this using either Node
 
 If you don't already have [bower](http://bower.io/), a client side package manager, installed you can use the following command from a Node.js command prompt;
 
-<pre>npm install -g bower</pre>
+```cmd
+npm install -g bower
+```
 
 This will install bower globally on your machine. Now add a new file to your project called **bower.json** and add the following configuration:
 
@@ -99,7 +102,9 @@ This will install bower globally on your machine. Now add a new file to your pro
 
 This will bring in version 1.4.0 of AngularJS. Feel free to change this to use whatever the current version of Angular 1.x is. Now run the following command, again from your Node.js command prompt;
 
-<pre>bower install</pre>
+```cmd
+bower install
+```
 
 This will download the packages and add them to your project folder under a sub directory called **bower_components**.
 
@@ -126,13 +131,16 @@ Thankfully TypeScript has a built in mechanism for adding type declaration files
 
 You install the TypeScript definition manager using NPM. Open a Node.js command prompt and enter the following;
 
-<pre>npm install -g tsd</pre>
+```cmd
+npm install -g tsd
+```
 
 This will install the TypeScript definition manager globally. The TypeScript declaration files are fully open source and can be found on the [Definitely Typed GitHub repo](https://github.com/borisyankov/DefinitelyTyped). The AngularJS declaration files can be installed using the following command;
 
-<pre>tsd install angular
+```cmd
+tsd install angular
 tsd install angular-route
-</pre>
+```
 
 This will create a new directory called **typings** with a sub directory called **angularjs**. Within will be the two Angular declaration files you just installed. As AngularJS has a dependency on jqLite, the declaration files for jQuery will also be pulled in.
 
@@ -162,7 +170,9 @@ class Hello{
 
 No matter which technique you use to compile your JavaScript, you will get the following error message; (I believe that support for this is going to be vastly improved in future versions of VS Code)
 
-<pre>Cannot find name 'angular'</pre>
+```plaintext
+Cannot find name 'angular'
+```
 
 That's fine. All we need to do is tell TypeScript about our declaration files by adding the following code to the very top of the code file;
 
@@ -177,7 +187,9 @@ Many modern editors, including Visual Studio and Webstorm, don't require this ad
 
 AngularJS, like most other JavaScript libraries, doesn't work properly when viewed directly from the file system. If you open a file on your desktop, the path will be something like this;
 
-<pre>file:///C:/Users/jon.preece/Desktop/AngularTypeScript101/index.html</pre>
+```plaintext
+file:///C:/Users/jon.preece/Desktop/AngularTypeScript101/index.html
+```
 
 Chrome, Firefox, and most other web browsers won't allow you to consume other markup files due to security concerns (CORS). With that in mind, you will need some sort of web server to serve up the files so they can be previewed properly in the browser. VS Code does not have a built in HTTP server, so we must use another mechanism. If you're using Visual Studio (full fat), then you can use the built in server and skip this step.
 
@@ -185,11 +197,15 @@ Chrome, Firefox, and most other web browsers won't allow you to consume other ma
 
 There is a very nice HTTP server on NPM that is more than sufficient for our needs. To install it, run the following command from a Node.js command prompt;
 
-<pre>npm install -g http-server</pre>
+```cmd
+npm install -g http-server
+```
 
 This will install a simple HTTP server globally on your machine. To, run the server change directory (cd) to your root project folder and type the following command;
 
-<pre>http-server -o --cors</pre>
+```cmd
+http-server -o --cors
+```
 
 There are [lots of options](https://www.npmjs.com/package/http-server) you can pass in to customize the behaviour, but the default configuration will be enough for us. The default address is [http://localhost:8080](http://localhost:8080).
 
@@ -407,11 +423,11 @@ $routeProvider
 
 You should immediately see the benefits now.
 
-![IntelliSense On Routing Provider](IntelliSense.png)
+![IntelliSense On Routing Provider](/assets/IntelliSense.png)
 
 Not only do you get IntelliSense will full documentation, but you also get the added benefit of compile time checking;
 
-![Compile Time Checking](Compile-Time-Checking.png)
+![Compile Time Checking](/assets/Compile-Time-Checking.png)
 
 In this case I have provided the wrong number of arguments to the function... I get instant visual feedback on that. **Note**: My code still compiled. Even though the code I wrote in the above examples was _wrong_, the JavaScript was still generated and I could call that in the browser (all be it, with unpredictable behaviour). To complete the routing, add the following code to the `routes` function;
 
@@ -531,7 +547,7 @@ Unless you explicitly apply an access modifier to the parameter, it is `public`.
 
 The code shown in the previous example creates a controller called **SearchController**, using the ES6 `class` feature. By default, the class is not accessible to any other external objects.
 
-![SearchController Is Inaccessible](SearchController.png)
+![SearchController Is Inaccessible](/assets/SearchController.png)
 
 **SearchController** is not defined because it is not accessible. It is desirable to expose certain objects so that they can be consumed in other places. Generally I only expose objects that have to be exposed, but there is no hard and fast rule on this and no performance impact that I'm aware of, other than a slightly busier namespace object. To expose a class, interface, or function to other objects, use the `export` keyword.
 
@@ -547,7 +563,7 @@ HaveIBeenPwned.SearchController = SearchController
 
 Now re-running the code in developer tools results in the following;
 
-![SearchController Is Accessible](SearchControllerAccessible.png)
+![SearchController Is Accessible](/assets/SearchControllerAccessible.png)
 
 **Note**: This is a transformation provided by TypeScript and there is not a comparable feature in ES6 at the time of writing (July 2015).
 
@@ -734,7 +750,9 @@ var y
 
 In this code there is no way that TypeScript can know what the type is, therefore it is implicitly `any`. If you want to prevent implicit use of the `any` type, you can pass in the `--noImplicitAny` flag to the TypeScript compiler when you execute it.
 
-<pre>tsc --noImplicitAny -w</pre>
+```cmd
+tsc --noImplicitAny -w
+```
 
 ## Model classes
 
@@ -1012,7 +1030,7 @@ tr td {
 
 It's going to look functional, not beautiful.
 
-![HaveIBeenPwned](HaveIBeenPwned.png)
+![HaveIBeenPwned](/assets/HaveIBeenPwned.png)
 
 Enter the test email address, **foo@bar.com** and press **Enter**. You should get some sample data regarding breaches for that account.
 

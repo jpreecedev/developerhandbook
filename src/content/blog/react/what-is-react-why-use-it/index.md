@@ -1,11 +1,10 @@
 ---
-layout: post
 title: What is React.js, and why use it?
 description: We can use React to build interactive web pages. React encourages building pieces, called components, that are assembled to form a complete page.
-date: 2019-01-21
-categories: ['React', 'JavaScript', 'practical-react-series']
+pubDate: 2019-01-21
+categories: ["React", "JavaScript", "practical-react-series"]
 seriesTitle: Practical React Developer
-group: 'Software Development'
+group: "Software Development"
 ---
 
 React is a tool for building dynamic and interactive user interfaces.

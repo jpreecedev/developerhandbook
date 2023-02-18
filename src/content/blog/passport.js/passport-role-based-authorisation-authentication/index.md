@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to restrict access using Passport.js role-based authorisation
 description: Learn how to assign roles to your users so as to restrict access to certain parts of your website
-date: 2019-10-08
-categories: ['Passport.js', 'passport-authentication-series']
+pubDate: 2019-10-08
+categories: ["Passport.js", "passport-authentication-series"]
 seriesTitle: Comprehensive Passport.js Mini-Series
-group: 'Software Development'
-featuredImage: './passportjs-role-based-authorisation.jpg'
+group: "Software Development"
+heroImage: /assets/passportjs-role-based-authorisation.jpg
 ---
 
 Welcome to our mini-series on _Authentication using Node.js, Express, and Passport.js_. This comprehensive series is designed to teach you everything you need to know, as well as give you all the code required, to add authentication and authorisation to your existing website, or for a new-build from-scratch project.
@@ -20,7 +19,7 @@ So far in this series, [we have discussed at length Passport.js and JWT](/passpo
 - How to set-up basic role-based authorisation, with two roles; **Admin** and **Customer**
 
 <div class="media bg-light border border-dark rounded p-3 mt-1 mb-3">
-  <img src="/github.png" class="mr-3" alt="GitHub">
+  <img src="/assets/github.png" class="mr-3" alt="GitHub">
   <div class="media-body align-self-center">
     <h5 class="mt-0 mb-0">Open source</h5>
     All the code in this series is open source, and available to view and use on <a href="https://github.com/jpreecedev/passport-next-auth-tutorial" target="_blank">GitHub</a>.
@@ -51,8 +50,8 @@ In the root level `utils` directory, create a new file called `roles.js` and add
 
 ```javascript
 const ROLES = {
-  Admin: 'Admin',
-  Customer: 'Customer'
+  Admin: "Admin",
+  Customer: "Customer",
 }
 
 export { ROLES }
@@ -79,25 +78,25 @@ Let's focus on a page that is specifically only available to administrators of o
 Inside the `pages` directory, create a new file called `admin-dashboard.jsx` and add the following code;
 
 ```javascript
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Box from "@material-ui/core/Box"
+import Typography from "@material-ui/core/Typography"
+import Paper from "@material-ui/core/Paper"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   paper: {
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(8),
-      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`
-    }
-  }
+      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`,
+    },
+  },
 }))
 
 const AdminDashboard = () => {
@@ -130,7 +129,7 @@ There is no logic here that does any kind of role determination. This component 
 
 There will, in-fact, be no client-side logic that determines the role of the user, this will be entirely determined on the server. The users JWT will contain the role (retrieved from the database). As the JWT is signed, it cannot be tampered with on the client, so there is no risk of privilege escalation.
 
-![Admin Dashboard](admin-dashboard.png)
+![Admin Dashboard](/assets/admin-dashboard.png)
 
 The customer dashboard (and an anonymous dashboard that we will build later) will look very similar. We're not creating any specific functionality here, we're just focusing on access to pages.
 
@@ -370,7 +369,7 @@ const UserSchema = new Schema({
 
 If you are using MongoDB Atlas (or some other hosted database service), use their website to update your record. The process should be along these lines; Go to your database, select the `Users` collection, find your user (should only be one), add a property called `role`, and set its value to `Admin`.
 
-![MongoDB Atlas Inline Editing](./mongodb-atlas-inline-editing.png)
+![MongoDB Atlas Inline Editing](/assets/mongodb-atlas-inline-editing.png)
 
 Just remember to click the **Save** or **Apply** buttons, assuming there is one, for your change to take effect.
 
@@ -379,18 +378,21 @@ Just remember to click the **Save** or **Apply** buttons, assuming there is one,
 Create a script in the root of your project, called `db.js`, and add the following code;
 
 ```javascript
-import { UserModel } from './server/database/schema'
-import mongoose from 'mongoose'
+import { UserModel } from "./server/database/schema"
+import mongoose from "mongoose"
 
 const { Types } = mongoose
 
-mongoose.connect('mongodb://root:example@localhost:27017/test?authSource=admin&w=1', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect(
+  "mongodb://root:example@localhost:27017/test?authSource=admin&w=1",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+)
 
 UserModel.find({}).exec((err, users) => {
-  users.forEach(u => console.log(u))
+  users.forEach((u) => console.log(u))
 })
 
 // UserModel.updateOne({ _id: "<YOUR USER ID>" }, { role: "Admin" }).exec()
@@ -465,25 +467,25 @@ Now that we have a route for the `Customer`, we need a page for them.
 Inside the page's directory, create a new file called `customer-dashboard.jsx` and add the following code;
 
 ```javascript
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Box from "@material-ui/core/Box"
+import Typography from "@material-ui/core/Typography"
+import Paper from "@material-ui/core/Paper"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   paper: {
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(8),
-      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`
-    }
-  }
+      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`,
+    },
+  },
 }))
 
 const CustomerDashboard = () => {
@@ -568,25 +570,25 @@ Our `checkIsInRole` function is able to accept multiple roles, as highlighted on
 For completion, create a new page called `both-dashboard.jsx` and add the following code;
 
 ```javascript
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Box from "@material-ui/core/Box"
+import Typography from "@material-ui/core/Typography"
+import Paper from "@material-ui/core/Paper"
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   layout: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   paper: {
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
       marginTop: theme.spacing(8),
-      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`
-    }
-  }
+      padding: `${theme.spacing(6)}px ${theme.spacing(4)}px`,
+    },
+  },
 }))
 
 const BothDashboard = () => {
@@ -604,7 +606,7 @@ const BothDashboard = () => {
             General Dashboard
           </Typography>
           <Typography component="p" gutterBottom>
-            Welcome, you are logged in. Either <strong>Admin</strong>, or{' '}
+            Welcome, you are logged in. Either <strong>Admin</strong>, or{" "}
             <strong>Customer</strong>.
           </Typography>
         </Box>

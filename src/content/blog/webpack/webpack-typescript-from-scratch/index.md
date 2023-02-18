@@ -1,12 +1,11 @@
 ---
-layout: post
 title: Webpack 4 and TypeScript from scratch
 description: Learn how to write your own Webpack configuration, that utilises TypeScript, from scratch
-date: 2019-09-15
+pubDate: 2019-09-15
 categories: ['Webpack', 'webpack-intro-series']
 seriesTitle: Intro to Webpack mini series
 group: 'Software Development'
-featuredImage: './typescript.jpeg'
+heroImage: /assets/typescript.jpeg
 ---
 
 Webpack is a fast, efficient, very powerful code bundler. TypeScript is a compiler (or transpiler if you prefer) which adds support for type checking to your project. Support for type checking is useful and powerful for enabling better development time tooling (such as improved auto-complete) and reduced runtime bugs. As your team scales to include more people, types help with the maintainability and structure of your codebase.
@@ -33,7 +32,7 @@ npm install --save-dev webpack webpack-cli typescript awesome-typescript-loader 
 
 Add a `.gitignore` file with the following lines;
 
-```text
+```plaintext
 dist
 node_modules
 ```

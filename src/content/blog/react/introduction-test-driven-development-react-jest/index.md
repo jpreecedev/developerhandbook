@@ -1,11 +1,10 @@
 ---
-layout: post
 title: Test Driven Development (TDD) with React, React Testing Library, and Jest
 description: Test Driven Development (TDD) is an essential tool for writing robust code, especially in larger teams, we look at how to get started
-date: 2019-09-26
-categories: ['React', 'Test Driven Development']
-group: 'Software Development'
-featuredImage: './test-driven-development.png'
+pubDate: 2019-09-26
+categories: ["React", "Test Driven Development"]
+group: "Software Development"
+heroImage: /assets/test-driven-development.png
 ---
 
 Test Driven Development (TDD) is a reversal in traditional thinking and coding processes. Rather than writing code, and then writing tests to verify that code, the process is reversed. Tests are written first and then the code. The result of TDD is improved code quality, higher test coverage, and confidence within the team and the business that changes made to the system will not negatively impact it in ways that were unexpected. TDD opens the door to more regular automated releases (continuous delivery), and the burden (and cost) of manual testing can be greatly reduced.
@@ -24,7 +23,7 @@ A piece of functionality (typically a component in React, or a utility) is craft
 
 It is not unusual to write out many test specs without writing a single line of code. Approaching problems in this manner requires more consideration of the bigger picture, the structure of the component, and its feature set, which should lead to better quality code.
 
-[![Test Driven Development (TDD).  Image courtesy of ResearchGate.net](./test-driven-development.png)](https://www.researchgate.net/figure/Fundamental-TDD-Cycle_fig1_254008456)
+[![Test Driven Development (TDD).  Image courtesy of ResearchGate.net](/assets/test-driven-development.png)](https://www.researchgate.net/figure/Fundamental-TDD-Cycle_fig1_254008456)
 
 There is a well-defined strategy for writing good tests.
 
@@ -50,7 +49,7 @@ A very common approach to structuring your tests is using the AAA syntax. AAA is
 A basic example might be;
 
 ```javascript
-it('should multiply two numbers', () => {
+it("should multiply two numbers", () => {
   // Arrange
   const first = 2
   const second = 2
@@ -69,7 +68,7 @@ Why structure tests in this way? Well, I'll be honest with you..., I'm lazy. Str
 If I want a test to ensure that the `multiplyTwoNumbers` method works with a different set of numbers, I can duplicate test and update the values without having to update the rest of the test.
 
 ```javascript
-it('should multiply two numbers', () => {
+it("should multiply two numbers", () => {
   // Arrange
   const first = 4
   const second = 4
@@ -107,17 +106,17 @@ Create three new files, `Button.tsx`, `Button.test.tsx` and `index.tsx`. `index.
 
 I highly recommend using a split view. In your code editor, place `Button.tsx` on the left, and `Button.test.tsx` on the right. This will prevent us from having to change tabs frequently, which helps with concentration.
 
-![Visual Studio Code Split View - Perfect For Writing Tests](vs-code-testing-split-view.png)
+![Visual Studio Code Split View - Perfect For Writing Tests](/assets/vs-code-testing-split-view.png)
 
 We start with a failing test. In `Button.test.tsx` add the following code;
 
 ```javascript {63,64}
-import React from 'react'
-import { render } from '@testing-library/react'
-import '@testing-library/jest-dom/extend-expect'
+import React from "react"
+import { render } from "@testing-library/react"
+import "@testing-library/jest-dom/extend-expect"
 
-describe('<Button /> tests', () => {
-  it('should render as default button', () => {})
+describe("<Button /> tests", () => {
+  it("should render as default button", () => {})
 })
 ```
 
@@ -139,7 +138,7 @@ describe('<Button /> tests', () => {
 
 You can run the test by calling `npm test` in your terminal. The test should fail because there is no component called `Button`.
 
-![First Failing Test - React Testing Library](react-testing-library-failing-test.png)
+![First Failing Test - React Testing Library](/assets/react-testing-library-failing-test.png)
 
 **Note:** the project I am using here already has some passing tests in it.
 
@@ -148,7 +147,7 @@ Now that we have a failing test, we need to write the minimum amount of code to 
 Open `Button.tsx` and add the following code;
 
 ```javascript
-import * as React from 'react'
+import * as React from "react"
 
 const Button = () => {
   return <button></button>
@@ -182,9 +181,9 @@ Open `Button.test.tsx` and add the following spec underneath the first spec;
 ```javascript
 // Code omitted for brevity
 
-it('should render a primary button', () => {
+it("should render a primary button", () => {
   // Arrange
-  const variant = 'primary'
+  const variant = "primary"
 
   // Act
   const { container } = render(<Button variant={variant}></Button>)
@@ -197,7 +196,7 @@ it('should render a primary button', () => {
 
 We don't even need to run the test to see it failing. As this is a TSX file, good guy TypeScript tells us right in the editor that something is not right;
 
-```text
+```plaintext
 Type '{ variant: string; }' is not assignable to type 'IntrinsicAttributes'.
 Property 'variant' does not exist on type 'IntrinsicAttributes'.ts(2322)
 ```
@@ -236,9 +235,9 @@ Now, as noted earlier, there are two variants, `primary` and `secondary`. Let's 
 ```javascript
 // Code omitted for brevity
 
-it('should render a secondary button', () => {
+it("should render a secondary button", () => {
   // Arrange
-  const variant = 'secondary'
+  const variant = "secondary"
 
   // Act
   const { container } = render(<Button variant={variant}></Button>)
@@ -251,7 +250,7 @@ it('should render a secondary button', () => {
 
 Once again, TypeScript should be first on the scene to highlight to use a problem;
 
-```text
+```plaintext
 Type '"secondary"' is not assignable to type '"primary"'.ts(2322)
 Button.tsx(4, 3): The expected type comes from property 'variant' which is declared here on type 'IntrinsicAttributes & Button & { children?: ReactNode; }'
 ```
@@ -282,9 +281,9 @@ Add the following test;
 ```javascript
 // Code omitted for brevity
 
-it('should render the button with some text', () => {
+it("should render the button with some text", () => {
   // Arrange
-  const text = 'I am a button, I can be clicked'
+  const text = "I am a button, I can be clicked"
 
   // Act
   const { getByText, container } = render(<Button>{text}</Button>)
@@ -432,10 +431,10 @@ npx -p @storybook/cli sb init --type react
 Then change `.storybook/config.js` as follows;
 
 ```javascript
-import { configure } from '@storybook/react'
-import '../src/global/styles.css'
+import { configure } from "@storybook/react"
+import "../src/global/styles.css"
 
-const req = require.context('../src', true, /\.stories\.jsx$/)
+const req = require.context("../src", true, /\.stories\.jsx$/)
 
 function loadStories() {
   req.keys().forEach(req)
@@ -454,15 +453,15 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('awesome-typescript-loader')
+        loader: require.resolve("awesome-typescript-loader"),
       },
       // Optional
       {
-        loader: require.resolve('react-docgen-typescript-loader')
-      }
-    ]
+        loader: require.resolve("react-docgen-typescript-loader"),
+      },
+    ],
   })
-  config.resolve.extensions.push('.ts', '.tsx')
+  config.resolve.extensions.push(".ts", ".tsx")
   return config
 }
 ```
@@ -482,37 +481,37 @@ We can now go ahead and write our story.
 Create a new file called `Button.stories.jsx` and add the following;
 
 ```javascript
-import * as React from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { withKnobs, text, select } from '@storybook/addon-knobs'
+import * as React from "react"
+import { storiesOf } from "@storybook/react"
+import { action } from "@storybook/addon-actions"
+import { withKnobs, text, select } from "@storybook/addon-knobs"
 
-import { Button } from './Button'
+import { Button } from "./Button"
 
-const stories = storiesOf('Components', module)
+const stories = storiesOf("Components", module)
 stories.addDecorator(withKnobs)
 
 stories.add(
-  'Button',
+  "Button",
   () => {
     const options = {
-      Primary: 'primary',
-      Secondary: 'secondary'
+      Primary: "primary",
+      Secondary: "secondary",
     }
 
     return (
-      <Button variant={select('variant', options)} onClick={action('onClick')}>
-        {text('content', 'I am a button')}
+      <Button variant={select("variant", options)} onClick={action("onClick")}>
+        {text("content", "I am a button")}
       </Button>
     )
   },
-  { info: { inline: true } }
+  { info: { inline: true } },
 )
 ```
 
 In the below screenshot we see our button, and we see a list of options underneath (variant and content). We can change each of these options and see the result on screen immediately.
 
-![React component in Storybook](./react-component-in-storybook.png)
+![React component in Storybook](/assets/react-component-in-storybook.png)
 
 Most of the code is just boilerplate and you will find yourself adding this over and over to every story you write. The important take-aways are the following;
 

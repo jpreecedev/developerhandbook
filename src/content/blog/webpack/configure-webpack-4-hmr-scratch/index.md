@@ -1,12 +1,11 @@
 ---
-layout: post
 title: How to configure Webpack Hot Module Reloading (HMR) using Node.js API
 description: Ever needed to configure Webpack Hot Module Reloading (HMR) from scratch using the Node.js API? It's a pain.
-date: 2019-04-04
-categories: ['Webpack', 'webpack-intro-series']
+pubDate: 2019-04-04
+categories: ["Webpack", "webpack-intro-series"]
 seriesTitle: Intro to Webpack mini series
-featuredImage: './webpack.png'
-group: 'Software Development'
+heroImage: /assets/webpack.png
+group: "Software Development"
 ---
 
 You recently had some reason, probably work related, to configure Webpack from scratch using the Node API. This is because of _reasons_ (for example, you are moving your Webpack configuration into an NPM package), and you found the documentation somewhat lacking!!
@@ -47,38 +46,38 @@ Add the following dependencies to your `package.json`;
 Now create a `webpack.config.js` file as follows;
 
 ```javascript
-const HtmlWebPackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebPackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+        loader: "babel-loader",
+        exclude: /node_modules/,
       },
       {
         test: /\.s(a|c)ss$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader']
+        loader: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.html$/,
-        loader: 'html-loader'
-      }
-    ]
+        loader: "html-loader",
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.scss']
+    extensions: [".js", ".scss"],
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      template: './src/index.html',
-      filename: './index.html'
-    })
-  ]
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+  ],
 }
 ```
 
@@ -112,16 +111,16 @@ In `index.html`, add the following;
 In `index.js`, add the following;
 
 ```javascript
-import './index.scss'
+import "./index.scss"
 
-const change = msg => {
-  document.querySelector('body').innerText = msg
+const change = (msg) => {
+  document.querySelector("body").innerText = msg
 }
 
-document.querySelector('body').innerText = 'Hello, World!'
+document.querySelector("body").innerText = "Hello, World!"
 
 setTimeout(() => {
-  change('Deferred hello world!')
+  change("Deferred hello world!")
 }, 3000)
 ```
 
@@ -152,23 +151,23 @@ Just in case your ninja search skills have failed you, the official documentatio
 Create a new file, called `dev.js` and add the following code;
 
 ```javascript
-const webpackDevServer = require('webpack-dev-server')
-const webpack = require('webpack')
+const webpackDevServer = require("webpack-dev-server")
+const webpack = require("webpack")
 
-const config = require('./webpack.config.js')
+const config = require("./webpack.config.js")
 const options = {
-  contentBase: './dist',
+  contentBase: "./dist",
   hot: true,
-  host: 'localhost',
-  inline: true
+  host: "localhost",
+  inline: true,
 }
 
 webpackDevServer.addDevServerEntrypoints(config, options)
 const compiler = webpack(config)
 const server = new webpackDevServer(compiler, options)
 
-server.listen(5000, 'localhost', () => {
-  console.log('dev server listening on port 5000')
+server.listen(5000, "localhost", () => {
+  console.log("dev server listening on port 5000")
 })
 ```
 
@@ -200,17 +199,17 @@ Then open your browser to; `http://localhost:5000` and observe.
 
 After a few seconds, the document text should change from **Hello, World** to **"Deferred hello world!"**. This just confirms that our JavaScript is running and has not failed for some reason.
 
-![Webpack Hot Module Reloading](webpack-hot-module-reloading.png)
+![Webpack Hot Module Reloading](/assets/webpack-hot-module-reloading.png)
 
 It is also worth checking the `console` in developer tools to ensure that hot module reloading is definitely connected;
 
-![Webpack Hot Module Reloading is Connected](webpack-hot-module-reloading-connected.png)
+![Webpack Hot Module Reloading is Connected](/assets/webpack-hot-module-reloading-connected.png)
 
 If you are not seeing anything in the console, this is a sure sign that hot module reloading is not working and you should retrace the steps of this post!
 
 Finally, you can check that Babel has compiled your JavaScript correctly by looking at the sources;
 
-![Webpack Babel Compiled Code](webpack-babel-compiled.png)
+![Webpack Babel Compiled Code](/assets/webpack-babel-compiled.png)
 
 Webpack horribly mangles your code but with a bit of searching in `main.js`, you should be able to find your code and observe that our lovely arrow function has been magically transformed into a standard function. (I searched for "Deferred hello world", as shown in the image).
 
