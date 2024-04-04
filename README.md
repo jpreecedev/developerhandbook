@@ -1,3 +1,3 @@
 # DeveloperHandbook.com
 
-Source code for DeveloperHandbook.com
+This website is no longer available
